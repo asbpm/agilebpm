@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015977
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015977_170644311 memberOf Process
+     hasName hasValue "Auto 2PersonBicycle Price service"
+     hasDescription hasValue "This service returns daily renting price of the pair of an auto model and 2(two) person bicycle."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Auto2personbicyclePriceService"
+     hasWorkflow hasValue Workflow_1499365015977_339942948
+
+instance Workflow_1499365015977_339942948 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015977_170644311
+     hasWorkflowElement hasValue StartEvent_1499365015977_1419430320
+
+instance StartEvent_1499365015977_1419430320 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015977_170644311
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015977_204478959 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015977_170644311
+     hasSource hasValue Task_1499365015977_232618702
+     hasTarget hasValue EndEvent_1499365015977_1317042299
+
+instance Task_1499365015977_232618702 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015977_170644311
+     receivesData hasValue {DataTypeEntity_1499365015977_1529773750, DataTypeEntity_1499365015977_481614146 }
+     sendsData hasValue DataTypeEntity_1499365015977_1678378479
+
+instance DataTypeEntity_1499365015977_1529773750 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Auto"
+
+instance DataTypeEntity_1499365015977_481614146 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#TwoPersonBicycle"
+
+instance DataTypeEntity_1499365015977_1678378479 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365015977_1317042299 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015977_170644311
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365015977_1213848604 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015977_170644311
+     hasSource hasValue StartEvent_1499365015977_1419430320
+     hasTarget hasValue Task_1499365015977_232618702

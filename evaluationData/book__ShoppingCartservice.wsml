@@ -1,0 +1,51 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016681
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016681_516462185 memberOf Process
+     hasName hasValue "BookCartService"
+     hasDescription hasValue "This service adds the requested book by the user who intends to buy it into the users shopping cart. The service first checks whether the book is available in the stock."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Bookcartservice"
+     hasWorkflow hasValue Workflow_1499365016681_39889594
+
+instance Workflow_1499365016681_39889594 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016681_516462185
+     hasWorkflowElement hasValue StartEvent_1499365016681_23606377
+
+instance StartEvent_1499365016681_23606377 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016681_516462185
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016681_1962265439 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016681_516462185
+     hasSource hasValue Task_1499365016681_744620750
+     hasTarget hasValue EndEvent_1499365016681_367212791
+
+instance Task_1499365016681_744620750 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016681_516462185
+     providesCapability hasValue SemanticCapability_1499365016681_3040651
+     requestsCapability hasValue SemanticCapability_1499365016681_1762628555
+     receivesData hasValue DataTypeEntity_1499365016681_862113971
+
+instance SemanticCapability_1499365016681_3040651 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/ShoppingCart.owl#ShoppingCartRequestItems ?http://127.0.0.1:8000/services/OWLS-1.1/book__ShoppingCartservice.owls#_BOOK)"
+
+instance SemanticCapability_1499365016681_1762628555 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/ontosem.owl#be-available ?http://127.0.0.1:8000/services/OWLS-1.1/book__ShoppingCartservice.owls#_BOOK)"
+
+instance DataTypeEntity_1499365016681_862113971 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance EndEvent_1499365016681_367212791 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016681_516462185
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016681_301265870 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016681_516462185
+     hasSource hasValue StartEvent_1499365016681_23606377
+     hasTarget hasValue Task_1499365016681_744620750

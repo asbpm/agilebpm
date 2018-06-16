@@ -1,0 +1,59 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016521
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016521_958821890 memberOf Process
+     hasName hasValue "Book Shopping"
+     hasDescription hasValue "This service checks validity of a credit account of an authorised person and adds the selected book in his shopping cart."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/BookShopping"
+     hasWorkflow hasValue Workflow_1499365016521_1949614313
+
+instance Workflow_1499365016521_1949614313 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016521_958821890
+     hasWorkflowElement hasValue StartEvent_1499365016521_1790968364
+
+instance StartEvent_1499365016521_1790968364 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016521_958821890
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016521_1209205025 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016521_958821890
+     hasSource hasValue StartEvent_1499365016521_1790968364
+     hasTarget hasValue Task_1499365016521_447812632
+
+instance Task_1499365016521_447812632 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016521_958821890
+     providesCapability hasValue SemanticCapability_1499365016521_1560150813
+     requestsCapability hasValue SemanticCapability_1499365016521_301036389
+     receivesData hasValue {DataTypeEntity_1499365016521_859713139, DataTypeEntity_1499365016521_1259263713, DataTypeEntity_1499365016521_1794469260 }
+
+instance SemanticCapability_1499365016521_1560150813 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/ShoppingCart.owl#ShoppingCartRequestItems ?http://127.0.0.1:8000/services/OWLS-1.1/bookpersoncreditaccount__service.owls#_BOOK)"
+
+instance SemanticCapability_1499365016521_301036389 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/ontosem.owl#Accepted ?http://127.0.0.1:8000/services/OWLS-1.1/bookpersoncreditaccount__service.owls#_CREDITACCOUNT)
+			      (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized  ?http://127.0.0.1:8000/services/OWLS-1.1/bookpersoncreditaccount__service.owls#_PERSON)
+				  (http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#accountHolder ?http://127.0.0.1:8000/services/OWLS-1.1/bookpersoncreditaccount__service.owls#_PERSON ?http://127.0.0.1:8000/services/OWLS-1.1/bookpersoncreditaccount__service.owls#_CREDITACCOUNT))"
+
+instance DataTypeEntity_1499365016521_859713139 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Person"
+
+instance DataTypeEntity_1499365016521_1259263713 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance DataTypeEntity_1499365016521_1794469260 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#CreditAccount"
+
+instance ConditionalflowConnector_1499365016521_1695996838 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016521_958821890
+     hasSource hasValue Task_1499365016521_447812632
+     hasTarget hasValue EndEvent_1499365016521_419568953
+
+instance EndEvent_1499365016521_419568953 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016521_958821890
+     hasName hasValue "End"

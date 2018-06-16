@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016128
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016127_621525956 memberOf Process
+     hasName hasValue "GovernmentOrganization BallisticMissile Financing Range Service"
+     hasDescription hasValue "This service informs users about financing for the ballistic Missile provided by the government organization, and target range of the missile."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GovernmentorganizationBallisticmissileFinancingRangeService"
+     hasWorkflow hasValue Workflow_1499365016127_576648136
+
+instance Workflow_1499365016127_576648136 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016127_621525956
+     hasWorkflowElement hasValue StartEvent_1499365016127_1125103662
+
+instance StartEvent_1499365016127_1125103662 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016127_621525956
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016127_1043103949 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016127_621525956
+     hasSource hasValue Task_1499365016127_1443951671
+     hasTarget hasValue EndEvent_1499365016127_1624742120
+
+instance Task_1499365016127_1443951671 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016127_621525956
+     receivesData hasValue {DataTypeEntity_1499365016127_180738268, DataTypeEntity_1499365016127_1333572065 }
+     sendsData hasValue {DataTypeEntity_1499365016127_1962669079, DataTypeEntity_1499365016127_1623345733 }
+
+instance DataTypeEntity_1499365016127_180738268 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#BallisticMissile"
+
+instance DataTypeEntity_1499365016127_1333572065 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#GovernmentOrganization"
+
+instance DataTypeEntity_1499365016127_1962669079 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#Range"
+
+instance DataTypeEntity_1499365016127_1623345733 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Financing"
+
+instance EndEvent_1499365016127_1624742120 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016127_621525956
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016127_461693377 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016127_621525956
+     hasSource hasValue StartEvent_1499365016127_1125103662
+     hasTarget hasValue Task_1499365016127_1443951671

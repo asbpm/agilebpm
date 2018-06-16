@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016615
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016615_1482165963 memberOf Process
+     hasName hasValue "Cheapest Book Service"
+     hasDescription hasValue "A service that searches the cheapest Price for a given book title."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CheapestBookService"
+     hasWorkflow hasValue Workflow_1499365016615_319874601
+
+instance Workflow_1499365016615_319874601 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016615_1482165963
+     hasWorkflowElement hasValue StartEvent_1499365016615_1562544962
+
+instance StartEvent_1499365016615_1562544962 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016615_1482165963
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016615_883202981 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016615_1482165963
+     hasSource hasValue Task_1499365016615_1675785821
+     hasTarget hasValue EndEvent_1499365016615_254130032
+
+instance Task_1499365016615_1675785821 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016615_1482165963
+     receivesData hasValue DataTypeEntity_1499365016615_1462999713
+     sendsData hasValue DataTypeEntity_1499365016615_1202195976
+
+instance DataTypeEntity_1499365016615_1462999713 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance DataTypeEntity_1499365016615_1202195976 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365016615_254130032 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016615_1482165963
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016615_1481590982 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016615_1482165963
+     hasSource hasValue StartEvent_1499365016615_1562544962
+     hasTarget hasValue Task_1499365016615_1675785821

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016638
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016638_999271237 memberOf Process
+     hasName hasValue "BookPublisherService"
+     hasDescription hasValue "This service returns name of publisher of a given certain book title."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Bookpublisherservice"
+     hasWorkflow hasValue Workflow_1499365016638_1542676722
+
+instance Workflow_1499365016638_1542676722 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016638_999271237
+     hasWorkflowElement hasValue StartEvent_1499365016638_703884147
+
+instance StartEvent_1499365016638_703884147 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016638_999271237
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016638_378678245 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016638_999271237
+     hasSource hasValue Task_1499365016638_1992321131
+     hasTarget hasValue EndEvent_1499365016638_840241803
+
+instance Task_1499365016638_1992321131 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016638_999271237
+     receivesData hasValue DataTypeEntity_1499365016638_938580219
+     sendsData hasValue DataTypeEntity_1499365016638_1543974660
+
+instance DataTypeEntity_1499365016638_938580219 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance DataTypeEntity_1499365016638_1543974660 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Publisher"
+
+instance EndEvent_1499365016638_840241803 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016638_999271237
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016638_864174436 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016638_999271237
+     hasSource hasValue StartEvent_1499365016638_703884147
+     hasTarget hasValue Task_1499365016638_1992321131

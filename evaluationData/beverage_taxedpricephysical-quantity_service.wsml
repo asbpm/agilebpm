@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016215
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016215_1646135212 memberOf Process
+     hasName hasValue "Beverage TaxedPrice Physical-Quantity Service"
+     hasDescription hasValue "This service informs the physical-quantity and approximately latest market taxedprice of a given beverage item."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/BeverageTaxedpricePhysical-quantityService"
+     hasWorkflow hasValue Workflow_1499365016215_1008497452
+
+instance Workflow_1499365016215_1008497452 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016215_1646135212
+     hasWorkflowElement hasValue StartEvent_1499365016215_1668604516
+
+instance StartEvent_1499365016215_1668604516 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016215_1646135212
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016215_1892481858 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016215_1646135212
+     hasSource hasValue Task_1499365016215_1403727531
+     hasTarget hasValue EndEvent_1499365016215_982872951
+
+instance Task_1499365016215_1403727531 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016215_1646135212
+     receivesData hasValue DataTypeEntity_1499365016215_241228621
+     sendsData hasValue {DataTypeEntity_1499365016215_33423470, DataTypeEntity_1499365016215_2121276753 }
+
+instance DataTypeEntity_1499365016215_241228621 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Beverage"
+
+instance DataTypeEntity_1499365016215_33423470 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxedPrice"
+
+instance DataTypeEntity_1499365016215_2121276753 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Physical-Quantity"
+
+instance EndEvent_1499365016215_982872951 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016215_1646135212
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016215_1063815638 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016215_1646135212
+     hasSource hasValue StartEvent_1499365016215_1668604516
+     hasTarget hasValue Task_1499365016215_1403727531

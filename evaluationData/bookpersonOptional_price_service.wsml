@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016563
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016563_737383075 memberOf Process
+     hasName hasValue "BookPrice"
+     hasDescription hasValue "This service returns landing price of a book with title as an input, person is an optional input. The landing price of the book depends of the users history."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Bookprice"
+     hasWorkflow hasValue Workflow_1499365016563_932844161
+
+instance Workflow_1499365016563_932844161 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016563_737383075
+     hasWorkflowElement hasValue StartEvent_1499365016563_1887136358
+
+instance StartEvent_1499365016563_1887136358 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016563_737383075
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016563_397174121 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016563_737383075
+     hasSource hasValue StartEvent_1499365016563_1887136358
+     hasTarget hasValue Task_1499365016563_1795521475
+
+instance Task_1499365016563_1795521475 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016563_737383075
+     receivesData hasValue {DataTypeEntity_1499365016563_584206981, DataTypeEntity_1499365016563_2124480815 }
+     sendsData hasValue DataTypeEntity_1499365016563_127104596
+
+instance DataTypeEntity_1499365016563_584206981 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance DataTypeEntity_1499365016563_2124480815 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Person"
+
+instance DataTypeEntity_1499365016563_127104596 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance ConditionalflowConnector_1499365016563_882508086 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016563_737383075
+     hasSource hasValue Task_1499365016563_1795521475
+     hasTarget hasValue EndEvent_1499365016563_1480970259
+
+instance EndEvent_1499365016563_1480970259 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016563_737383075
+     hasName hasValue "End"

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016634
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016634_401797122 memberOf Process
+     hasName hasValue "BookPriceService"
+     hasDescription hasValue "This service returns list of current purchase prices of a given book title. The prices include both new and used versions of the book."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Bookpriceservice"
+     hasWorkflow hasValue Workflow_1499365016634_1523753188
+
+instance Workflow_1499365016634_1523753188 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016634_401797122
+     hasWorkflowElement hasValue StartEvent_1499365016634_1821265477
+
+instance StartEvent_1499365016634_1821265477 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016634_401797122
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016634_785817444 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016634_401797122
+     hasSource hasValue Task_1499365016634_1866170210
+     hasTarget hasValue EndEvent_1499365016634_1797163260
+
+instance Task_1499365016634_1866170210 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016634_401797122
+     receivesData hasValue DataTypeEntity_1499365016634_1539002936
+     sendsData hasValue DataTypeEntity_1499365016634_415659168
+
+instance DataTypeEntity_1499365016634_1539002936 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance DataTypeEntity_1499365016634_415659168 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365016634_1797163260 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016634_401797122
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016634_1947749582 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016634_401797122
+     hasSource hasValue StartEvent_1499365016634_1821265477
+     hasTarget hasValue Task_1499365016634_1866170210

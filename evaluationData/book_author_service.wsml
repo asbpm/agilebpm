@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016610
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016610_1457714105 memberOf Process
+     hasName hasValue "BookAuthorService"
+     hasDescription hasValue "This service returns name of the author who wrote the book given by its title."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Bookauthorservice"
+     hasWorkflow hasValue Workflow_1499365016610_1166281271
+
+instance Workflow_1499365016610_1166281271 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016610_1457714105
+     hasWorkflowElement hasValue StartEvent_1499365016610_395875217
+
+instance StartEvent_1499365016610_395875217 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016610_1457714105
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016610_411981443 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016610_1457714105
+     hasSource hasValue Task_1499365016610_1276462980
+     hasTarget hasValue EndEvent_1499365016610_1151431270
+
+instance Task_1499365016610_1276462980 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016610_1457714105
+     receivesData hasValue DataTypeEntity_1499365016610_1121188341
+     sendsData hasValue DataTypeEntity_1499365016610_559025455
+
+instance DataTypeEntity_1499365016610_1121188341 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance DataTypeEntity_1499365016610_559025455 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Author"
+
+instance EndEvent_1499365016610_1151431270 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016610_1457714105
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016610_475356813 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016610_1457714105
+     hasSource hasValue StartEvent_1499365016610_395875217
+     hasTarget hasValue Task_1499365016610_1276462980

@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015992
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015991_1808479120 memberOf Process
+     hasName hasValue "Auto Bicycle MaxPrice service"
+     hasDescription hasValue "This service returns the max purchase price of the given pair of an auto model and a bicycle model."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/AutoBicycleMaxpriceService"
+     hasWorkflow hasValue Workflow_1499365015991_1632165072
+
+instance Workflow_1499365015991_1632165072 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015991_1808479120
+     hasWorkflowElement hasValue StartEvent_1499365015991_2099939267
+
+instance StartEvent_1499365015991_2099939267 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015991_1808479120
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015991_1853462446 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015991_1808479120
+     hasSource hasValue Task_1499365015991_842086748
+     hasTarget hasValue EndEvent_1499365015991_117228412
+
+instance Task_1499365015991_842086748 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015991_1808479120
+     receivesData hasValue {DataTypeEntity_1499365015991_40066120, DataTypeEntity_1499365015991_334569575 }
+     sendsData hasValue DataTypeEntity_1499365015991_381980988
+
+instance DataTypeEntity_1499365015991_40066120 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Auto"
+
+instance DataTypeEntity_1499365015991_334569575 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Bicycle"
+
+instance DataTypeEntity_1499365015991_381980988 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#MaxPrice"
+
+instance EndEvent_1499365015991_117228412 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015991_1808479120
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365015991_1995677753 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015991_1808479120
+     hasSource hasValue StartEvent_1499365015991_2099939267
+     hasTarget hasValue Task_1499365015991_842086748

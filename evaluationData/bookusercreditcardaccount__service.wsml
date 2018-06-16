@@ -1,0 +1,59 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016584
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016583_766766016 memberOf Process
+     hasName hasValue "Book Shopping"
+     hasDescription hasValue "This service checks credit account of an authorised user and adds the selected book in his shopping cart."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/BookShopping"
+     hasWorkflow hasValue Workflow_1499365016583_2027451188
+
+instance Workflow_1499365016583_2027451188 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016583_766766016
+     hasWorkflowElement hasValue StartEvent_1499365016583_1119780377
+
+instance StartEvent_1499365016583_1119780377 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016583_766766016
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016583_1866902603 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016583_766766016
+     hasSource hasValue Task_1499365016583_2076509922
+     hasTarget hasValue EndEvent_1499365016583_513151729
+
+instance Task_1499365016583_2076509922 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016583_766766016
+     providesCapability hasValue SemanticCapability_1499365016583_440710945
+     requestsCapability hasValue SemanticCapability_1499365016583_1424008850
+     receivesData hasValue {DataTypeEntity_1499365016583_949729620, DataTypeEntity_1499365016583_24226543, DataTypeEntity_1499365016583_954545426 }
+
+instance SemanticCapability_1499365016583_440710945 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/ShoppingCart.owl#ShoppingCartRequestItems ?http://127.0.0.1:8000/services/OWLS-1.1/bookusercreditcardaccount__service.owls#_BOOK)"
+
+instance SemanticCapability_1499365016583_1424008850 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/ontosem.owl#Accepted ?http://127.0.0.1:8000/services/OWLS-1.1/bookusercreditcardaccount__service.owls#_CREDITCARDACCOUNT)
+			      (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/bookusercreditcardaccount__service.owls#_USER)
+				  (http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#accountHolder ?http://127.0.0.1:8000/services/OWLS-1.1/bookusercreditcardaccount__service.owls#_USER ?http://127.0.0.1:8000/services/OWLS-1.1/bookusercreditcardaccount__service.owls#_CREDITCARDACCOUNT))"
+
+instance DataTypeEntity_1499365016583_949729620 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance DataTypeEntity_1499365016583_24226543 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#CreditCardAccount"
+
+instance DataTypeEntity_1499365016583_954545426 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#User"
+
+instance EndEvent_1499365016583_513151729 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016583_766766016
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016583_1694644645 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016583_766766016
+     hasSource hasValue StartEvent_1499365016583_1119780377
+     hasTarget hasValue Task_1499365016583_2076509922

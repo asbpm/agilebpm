@@ -1,0 +1,64 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016276
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016275_1987413745 memberOf Process
+     hasName hasValue "BookMedicalTransport"
+     hasDescription hasValue "Books a transport by taxi, train or bus for delivering a patient to a new hospital. The user must have valid account."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Bookmedicaltransport"
+     hasWorkflow hasValue Workflow_1499365016275_1930490556
+
+instance Workflow_1499365016275_1930490556 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016275_1987413745
+     hasWorkflowElement hasValue StartEvent_1499365016275_282188469
+
+instance StartEvent_1499365016275_282188469 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016275_1987413745
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016275_2136530544 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016275_1987413745
+     hasSource hasValue Task_1499365016275_982445010
+     hasTarget hasValue EndEvent_1499365016275_1168169395
+
+instance Task_1499365016275_982445010 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016275_1987413745
+     providesCapability hasValue SemanticCapability_1499365016275_186422518
+     requestsCapability hasValue SemanticCapability_1499365016275_231714848
+     receivesData hasValue {DataTypeEntity_1499365016275_935868725, DataTypeEntity_1499365016275_1935296104, DataTypeEntity_1499365016275_240044965 }
+     sendsData hasValue {DataTypeEntity_1499365016275_1143953281, DataTypeEntity_1499365016275_941713792 }
+
+instance SemanticCapability_1499365016275_186422518 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/TravelMessageOntology.owl#Booking ?http://127.0.0.1:8000/services/OWLS-1.1/BookMedicalTransport_service.owls#BookMedicalTransport_SeatNumber)"
+
+instance SemanticCapability_1499365016275_231714848 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#accountHolder ?http://127.0.0.1:8000/services/OWLS-1.1/BookMedicalTransport_service.owls#BookMedicalTransport_User ?http://127.0.0.1:8000/services/OWLS-1.1/BookMedicalTransport_service.owls#BookMedicalTransport_Account)"
+
+instance DataTypeEntity_1499365016275_935868725 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#TransportNumber"
+
+instance DataTypeEntity_1499365016275_1935296104 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#Vehicle"
+
+instance DataTypeEntity_1499365016275_240044965 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#Account"
+
+instance DataTypeEntity_1499365016275_1143953281 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#SeatNumber"
+
+instance DataTypeEntity_1499365016275_941713792 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#BookingNumber"
+
+instance EndEvent_1499365016275_1168169395 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016275_1987413745
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016275_1675951655 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016275_1987413745
+     hasSource hasValue StartEvent_1499365016275_282188469
+     hasTarget hasValue Task_1499365016275_982445010

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016677
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016676_1635744649 memberOf Process
+     hasName hasValue "BookTaxedPriceService"
+     hasDescription hasValue "This service informs the taxed pruchase price of a givenbook title."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Booktaxedpriceservice"
+     hasWorkflow hasValue Workflow_1499365016676_596106278
+
+instance Workflow_1499365016676_596106278 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016676_1635744649
+     hasWorkflowElement hasValue StartEvent_1499365016676_1852952414
+
+instance StartEvent_1499365016676_1852952414 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016676_1635744649
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016676_1834096881 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016676_1635744649
+     hasSource hasValue Task_1499365016676_1070875068
+     hasTarget hasValue EndEvent_1499365016676_558677245
+
+instance Task_1499365016676_1070875068 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016676_1635744649
+     receivesData hasValue DataTypeEntity_1499365016676_1260590658
+     sendsData hasValue DataTypeEntity_1499365016676_1557960060
+
+instance DataTypeEntity_1499365016676_1260590658 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance DataTypeEntity_1499365016676_1557960060 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxedPrice"
+
+instance EndEvent_1499365016676_558677245 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016676_1635744649
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016676_993671832 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016676_1635744649
+     hasSource hasValue StartEvent_1499365016676_1852952414
+     hasTarget hasValue Task_1499365016676_1070875068

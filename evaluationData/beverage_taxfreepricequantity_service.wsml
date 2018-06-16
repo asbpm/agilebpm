@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016229
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016229_1420555027 memberOf Process
+     hasName hasValue "Beverage TaxFreePrice Quantity Service"
+     hasDescription hasValue "This service informs the tax free purchase price and the quantity of a given beverage item."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/BeverageTaxfreepriceQuantityService"
+     hasWorkflow hasValue Workflow_1499365016229_1549700528
+
+instance Workflow_1499365016229_1549700528 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016229_1420555027
+     hasWorkflowElement hasValue StartEvent_1499365016229_896220845
+
+instance StartEvent_1499365016229_896220845 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016229_1420555027
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016229_349104007 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016229_1420555027
+     hasSource hasValue Task_1499365016229_1842084445
+     hasTarget hasValue EndEvent_1499365016229_1892129350
+
+instance Task_1499365016229_1842084445 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016229_1420555027
+     receivesData hasValue DataTypeEntity_1499365016229_543629172
+     sendsData hasValue {DataTypeEntity_1499365016229_855833111, DataTypeEntity_1499365016229_1985667351 }
+
+instance DataTypeEntity_1499365016229_543629172 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Beverage"
+
+instance DataTypeEntity_1499365016229_855833111 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxFreePrice"
+
+instance DataTypeEntity_1499365016229_1985667351 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Quantity"
+
+instance EndEvent_1499365016229_1892129350 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016229_1420555027
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016229_467603449 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016229_1420555027
+     hasSource hasValue StartEvent_1499365016229_896220845
+     hasTarget hasValue Task_1499365016229_1842084445

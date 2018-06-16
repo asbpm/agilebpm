@@ -1,0 +1,54 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016571
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016571_1122411590 memberOf Process
+     hasName hasValue "Person Book"
+     hasDescription hasValue "This service places the book ordered for purchase by an authorised person in his shopping cart."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/PersonBook"
+     hasWorkflow hasValue Workflow_1499365016571_1830664299
+
+instance Workflow_1499365016571_1830664299 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016571_1122411590
+     hasWorkflowElement hasValue StartEvent_1499365016571_454340776
+
+instance StartEvent_1499365016571_454340776 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016571_1122411590
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016571_1343662829 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016571_1122411590
+     hasSource hasValue StartEvent_1499365016571_454340776
+     hasTarget hasValue Task_1499365016571_233561790
+
+instance Task_1499365016571_233561790 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016571_1122411590
+     providesCapability hasValue SemanticCapability_1499365016571_366060042
+     requestsCapability hasValue SemanticCapability_1499365016571_857590616
+     receivesData hasValue {DataTypeEntity_1499365016571_1445050730, DataTypeEntity_1499365016571_161269192 }
+
+instance SemanticCapability_1499365016571_366060042 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/ShoppingCart.owl#ShoppingCartRequestItems ?http://127.0.0.1:8000/services/OWLS-1.1/bookperson__service.owls#_BOOK)"
+
+instance SemanticCapability_1499365016571_857590616 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/bookperson__service.owls#_PERSON)"
+
+instance DataTypeEntity_1499365016571_1445050730 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Person"
+
+instance DataTypeEntity_1499365016571_161269192 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance ConditionalflowConnector_1499365016571_1354029241 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016571_1122411590
+     hasSource hasValue Task_1499365016571_233561790
+     hasTarget hasValue EndEvent_1499365016571_645417964
+
+instance EndEvent_1499365016571_645417964 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016571_1122411590
+     hasName hasValue "End"

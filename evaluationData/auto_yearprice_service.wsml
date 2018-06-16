@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016052
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016051_1197468121 memberOf Process
+     hasName hasValue "car price service"
+     hasDescription hasValue "Some ones are interested to know price and its year of production of an given auto model, this service is a nice service to fulfill the requirements."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CarPriceService"
+     hasWorkflow hasValue Workflow_1499365016051_883067999
+
+instance Workflow_1499365016051_883067999 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016051_1197468121
+     hasWorkflowElement hasValue StartEvent_1499365016051_426030540
+
+instance StartEvent_1499365016051_426030540 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016051_1197468121
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016051_102212880 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016051_1197468121
+     hasSource hasValue StartEvent_1499365016051_426030540
+     hasTarget hasValue Task_1499365016051_1110747887
+
+instance Task_1499365016051_1110747887 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016051_1197468121
+     receivesData hasValue DataTypeEntity_1499365016051_1028710804
+     sendsData hasValue {DataTypeEntity_1499365016051_1909808721, DataTypeEntity_1499365016051_713856210 }
+
+instance DataTypeEntity_1499365016051_1028710804 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Auto"
+
+instance DataTypeEntity_1499365016051_1909808721 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365016051_713856210 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Year"
+
+instance ConditionalflowConnector_1499365016051_1851228509 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016051_1197468121
+     hasSource hasValue Task_1499365016051_1110747887
+     hasTarget hasValue EndEvent_1499365016051_102735793
+
+instance EndEvent_1499365016051_102735793 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016051_1197468121
+     hasName hasValue "End"
