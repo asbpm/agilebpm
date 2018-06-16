@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015722
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015721_1451732553 memberOf Process
+     hasName hasValue "Address location Geocoder service."
+     hasDescription hasValue "This service supports both single and batch geocode requests. It works for many countries world-wide and supports both geocoding of structured and unstructured addresses. It returns list of complete addresses and their locations (latitude/longitude coordinates) for the given structured or unstructured address."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/AddressLocationGeocoderService"
+     hasWorkflow hasValue Workflow_1499365015721_1410012417
+
+instance Workflow_1499365015721_1410012417 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015721_1451732553
+     hasWorkflowElement hasValue StartEvent_1499365015721_481029495
+
+instance StartEvent_1499365015721_481029495 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015721_1451732553
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015721_1698126598 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015721_1451732553
+     hasSource hasValue StartEvent_1499365015721_481029495
+     hasTarget hasValue Task_1499365015721_804525748
+
+instance Task_1499365015721_804525748 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015721_1451732553
+     receivesData hasValue DataTypeEntity_1499365015721_61460518
+     sendsData hasValue {DataTypeEntity_1499365015721_1377806550, DataTypeEntity_1499365015721_1690416397, DataTypeEntity_1499365015721_2040962218 }
+
+instance DataTypeEntity_1499365015721_61460518 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Address"
+
+instance DataTypeEntity_1499365015721_1377806550 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Address"
+
+instance DataTypeEntity_1499365015721_1690416397 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance DataTypeEntity_1499365015721_2040962218 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance ConditionalflowConnector_1499365015721_2005270268 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015721_1451732553
+     hasSource hasValue Task_1499365015721_804525748
+     hasTarget hasValue EndEvent_1499365015721_1691431078
+
+instance EndEvent_1499365015721_1691431078 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015721_1451732553
+     hasName hasValue "End"

@@ -1,0 +1,54 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015666
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015665_1055773798 memberOf Process
+     hasName hasValue "TranslocationService"
+     hasDescription hasValue "This service adds a link into database from given one geopolitical entity to the other geopolitical entity."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Translocationservice"
+     hasWorkflow hasValue Workflow_1499365015665_1551299583
+
+instance Workflow_1499365015665_1551299583 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015665_1055773798
+     hasWorkflowElement hasValue StartEvent_1499365015665_1728094621
+
+instance StartEvent_1499365015665_1728094621 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015665_1055773798
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015665_2131971556 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015665_1055773798
+     hasSource hasValue StartEvent_1499365015665_1728094621
+     hasTarget hasValue Task_1499365015665_792058743
+
+instance Task_1499365015665_792058743 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015665_1055773798
+     providesCapability hasValue SemanticCapability_1499365015665_820081821
+     requestsCapability hasValue SemanticCapability_1499365015665_564188147
+     receivesData hasValue {DataTypeEntity_1499365015665_2012067152, DataTypeEntity_1499365015665_1392290513 }
+
+instance SemanticCapability_1499365015665_820081821 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/SUMO.owl#linked ?http://127.0.0.1:8000/services/OWLS-1.1/AddLinks__service.owls#_GEOPOLITICAL-ENTITY ?http://127.0.0.1:8000/services/OWLS-1.1/AddLinks__service.owls#_GEOPOLITICAL-ENTITY1)"
+
+instance SemanticCapability_1499365015665_564188147 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(not (http://127.0.0.1:8000/ontology/SUMO.owl#equal ?http://127.0.0.1:8000/services/OWLS-1.1/AddLinks__service.owls#_GEOPOLITICAL-ENTITY ?http://127.0.0.1:8000/services/OWLS-1.1/AddLinks__service.owls#_GEOPOLITICAL-ENTITY1))"
+
+instance DataTypeEntity_1499365015665_2012067152 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geopolitical-Entity"
+
+instance DataTypeEntity_1499365015665_1392290513 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geopolitical-Entity"
+
+instance ConditionalflowConnector_1499365015665_997155565 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015665_1055773798
+     hasSource hasValue Task_1499365015665_792058743
+     hasTarget hasValue EndEvent_1499365015665_593028315
+
+instance EndEvent_1499365015665_593028315 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015665_1055773798
+     hasName hasValue "End"

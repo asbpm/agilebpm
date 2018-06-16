@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015067
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015066_1139590576 memberOf Process
+     hasName hasValue "GermanGovernment Academic-Degree Funding Duration Service"
+     hasDescription hasValue "This service informs about funding offered for the academic-degree by the german government. The funding's duration is informed as well."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GermangovernmentAcademic-degreeFundingDurationService"
+     hasWorkflow hasValue Workflow_1499365015067_331359411
+
+instance Workflow_1499365015067_331359411 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015066_1139590576
+     hasWorkflowElement hasValue StartEvent_1499365015067_757708790
+
+instance StartEvent_1499365015067_757708790 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015066_1139590576
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015067_1300542286 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015066_1139590576
+     hasSource hasValue StartEvent_1499365015067_757708790
+     hasTarget hasValue Task_1499365015067_1410354365
+
+instance Task_1499365015067_1410354365 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015066_1139590576
+     receivesData hasValue DataTypeEntity_1499365015067_627642423
+     sendsData hasValue {DataTypeEntity_1499365015067_282938735, DataTypeEntity_1499365015067_1490152538 }
+
+instance DataTypeEntity_1499365015067_627642423 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Academic-Degree"
+
+instance DataTypeEntity_1499365015067_282938735 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Duration"
+
+instance DataTypeEntity_1499365015067_1490152538 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Funding"
+
+instance ConditionalflowConnector_1499365015067_1374603475 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015066_1139590576
+     hasSource hasValue Task_1499365015067_1410354365
+     hasTarget hasValue EndEvent_1499365015067_741822463
+
+instance EndEvent_1499365015067_741822463 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015066_1139590576
+     hasName hasValue "End"

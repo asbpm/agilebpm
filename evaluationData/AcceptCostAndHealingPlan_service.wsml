@@ -1,0 +1,52 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015593
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015592_1131113718 memberOf Process
+     hasName hasValue "AcceptCostAndHealingPlan"
+     hasDescription hasValue "The service checks the cost and healing plan and returns an answer whether accepts or refuses it. If the answer is positive the treatment can take place."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Acceptcostandhealingplan"
+     hasWorkflow hasValue Workflow_1499365015593_1214806492
+
+instance Workflow_1499365015593_1214806492 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015592_1131113718
+     hasWorkflowElement hasValue StartEvent_1499365015593_1291894291
+
+instance StartEvent_1499365015593_1291894291 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015592_1131113718
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015593_1960057070 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015592_1131113718
+     hasSource hasValue Task_1499365015593_37008579
+     hasTarget hasValue EndEvent_1499365015593_1167770933
+
+instance Task_1499365015593_37008579 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015592_1131113718
+     providesCapability hasValue SemanticCapability_1499365015593_673048860
+     receivesData hasValue DataTypeEntity_1499365015593_2102405108
+     sendsData hasValue DataTypeEntity_1499365015593_167487330
+
+instance SemanticCapability_1499365015593_673048860 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(when (http://127.0.0.1:8000/ontology/ontosem.owl#Accepted ?http://127.0.0.1:8000/services/OWLS-1.1/AcceptCostAndHealingPlan_service.owls#AcceptCostAndHealingPlan_CostAndHealingPlan)
+				           (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/AcceptCostAndHealingPlan_service.owls#AcceptCostAndHealingPlan_Treatment))"
+
+instance DataTypeEntity_1499365015593_2102405108 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/PatientOntology.owl#CostAndHealingPlan"
+
+instance DataTypeEntity_1499365015593_167487330 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/PatientOntology.owl#Acknowledgement"
+
+instance EndEvent_1499365015593_1167770933 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015592_1131113718
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365015593_645342673 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015592_1131113718
+     hasSource hasValue StartEvent_1499365015593_1291894291
+     hasTarget hasValue Task_1499365015593_37008579

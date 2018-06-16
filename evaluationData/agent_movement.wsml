@@ -1,0 +1,58 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015754
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015754_1884096759 memberOf Process
+     hasName hasValue "Move Agent"
+     hasDescription hasValue "Moves the agent from given current position to calculated future position"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/MoveAgent"
+     hasWorkflow hasValue Workflow_1499365015754_438102112
+
+instance Workflow_1499365015754_438102112 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015754_1884096759
+     hasWorkflowElement hasValue StartEvent_1499365015754_1001418365
+
+instance StartEvent_1499365015754_1001418365 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015754_1884096759
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015754_1351276516 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015754_1884096759
+     hasSource hasValue StartEvent_1499365015754_1001418365
+     hasTarget hasValue Task_1499365015754_919225932
+
+instance Task_1499365015754_919225932 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015754_1884096759
+     providesCapability hasValue SemanticCapability_1499365015754_175123217
+     requestsCapability hasValue SemanticCapability_1499365015754_1545494125
+     receivesData hasValue {DataTypeEntity_1499365015754_2008517610, DataTypeEntity_1499365015754_662425835 }
+     sendsData hasValue DataTypeEntity_1499365015754_1401547787
+
+instance SemanticCapability_1499365015754_175123217 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/spatial_ontology.owl#isLocatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/agent_movement.owls#Agent ?http://127.0.0.1:8000/services/OWLS-1.1/agent_movement.owls#FuturePosition)"
+
+instance SemanticCapability_1499365015754_1545494125 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/spatial_ontology.owl#isLocatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/agent_movement.owls#Agent ?http://127.0.0.1:8000/services/OWLS-1.1/agent_movement.owls#CurrentPosition)"
+
+instance DataTypeEntity_1499365015754_2008517610 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/spatial_ontology.owl#SpatialZone"
+
+instance DataTypeEntity_1499365015754_662425835 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Agent"
+
+instance DataTypeEntity_1499365015754_1401547787 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/spatial_ontology.owl#SpatialZone"
+
+instance ConditionalflowConnector_1499365015754_994203972 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015754_1884096759
+     hasSource hasValue Task_1499365015754_919225932
+     hasTarget hasValue EndEvent_1499365015754_204109206
+
+instance EndEvent_1499365015754_204109206 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015754_1884096759
+     hasName hasValue "End"

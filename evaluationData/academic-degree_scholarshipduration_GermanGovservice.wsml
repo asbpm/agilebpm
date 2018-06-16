@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015097
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015097_1332826628 memberOf Process
+     hasName hasValue "GermanGovernment Academic-Degree Scholarship Duration Service"
+     hasDescription hasValue "This service informs about scholarship offered for the academic-degree by the german government. The scholarship's duration is informed as well."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GermangovernmentAcademic-degreeScholarshipDurationService"
+     hasWorkflow hasValue Workflow_1499365015097_55616899
+
+instance Workflow_1499365015097_55616899 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015097_1332826628
+     hasWorkflowElement hasValue StartEvent_1499365015097_140269951
+
+instance StartEvent_1499365015097_140269951 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015097_1332826628
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015097_1904361935 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015097_1332826628
+     hasSource hasValue StartEvent_1499365015097_140269951
+     hasTarget hasValue Task_1499365015097_895925858
+
+instance Task_1499365015097_895925858 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015097_1332826628
+     receivesData hasValue DataTypeEntity_1499365015097_1464214254
+     sendsData hasValue {DataTypeEntity_1499365015097_1468390943, DataTypeEntity_1499365015097_1992746641 }
+
+instance DataTypeEntity_1499365015097_1464214254 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Academic-Degree"
+
+instance DataTypeEntity_1499365015097_1468390943 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Duration"
+
+instance DataTypeEntity_1499365015097_1992746641 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Scholarship"
+
+instance ConditionalflowConnector_1499365015097_1037890594 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015097_1332826628
+     hasSource hasValue Task_1499365015097_895925858
+     hasTarget hasValue EndEvent_1499365015097_690564957
+
+instance EndEvent_1499365015097_690564957 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015097_1332826628
+     hasName hasValue "End"

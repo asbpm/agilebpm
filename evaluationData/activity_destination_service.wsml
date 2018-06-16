@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015620
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015619_980249157 memberOf Process
+     hasName hasValue "Activity Destination Service"
+     hasDescription hasValue "This service returns destinations which provide given activity."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ActivityDestinationService"
+     hasWorkflow hasValue Workflow_1499365015619_262294707
+
+instance Workflow_1499365015619_262294707 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015619_980249157
+     hasWorkflowElement hasValue StartEvent_1499365015619_138794860
+
+instance StartEvent_1499365015619_138794860 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015619_980249157
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015619_1985477490 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015619_980249157
+     hasSource hasValue Task_1499365015619_757760490
+     hasTarget hasValue EndEvent_1499365015619_1559245180
+
+instance Task_1499365015619_757760490 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015619_980249157
+     receivesData hasValue DataTypeEntity_1499365015619_1374238908
+     sendsData hasValue DataTypeEntity_1499365015619_1888905560
+
+instance DataTypeEntity_1499365015619_1374238908 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Activity"
+
+instance DataTypeEntity_1499365015619_1888905560 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Destination"
+
+instance EndEvent_1499365015619_1559245180 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015619_980249157
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365015619_1471567293 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015619_980249157
+     hasSource hasValue StartEvent_1499365015619_138794860
+     hasTarget hasValue Task_1499365015619_757760490

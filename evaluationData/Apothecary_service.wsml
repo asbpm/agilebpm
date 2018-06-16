@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015834
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015833_1115393814 memberOf Process
+     hasName hasValue "GetDrugInformation"
+     hasDescription hasValue "Delivers the needed drug names required for a given patient medical treatment"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Getdruginformation"
+     hasWorkflow hasValue Workflow_1499365015833_1182764778
+
+instance Workflow_1499365015833_1182764778 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015833_1115393814
+     hasWorkflowElement hasValue StartEvent_1499365015833_552589247
+
+instance StartEvent_1499365015833_552589247 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015833_1115393814
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015833_932499723 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015833_1115393814
+     hasSource hasValue StartEvent_1499365015833_552589247
+     hasTarget hasValue Task_1499365015833_1446735407
+
+instance Task_1499365015833_1446735407 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015833_1115393814
+     receivesData hasValue DataTypeEntity_1499365015833_1149427355
+     sendsData hasValue DataTypeEntity_1499365015833_14466280
+
+instance DataTypeEntity_1499365015833_1149427355 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/ApothecaryOntology.owl#Treatment"
+
+instance DataTypeEntity_1499365015833_14466280 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/ApothecaryOntology.owl#Drug"
+
+instance ConditionalflowConnector_1499365015833_1355614189 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015833_1115393814
+     hasSource hasValue Task_1499365015833_1446735407
+     hasTarget hasValue EndEvent_1499365015833_1135496488
+
+instance EndEvent_1499365015833_1135496488 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015833_1115393814
+     hasName hasValue "End"

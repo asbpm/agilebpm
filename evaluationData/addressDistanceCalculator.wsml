@@ -1,0 +1,68 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015712
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015711_17838336 memberOf Process
+     hasName hasValue "StrikeIron Address Distance Calculator between two addresses."
+     hasDescription hasValue "The StrikeIron Address Distance Calculator Web Service instantly calculates the distance between two given addresses, including the city and state.  Simply provide information for two different addresses and it will calculate the distance between the two points. Note, this is a straight-line distance, not driving distance.  This Web service accepts REST invocations as well as SOAP"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/StrikeironAddressDistanceCalculatorBetweenTwoAddresses"
+     hasWorkflow hasValue Workflow_1499365015711_362775060
+
+instance Workflow_1499365015711_362775060 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015711_17838336
+     hasWorkflowElement hasValue StartEvent_1499365015711_503787550
+
+instance StartEvent_1499365015711_503787550 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015711_17838336
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015711_234109899 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015711_17838336
+     hasSource hasValue StartEvent_1499365015711_503787550
+     hasTarget hasValue Task_1499365015711_1738426025
+
+instance Task_1499365015711_1738426025 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015711_17838336
+     requestsCapability hasValue SemanticCapability_1499365015711_468279586
+     receivesData hasValue {DataTypeEntity_1499365015711_978424316, DataTypeEntity_1499365015711_1246890186, DataTypeEntity_1499365015711_728877715, DataTypeEntity_1499365015711_574052447, DataTypeEntity_1499365015711_865349095, DataTypeEntity_1499365015711_205759784 }
+     sendsData hasValue DataTypeEntity_1499365015711_1233849557
+
+instance SemanticCapability_1499365015711_468279586 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (not (http://127.0.0.1:8000/ontology/SUMO.owl#equal ?http://127.0.0.1:8000/services/OWLS-1.1/addressDistanceCalculator.owls#_ADDRESS1 ?http://127.0.0.1:8000/services/OWLS-1.1/addressDistanceCalculator.owls#_ADDRESS2))
+				     (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/addressDistanceCalculator.owls#_CITY1 ?http://127.0.0.1:8000/services/OWLS-1.1/addressDistanceCalculator.owls#_STATE1)
+					 (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/addressDistanceCalculator.owls#_CITY2 ?http://127.0.0.1:8000/services/OWLS-1.1/addressDistanceCalculator.owls#_STATE2))"
+
+instance DataTypeEntity_1499365015711_978424316 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365015711_1246890186 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365015711_728877715 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365015711_574052447 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Address"
+
+instance DataTypeEntity_1499365015711_865349095 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365015711_205759784 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Address"
+
+instance DataTypeEntity_1499365015711_1233849557 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicDistance"
+
+instance ConditionalflowConnector_1499365015711_1111191360 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015711_17838336
+     hasSource hasValue Task_1499365015711_1738426025
+     hasTarget hasValue EndEvent_1499365015711_1481520987
+
+instance EndEvent_1499365015711_1481520987 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015711_17838336
+     hasName hasValue "End"

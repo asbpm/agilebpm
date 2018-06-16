@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015826
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015826_769209847 memberOf Process
+     hasName hasValue "Expensive Car Recommended Price service"
+     hasDescription hasValue "This service tries to find the purchase recommended price of a given brand new expensive car within given amount of money."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ExpensiveCarRecommendedPriceService"
+     hasWorkflow hasValue Workflow_1499365015826_691623907
+
+instance Workflow_1499365015826_691623907 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015826_769209847
+     hasWorkflowElement hasValue StartEvent_1499365015826_1199967621
+
+instance StartEvent_1499365015826_1199967621 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015826_769209847
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015826_479088089 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015826_769209847
+     hasSource hasValue StartEvent_1499365015826_1199967621
+     hasTarget hasValue Task_1499365015826_956965107
+
+instance Task_1499365015826_956965107 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015826_769209847
+     receivesData hasValue {DataTypeEntity_1499365015826_331921549, DataTypeEntity_1499365015826_2070814365 }
+     sendsData hasValue DataTypeEntity_1499365015826_396836260
+
+instance DataTypeEntity_1499365015826_331921549 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Amount-Of-Money"
+
+instance DataTypeEntity_1499365015826_2070814365 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#ExpensiveCar"
+
+instance DataTypeEntity_1499365015826_396836260 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPrice"
+
+instance ConditionalflowConnector_1499365015826_1112217150 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015826_769209847
+     hasSource hasValue Task_1499365015826_956965107
+     hasTarget hasValue EndEvent_1499365015826_37257132
+
+instance EndEvent_1499365015826_37257132 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015826_769209847
+     hasName hasValue "End"

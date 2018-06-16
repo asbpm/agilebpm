@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015863
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015862_2057005203 memberOf Process
+     hasName hasValue "Author Book TaxFreePrice Service"
+     hasDescription hasValue "This service returns book titles written by the given author. The taxfree price is also informed."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/AuthorBookTaxfreepriceService"
+     hasWorkflow hasValue Workflow_1499365015862_272616057
+
+instance Workflow_1499365015862_272616057 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015862_2057005203
+     hasWorkflowElement hasValue StartEvent_1499365015863_887989535
+
+instance StartEvent_1499365015863_887989535 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015862_2057005203
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015863_667704051 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015862_2057005203
+     hasSource hasValue StartEvent_1499365015863_887989535
+     hasTarget hasValue Task_1499365015863_1288238892
+
+instance Task_1499365015863_1288238892 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015862_2057005203
+     receivesData hasValue DataTypeEntity_1499365015863_1381667772
+     sendsData hasValue {DataTypeEntity_1499365015863_1804586456, DataTypeEntity_1499365015863_1895452791 }
+
+instance DataTypeEntity_1499365015863_1381667772 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Author"
+
+instance DataTypeEntity_1499365015863_1804586456 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxFreePrice"
+
+instance DataTypeEntity_1499365015863_1895452791 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance ConditionalflowConnector_1499365015863_1181473051 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015862_2057005203
+     hasSource hasValue Task_1499365015863_1288238892
+     hasTarget hasValue EndEvent_1499365015863_606671461
+
+instance EndEvent_1499365015863_606671461 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015862_2057005203
+     hasName hasValue "End"

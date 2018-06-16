@@ -1,0 +1,68 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+, 
+     wsmostudio _"http://www.wsmostudio.org#" }
+
+ontology instanceOntology_1515687570352_1249817550
+     nonFunctionalProperties
+          wsmostudio#version hasValue "0.7.3.v20081203"
+     endNonFunctionalProperties
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance EndEvent_1515687821055_169383360 memberOf EndEvent
+     hasHomeProcess hasValue Process_1515687717575_2055744289
+     hasName hasValue "End"
+
+instance Process_1515687717575_2055744289 memberOf Process
+     hasName hasValue "Airways Shipping"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/goals#shipping"
+     hasWorkflow hasValue Workflow_1515687821055_621425489
+
+instance Workflow_1515687821055_621425489 memberOf Workflow
+     hasHomeProcess hasValue Process_1515687717575_2055744289
+     hasWorkflowElement hasValue StartEvent_1515687821055_2066052270
+
+instance StartEvent_1515687821055_2066052270 memberOf StartEvent
+     hasHomeProcess hasValue Process_1515687717575_2055744289
+     hasName hasValue "Start"
+
+instance ControlflowConnector_1515687821055_2085090697 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1515687717575_2055744289
+     hasSource hasValue StartEvent_1515687821055_2066052270
+     hasTarget hasValue Task_1515687821055_1711215318
+
+instance Task_1515687821055_1711215318 memberOf Task
+     hasName hasValue "Assemble Shipment"
+     hasHomeProcess hasValue Process_1515687717575_2055744289
+     receivesData hasValue _"http://127.0.0.1:8000/ontology/order.owl#SalesOrder"
+     sendsData hasValue _"http://127.0.0.1:8000/ontology/order.owl#DeliveryInfo"
+
+instance _"http://127.0.0.1:8000/ontology/order.owl#SalesOrder" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/order.owl#SalesOrder"
+
+instance _"http://127.0.0.1:8000/ontology/order.owl#DeliveryInfo" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/order.owl#DeliveryInfo"
+
+instance ControlflowConnector_1515687821055_1767015818 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1515687717575_2055744289
+     hasSource hasValue Task_1515687821055_1390388376
+     hasTarget hasValue EndEvent_1515687821055_169383360
+
+instance Task_1515687821055_1390388376 memberOf Task
+     hasName hasValue "Order Transport"
+     hasHomeProcess hasValue Process_1515687717575_2055744289
+
+instance ControlflowConnector_1515687821055_1472359017 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1515687717575_2055744289
+     hasSource hasValue Task_1515687821055_1661483521
+     hasTarget hasValue Task_1515687821055_1390388376
+
+instance Task_1515687821055_1661483521 memberOf Task
+     hasName hasValue "Make RFT"
+     hasHomeProcess hasValue Process_1515687717575_2055744289
+
+instance ControlflowConnector_1515687821055_235022230 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1515687717575_2055744289
+     hasSource hasValue Task_1515687821055_1711215318
+     hasTarget hasValue Task_1515687821055_1661483521

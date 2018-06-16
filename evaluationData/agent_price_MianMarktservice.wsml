@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015761
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015761_598948311 memberOf Process
+     hasName hasValue "MianMarkt ShoppingService"
+     hasDescription hasValue "MianMarkt presents a service to get price of prepared food for a certain customer (agent), which is an optional input. The price depends of customer's purchase history."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/MianmarktShoppingservice"
+     hasWorkflow hasValue Workflow_1499365015761_4609662
+
+instance Workflow_1499365015761_4609662 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015761_598948311
+     hasWorkflowElement hasValue StartEvent_1499365015761_1168281620
+
+instance StartEvent_1499365015761_1168281620 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015761_598948311
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015761_1643607620 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015761_598948311
+     hasSource hasValue Task_1499365015761_1593983857
+     hasTarget hasValue EndEvent_1499365015761_106025048
+
+instance Task_1499365015761_1593983857 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015761_598948311
+     receivesData hasValue DataTypeEntity_1499365015761_836299443
+     sendsData hasValue DataTypeEntity_1499365015761_686116986
+
+instance DataTypeEntity_1499365015761_836299443 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Agent"
+
+instance DataTypeEntity_1499365015761_686116986 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365015761_106025048 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015761_598948311
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365015761_2082980185 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015761_598948311
+     hasSource hasValue StartEvent_1499365015761_1168281620
+     hasTarget hasValue Task_1499365015761_1593983857

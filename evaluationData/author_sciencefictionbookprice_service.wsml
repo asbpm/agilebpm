@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015946
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015945_1154500373 memberOf Process
+     hasName hasValue "Author ScienceFictionBook Price Service"
+     hasDescription hasValue "This service returns science fiction books written by the given author and their price as well."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/AuthorSciencefictionbookPriceService"
+     hasWorkflow hasValue Workflow_1499365015945_786549845
+
+instance Workflow_1499365015945_786549845 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015945_1154500373
+     hasWorkflowElement hasValue StartEvent_1499365015945_88097575
+
+instance StartEvent_1499365015945_88097575 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015945_1154500373
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015945_1430916409 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015945_1154500373
+     hasSource hasValue Task_1499365015945_1872654845
+     hasTarget hasValue EndEvent_1499365015945_343302800
+
+instance Task_1499365015945_1872654845 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015945_1154500373
+     receivesData hasValue DataTypeEntity_1499365015945_1368375107
+     sendsData hasValue {DataTypeEntity_1499365015945_57134716, DataTypeEntity_1499365015945_1647687686 }
+
+instance DataTypeEntity_1499365015945_1368375107 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Author"
+
+instance DataTypeEntity_1499365015945_57134716 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365015945_1647687686 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#ScienceFictionBook"
+
+instance EndEvent_1499365015945_343302800 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015945_1154500373
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365015945_658387335 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015945_1154500373
+     hasSource hasValue StartEvent_1499365015945_88097575
+     hasTarget hasValue Task_1499365015945_1872654845

@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015060
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015059_1640445951 memberOf Process
+     hasName hasValue "Government Academic Degree Unilateral Giving Service"
+     hasDescription hasValue "This service informs about unilateral givings offered by a given government for a given academic degree."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GovernmentAcademicDegreeUnilateralGivingService"
+     hasWorkflow hasValue Workflow_1499365015059_867715431
+
+instance Workflow_1499365015059_867715431 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015059_1640445951
+     hasWorkflowElement hasValue StartEvent_1499365015060_557643323
+
+instance StartEvent_1499365015060_557643323 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015059_1640445951
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015060_101666227 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015059_1640445951
+     hasSource hasValue StartEvent_1499365015060_557643323
+     hasTarget hasValue Task_1499365015060_1449412220
+
+instance Task_1499365015060_1449412220 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015059_1640445951
+     receivesData hasValue {DataTypeEntity_1499365015060_1184057732, DataTypeEntity_1499365015060_76172715 }
+     sendsData hasValue DataTypeEntity_1499365015060_866538956
+
+instance DataTypeEntity_1499365015060_1184057732 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Government"
+
+instance DataTypeEntity_1499365015060_76172715 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Academic-Degree"
+
+instance DataTypeEntity_1499365015060_866538956 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#UnilateralGiving"
+
+instance ConditionalflowConnector_1499365015060_1743061200 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015059_1640445951
+     hasSource hasValue Task_1499365015060_1449412220
+     hasTarget hasValue EndEvent_1499365015060_1036979174
+
+instance EndEvent_1499365015060_1036979174 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015059_1640445951
+     hasName hasValue "End"

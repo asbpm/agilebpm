@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015902
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015902_1019502706 memberOf Process
+     hasName hasValue "Author Novel TaxedPrice Service"
+     hasDescription hasValue "This service returns novels written by the given author. Their taxed price is also informed."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/AuthorNovelTaxedpriceService"
+     hasWorkflow hasValue Workflow_1499365015902_1660541562
+
+instance Workflow_1499365015902_1660541562 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015902_1019502706
+     hasWorkflowElement hasValue StartEvent_1499365015902_530300611
+
+instance StartEvent_1499365015902_530300611 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015902_1019502706
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015902_911577035 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015902_1019502706
+     hasSource hasValue Task_1499365015902_232309567
+     hasTarget hasValue EndEvent_1499365015902_613882163
+
+instance Task_1499365015902_232309567 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015902_1019502706
+     receivesData hasValue DataTypeEntity_1499365015902_216388750
+     sendsData hasValue {DataTypeEntity_1499365015902_683728499, DataTypeEntity_1499365015902_1662670553 }
+
+instance DataTypeEntity_1499365015902_216388750 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Author"
+
+instance DataTypeEntity_1499365015902_683728499 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxedPrice"
+
+instance DataTypeEntity_1499365015902_1662670553 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Novel"
+
+instance EndEvent_1499365015902_613882163 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015902_1019502706
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365015902_254749128 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015902_1019502706
+     hasSource hasValue StartEvent_1499365015902_530300611
+     hasTarget hasValue Task_1499365015902_232309567

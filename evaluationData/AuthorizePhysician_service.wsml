@@ -1,0 +1,63 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015843
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015842_384489982 memberOf Process
+     hasName hasValue "AuthorizePhysician"
+     hasDescription hasValue "If a doctor wants to see a patient's medical records, he must get an authorization before. This service handles physician authorizations."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Authorizephysician"
+     hasWorkflow hasValue Workflow_1499365015842_1058463304
+
+instance Workflow_1499365015842_1058463304 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015842_384489982
+     hasWorkflowElement hasValue StartEvent_1499365015842_1042304698
+
+instance StartEvent_1499365015842_1042304698 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015842_384489982
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015842_1096553974 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015842_384489982
+     hasSource hasValue Task_1499365015842_193393685
+     hasTarget hasValue EndEvent_1499365015842_849545618
+
+instance Task_1499365015842_193393685 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015842_384489982
+     requestsCapability hasValue SemanticCapability_1499365015842_1000468930
+     receivesData hasValue {DataTypeEntity_1499365015842_449165369, DataTypeEntity_1499365015842_381386715, DataTypeEntity_1499365015842_1934190778 }
+     sendsData hasValue {DataTypeEntity_1499365015842_921688606, DataTypeEntity_1499365015842_333829661, DataTypeEntity_1499365015842_1185882909 }
+
+instance SemanticCapability_1499365015842_1000468930 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/AuthorizePhysician_service.owls#AuthorizePhysician_PhysicianID)"
+
+instance DataTypeEntity_1499365015842_449165369 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/PatientOntology.owl#PhysicianID"
+
+instance DataTypeEntity_1499365015842_381386715 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/PatientOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365015842_1934190778 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/PatientOntology.owl#MedicalRecords"
+
+instance DataTypeEntity_1499365015842_921688606 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/PatientOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365015842_333829661 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/PatientOntology.owl#Authorization"
+
+instance DataTypeEntity_1499365015842_1185882909 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/PatientOntology.owl#Acknowledgement"
+
+instance EndEvent_1499365015842_849545618 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015842_384489982
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365015842_370847997 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015842_384489982
+     hasSource hasValue StartEvent_1499365015842_1042304698
+     hasTarget hasValue Task_1499365015842_193393685

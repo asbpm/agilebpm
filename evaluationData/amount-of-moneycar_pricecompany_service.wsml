@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365015787
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365015786_1386881560 memberOf Process
+     hasName hasValue "Car Price service"
+     hasDescription hasValue "This service facilitate a client to find a company which offer the given car model within range of given amount of money. The current market pruchase price of the car is also informed."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CarPriceService"
+     hasWorkflow hasValue Workflow_1499365015787_1210038434
+
+instance Workflow_1499365015787_1210038434 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365015786_1386881560
+     hasWorkflowElement hasValue StartEvent_1499365015787_1374374465
+
+instance StartEvent_1499365015787_1374374465 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365015786_1386881560
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365015787_567368800 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015786_1386881560
+     hasSource hasValue StartEvent_1499365015787_1374374465
+     hasTarget hasValue Task_1499365015787_2108234723
+
+instance Task_1499365015787_2108234723 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365015786_1386881560
+     receivesData hasValue {DataTypeEntity_1499365015787_1351522957, DataTypeEntity_1499365015787_1975889062 }
+     sendsData hasValue {DataTypeEntity_1499365015787_755246802, DataTypeEntity_1499365015787_2025905210 }
+
+instance DataTypeEntity_1499365015787_1351522957 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Amount-Of-Money"
+
+instance DataTypeEntity_1499365015787_1975889062 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Car"
+
+instance DataTypeEntity_1499365015787_755246802 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Company"
+
+instance DataTypeEntity_1499365015787_2025905210 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance ConditionalflowConnector_1499365015787_1480711068 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365015786_1386881560
+     hasSource hasValue Task_1499365015787_2108234723
+     hasTarget hasValue EndEvent_1499365015787_1607189227
+
+instance EndEvent_1499365015787_1607189227 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365015786_1386881560
+     hasName hasValue "End"
