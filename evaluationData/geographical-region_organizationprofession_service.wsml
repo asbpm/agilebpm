@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017714
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017714_245781387 memberOf Process
+     hasName hasValue "Geographical-Region Organization Profession Service"
+     hasDescription hasValue "This service finds profession positions in a given geographical regions and also returns organization who offers that job."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Geographical-regionOrganizationProfessionService"
+     hasWorkflow hasValue Workflow_1499365017714_44217146
+
+instance Workflow_1499365017714_44217146 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017714_245781387
+     hasWorkflowElement hasValue StartEvent_1499365017714_2092707821
+
+instance StartEvent_1499365017714_2092707821 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017714_245781387
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017714_2129122279 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017714_245781387
+     hasSource hasValue StartEvent_1499365017714_2092707821
+     hasTarget hasValue Task_1499365017714_1640330284
+
+instance Task_1499365017714_1640330284 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017714_245781387
+     receivesData hasValue DataTypeEntity_1499365017714_1059531252
+     sendsData hasValue {DataTypeEntity_1499365017714_263066916, DataTypeEntity_1499365017714_1958543076 }
+
+instance DataTypeEntity_1499365017714_1059531252 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geographical-Region"
+
+instance DataTypeEntity_1499365017714_263066916 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/finance_th_web.owl#organization"
+
+instance DataTypeEntity_1499365017714_1958543076 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Profession"
+
+instance ConditionalflowConnector_1499365017714_1811263085 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017714_245781387
+     hasSource hasValue Task_1499365017714_1640330284
+     hasTarget hasValue EndEvent_1499365017714_1162305207
+
+instance EndEvent_1499365017714_1162305207 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017714_245781387
+     hasName hasValue "End"

@@ -1,0 +1,54 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017654
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017654_618382338 memberOf Process
+     hasName hasValue "RouteFinder Service"
+     hasDescription hasValue "This service provides map with all relative paths between two given geographical regions."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/RoutefinderService"
+     hasWorkflow hasValue Workflow_1499365017654_1985390254
+
+instance Workflow_1499365017654_1985390254 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017654_618382338
+     hasWorkflowElement hasValue StartEvent_1499365017654_877321183
+
+instance StartEvent_1499365017654_877321183 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017654_618382338
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017654_369339490 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017654_618382338
+     hasSource hasValue StartEvent_1499365017654_877321183
+     hasTarget hasValue Task_1499365017654_2015481714
+
+instance Task_1499365017654_2015481714 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017654_618382338
+     requestsCapability hasValue SemanticCapability_1499365017654_1971280915
+     receivesData hasValue {DataTypeEntity_1499365017654_1018389762, DataTypeEntity_1499365017654_1285938536 }
+     sendsData hasValue DataTypeEntity_1499365017654_1507654698
+
+instance SemanticCapability_1499365017654_1971280915 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(not (http://127.0.0.1:8000/ontology/SUMO.owl#equal ?http://127.0.0.1:8000/services/OWLS-1.1/geographical-regiongeographical-region_map_service.owls#_GEOGRAPHICAL-REGION1 ?http://127.0.0.1:8000/services/OWLS-1.1/geographical-regiongeographical-region_map_service.owls#_GEOGRAPHICAL-REGION2))"
+
+instance DataTypeEntity_1499365017654_1018389762 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geographical-Region"
+
+instance DataTypeEntity_1499365017654_1285938536 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geographical-Region"
+
+instance DataTypeEntity_1499365017654_1507654698 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Map"
+
+instance ConditionalflowConnector_1499365017654_484920825 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017654_618382338
+     hasSource hasValue Task_1499365017654_2015481714
+     hasTarget hasValue EndEvent_1499365017654_168305212
+
+instance EndEvent_1499365017654_168305212 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017654_618382338
+     hasName hasValue "End"

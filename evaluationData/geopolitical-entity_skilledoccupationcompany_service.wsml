@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017858
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017857_1820478192 memberOf Process
+     hasName hasValue "OccupationFinder"
+     hasDescription hasValue "This service finds skilled occupation in a given geopolitical entity, like Germany, and also returns company who offers that job."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Occupationfinder"
+     hasWorkflow hasValue Workflow_1499365017858_414690277
+
+instance Workflow_1499365017858_414690277 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017857_1820478192
+     hasWorkflowElement hasValue StartEvent_1499365017858_51178324
+
+instance StartEvent_1499365017858_51178324 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017857_1820478192
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017858_960371757 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017857_1820478192
+     hasSource hasValue Task_1499365017858_297899424
+     hasTarget hasValue EndEvent_1499365017858_1748148552
+
+instance Task_1499365017858_297899424 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017857_1820478192
+     receivesData hasValue DataTypeEntity_1499365017858_642334330
+     sendsData hasValue {DataTypeEntity_1499365017858_497613732, DataTypeEntity_1499365017858_907116809 }
+
+instance DataTypeEntity_1499365017858_642334330 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geopolitical-Entity"
+
+instance DataTypeEntity_1499365017858_497613732 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/finance_th_web.owl#company"
+
+instance DataTypeEntity_1499365017858_907116809 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#SkilledOccupation"
+
+instance EndEvent_1499365017858_1748148552 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017857_1820478192
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017858_1521521239 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017857_1820478192
+     hasSource hasValue StartEvent_1499365017858_51178324
+     hasTarget hasValue Task_1499365017858_297899424

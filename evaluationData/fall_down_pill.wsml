@@ -1,0 +1,76 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017524
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017524_1880310606 memberOf Process
+     hasName hasValue "Fall Down Pill"
+     hasDescription hasValue "For a given state of the MesseModule machine, this service moves the pill from the slider to the cup, when the cup is in the regular position under the slider. The outputs of this service are the new states of the cup, the pill and the slider."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/FallDownPill"
+     hasWorkflow hasValue Workflow_1499365017524_806198239
+
+instance Workflow_1499365017524_806198239 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017524_1880310606
+     hasWorkflowElement hasValue StartEvent_1499365017524_232656350
+
+instance StartEvent_1499365017524_232656350 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017524_1880310606
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017524_493561170 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017524_1880310606
+     hasSource hasValue Task_1499365017524_1246871271
+     hasTarget hasValue EndEvent_1499365017524_1693034584
+
+instance Task_1499365017524_1246871271 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017524_1880310606
+     providesCapability hasValue SemanticCapability_1499365017524_956265017
+     requestsCapability hasValue SemanticCapability_1499365017524_600020988
+     receivesData hasValue DataTypeEntity_1499365017524_1979201455
+     sendsData hasValue {DataTypeEntity_1499365017524_32736328, DataTypeEntity_1499365017524_1496963485, DataTypeEntity_1499365017524_699767156, DataTypeEntity_1499365017524_1710507035, DataTypeEntity_1499365017524_1354583115, DataTypeEntity_1499365017524_436734387 }
+
+instance SemanticCapability_1499365017524_956265017 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/spatial_ontology.owl#isLocatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#Pill ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#CupZone)"
+
+instance SemanticCapability_1499365017524_600020988 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/messemodul.owl#consistsOf ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#MesseModul ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#Slider)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#consistsOf ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#MesseModul ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#UltraSoundSensor)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#hasCargoArea ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#Slider ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#SliderZone)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#detectsCup ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#UltraSoundSensor ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#Cup)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#hasCargoArea ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#Cup ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#CupZone)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#Down ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#Slider)
+							 (http://127.0.0.1:8000/ontology/spatial_ontology.owl#isLocatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#Pill ?http://127.0.0.1:8000/services/OWLS-1.1/fall_down_pill.owls#SliderZone))"
+
+instance DataTypeEntity_1499365017524_1979201455 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#MesseModul"
+
+instance DataTypeEntity_1499365017524_32736328 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Pill"
+
+instance DataTypeEntity_1499365017524_1496963485 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Slider"
+
+instance DataTypeEntity_1499365017524_699767156 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#UltraSoundSensor"
+
+instance DataTypeEntity_1499365017524_1710507035 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/spatial_ontology.owl#SpatialZone"
+
+instance DataTypeEntity_1499365017524_1354583115 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/spatial_ontology.owl#SpatialZone"
+
+instance DataTypeEntity_1499365017524_436734387 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Cup"
+
+instance EndEvent_1499365017524_1693034584 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017524_1880310606
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017524_627772312 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017524_1880310606
+     hasSource hasValue StartEvent_1499365017524_232656350
+     hasTarget hasValue Task_1499365017524_1246871271

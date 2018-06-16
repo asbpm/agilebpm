@@ -1,0 +1,54 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017650
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017650_1702322365 memberOf Process
+     hasName hasValue "Gorge RouteFinder Service"
+     hasDescription hasValue "Gorge is a new service and provides map with all relative paths between two given geographical regions."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GorgeRoutefinderService"
+     hasWorkflow hasValue Workflow_1499365017650_1755706048
+
+instance Workflow_1499365017650_1755706048 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017650_1702322365
+     hasWorkflowElement hasValue StartEvent_1499365017650_262288764
+
+instance StartEvent_1499365017650_262288764 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017650_1702322365
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017650_1638968932 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017650_1702322365
+     hasSource hasValue StartEvent_1499365017650_262288764
+     hasTarget hasValue Task_1499365017650_1316585075
+
+instance Task_1499365017650_1316585075 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017650_1702322365
+     requestsCapability hasValue SemanticCapability_1499365017650_464406008
+     receivesData hasValue {DataTypeEntity_1499365017650_275557292, DataTypeEntity_1499365017650_1208782482 }
+     sendsData hasValue DataTypeEntity_1499365017650_1510301471
+
+instance SemanticCapability_1499365017650_464406008 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(not (http://127.0.0.1:8000/ontology/SUMO.owl#equal ?http://127.0.0.1:8000/services/OWLS-1.1/geographical-regiongeographical-region_map_Gorgservice.owls#_GEOGRAPHICAL-REGION1 ?http://127.0.0.1:8000/services/OWLS-1.1/geographical-regiongeographical-region_map_Gorgservice.owls#_GEOGRAPHICAL-REGION2))"
+
+instance DataTypeEntity_1499365017650_275557292 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geographical-Region"
+
+instance DataTypeEntity_1499365017650_1208782482 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geographical-Region"
+
+instance DataTypeEntity_1499365017650_1510301471 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Map"
+
+instance ConditionalflowConnector_1499365017650_965627217 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017650_1702322365
+     hasSource hasValue Task_1499365017650_1316585075
+     hasTarget hasValue EndEvent_1499365017650_741383972
+
+instance EndEvent_1499365017650_741383972 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017650_1702322365
+     hasName hasValue "End"

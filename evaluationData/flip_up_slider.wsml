@@ -1,0 +1,64 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017586
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017586_132486006 memberOf Process
+     hasName hasValue "Flip Up Slider"
+     hasDescription hasValue "Moves the slider to horizontal position."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/FlipUpSlider"
+     hasWorkflow hasValue Workflow_1499365017586_1801305759
+
+instance Workflow_1499365017586_1801305759 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017586_132486006
+     hasWorkflowElement hasValue StartEvent_1499365017586_246895005
+
+instance StartEvent_1499365017586_246895005 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017586_132486006
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017586_452148936 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017586_132486006
+     hasSource hasValue StartEvent_1499365017586_246895005
+     hasTarget hasValue Task_1499365017586_922023100
+
+instance Task_1499365017586_922023100 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017586_132486006
+     providesCapability hasValue SemanticCapability_1499365017586_1125207630
+     requestsCapability hasValue SemanticCapability_1499365017586_1029685746
+     receivesData hasValue DataTypeEntity_1499365017586_361665953
+     sendsData hasValue {DataTypeEntity_1499365017586_648668836, DataTypeEntity_1499365017586_779805218, DataTypeEntity_1499365017586_156231902 }
+
+instance SemanticCapability_1499365017586_1125207630 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/messemodul.owl#Up ?http://127.0.0.1:8000/services/OWLS-1.1/flip_up_slider.owls#Slider)"
+
+instance SemanticCapability_1499365017586_1029685746 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/messemodul.owl#consistsOf ?http://127.0.0.1:8000/services/OWLS-1.1/flip_up_slider.owls#MesseModul ?http://127.0.0.1:8000/services/OWLS-1.1/flip_up_slider.owls#Slider)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#consistsOf ?http://127.0.0.1:8000/services/OWLS-1.1/flip_up_slider.owls#MesseModul ?http://127.0.0.1:8000/services/OWLS-1.1/flip_up_slider.owls#UltraSoundSensor)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#detectsCup ?http://127.0.0.1:8000/services/OWLS-1.1/flip_up_slider.owls#UltraSoundSensor ?http://127.0.0.1:8000/services/OWLS-1.1/flip_up_slider.owls#Cup)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#Down ?http://127.0.0.1:8000/services/OWLS-1.1/flip_up_slider.owls#Slider))"
+
+instance DataTypeEntity_1499365017586_361665953 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#MesseModul"
+
+instance DataTypeEntity_1499365017586_648668836 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#UltraSoundSensor"
+
+instance DataTypeEntity_1499365017586_779805218 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Slider"
+
+instance DataTypeEntity_1499365017586_156231902 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Cup"
+
+instance ConditionalflowConnector_1499365017586_961188551 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017586_132486006
+     hasSource hasValue Task_1499365017586_922023100
+     hasTarget hasValue EndEvent_1499365017586_1947377167
+
+instance EndEvent_1499365017586_1947377167 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017586_132486006
+     hasName hasValue "End"

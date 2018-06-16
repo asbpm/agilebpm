@@ -1,0 +1,51 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017558
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017558_71881708 memberOf Process
+     hasName hasValue "Fill pills"
+     hasDescription hasValue "Fills the MesseModul magazine with pills until it is full."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/FillPills"
+     hasWorkflow hasValue Workflow_1499365017558_1036329718
+
+instance Workflow_1499365017558_1036329718 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017558_71881708
+     hasWorkflowElement hasValue StartEvent_1499365017558_286362913
+
+instance StartEvent_1499365017558_286362913 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017558_71881708
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017558_1696164320 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017558_71881708
+     hasSource hasValue StartEvent_1499365017558_286362913
+     hasTarget hasValue Task_1499365017558_716452214
+
+instance Task_1499365017558_716452214 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017558_71881708
+     providesCapability hasValue SemanticCapability_1499365017558_1057246930
+     requestsCapability hasValue SemanticCapability_1499365017558_922634425
+     receivesData hasValue DataTypeEntity_1499365017558_1623448901
+
+instance SemanticCapability_1499365017558_1057246930 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/messemodul.owl#Full ?http://127.0.0.1:8000/services/OWLS-1.1/fill_pills.owls#Magazine)"
+
+instance SemanticCapability_1499365017558_922634425 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/messemodul.owl#Empty ?http://127.0.0.1:8000/services/OWLS-1.1/fill_pills.owls#Magazine)"
+
+instance DataTypeEntity_1499365017558_1623448901 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Magazine"
+
+instance ConditionalflowConnector_1499365017558_1928917185 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017558_71881708
+     hasSource hasValue Task_1499365017558_716452214
+     hasTarget hasValue EndEvent_1499365017558_1223825070
+
+instance EndEvent_1499365017558_1223825070 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017558_71881708
+     hasName hasValue "End"

@@ -1,0 +1,77 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017577
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017576_325529112 memberOf Process
+     hasName hasValue "Flip Down Slider"
+     hasDescription hasValue "This service moves the slider down when the cup is exactly under the slider. The position of the cup and its carriage is retrieved by the contact sensors."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/FlipDownSlider"
+     hasWorkflow hasValue Workflow_1499365017576_1596902096
+
+instance Workflow_1499365017576_1596902096 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017576_325529112
+     hasWorkflowElement hasValue StartEvent_1499365017576_589354619
+
+instance StartEvent_1499365017576_589354619 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017576_325529112
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017577_88465273 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017576_325529112
+     hasSource hasValue Task_1499365017576_1506946727
+     hasTarget hasValue EndEvent_1499365017576_446930501
+
+instance Task_1499365017576_1506946727 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017576_325529112
+     providesCapability hasValue SemanticCapability_1499365017576_809369016
+     requestsCapability hasValue SemanticCapability_1499365017576_883913453
+     receivesData hasValue DataTypeEntity_1499365017576_133569064
+     sendsData hasValue {DataTypeEntity_1499365017576_848993030, DataTypeEntity_1499365017576_2115949356, DataTypeEntity_1499365017576_614629205, DataTypeEntity_1499365017576_301703602, DataTypeEntity_1499365017576_1918413156, DataTypeEntity_1499365017576_762127135 }
+
+instance SemanticCapability_1499365017576_809369016 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/messemodul.owl#Down ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#Slider)"
+
+instance SemanticCapability_1499365017576_883913453 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/messemodul.owl#consistsOf ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#MesseModul ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#Slider)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#consistsOf ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#MesseModul ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#UltraSoundSensor)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#consistsOf ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#MesseModul ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#ContactSensor)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#hasCargoArea ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#Carriage ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#CarriageSpatialZone)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#detectsCup ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#UltraSoundSensor ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#Cup)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#detectsCarriage ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#ContactSensor ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#Carriage)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#Up ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#Slider)
+							 (http://127.0.0.1:8000/ontology/spatial_ontology.owl#isLocatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#Cup ?http://127.0.0.1:8000/services/OWLS-1.1/flip_down_slider.owls#CarriageSpatialZone))"
+
+instance DataTypeEntity_1499365017576_133569064 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#MesseModul"
+
+instance DataTypeEntity_1499365017576_848993030 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#UltraSoundSensor"
+
+instance DataTypeEntity_1499365017576_2115949356 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/spatial_ontology.owl#SpatialZone"
+
+instance DataTypeEntity_1499365017576_614629205 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Slider"
+
+instance DataTypeEntity_1499365017576_301703602 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Carriage"
+
+instance DataTypeEntity_1499365017576_1918413156 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#ContactSensor"
+
+instance DataTypeEntity_1499365017576_762127135 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Cup"
+
+instance EndEvent_1499365017576_446930501 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017576_325529112
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017577_1329591060 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017576_325529112
+     hasSource hasValue StartEvent_1499365017576_589354619
+     hasTarget hasValue Task_1499365017576_1506946727

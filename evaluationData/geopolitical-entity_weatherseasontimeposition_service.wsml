@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017897
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017897_1309658874 memberOf Process
+     hasName hasValue "GEIZ weather service"
+     hasDescription hasValue "GEIZ service returns weather season condition of a geopolitical region, and also its timeposition."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GeizWeatherService"
+     hasWorkflow hasValue Workflow_1499365017897_564969280
+
+instance Workflow_1499365017897_564969280 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017897_1309658874
+     hasWorkflowElement hasValue StartEvent_1499365017897_789955755
+
+instance StartEvent_1499365017897_789955755 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017897_1309658874
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017897_345546058 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017897_1309658874
+     hasSource hasValue StartEvent_1499365017897_789955755
+     hasTarget hasValue Task_1499365017897_580407558
+
+instance Task_1499365017897_580407558 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017897_1309658874
+     receivesData hasValue DataTypeEntity_1499365017897_1175816614
+     sendsData hasValue {DataTypeEntity_1499365017897_1525341592, DataTypeEntity_1499365017897_933012730 }
+
+instance DataTypeEntity_1499365017897_1175816614 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geopolitical-Entity"
+
+instance DataTypeEntity_1499365017897_1525341592 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#TimePosition"
+
+instance DataTypeEntity_1499365017897_933012730 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#WeatherSeason"
+
+instance ConditionalflowConnector_1499365017897_165453336 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017897_1309658874
+     hasSource hasValue Task_1499365017897_580407558
+     hasTarget hasValue EndEvent_1499365017897_1572801783
+
+instance EndEvent_1499365017897_1572801783 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017897_1309658874
+     hasName hasValue "End"

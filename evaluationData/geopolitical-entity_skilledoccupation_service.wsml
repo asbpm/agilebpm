@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017875
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017875_59313282 memberOf Process
+     hasName hasValue "GeoSkilledPositions"
+     hasDescription hasValue "Geo service returns open offered skilled occupation position in a given geopolitical entity, for instance Russia, Italy etc."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Geoskilledpositions"
+     hasWorkflow hasValue Workflow_1499365017875_1204795357
+
+instance Workflow_1499365017875_1204795357 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017875_59313282
+     hasWorkflowElement hasValue StartEvent_1499365017875_1625056620
+
+instance StartEvent_1499365017875_1625056620 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017875_59313282
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017875_646165349 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017875_59313282
+     hasSource hasValue Task_1499365017875_369894761
+     hasTarget hasValue EndEvent_1499365017875_1891519141
+
+instance Task_1499365017875_369894761 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017875_59313282
+     receivesData hasValue DataTypeEntity_1499365017875_610020771
+     sendsData hasValue DataTypeEntity_1499365017875_286598688
+
+instance DataTypeEntity_1499365017875_610020771 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geopolitical-Entity"
+
+instance DataTypeEntity_1499365017875_286598688 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#SkilledOccupation"
+
+instance EndEvent_1499365017875_1891519141 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017875_59313282
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017875_885741525 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017875_59313282
+     hasSource hasValue StartEvent_1499365017875_1625056620
+     hasTarget hasValue Task_1499365017875_369894761

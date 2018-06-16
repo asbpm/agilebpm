@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017693
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017693_1246240688 memberOf Process
+     hasName hasValue "GeographicalRegionHotelService"
+     hasDescription hasValue "This service is the recommended service to know about the available hotels in a geographical region."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Geographicalregionhotelservice"
+     hasWorkflow hasValue Workflow_1499365017693_592932320
+
+instance Workflow_1499365017693_592932320 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017693_1246240688
+     hasWorkflowElement hasValue StartEvent_1499365017693_2008947228
+
+instance StartEvent_1499365017693_2008947228 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017693_1246240688
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017693_749316624 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017693_1246240688
+     hasSource hasValue StartEvent_1499365017693_2008947228
+     hasTarget hasValue Task_1499365017693_1492813789
+
+instance Task_1499365017693_1492813789 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017693_1246240688
+     receivesData hasValue DataTypeEntity_1499365017693_1670580814
+     sendsData hasValue DataTypeEntity_1499365017693_661659849
+
+instance DataTypeEntity_1499365017693_1670580814 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geographical-Region"
+
+instance DataTypeEntity_1499365017693_661659849 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Hotel"
+
+instance ConditionalflowConnector_1499365017693_1491752519 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017693_1246240688
+     hasSource hasValue Task_1499365017693_1492813789
+     hasTarget hasValue EndEvent_1499365017693_1352946513
+
+instance EndEvent_1499365017693_1352946513 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017693_1246240688
+     hasName hasValue "End"

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017744
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017744_1525869383 memberOf Process
+     hasName hasValue "GEWS Service"
+     hasDescription hasValue "GEWS service is used to get season report of a particular geographical region."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GewsService"
+     hasWorkflow hasValue Workflow_1499365017744_708242817
+
+instance Workflow_1499365017744_708242817 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017744_1525869383
+     hasWorkflowElement hasValue StartEvent_1499365017744_480801464
+
+instance StartEvent_1499365017744_480801464 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017744_1525869383
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017744_1194608966 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017744_1525869383
+     hasSource hasValue StartEvent_1499365017744_480801464
+     hasTarget hasValue Task_1499365017744_561302281
+
+instance Task_1499365017744_561302281 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017744_1525869383
+     receivesData hasValue DataTypeEntity_1499365017744_501630943
+     sendsData hasValue DataTypeEntity_1499365017744_1429213069
+
+instance DataTypeEntity_1499365017744_501630943 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geographical-Region"
+
+instance DataTypeEntity_1499365017744_1429213069 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#WeatherSeason"
+
+instance ConditionalflowConnector_1499365017744_907380576 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017744_1525869383
+     hasSource hasValue Task_1499365017744_561302281
+     hasTarget hasValue EndEvent_1499365017744_595913616
+
+instance EndEvent_1499365017744_595913616 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017744_1525869383
+     hasName hasValue "End"

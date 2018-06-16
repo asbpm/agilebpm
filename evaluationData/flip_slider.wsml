@@ -1,0 +1,59 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017582
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017581_1933500717 memberOf Process
+     hasName hasValue "Flip Slider Service"
+     hasDescription hasValue "For a given pill which is located on a given slider, this service flips the slider and releases the pill."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/FlipSliderService"
+     hasWorkflow hasValue Workflow_1499365017581_1661829956
+
+instance Workflow_1499365017581_1661829956 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017581_1933500717
+     hasWorkflowElement hasValue StartEvent_1499365017581_1989433223
+
+instance StartEvent_1499365017581_1989433223 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017581_1933500717
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017581_1364915576 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017581_1933500717
+     hasSource hasValue StartEvent_1499365017581_1989433223
+     hasTarget hasValue Task_1499365017581_557112772
+
+instance Task_1499365017581_557112772 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017581_1933500717
+     providesCapability hasValue SemanticCapability_1499365017581_510625212
+     requestsCapability hasValue SemanticCapability_1499365017581_1241631381
+     receivesData hasValue {DataTypeEntity_1499365017581_251334057, DataTypeEntity_1499365017581_1264012495 }
+     sendsData hasValue DataTypeEntity_1499365017581_193115749
+
+instance SemanticCapability_1499365017581_510625212 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/messemodul.owl#released ?http://127.0.0.1:8000/services/OWLS-1.1/flip_slider.owls#BluePill)"
+
+instance SemanticCapability_1499365017581_1241631381 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/messemodul.owl#hasCargoArea ?http://127.0.0.1:8000/services/OWLS-1.1/flip_slider.owls#Slider ?http://127.0.0.1:8000/services/OWLS-1.1/flip_slider.owls#Area)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#isLocatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/flip_slider.owls#BluePill ?http://127.0.0.1:8000/services/OWLS-1.1/flip_slider.owls#Area))"
+
+instance DataTypeEntity_1499365017581_251334057 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Slider"
+
+instance DataTypeEntity_1499365017581_1264012495 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#BluePill"
+
+instance DataTypeEntity_1499365017581_193115749 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/spatial_ontology.owl#SpatialZone"
+
+instance ConditionalflowConnector_1499365017581_1799764812 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017581_1933500717
+     hasSource hasValue Task_1499365017581_557112772
+     hasTarget hasValue EndEvent_1499365017581_855265983
+
+instance EndEvent_1499365017581_855265983 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017581_1933500717
+     hasName hasValue "End"

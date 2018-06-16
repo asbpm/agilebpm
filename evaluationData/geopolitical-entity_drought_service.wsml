@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017790
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017790_1621091532 memberOf Process
+     hasName hasValue "Geopolitica-Entity Drought Service"
+     hasDescription hasValue "This service informs about droughts of a given geopolitical entity."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Geopolitica-entityDroughtService"
+     hasWorkflow hasValue Workflow_1499365017790_150414880
+
+instance Workflow_1499365017790_150414880 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017790_1621091532
+     hasWorkflowElement hasValue StartEvent_1499365017790_1426874963
+
+instance StartEvent_1499365017790_1426874963 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017790_1621091532
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017790_2099709753 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017790_1621091532
+     hasSource hasValue Task_1499365017790_1201638882
+     hasTarget hasValue EndEvent_1499365017790_1641888249
+
+instance Task_1499365017790_1201638882 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017790_1621091532
+     receivesData hasValue DataTypeEntity_1499365017790_251332691
+     sendsData hasValue DataTypeEntity_1499365017790_1169065247
+
+instance DataTypeEntity_1499365017790_251332691 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geopolitical-Entity"
+
+instance DataTypeEntity_1499365017790_1169065247 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Drought"
+
+instance EndEvent_1499365017790_1641888249 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017790_1621091532
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017790_1096766817 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017790_1621091532
+     hasSource hasValue StartEvent_1499365017790_1426874963
+     hasTarget hasValue Task_1499365017790_1201638882

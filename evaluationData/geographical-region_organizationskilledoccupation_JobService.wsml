@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017718
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017717_1519563508 memberOf Process
+     hasName hasValue "OccupationFinder"
+     hasDescription hasValue "This service finds skilled occupation in a given geographical regions, like Europe, and also returns organization who offers that job."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Occupationfinder"
+     hasWorkflow hasValue Workflow_1499365017717_1572035566
+
+instance Workflow_1499365017717_1572035566 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017717_1519563508
+     hasWorkflowElement hasValue StartEvent_1499365017717_1938910822
+
+instance StartEvent_1499365017717_1938910822 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017717_1519563508
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017717_1869338370 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017717_1519563508
+     hasSource hasValue StartEvent_1499365017717_1938910822
+     hasTarget hasValue Task_1499365017717_1831940811
+
+instance Task_1499365017717_1831940811 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017717_1519563508
+     receivesData hasValue DataTypeEntity_1499365017717_1513435772
+     sendsData hasValue {DataTypeEntity_1499365017717_1557626689, DataTypeEntity_1499365017717_1800089931 }
+
+instance DataTypeEntity_1499365017717_1513435772 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geographical-Region"
+
+instance DataTypeEntity_1499365017717_1557626689 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#SkilledOccupation"
+
+instance DataTypeEntity_1499365017717_1800089931 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/finance_th_web.owl#organization"
+
+instance ConditionalflowConnector_1499365017717_1620337180 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017717_1519563508
+     hasSource hasValue Task_1499365017717_1831940811
+     hasTarget hasValue EndEvent_1499365017717_1109267570
+
+instance EndEvent_1499365017717_1109267570 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017717_1519563508
+     hasName hasValue "End"

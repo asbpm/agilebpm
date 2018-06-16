@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017854
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017854_927409476 memberOf Process
+     hasName hasValue "Geopolitical-Entity Profession service"
+     hasDescription hasValue "This service returns available jobs in some profession in a given geopolitical-entity."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Geopolitical-entityProfessionService"
+     hasWorkflow hasValue Workflow_1499365017854_119052008
+
+instance Workflow_1499365017854_119052008 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017854_927409476
+     hasWorkflowElement hasValue StartEvent_1499365017854_886218217
+
+instance StartEvent_1499365017854_886218217 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017854_927409476
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017854_48188015 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017854_927409476
+     hasSource hasValue StartEvent_1499365017854_886218217
+     hasTarget hasValue Task_1499365017854_1216490478
+
+instance Task_1499365017854_1216490478 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017854_927409476
+     receivesData hasValue DataTypeEntity_1499365017854_444977913
+     sendsData hasValue DataTypeEntity_1499365017854_2068579521
+
+instance DataTypeEntity_1499365017854_444977913 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geopolitical-Entity"
+
+instance DataTypeEntity_1499365017854_2068579521 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Profession"
+
+instance ConditionalflowConnector_1499365017854_729521975 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017854_927409476
+     hasSource hasValue Task_1499365017854_1216490478
+     hasTarget hasValue EndEvent_1499365017854_1311920930
+
+instance EndEvent_1499365017854_1311920930 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017854_927409476
+     hasName hasValue "End"

@@ -1,0 +1,63 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017642
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017642_1860371440 memberOf Process
+     hasName hasValue "Postal Address geocoder service."
+     hasDescription hasValue "This service returns latitude and longitude location of a given US structured postal address, where address city, state and zipcode are also given. If the address is not found, an error is returned."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/PostalAddressGeocoderService"
+     hasWorkflow hasValue Workflow_1499365017642_161562945
+
+instance Workflow_1499365017642_161562945 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017642_1860371440
+     hasWorkflowElement hasValue StartEvent_1499365017642_1972799615
+
+instance StartEvent_1499365017642_1972799615 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017642_1860371440
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017642_509483705 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017642_1860371440
+     hasSource hasValue StartEvent_1499365017642_1972799615
+     hasTarget hasValue Task_1499365017642_1839376401
+
+instance Task_1499365017642_1839376401 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017642_1860371440
+     requestsCapability hasValue SemanticCapability_1499365017642_1568573118
+     receivesData hasValue {DataTypeEntity_1499365017642_1538157446, DataTypeEntity_1499365017642_425975272, DataTypeEntity_1499365017642_934870007, DataTypeEntity_1499365017642_1046505856 }
+     sendsData hasValue {DataTypeEntity_1499365017642_99227899, DataTypeEntity_1499365017642_58748172 }
+
+instance SemanticCapability_1499365017642_1568573118 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/geocodeUSAddress.owls#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/geocodeUSAddress.owls#_STATE)"
+
+instance DataTypeEntity_1499365017642_1538157446 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365017642_425975272 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365017642_934870007 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Address"
+
+instance DataTypeEntity_1499365017642_1046505856 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#PostalCode"
+
+instance DataTypeEntity_1499365017642_99227899 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance DataTypeEntity_1499365017642_58748172 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance ConditionalflowConnector_1499365017642_1550799695 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017642_1860371440
+     hasSource hasValue Task_1499365017642_1839376401
+     hasTarget hasValue EndEvent_1499365017642_2107542798
+
+instance EndEvent_1499365017642_2107542798 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017642_1860371440
+     hasName hasValue "End"

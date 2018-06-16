@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017795
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017794_930108928 memberOf Process
+     hasName hasValue "GeopoliticalHotelService"
+     hasDescription hasValue "This service is the best service to know about available hotels in a geopolitical entity."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Geopoliticalhotelservice"
+     hasWorkflow hasValue Workflow_1499365017795_2136973436
+
+instance Workflow_1499365017795_2136973436 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017794_930108928
+     hasWorkflowElement hasValue StartEvent_1499365017795_1822084770
+
+instance StartEvent_1499365017795_1822084770 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017794_930108928
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017795_1384808 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017794_930108928
+     hasSource hasValue Task_1499365017795_247865070
+     hasTarget hasValue EndEvent_1499365017795_466868477
+
+instance Task_1499365017795_247865070 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017794_930108928
+     receivesData hasValue DataTypeEntity_1499365017795_1911227467
+     sendsData hasValue DataTypeEntity_1499365017795_1816158911
+
+instance DataTypeEntity_1499365017795_1911227467 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geopolitical-Entity"
+
+instance DataTypeEntity_1499365017795_1816158911 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Hotel"
+
+instance EndEvent_1499365017795_466868477 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017794_930108928
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017795_1524303729 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017794_930108928
+     hasSource hasValue StartEvent_1499365017795_1822084770
+     hasTarget hasValue Task_1499365017795_247865070

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017707
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017707_1084836270 memberOf Process
+     hasName hasValue "Route to Berlin Service"
+     hasDescription hasValue "If you want to travel to Berlin, then we provide a service to return a map indicating all paths from your location to Berlin."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/RouteToBerlinService"
+     hasWorkflow hasValue Workflow_1499365017707_523176332
+
+instance Workflow_1499365017707_523176332 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017707_1084836270
+     hasWorkflowElement hasValue StartEvent_1499365017707_1204329314
+
+instance StartEvent_1499365017707_1204329314 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017707_1084836270
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017707_1867350271 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017707_1084836270
+     hasSource hasValue Task_1499365017707_1319449964
+     hasTarget hasValue EndEvent_1499365017707_583994821
+
+instance Task_1499365017707_1319449964 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017707_1084836270
+     receivesData hasValue DataTypeEntity_1499365017707_1418952289
+     sendsData hasValue DataTypeEntity_1499365017707_246095869
+
+instance DataTypeEntity_1499365017707_1418952289 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geographical-Region"
+
+instance DataTypeEntity_1499365017707_246095869 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Map"
+
+instance EndEvent_1499365017707_583994821 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017707_1084836270
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017707_1936037947 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017707_1084836270
+     hasSource hasValue StartEvent_1499365017707_1204329314
+     hasTarget hasValue Task_1499365017707_1319449964
