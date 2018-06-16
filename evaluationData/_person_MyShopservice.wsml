@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020145
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020144_214350669 memberOf Process
+     hasName hasValue "myShop Person Service"
+     hasDescription hasValue "This service returns info of a person, who is working as a proprietor in my shop."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/MyshopPersonService"
+     hasWorkflow hasValue Workflow_1499365020144_1133534463
+
+instance Workflow_1499365020144_1133534463 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020144_214350669
+     hasWorkflowElement hasValue StartEvent_1499365020144_341454801
+
+instance StartEvent_1499365020144_341454801 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020144_214350669
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020144_2095069261 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020144_214350669
+     hasSource hasValue StartEvent_1499365020144_341454801
+     hasTarget hasValue Task_1499365020144_1263117983
+
+instance Task_1499365020144_1263117983 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020144_214350669
+     sendsData hasValue DataTypeEntity_1499365020144_1300038510
+
+instance DataTypeEntity_1499365020144_1300038510 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Person"
+
+instance ConditionalflowConnector_1499365020144_1609458498 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020144_214350669
+     hasSource hasValue Task_1499365020144_1263117983
+     hasTarget hasValue EndEvent_1499365020144_1236452843
+
+instance EndEvent_1499365020144_1236452843 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020144_214350669
+     hasName hasValue "End"

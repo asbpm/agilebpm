@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020114
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020114_144652299 memberOf Process
+     hasName hasValue "German Icing condition"
+     hasDescription hasValue "This service returns Icing condition of Germany."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GermanIcingCondition"
+     hasWorkflow hasValue Workflow_1499365020114_1565128006
+
+instance Workflow_1499365020114_1565128006 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020114_144652299
+     hasWorkflowElement hasValue StartEvent_1499365020114_2021039444
+
+instance StartEvent_1499365020114_2021039444 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020114_144652299
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020114_272714153 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020114_144652299
+     hasSource hasValue Task_1499365020114_548980721
+     hasTarget hasValue EndEvent_1499365020114_1995199453
+
+instance Task_1499365020114_548980721 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020114_144652299
+     sendsData hasValue DataTypeEntity_1499365020114_1706682531
+
+instance DataTypeEntity_1499365020114_1706682531 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Icing"
+
+instance EndEvent_1499365020114_1995199453 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020114_144652299
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020114_1392801241 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020114_144652299
+     hasSource hasValue StartEvent_1499365020114_2021039444
+     hasTarget hasValue Task_1499365020114_548980721

@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020128
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020128_219865064 memberOf Process
+     hasName hasValue "MunchenUniversityLecturers"
+     hasDescription hasValue "This service returns names of lecturers of the Technical University in Munchen."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Munchenuniversitylecturers"
+     hasWorkflow hasValue Workflow_1499365020128_840233728
+
+instance Workflow_1499365020128_840233728 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020128_219865064
+     hasWorkflowElement hasValue StartEvent_1499365020128_1400678630
+
+instance StartEvent_1499365020128_1400678630 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020128_219865064
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020128_1569391216 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020128_219865064
+     hasSource hasValue StartEvent_1499365020128_1400678630
+     hasTarget hasValue Task_1499365020128_931259688
+
+instance Task_1499365020128_931259688 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020128_219865064
+     sendsData hasValue DataTypeEntity_1499365020128_737328155
+
+instance DataTypeEntity_1499365020128_737328155 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Lecturer-In-Academia"
+
+instance ConditionalflowConnector_1499365020128_1894971485 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020128_219865064
+     hasSource hasValue Task_1499365020128_931259688
+     hasTarget hasValue EndEvent_1499365020128_273437607
+
+instance EndEvent_1499365020128_273437607 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020128_219865064
+     hasName hasValue "End"

@@ -1,0 +1,46 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020083
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020083_216352354 memberOf Process
+     hasName hasValue "DroughtReport"
+     hasDescription hasValue "This service returns report containing information about certain type of Drought."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Droughtreport"
+     hasWorkflow hasValue Workflow_1499365020083_1648037246
+
+instance Workflow_1499365020083_1648037246 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020083_216352354
+     hasWorkflowElement hasValue StartEvent_1499365020083_1479180248
+
+instance StartEvent_1499365020083_1479180248 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020083_216352354
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020083_1952889198 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020083_216352354
+     hasSource hasValue StartEvent_1499365020083_1479180248
+     hasTarget hasValue Task_1499365020083_1725834802
+
+instance Task_1499365020083_1725834802 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020083_216352354
+     sendsData hasValue {DataTypeEntity_1499365020083_1579531985, DataTypeEntity_1499365020083_1031019737 }
+
+instance DataTypeEntity_1499365020083_1579531985 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Drought"
+
+instance DataTypeEntity_1499365020083_1031019737 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Report"
+
+instance ConditionalflowConnector_1499365020083_1043580910 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020083_216352354
+     hasSource hasValue Task_1499365020083_1725834802
+     hasTarget hasValue EndEvent_1499365020083_1821103971
+
+instance EndEvent_1499365020083_1821103971 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020083_216352354
+     hasName hasValue "End"

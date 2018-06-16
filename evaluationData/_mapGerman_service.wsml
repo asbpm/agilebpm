@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020139
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020139_634527352 memberOf Process
+     hasName hasValue "GermanMap Service"
+     hasDescription hasValue "This service returns a map of Germany. This map is useful to find a route for traveling between its two cities, for example from Frankfurt to Berlin etc."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GermanmapService"
+     hasWorkflow hasValue Workflow_1499365020139_1905306665
+
+instance Workflow_1499365020139_1905306665 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020139_634527352
+     hasWorkflowElement hasValue StartEvent_1499365020139_1944262976
+
+instance StartEvent_1499365020139_1944262976 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020139_634527352
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020139_531855240 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020139_634527352
+     hasSource hasValue Task_1499365020139_1788611309
+     hasTarget hasValue EndEvent_1499365020139_229290085
+
+instance Task_1499365020139_1788611309 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020139_634527352
+     sendsData hasValue DataTypeEntity_1499365020139_1132297494
+
+instance DataTypeEntity_1499365020139_1132297494 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Map"
+
+instance EndEvent_1499365020139_229290085 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020139_634527352
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020139_1162337346 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020139_634527352
+     hasSource hasValue StartEvent_1499365020139_1944262976
+     hasTarget hasValue Task_1499365020139_1788611309

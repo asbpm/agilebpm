@@ -1,0 +1,46 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020151
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020151_108928781 memberOf Process
+     hasName hasValue "WallmartCPriceService"
+     hasDescription hasValue "This service returns list of camera models and their prices available in Wallmart."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Wallmartcpriceservice"
+     hasWorkflow hasValue Workflow_1499365020151_592450456
+
+instance Workflow_1499365020151_592450456 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020151_108928781
+     hasWorkflowElement hasValue StartEvent_1499365020151_1887467122
+
+instance StartEvent_1499365020151_1887467122 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020151_108928781
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020151_1014594753 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020151_108928781
+     hasSource hasValue StartEvent_1499365020151_1887467122
+     hasTarget hasValue Task_1499365020151_734912083
+
+instance Task_1499365020151_734912083 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020151_108928781
+     sendsData hasValue {DataTypeEntity_1499365020151_1868907743, DataTypeEntity_1499365020151_1817094227 }
+
+instance DataTypeEntity_1499365020151_1868907743 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#Camera"
+
+instance DataTypeEntity_1499365020151_1817094227 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance ConditionalflowConnector_1499365020151_946940827 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020151_108928781
+     hasSource hasValue Task_1499365020151_734912083
+     hasTarget hasValue EndEvent_1499365020151_161135129
+
+instance EndEvent_1499365020151_161135129 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020151_108928781
+     hasName hasValue "End"

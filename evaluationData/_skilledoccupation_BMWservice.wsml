@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020171
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020171_576467571 memberOf Process
+     hasName hasValue "BMWSkilledPositions"
+     hasDescription hasValue "BMW service returns current needed skilled occupation in BMW company in Munchen."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Bmwskilledpositions"
+     hasWorkflow hasValue Workflow_1499365020171_2042743927
+
+instance Workflow_1499365020171_2042743927 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020171_576467571
+     hasWorkflowElement hasValue StartEvent_1499365020171_1581893014
+
+instance StartEvent_1499365020171_1581893014 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020171_576467571
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020171_15824017 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020171_576467571
+     hasSource hasValue StartEvent_1499365020171_1581893014
+     hasTarget hasValue Task_1499365020171_1921543522
+
+instance Task_1499365020171_1921543522 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020171_576467571
+     sendsData hasValue DataTypeEntity_1499365020171_517906212
+
+instance DataTypeEntity_1499365020171_517906212 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#SkilledOccupation"
+
+instance ConditionalflowConnector_1499365020171_1103468290 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020171_576467571
+     hasSource hasValue Task_1499365020171_1921543522
+     hasTarget hasValue EndEvent_1499365020171_2008477260
+
+instance EndEvent_1499365020171_2008477260 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020171_576467571
+     hasName hasValue "End"

@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020117
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020116_1038194915 memberOf Process
+     hasName hasValue "InformationBearingProviderService"
+     hasDescription hasValue "This service provides information bearing objects, such as messages, news items etc."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Informationbearingproviderservice"
+     hasWorkflow hasValue Workflow_1499365020116_1084403944
+
+instance Workflow_1499365020116_1084403944 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020116_1038194915
+     hasWorkflowElement hasValue StartEvent_1499365020116_1612763523
+
+instance StartEvent_1499365020116_1612763523 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020116_1038194915
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020116_412174663 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020116_1038194915
+     hasSource hasValue StartEvent_1499365020116_1612763523
+     hasTarget hasValue Task_1499365020116_1125490197
+
+instance Task_1499365020116_1125490197 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020116_1038194915
+     sendsData hasValue DataTypeEntity_1499365020116_1354733284
+
+instance DataTypeEntity_1499365020116_1354733284 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Information-Bearing-Object"
+
+instance ConditionalflowConnector_1499365020116_762124021 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020116_1038194915
+     hasSource hasValue Task_1499365020116_1125490197
+     hasTarget hasValue EndEvent_1499365020116_1224163986
+
+instance EndEvent_1499365020116_1224163986 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020116_1038194915
+     hasName hasValue "End"

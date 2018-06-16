@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020122
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020122_1746499237 memberOf Process
+     hasName hasValue "SaarlandHospitalInvestService"
+     hasDescription hasValue "This service returns investigating facility in the Saarland biggest hospital."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Saarlandhospitalinvestservice"
+     hasWorkflow hasValue Workflow_1499365020122_468964115
+
+instance Workflow_1499365020122_468964115 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020122_1746499237
+     hasWorkflowElement hasValue StartEvent_1499365020122_434497310
+
+instance StartEvent_1499365020122_434497310 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020122_1746499237
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020122_282727755 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020122_1746499237
+     hasSource hasValue Task_1499365020122_351621445
+     hasTarget hasValue EndEvent_1499365020122_1119450296
+
+instance Task_1499365020122_351621445 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020122_1746499237
+     sendsData hasValue DataTypeEntity_1499365020122_162339553
+
+instance DataTypeEntity_1499365020122_162339553 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Investigating"
+
+instance EndEvent_1499365020122_1119450296 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020122_1746499237
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020122_808479197 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020122_1746499237
+     hasSource hasValue StartEvent_1499365020122_434497310
+     hasTarget hasValue Task_1499365020122_351621445

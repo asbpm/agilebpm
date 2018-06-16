@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020190
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020189_1149142068 memberOf Process
+     hasName hasValue "Smith Lee productions"
+     hasDescription hasValue "This service returns list of video medias produced by Smith Lee production."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/SmithLeeProductions"
+     hasWorkflow hasValue Workflow_1499365020189_1037332194
+
+instance Workflow_1499365020189_1037332194 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020189_1149142068
+     hasWorkflowElement hasValue StartEvent_1499365020189_292756916
+
+instance StartEvent_1499365020189_292756916 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020189_1149142068
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020189_424242019 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020189_1149142068
+     hasSource hasValue Task_1499365020189_1456851663
+     hasTarget hasValue EndEvent_1499365020189_552673244
+
+instance Task_1499365020189_1456851663 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020189_1149142068
+     sendsData hasValue DataTypeEntity_1499365020189_529839761
+
+instance DataTypeEntity_1499365020189_529839761 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#VideoMedia"
+
+instance EndEvent_1499365020189_552673244 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020189_1149142068
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020189_2055237393 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020189_1149142068
+     hasSource hasValue StartEvent_1499365020189_292756916
+     hasTarget hasValue Task_1499365020189_1456851663

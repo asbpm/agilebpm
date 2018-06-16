@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020154
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020154_1447311088 memberOf Process
+     hasName hasValue "CannonCameraPriceService"
+     hasDescription hasValue "This service returns list of prices of Cannon digital camera models, available in all markets."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Cannoncamerapriceservice"
+     hasWorkflow hasValue Workflow_1499365020154_740634008
+
+instance Workflow_1499365020154_740634008 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020154_1447311088
+     hasWorkflowElement hasValue StartEvent_1499365020154_260443969
+
+instance StartEvent_1499365020154_260443969 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020154_1447311088
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020154_1877218895 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020154_1447311088
+     hasSource hasValue StartEvent_1499365020154_260443969
+     hasTarget hasValue Task_1499365020154_1183143268
+
+instance Task_1499365020154_1183143268 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020154_1447311088
+     sendsData hasValue DataTypeEntity_1499365020154_512613034
+
+instance DataTypeEntity_1499365020154_512613034 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance ConditionalflowConnector_1499365020154_864947379 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020154_1447311088
+     hasSource hasValue Task_1499365020154_1183143268
+     hasTarget hasValue EndEvent_1499365020154_1262011268
+
+instance EndEvent_1499365020154_1262011268 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020154_1447311088
+     hasName hasValue "End"

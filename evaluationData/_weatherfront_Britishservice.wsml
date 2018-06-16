@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020198
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020198_632676338 memberOf Process
+     hasName hasValue "BritishWeatherfrontService"
+     hasDescription hasValue "This service returns british weatherfront."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Britishweatherfrontservice"
+     hasWorkflow hasValue Workflow_1499365020198_1174917918
+
+instance Workflow_1499365020198_1174917918 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020198_632676338
+     hasWorkflowElement hasValue StartEvent_1499365020198_1357481326
+
+instance StartEvent_1499365020198_1357481326 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020198_632676338
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020198_276966337 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020198_632676338
+     hasSource hasValue Task_1499365020198_1556800555
+     hasTarget hasValue EndEvent_1499365020198_820801882
+
+instance Task_1499365020198_1556800555 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020198_632676338
+     sendsData hasValue DataTypeEntity_1499365020198_2015730905
+
+instance DataTypeEntity_1499365020198_2015730905 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#WeatherFront"
+
+instance EndEvent_1499365020198_820801882 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020198_632676338
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020198_1480207749 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020198_632676338
+     hasSource hasValue StartEvent_1499365020198_1357481326
+     hasTarget hasValue Task_1499365020198_1556800555

@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020036
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020036_612456724 memberOf Process
+     hasName hasValue "Three wheeled Car price service"
+     hasDescription hasValue "This service provides the price of a 3(three) wheeled car with Audi brand."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ThreeWheeledCarPriceService"
+     hasWorkflow hasValue Workflow_1499365020036_491758159
+
+instance Workflow_1499365020036_491758159 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020036_612456724
+     hasWorkflowElement hasValue StartEvent_1499365020036_389828672
+
+instance StartEvent_1499365020036_389828672 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020036_612456724
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020036_1507865944 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020036_612456724
+     hasSource hasValue StartEvent_1499365020036_389828672
+     hasTarget hasValue Task_1499365020036_2142430087
+
+instance Task_1499365020036_2142430087 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020036_612456724
+     sendsData hasValue DataTypeEntity_1499365020036_934681359
+
+instance DataTypeEntity_1499365020036_934681359 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance ConditionalflowConnector_1499365020036_1530501236 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020036_612456724
+     hasSource hasValue Task_1499365020036_2142430087
+     hasTarget hasValue EndEvent_1499365020036_66564350
+
+instance EndEvent_1499365020036_66564350 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020036_612456724
+     hasName hasValue "End"

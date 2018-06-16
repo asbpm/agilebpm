@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020192
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020192_1540148414 memberOf Process
+     hasName hasValue "Italy WarmFront service"
+     hasDescription hasValue "This service returns current warmfront condition of Italy."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ItalyWarmfrontService"
+     hasWorkflow hasValue Workflow_1499365020192_304303586
+
+instance Workflow_1499365020192_304303586 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020192_1540148414
+     hasWorkflowElement hasValue StartEvent_1499365020192_579202425
+
+instance StartEvent_1499365020192_579202425 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020192_1540148414
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020192_269156338 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020192_1540148414
+     hasSource hasValue Task_1499365020192_235653806
+     hasTarget hasValue EndEvent_1499365020192_1080389871
+
+instance Task_1499365020192_235653806 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020192_1540148414
+     sendsData hasValue DataTypeEntity_1499365020192_480707652
+
+instance DataTypeEntity_1499365020192_480707652 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#WarmFront"
+
+instance EndEvent_1499365020192_1080389871 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020192_1540148414
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020192_1321881813 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020192_1540148414
+     hasSource hasValue StartEvent_1499365020192_579202425
+     hasTarget hasValue Task_1499365020192_235653806

@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020086
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020086_1932230816 memberOf Process
+     hasName hasValue "Discovery Films service"
+     hasDescription hasValue "This service returns documentary films produced by Discovery channel about lions."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/DiscoveryFilmsService"
+     hasWorkflow hasValue Workflow_1499365020086_1103716950
+
+instance Workflow_1499365020086_1103716950 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020086_1932230816
+     hasWorkflowElement hasValue StartEvent_1499365020086_10702972
+
+instance StartEvent_1499365020086_10702972 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020086_1932230816
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020086_2121860811 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020086_1932230816
+     hasSource hasValue Task_1499365020086_558080273
+     hasTarget hasValue EndEvent_1499365020086_745816737
+
+instance Task_1499365020086_558080273 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020086_1932230816
+     sendsData hasValue DataTypeEntity_1499365020086_1296131760
+
+instance DataTypeEntity_1499365020086_1296131760 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Film"
+
+instance EndEvent_1499365020086_745816737 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020086_1932230816
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020086_287052470 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020086_1932230816
+     hasSource hasValue StartEvent_1499365020086_10702972
+     hasTarget hasValue Task_1499365020086_558080273

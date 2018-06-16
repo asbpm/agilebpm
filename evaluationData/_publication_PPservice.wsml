@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020165
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020165_1219315270 memberOf Process
+     hasName hasValue "PPService"
+     hasDescription hasValue "PP service returns titles of the most popular publications in the last year."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Ppservice"
+     hasWorkflow hasValue Workflow_1499365020165_912032350
+
+instance Workflow_1499365020165_912032350 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020165_1219315270
+     hasWorkflowElement hasValue StartEvent_1499365020165_1054960592
+
+instance StartEvent_1499365020165_1054960592 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020165_1219315270
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020165_94585427 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020165_1219315270
+     hasSource hasValue Task_1499365020165_682289551
+     hasTarget hasValue EndEvent_1499365020165_15102475
+
+instance Task_1499365020165_682289551 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020165_1219315270
+     sendsData hasValue DataTypeEntity_1499365020165_1424007253
+
+instance DataTypeEntity_1499365020165_1424007253 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Publication"
+
+instance EndEvent_1499365020165_15102475 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020165_1219315270
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020165_252422592 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020165_1219315270
+     hasSource hasValue StartEvent_1499365020165_1054960592
+     hasTarget hasValue Task_1499365020165_682289551

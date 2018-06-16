@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020103
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020103_272050669 memberOf Process
+     hasName hasValue "FranceMapService"
+     hasDescription hasValue "This service is dedicated to return geographical map of France including all major roads."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Francemapservice"
+     hasWorkflow hasValue Workflow_1499365020103_342601575
+
+instance Workflow_1499365020103_342601575 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020103_272050669
+     hasWorkflowElement hasValue StartEvent_1499365020103_1928936732
+
+instance StartEvent_1499365020103_1928936732 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020103_272050669
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020103_574548103 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020103_272050669
+     hasSource hasValue Task_1499365020103_1460279444
+     hasTarget hasValue EndEvent_1499365020103_1135841693
+
+instance Task_1499365020103_1460279444 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020103_272050669
+     sendsData hasValue DataTypeEntity_1499365020103_1970368876
+
+instance DataTypeEntity_1499365020103_1970368876 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Map"
+
+instance EndEvent_1499365020103_1135841693 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020103_272050669
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020103_1136689316 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020103_272050669
+     hasSource hasValue StartEvent_1499365020103_1928936732
+     hasTarget hasValue Task_1499365020103_1460279444

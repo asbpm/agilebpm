@@ -1,0 +1,49 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020059
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020059_1959745578 memberOf Process
+     hasName hasValue "CameraTDPriceService"
+     hasDescription hasValue "If you buy a certain brand of camera, you have also to give the tax price, and this service returns the duty tax too if you buy the same camera outside the country."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Cameratdpriceservice"
+     hasWorkflow hasValue Workflow_1499365020059_1164388833
+
+instance Workflow_1499365020059_1164388833 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020059_1959745578
+     hasWorkflowElement hasValue StartEvent_1499365020059_1614370708
+
+instance StartEvent_1499365020059_1614370708 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020059_1959745578
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020059_859218099 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020059_1959745578
+     hasSource hasValue StartEvent_1499365020059_1614370708
+     hasTarget hasValue Task_1499365020059_846372448
+
+instance Task_1499365020059_846372448 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020059_1959745578
+     sendsData hasValue {DataTypeEntity_1499365020059_1033195157, DataTypeEntity_1499365020059_2115951140, DataTypeEntity_1499365020059_2131096018 }
+
+instance DataTypeEntity_1499365020059_1033195157 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#DutyTax"
+
+instance DataTypeEntity_1499365020059_2115951140 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxedPrice"
+
+instance DataTypeEntity_1499365020059_2131096018 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#Camera"
+
+instance ConditionalflowConnector_1499365020059_227760700 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020059_1959745578
+     hasSource hasValue Task_1499365020059_846372448
+     hasTarget hasValue EndEvent_1499365020059_871973428
+
+instance EndEvent_1499365020059_871973428 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020059_1959745578
+     hasName hasValue "End"

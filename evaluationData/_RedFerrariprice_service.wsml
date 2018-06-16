@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020168
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020168_109792266 memberOf Process
+     hasName hasValue "Red Ferrari price service"
+     hasDescription hasValue "A magical price of a red ferrari car F50 model."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/RedFerrariPriceService"
+     hasWorkflow hasValue Workflow_1499365020168_140766546
+
+instance Workflow_1499365020168_140766546 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020168_109792266
+     hasWorkflowElement hasValue StartEvent_1499365020168_890799429
+
+instance StartEvent_1499365020168_890799429 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020168_109792266
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020168_784636186 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020168_109792266
+     hasSource hasValue Task_1499365020168_1883309454
+     hasTarget hasValue EndEvent_1499365020168_462742343
+
+instance Task_1499365020168_1883309454 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020168_109792266
+     sendsData hasValue DataTypeEntity_1499365020168_433416323
+
+instance DataTypeEntity_1499365020168_433416323 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365020168_462742343 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020168_109792266
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020168_1738012332 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020168_109792266
+     hasSource hasValue StartEvent_1499365020168_890799429
+     hasTarget hasValue Task_1499365020168_1883309454

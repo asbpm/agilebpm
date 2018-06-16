@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020119
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020119_461857319 memberOf Process
+     hasName hasValue "EarthSystem service"
+     hasDescription hasValue "This service informs you about internal change, EarthTremor or earthquake, that happened in the earth."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/EarthsystemService"
+     hasWorkflow hasValue Workflow_1499365020119_1845895724
+
+instance Workflow_1499365020119_1845895724 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020119_461857319
+     hasWorkflowElement hasValue StartEvent_1499365020119_1933327030
+
+instance StartEvent_1499365020119_1933327030 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020119_461857319
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020119_400124510 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020119_461857319
+     hasSource hasValue StartEvent_1499365020119_1933327030
+     hasTarget hasValue Task_1499365020119_1227521483
+
+instance Task_1499365020119_1227521483 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020119_461857319
+     sendsData hasValue DataTypeEntity_1499365020119_895968564
+
+instance DataTypeEntity_1499365020119_895968564 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#InternalChange"
+
+instance ConditionalflowConnector_1499365020119_138424067 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020119_461857319
+     hasSource hasValue Task_1499365020119_1227521483
+     hasTarget hasValue EndEvent_1499365020119_1148791290
+
+instance EndEvent_1499365020119_1148791290 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020119_461857319
+     hasName hasValue "End"

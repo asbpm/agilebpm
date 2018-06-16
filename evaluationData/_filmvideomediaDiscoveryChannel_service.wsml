@@ -1,0 +1,46 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020091
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020091_87574483 memberOf Process
+     hasName hasValue "Discovery Channel service"
+     hasDescription hasValue "This service returns information of the natural films produced by Discovery channel, also available video media that includes these films."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/DiscoveryChannelService"
+     hasWorkflow hasValue Workflow_1499365020091_70111793
+
+instance Workflow_1499365020091_70111793 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020091_87574483
+     hasWorkflowElement hasValue StartEvent_1499365020091_1782484709
+
+instance StartEvent_1499365020091_1782484709 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020091_87574483
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020091_1965473734 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020091_87574483
+     hasSource hasValue StartEvent_1499365020091_1782484709
+     hasTarget hasValue Task_1499365020091_1924853340
+
+instance Task_1499365020091_1924853340 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020091_87574483
+     sendsData hasValue {DataTypeEntity_1499365020091_796669669, DataTypeEntity_1499365020091_731726549 }
+
+instance DataTypeEntity_1499365020091_796669669 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#VideoMedia"
+
+instance DataTypeEntity_1499365020091_731726549 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Film"
+
+instance ConditionalflowConnector_1499365020091_1906869837 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020091_87574483
+     hasSource hasValue Task_1499365020091_1924853340
+     hasTarget hasValue EndEvent_1499365020091_1590409537
+
+instance EndEvent_1499365020091_1590409537 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020091_87574483
+     hasName hasValue "End"

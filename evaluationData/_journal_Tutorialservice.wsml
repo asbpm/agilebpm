@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020125
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020125_271968964 memberOf Process
+     hasName hasValue "Computer Based Training ( CBT ) Service"
+     hasDescription hasValue "Training tutorial and course for windows, frontpage and for Programming with .NET"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ComputerBasedTraining(Cbt)Service"
+     hasWorkflow hasValue Workflow_1499365020125_967030004
+
+instance Workflow_1499365020125_967030004 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020125_271968964
+     hasWorkflowElement hasValue StartEvent_1499365020125_1357355935
+
+instance StartEvent_1499365020125_1357355935 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020125_271968964
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020125_1405096883 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020125_271968964
+     hasSource hasValue StartEvent_1499365020125_1357355935
+     hasTarget hasValue Task_1499365020125_384477691
+
+instance Task_1499365020125_384477691 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020125_271968964
+     sendsData hasValue DataTypeEntity_1499365020125_1310618214
+
+instance DataTypeEntity_1499365020125_1310618214 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Journal"
+
+instance ConditionalflowConnector_1499365020125_1917730330 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020125_271968964
+     hasSource hasValue Task_1499365020125_384477691
+     hasTarget hasValue EndEvent_1499365020125_616992829
+
+instance EndEvent_1499365020125_616992829 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020125_271968964
+     hasName hasValue "End"

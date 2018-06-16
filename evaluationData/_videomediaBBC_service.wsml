@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020184
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020184_4065549 memberOf Process
+     hasName hasValue "BBC News Video Media service"
+     hasDescription hasValue "This service returns different Video Medias produced by BBC."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/BbcNewsVideoMediaService"
+     hasWorkflow hasValue Workflow_1499365020184_1200332334
+
+instance Workflow_1499365020184_1200332334 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020184_4065549
+     hasWorkflowElement hasValue StartEvent_1499365020184_981042297
+
+instance StartEvent_1499365020184_981042297 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020184_4065549
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020184_513940965 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020184_4065549
+     hasSource hasValue StartEvent_1499365020184_981042297
+     hasTarget hasValue Task_1499365020184_950435382
+
+instance Task_1499365020184_950435382 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020184_4065549
+     sendsData hasValue DataTypeEntity_1499365020184_1149044816
+
+instance DataTypeEntity_1499365020184_1149044816 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#VideoMedia"
+
+instance ConditionalflowConnector_1499365020184_345600855 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020184_4065549
+     hasSource hasValue Task_1499365020184_950435382
+     hasTarget hasValue EndEvent_1499365020184_567625349
+
+instance EndEvent_1499365020184_567625349 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020184_4065549
+     hasName hasValue "End"

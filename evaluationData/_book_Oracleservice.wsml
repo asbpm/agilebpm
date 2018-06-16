@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020053
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020053_437591846 memberOf Process
+     hasName hasValue "Computer Networking Training Service"
+     hasDescription hasValue "This service returns books information to teach and help exams of Oracle networking course"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ComputerNetworkingTrainingService"
+     hasWorkflow hasValue Workflow_1499365020053_1455639995
+
+instance Workflow_1499365020053_1455639995 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020053_437591846
+     hasWorkflowElement hasValue StartEvent_1499365020053_302319072
+
+instance StartEvent_1499365020053_302319072 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020053_437591846
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020053_847523802 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020053_437591846
+     hasSource hasValue StartEvent_1499365020053_302319072
+     hasTarget hasValue Task_1499365020053_858161867
+
+instance Task_1499365020053_858161867 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020053_437591846
+     sendsData hasValue DataTypeEntity_1499365020053_437488475
+
+instance DataTypeEntity_1499365020053_437488475 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Book"
+
+instance ConditionalflowConnector_1499365020053_1476042421 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020053_437591846
+     hasSource hasValue Task_1499365020053_858161867
+     hasTarget hasValue EndEvent_1499365020053_1288760161
+
+instance EndEvent_1499365020053_1288760161 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020053_437591846
+     hasName hasValue "End"

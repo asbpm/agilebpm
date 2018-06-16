@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020174
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020174_1180057401 memberOf Process
+     hasName hasValue "ToyotaCar Price service"
+     hasDescription hasValue "Toyota is usually considered as a cheap car. This service returns price of available Toyota models."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ToyotacarPriceService"
+     hasWorkflow hasValue Workflow_1499365020174_650603616
+
+instance Workflow_1499365020174_650603616 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020174_1180057401
+     hasWorkflowElement hasValue StartEvent_1499365020174_196778977
+
+instance StartEvent_1499365020174_196778977 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020174_1180057401
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020174_1002559423 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020174_1180057401
+     hasSource hasValue Task_1499365020174_980770199
+     hasTarget hasValue EndEvent_1499365020174_186867973
+
+instance Task_1499365020174_980770199 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020174_1180057401
+     sendsData hasValue DataTypeEntity_1499365020174_2038886547
+
+instance DataTypeEntity_1499365020174_2038886547 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365020174_186867973 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020174_1180057401
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020174_828679373 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020174_1180057401
+     hasSource hasValue StartEvent_1499365020174_196778977
+     hasTarget hasValue Task_1499365020174_980770199

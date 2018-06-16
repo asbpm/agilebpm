@@ -1,0 +1,46 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020062
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020062_635294833 memberOf Process
+     hasName hasValue "CameraTaxPriceService"
+     hasDescription hasValue "This service returns cameras brands/models and their taxed prices. The results only include brand new cameras."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Camerataxpriceservice"
+     hasWorkflow hasValue Workflow_1499365020062_1415022092
+
+instance Workflow_1499365020062_1415022092 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020062_635294833
+     hasWorkflowElement hasValue StartEvent_1499365020062_2000133887
+
+instance StartEvent_1499365020062_2000133887 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020062_635294833
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020062_1314251996 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020062_635294833
+     hasSource hasValue StartEvent_1499365020062_2000133887
+     hasTarget hasValue Task_1499365020062_658862309
+
+instance Task_1499365020062_658862309 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020062_635294833
+     sendsData hasValue {DataTypeEntity_1499365020062_995778340, DataTypeEntity_1499365020062_1042531239 }
+
+instance DataTypeEntity_1499365020062_995778340 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxedPrice"
+
+instance DataTypeEntity_1499365020062_1042531239 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#Camera"
+
+instance ConditionalflowConnector_1499365020062_260886048 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020062_635294833
+     hasSource hasValue Task_1499365020062_658862309
+     hasTarget hasValue EndEvent_1499365020062_1638385716
+
+instance EndEvent_1499365020062_1638385716 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020062_635294833
+     hasName hasValue "End"

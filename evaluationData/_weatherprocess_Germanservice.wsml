@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020203
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020203_1017308190 memberOf Process
+     hasName hasValue "GermanWeatherProcessService"
+     hasDescription hasValue "This service returns weather process condition of Germany."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Germanweatherprocessservice"
+     hasWorkflow hasValue Workflow_1499365020203_554514149
+
+instance Workflow_1499365020203_554514149 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020203_1017308190
+     hasWorkflowElement hasValue StartEvent_1499365020203_491986365
+
+instance StartEvent_1499365020203_491986365 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020203_1017308190
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020203_77712889 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020203_1017308190
+     hasSource hasValue Task_1499365020203_1930185660
+     hasTarget hasValue EndEvent_1499365020203_273680484
+
+instance Task_1499365020203_1930185660 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020203_1017308190
+     sendsData hasValue DataTypeEntity_1499365020203_372349591
+
+instance DataTypeEntity_1499365020203_372349591 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#WeatherProcess"
+
+instance EndEvent_1499365020203_273680484 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020203_1017308190
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020203_2139366790 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020203_1017308190
+     hasSource hasValue StartEvent_1499365020203_491986365
+     hasTarget hasValue Task_1499365020203_1930185660

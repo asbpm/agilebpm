@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020157
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020156_2058098294 memberOf Process
+     hasName hasValue "CannonCameraPriceService"
+     hasDescription hasValue "This service returns price of Fish (dried) of our company."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Cannoncamerapriceservice"
+     hasWorkflow hasValue Workflow_1499365020156_239418252
+
+instance Workflow_1499365020156_239418252 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020156_2058098294
+     hasWorkflowElement hasValue StartEvent_1499365020156_209102664
+
+instance StartEvent_1499365020156_209102664 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020156_2058098294
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020156_85583237 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020156_2058098294
+     hasSource hasValue StartEvent_1499365020156_209102664
+     hasTarget hasValue Task_1499365020156_1986444956
+
+instance Task_1499365020156_1986444956 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020156_2058098294
+     sendsData hasValue DataTypeEntity_1499365020156_178620591
+
+instance DataTypeEntity_1499365020156_178620591 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance ConditionalflowConnector_1499365020156_775063977 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020156_2058098294
+     hasSource hasValue Task_1499365020156_1986444956
+     hasTarget hasValue EndEvent_1499365020156_1275037612
+
+instance EndEvent_1499365020156_1275037612 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020156_2058098294
+     hasName hasValue "End"

@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020089
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020088_1788145341 memberOf Process
+     hasName hasValue "Recommended Films service"
+     hasDescription hasValue "This service returns highly rated  films, which won oscar awards in the last 10 years."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/RecommendedFilmsService"
+     hasWorkflow hasValue Workflow_1499365020088_2012100871
+
+instance Workflow_1499365020088_2012100871 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020088_1788145341
+     hasWorkflowElement hasValue StartEvent_1499365020088_1747196545
+
+instance StartEvent_1499365020088_1747196545 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020088_1788145341
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020088_1435003794 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020088_1788145341
+     hasSource hasValue Task_1499365020088_1362864260
+     hasTarget hasValue EndEvent_1499365020088_1483782006
+
+instance Task_1499365020088_1362864260 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020088_1788145341
+     sendsData hasValue DataTypeEntity_1499365020088_749443326
+
+instance DataTypeEntity_1499365020088_749443326 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Film"
+
+instance EndEvent_1499365020088_1483782006 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020088_1788145341
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020088_1343188746 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020088_1788145341
+     hasSource hasValue StartEvent_1499365020088_1747196545
+     hasTarget hasValue Task_1499365020088_1362864260

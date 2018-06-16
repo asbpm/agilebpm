@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020134
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020134_1944643123 memberOf Process
+     hasName hasValue "ZambiaUniversityLecturers"
+     hasDescription hasValue "This service returns names of lecturers working at the Zambia university. It is the famous university of Zambia."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Zambiauniversitylecturers"
+     hasWorkflow hasValue Workflow_1499365020134_1963045676
+
+instance Workflow_1499365020134_1963045676 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020134_1944643123
+     hasWorkflowElement hasValue StartEvent_1499365020134_590310282
+
+instance StartEvent_1499365020134_590310282 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020134_1944643123
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020134_742726332 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020134_1944643123
+     hasSource hasValue StartEvent_1499365020134_590310282
+     hasTarget hasValue Task_1499365020134_1519173032
+
+instance Task_1499365020134_1519173032 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020134_1944643123
+     sendsData hasValue DataTypeEntity_1499365020134_728305115
+
+instance DataTypeEntity_1499365020134_728305115 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Lecturer-In-Academia"
+
+instance ConditionalflowConnector_1499365020134_1898227354 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020134_1944643123
+     hasSource hasValue Task_1499365020134_1519173032
+     hasTarget hasValue EndEvent_1499365020134_1205400560
+
+instance EndEvent_1499365020134_1205400560 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020134_1944643123
+     hasName hasValue "End"

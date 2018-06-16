@@ -1,0 +1,46 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020077
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020076_322944988 memberOf Process
+     hasName hasValue "DiagP service"
+     hasDescription hasValue "DiagP service returns diagnostic process system, especially for fever, and the organization who offer this facility."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/DiagpService"
+     hasWorkflow hasValue Workflow_1499365020076_1837969269
+
+instance Workflow_1499365020076_1837969269 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020076_322944988
+     hasWorkflowElement hasValue StartEvent_1499365020076_262477600
+
+instance StartEvent_1499365020076_262477600 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020076_322944988
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020076_1224295021 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020076_322944988
+     hasSource hasValue StartEvent_1499365020076_262477600
+     hasTarget hasValue Task_1499365020076_808662412
+
+instance Task_1499365020076_808662412 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020076_322944988
+     sendsData hasValue {DataTypeEntity_1499365020076_834747096, DataTypeEntity_1499365020076_1794707134 }
+
+instance DataTypeEntity_1499365020076_834747096 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#DiagnosticProcess"
+
+instance DataTypeEntity_1499365020076_1794707134 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Organization"
+
+instance ConditionalflowConnector_1499365020076_284131649 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020076_322944988
+     hasSource hasValue Task_1499365020076_808662412
+     hasTarget hasValue EndEvent_1499365020076_770904468
+
+instance EndEvent_1499365020076_770904468 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020076_322944988
+     hasName hasValue "End"

@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020137
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020136_439205929 memberOf Process
+     hasName hasValue "FrankfurtBerlinMap Service"
+     hasDescription hasValue "If you want to travel from Frankfurt to Berlin, then use this service to provide you a map showing the shortest path between the two cities."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/FrankfurtberlinmapService"
+     hasWorkflow hasValue Workflow_1499365020136_905965644
+
+instance Workflow_1499365020136_905965644 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020136_439205929
+     hasWorkflowElement hasValue StartEvent_1499365020136_1757642995
+
+instance StartEvent_1499365020136_1757642995 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020136_439205929
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020136_1379167562 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020136_439205929
+     hasSource hasValue StartEvent_1499365020136_1757642995
+     hasTarget hasValue Task_1499365020136_762788037
+
+instance Task_1499365020136_762788037 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020136_439205929
+     sendsData hasValue DataTypeEntity_1499365020136_1523060408
+
+instance DataTypeEntity_1499365020136_1523060408 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Map"
+
+instance ConditionalflowConnector_1499365020136_1606923226 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020136_439205929
+     hasSource hasValue Task_1499365020136_762788037
+     hasTarget hasValue EndEvent_1499365020136_795504950
+
+instance EndEvent_1499365020136_795504950 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020136_439205929
+     hasName hasValue "End"

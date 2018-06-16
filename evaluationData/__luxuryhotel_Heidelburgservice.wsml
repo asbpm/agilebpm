@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020209
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020209_1468321643 memberOf Process
+     hasName hasValue "HeidelburgLuxuryHotelInfoService"
+     hasDescription hasValue "This service is a recommended service to know about Heidelburg's, a famous city of Germany, available luxury hotels."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Heidelburgluxuryhotelinfoservice"
+     hasWorkflow hasValue Workflow_1499365020209_1059701088
+
+instance Workflow_1499365020209_1059701088 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020209_1468321643
+     hasWorkflowElement hasValue StartEvent_1499365020209_1235007309
+
+instance StartEvent_1499365020209_1235007309 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020209_1468321643
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020209_1320913539 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020209_1468321643
+     hasSource hasValue StartEvent_1499365020209_1235007309
+     hasTarget hasValue Task_1499365020209_726302447
+
+instance Task_1499365020209_726302447 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020209_1468321643
+     sendsData hasValue DataTypeEntity_1499365020209_1532607446
+
+instance DataTypeEntity_1499365020209_1532607446 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#LuxuryHotel"
+
+instance ConditionalflowConnector_1499365020209_1462597541 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020209_1468321643
+     hasSource hasValue Task_1499365020209_726302447
+     hasTarget hasValue EndEvent_1499365020209_800670669
+
+instance EndEvent_1499365020209_800670669 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020209_1468321643
+     hasName hasValue "End"

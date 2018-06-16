@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020064
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020064_407661115 memberOf Process
+     hasName hasValue "TheFinestSeedProviderService"
+     hasDescription hasValue "This serive provides the finest seed which is produced by the cereal grasses, e.g. rice, corn, wheat, etc. The government agriculture department is responsible to grow them."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Thefinestseedproviderservice"
+     hasWorkflow hasValue Workflow_1499365020064_1014048839
+
+instance Workflow_1499365020064_1014048839 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020064_407661115
+     hasWorkflowElement hasValue StartEvent_1499365020064_519018632
+
+instance StartEvent_1499365020064_519018632 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020064_407661115
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020064_1162281698 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020064_407661115
+     hasSource hasValue Task_1499365020064_1243622725
+     hasTarget hasValue EndEvent_1499365020064_1379374199
+
+instance Task_1499365020064_1243622725 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020064_407661115
+     sendsData hasValue DataTypeEntity_1499365020064_795341541
+
+instance DataTypeEntity_1499365020064_795341541 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#CerealGrain"
+
+instance EndEvent_1499365020064_1379374199 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020064_407661115
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020064_638658596 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020064_407661115
+     hasSource hasValue StartEvent_1499365020064_519018632
+     hasTarget hasValue Task_1499365020064_1243622725

@@ -1,0 +1,49 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020067
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020067_309522102 memberOf Process
+     hasName hasValue "TeaCoffeeDifferencesService"
+     hasDescription hasValue "This service informs about certain tea type and coffee type and comparison reports of their advantages and disadvantages."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Teacoffeedifferencesservice"
+     hasWorkflow hasValue Workflow_1499365020067_85107635
+
+instance Workflow_1499365020067_85107635 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020067_309522102
+     hasWorkflowElement hasValue StartEvent_1499365020067_802113930
+
+instance StartEvent_1499365020067_802113930 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020067_309522102
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020067_412672587 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020067_309522102
+     hasSource hasValue StartEvent_1499365020067_802113930
+     hasTarget hasValue Task_1499365020067_2024480678
+
+instance Task_1499365020067_2024480678 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020067_309522102
+     sendsData hasValue {DataTypeEntity_1499365020067_2133431637, DataTypeEntity_1499365020067_953803052, DataTypeEntity_1499365020067_783322709 }
+
+instance DataTypeEntity_1499365020067_2133431637 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Report"
+
+instance DataTypeEntity_1499365020067_953803052 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Coffee"
+
+instance DataTypeEntity_1499365020067_783322709 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Tea"
+
+instance ConditionalflowConnector_1499365020067_1756476262 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020067_309522102
+     hasSource hasValue Task_1499365020067_2024480678
+     hasTarget hasValue EndEvent_1499365020067_355608317
+
+instance EndEvent_1499365020067_355608317 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020067_309522102
+     hasName hasValue "End"

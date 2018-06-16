@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020181
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020180_913385313 memberOf Process
+     hasName hasValue "USJudge service"
+     hasDescription hasValue "This service informs you about the current US chief judge."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/UsjudgeService"
+     hasWorkflow hasValue Workflow_1499365020180_1074376202
+
+instance Workflow_1499365020180_1074376202 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020180_913385313
+     hasWorkflowElement hasValue StartEvent_1499365020180_352729440
+
+instance StartEvent_1499365020180_352729440 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020180_913385313
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020180_1422128262 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020180_913385313
+     hasSource hasValue Task_1499365020180_230195266
+     hasTarget hasValue EndEvent_1499365020180_1751551683
+
+instance Task_1499365020180_230195266 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020180_913385313
+     sendsData hasValue DataTypeEntity_1499365020180_1879531136
+
+instance DataTypeEntity_1499365020180_1879531136 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Judge"
+
+instance EndEvent_1499365020180_1751551683 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020180_913385313
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020180_1531396750 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020180_913385313
+     hasSource hasValue StartEvent_1499365020180_352729440
+     hasTarget hasValue Task_1499365020180_230195266

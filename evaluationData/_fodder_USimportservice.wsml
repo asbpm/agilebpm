@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020094
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020094_1715452111 memberOf Process
+     hasName hasValue "ImportFodderService"
+     hasDescription hasValue "This service informs you about fodder imported from US."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Importfodderservice"
+     hasWorkflow hasValue Workflow_1499365020094_1369806239
+
+instance Workflow_1499365020094_1369806239 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020094_1715452111
+     hasWorkflowElement hasValue StartEvent_1499365020094_1966252530
+
+instance StartEvent_1499365020094_1966252530 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020094_1715452111
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020094_646607297 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020094_1715452111
+     hasSource hasValue Task_1499365020094_341349973
+     hasTarget hasValue EndEvent_1499365020094_25626399
+
+instance Task_1499365020094_341349973 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020094_1715452111
+     sendsData hasValue DataTypeEntity_1499365020094_1994403598
+
+instance DataTypeEntity_1499365020094_1994403598 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Fodder"
+
+instance EndEvent_1499365020094_25626399 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020094_1715452111
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020094_1836371672 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020094_1715452111
+     hasSource hasValue StartEvent_1499365020094_1966252530
+     hasTarget hasValue Task_1499365020094_341349973

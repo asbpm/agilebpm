@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020187
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020187_605929834 memberOf Process
+     hasName hasValue "SaturnVideoMediaService"
+     hasDescription hasValue "SaturnVideo is an official service of Saturn store to return list of available video media."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Saturnvideomediaservice"
+     hasWorkflow hasValue Workflow_1499365020187_1442114331
+
+instance Workflow_1499365020187_1442114331 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020187_605929834
+     hasWorkflowElement hasValue StartEvent_1499365020187_2107430255
+
+instance StartEvent_1499365020187_2107430255 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020187_605929834
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020187_1303670810 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020187_605929834
+     hasSource hasValue Task_1499365020187_1139566730
+     hasTarget hasValue EndEvent_1499365020187_1332577862
+
+instance Task_1499365020187_1139566730 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020187_605929834
+     sendsData hasValue DataTypeEntity_1499365020187_361528971
+
+instance DataTypeEntity_1499365020187_361528971 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#VideoMedia"
+
+instance EndEvent_1499365020187_1332577862 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020187_605929834
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020187_1116887282 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020187_605929834
+     hasSource hasValue StartEvent_1499365020187_2107430255
+     hasTarget hasValue Task_1499365020187_1139566730

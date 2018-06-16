@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020044
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020044_1530816092 memberOf Process
+     hasName hasValue "CompJ AuthorService"
+     hasDescription hasValue "CompJ  service returns author of the current computer science journal."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CompjAuthorservice"
+     hasWorkflow hasValue Workflow_1499365020044_1403444820
+
+instance Workflow_1499365020044_1403444820 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020044_1530816092
+     hasWorkflowElement hasValue StartEvent_1499365020044_2046044249
+
+instance StartEvent_1499365020044_2046044249 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020044_1530816092
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020044_969781333 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020044_1530816092
+     hasSource hasValue Task_1499365020044_1753605782
+     hasTarget hasValue EndEvent_1499365020044_1033172369
+
+instance Task_1499365020044_1753605782 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020044_1530816092
+     sendsData hasValue DataTypeEntity_1499365020044_1143651475
+
+instance DataTypeEntity_1499365020044_1143651475 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Author"
+
+instance EndEvent_1499365020044_1033172369 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020044_1530816092
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020044_255169403 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020044_1530816092
+     hasSource hasValue StartEvent_1499365020044_2046044249
+     hasTarget hasValue Task_1499365020044_1753605782
