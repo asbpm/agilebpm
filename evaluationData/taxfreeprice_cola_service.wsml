@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019673
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019673_1417700697 memberOf Process
+     hasName hasValue "TaxFreeColaService"
+     hasDescription hasValue "It is an attracted service to return cola for a tax free price."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Taxfreecolaservice"
+     hasWorkflow hasValue Workflow_1499365019673_1890552108
+
+instance Workflow_1499365019673_1890552108 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019673_1417700697
+     hasWorkflowElement hasValue StartEvent_1499365019673_1407083503
+
+instance StartEvent_1499365019673_1407083503 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019673_1417700697
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019673_2123916914 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019673_1417700697
+     hasSource hasValue StartEvent_1499365019673_1407083503
+     hasTarget hasValue Task_1499365019673_680815370
+
+instance Task_1499365019673_680815370 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019673_1417700697
+     receivesData hasValue DataTypeEntity_1499365019673_1406064723
+     sendsData hasValue DataTypeEntity_1499365019673_1683539096
+
+instance DataTypeEntity_1499365019673_1406064723 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxFreePrice"
+
+instance DataTypeEntity_1499365019673_1683539096 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Cola"
+
+instance ConditionalflowConnector_1499365019673_692867353 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019673_1417700697
+     hasSource hasValue Task_1499365019673_680815370
+     hasTarget hasValue EndEvent_1499365019673_97339017
+
+instance EndEvent_1499365019673_97339017 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019673_1417700697
+     hasName hasValue "End"

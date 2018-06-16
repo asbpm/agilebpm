@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019851
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019850_1397226177 memberOf Process
+     hasName hasValue "Film finder service"
+     hasDescription hasValue "One can discover a film title that is matching given title by using this service."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/FilmFinderService"
+     hasWorkflow hasValue Workflow_1499365019850_198824567
+
+instance Workflow_1499365019850_198824567 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019850_1397226177
+     hasWorkflowElement hasValue StartEvent_1499365019850_2124725469
+
+instance StartEvent_1499365019850_2124725469 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019850_1397226177
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019851_385775925 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019850_1397226177
+     hasSource hasValue Task_1499365019850_1118194574
+     hasTarget hasValue EndEvent_1499365019851_1329669337
+
+instance Task_1499365019850_1118194574 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019850_1397226177
+     receivesData hasValue DataTypeEntity_1499365019850_91876119
+     sendsData hasValue DataTypeEntity_1499365019851_902990757
+
+instance DataTypeEntity_1499365019850_91876119 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Title"
+
+instance DataTypeEntity_1499365019851_902990757 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Film"
+
+instance EndEvent_1499365019851_1329669337 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019850_1397226177
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019851_1945406660 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019850_1397226177
+     hasSource hasValue StartEvent_1499365019850_2124725469
+     hasTarget hasValue Task_1499365019850_1118194574

@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019603
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019603_1421080127 memberOf Process
+     hasName hasValue "HikingSurfingRuralAreaService"
+     hasDescription hasValue "This is a nice service to know about the rural area where you can find both sports hiking and surfing."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Hikingsurfingruralareaservice"
+     hasWorkflow hasValue Workflow_1499365019603_1937870301
+
+instance Workflow_1499365019603_1937870301 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019603_1421080127
+     hasWorkflowElement hasValue StartEvent_1499365019603_1265882050
+
+instance StartEvent_1499365019603_1265882050 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019603_1421080127
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019603_1210567440 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019603_1421080127
+     hasSource hasValue Task_1499365019603_1708562122
+     hasTarget hasValue EndEvent_1499365019603_430834537
+
+instance Task_1499365019603_1708562122 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019603_1421080127
+     receivesData hasValue {DataTypeEntity_1499365019603_668356815, DataTypeEntity_1499365019603_1438575964 }
+     sendsData hasValue DataTypeEntity_1499365019603_215019033
+
+instance DataTypeEntity_1499365019603_668356815 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Surfing"
+
+instance DataTypeEntity_1499365019603_1438575964 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Hiking"
+
+instance DataTypeEntity_1499365019603_215019033 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#RuralArea"
+
+instance EndEvent_1499365019603_430834537 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019603_1421080127
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019603_102343692 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019603_1421080127
+     hasSource hasValue StartEvent_1499365019603_1265882050
+     hasTarget hasValue Task_1499365019603_1708562122

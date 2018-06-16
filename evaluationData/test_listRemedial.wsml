@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019718
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019717_50012101 memberOf Process
+     hasName hasValue "List Remedials"
+     hasDescription hasValue "Test Service for listing remedials"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ListRemedials"
+     hasWorkflow hasValue Workflow_1499365019717_1488954396
+
+instance Workflow_1499365019717_1488954396 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019717_50012101
+     hasWorkflowElement hasValue StartEvent_1499365019717_1091293091
+
+instance StartEvent_1499365019717_1091293091 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019717_50012101
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019717_5706919 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019717_50012101
+     hasSource hasValue Task_1499365019717_1262195895
+     hasTarget hasValue EndEvent_1499365019717_488733103
+
+instance Task_1499365019717_1262195895 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019717_50012101
+     receivesData hasValue {DataTypeEntity_1499365019717_236785531, DataTypeEntity_1499365019717_1079471966 }
+     sendsData hasValue DataTypeEntity_1499365019717_1231236963
+
+instance DataTypeEntity_1499365019717_236785531 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EmergencyPhysicianOntology.owl#Hospital"
+
+instance DataTypeEntity_1499365019717_1079471966 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EmergencyPhysicianOntology.owl#Person"
+
+instance DataTypeEntity_1499365019717_1231236963 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EmergencyPhysicianOntology.owl#HospitalPhysician"
+
+instance EndEvent_1499365019717_488733103 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019717_50012101
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019717_774116714 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019717_50012101
+     hasSource hasValue StartEvent_1499365019717_1091293091
+     hasTarget hasValue Task_1499365019717_1262195895

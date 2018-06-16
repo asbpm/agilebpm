@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019816
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019816_302285690 memberOf Process
+     hasName hasValue "BF Comedy Film Searcher"
+     hasDescription hasValue "This service searches a comedy film for a title."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/BfComedyFilmSearcher"
+     hasWorkflow hasValue Workflow_1499365019816_1225001944
+
+instance Workflow_1499365019816_1225001944 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019816_302285690
+     hasWorkflowElement hasValue StartEvent_1499365019816_2124213066
+
+instance StartEvent_1499365019816_2124213066 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019816_302285690
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019816_1896766586 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019816_302285690
+     hasSource hasValue Task_1499365019816_1214396581
+     hasTarget hasValue EndEvent_1499365019816_837423700
+
+instance Task_1499365019816_1214396581 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019816_302285690
+     receivesData hasValue DataTypeEntity_1499365019816_1677351686
+     sendsData hasValue DataTypeEntity_1499365019816_1824795099
+
+instance DataTypeEntity_1499365019816_1677351686 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Title"
+
+instance DataTypeEntity_1499365019816_1824795099 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#ComedyFilm"
+
+instance EndEvent_1499365019816_837423700 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019816_302285690
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019816_627678991 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019816_302285690
+     hasSource hasValue StartEvent_1499365019816_2124213066
+     hasTarget hasValue Task_1499365019816_1214396581

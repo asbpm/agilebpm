@@ -1,0 +1,57 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019761
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019760_158454942 memberOf Process
+     hasName hasValue "Time-Measure Geopolitical-Entity City Accommodation InfoService"
+     hasDescription hasValue "This service informs about availability of accommodation in a given city of the geopolitical-entity during the given time-measure. The city should be located in the given geopolitical-entity."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Time-measureGeopolitical-entityCityAccommodationInfoservice"
+     hasWorkflow hasValue Workflow_1499365019760_1232799211
+
+instance Workflow_1499365019760_1232799211 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019760_158454942
+     hasWorkflowElement hasValue StartEvent_1499365019760_1680719728
+
+instance StartEvent_1499365019760_1680719728 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019760_158454942
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019760_987470224 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019760_158454942
+     hasSource hasValue StartEvent_1499365019760_1680719728
+     hasTarget hasValue Task_1499365019760_2064834913
+
+instance Task_1499365019760_2064834913 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019760_158454942
+     requestsCapability hasValue SemanticCapability_1499365019760_930723913
+     receivesData hasValue {DataTypeEntity_1499365019760_68270976, DataTypeEntity_1499365019760_1448323544, DataTypeEntity_1499365019760_918406814 }
+     sendsData hasValue DataTypeEntity_1499365019760_5629898
+
+instance SemanticCapability_1499365019760_930723913 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/time-measuregeopolitical-entitycity_accommodation_service.owls#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/time-measuregeopolitical-entitycity_accommodation_service.owls#_GEOPOLITICAL-ENTITY)"
+
+instance DataTypeEntity_1499365019760_68270976 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geopolitical-Entity"
+
+instance DataTypeEntity_1499365019760_1448323544 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#City"
+
+instance DataTypeEntity_1499365019760_918406814 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Time-Measure"
+
+instance DataTypeEntity_1499365019760_5629898 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Accommodation"
+
+instance ConditionalflowConnector_1499365019760_349734742 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019760_158454942
+     hasSource hasValue Task_1499365019760_2064834913
+     hasTarget hasValue EndEvent_1499365019760_1797715661
+
+instance EndEvent_1499365019760_1797715661 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019760_158454942
+     hasName hasValue "End"

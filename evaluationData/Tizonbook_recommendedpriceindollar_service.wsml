@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019939
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019938_537852057 memberOf Process
+     hasName hasValue "Tizon RecommendedPriceService"
+     hasDescription hasValue "Tizon is a rival US company of the book providers. It provides a web service to return recommended purchase price of a book in dollars."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/TizonRecommendedpriceservice"
+     hasWorkflow hasValue Workflow_1499365019938_1362911826
+
+instance Workflow_1499365019938_1362911826 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019938_537852057
+     hasWorkflowElement hasValue StartEvent_1499365019938_862753390
+
+instance StartEvent_1499365019938_862753390 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019938_537852057
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019938_402057182 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019938_537852057
+     hasSource hasValue Task_1499365019938_1009690133
+     hasTarget hasValue EndEvent_1499365019938_899361458
+
+instance Task_1499365019938_1009690133 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019938_537852057
+     receivesData hasValue DataTypeEntity_1499365019938_1302808633
+     sendsData hasValue DataTypeEntity_1499365019938_867953845
+
+instance DataTypeEntity_1499365019938_1302808633 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance DataTypeEntity_1499365019938_867953845 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPriceInDollar"
+
+instance EndEvent_1499365019938_899361458 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019938_537852057
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019938_1065770672 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019938_537852057
+     hasSource hasValue StartEvent_1499365019938_862753390
+     hasTarget hasValue Task_1499365019938_1009690133

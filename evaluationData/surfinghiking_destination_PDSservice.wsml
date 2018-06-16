@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019589
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019589_1367806603 memberOf Process
+     hasName hasValue "PDS HikingSurfingDestination"
+     hasDescription hasValue "PDS is an political reknown service that returns the destinations where both sports hiking and surfing are available."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/PdsHikingsurfingdestination"
+     hasWorkflow hasValue Workflow_1499365019589_1953799237
+
+instance Workflow_1499365019589_1953799237 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019589_1367806603
+     hasWorkflowElement hasValue StartEvent_1499365019589_1887970516
+
+instance StartEvent_1499365019589_1887970516 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019589_1367806603
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019589_653538449 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019589_1367806603
+     hasSource hasValue Task_1499365019589_194620930
+     hasTarget hasValue EndEvent_1499365019589_1120561048
+
+instance Task_1499365019589_194620930 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019589_1367806603
+     receivesData hasValue {DataTypeEntity_1499365019589_777942303, DataTypeEntity_1499365019589_454696662 }
+     sendsData hasValue DataTypeEntity_1499365019589_1621148345
+
+instance DataTypeEntity_1499365019589_777942303 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Surfing"
+
+instance DataTypeEntity_1499365019589_454696662 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Hiking"
+
+instance DataTypeEntity_1499365019589_1621148345 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Destination"
+
+instance EndEvent_1499365019589_1120561048 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019589_1367806603
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019589_1986040326 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019589_1367806603
+     hasSource hasValue StartEvent_1499365019589_1887970516
+     hasTarget hasValue Task_1499365019589_194620930

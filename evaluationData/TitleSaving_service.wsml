@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019771
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019771_1944867631 memberOf Process
+     hasName hasValue "Title saving service"
+     hasDescription hasValue "This service stores the given title of a book, novel, etc. into a database."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/TitleSavingService"
+     hasWorkflow hasValue Workflow_1499365019771_386452110
+
+instance Workflow_1499365019771_386452110 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019771_1944867631
+     hasWorkflowElement hasValue StartEvent_1499365019771_1334405381
+
+instance StartEvent_1499365019771_1334405381 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019771_1944867631
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019771_278098258 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019771_1944867631
+     hasSource hasValue StartEvent_1499365019771_1334405381
+     hasTarget hasValue Task_1499365019771_1939537958
+
+instance Task_1499365019771_1939537958 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019771_1944867631
+     providesCapability hasValue SemanticCapability_1499365019771_1909469347
+     receivesData hasValue DataTypeEntity_1499365019771_1174438613
+
+instance SemanticCapability_1499365019771_1909469347 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/SUMO.owl#part ?http://127.0.0.1:8000/services/OWLS-1.1/TitleSaving_service.owls#_TITLE ?http://127.0.0.1:8000/services/OWLS-1.1/TitleSaving_service.owls#_DATABASE)"
+
+instance DataTypeEntity_1499365019771_1174438613 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Title"
+
+instance ConditionalflowConnector_1499365019771_286922102 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019771_1944867631
+     hasSource hasValue Task_1499365019771_1939537958
+     hasTarget hasValue EndEvent_1499365019771_852443406
+
+instance EndEvent_1499365019771_852443406 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019771_1944867631
+     hasName hasValue "End"

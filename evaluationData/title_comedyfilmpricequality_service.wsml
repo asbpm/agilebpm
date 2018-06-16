@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019803
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019801_284389999 memberOf Process
+     hasName hasValue "Title ComedyFilm Price Quality service"
+     hasDescription hasValue "This service searches comedy films for the given title, and also returns its price and quality."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/TitleComedyfilmPriceQualityService"
+     hasWorkflow hasValue Workflow_1499365019801_1473140127
+
+instance Workflow_1499365019801_1473140127 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019801_284389999
+     hasWorkflowElement hasValue StartEvent_1499365019801_442759403
+
+instance StartEvent_1499365019801_442759403 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019801_284389999
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019801_508380018 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019801_284389999
+     hasSource hasValue StartEvent_1499365019801_442759403
+     hasTarget hasValue Task_1499365019801_902196590
+
+instance Task_1499365019801_902196590 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019801_284389999
+     receivesData hasValue DataTypeEntity_1499365019801_1281865735
+     sendsData hasValue {DataTypeEntity_1499365019801_818389960, DataTypeEntity_1499365019801_3210167, DataTypeEntity_1499365019801_870320644 }
+
+instance DataTypeEntity_1499365019801_1281865735 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Title"
+
+instance DataTypeEntity_1499365019801_818389960 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/finance_th_web.owl#quality"
+
+instance DataTypeEntity_1499365019801_3210167 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365019801_870320644 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#ComedyFilm"
+
+instance ConditionalflowConnector_1499365019801_2043401542 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019801_284389999
+     hasSource hasValue Task_1499365019801_902196590
+     hasTarget hasValue EndEvent_1499365019801_1014201521
+
+instance EndEvent_1499365019801_1014201521 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019801_284389999
+     hasName hasValue "End"

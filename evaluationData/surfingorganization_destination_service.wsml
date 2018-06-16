@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019625
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019625_1763938300 memberOf Process
+     hasName hasValue "SurfingOrganizationDESTINATIONService"
+     hasDescription hasValue "This service returns DESTINATION of the organization responsible for providing good surfing activities."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Surfingorganizationdestinationservice"
+     hasWorkflow hasValue Workflow_1499365019625_274894338
+
+instance Workflow_1499365019625_274894338 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019625_1763938300
+     hasWorkflowElement hasValue StartEvent_1499365019625_780240231
+
+instance StartEvent_1499365019625_780240231 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019625_1763938300
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019625_285032350 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019625_1763938300
+     hasSource hasValue Task_1499365019625_1680379517
+     hasTarget hasValue EndEvent_1499365019625_2034271607
+
+instance Task_1499365019625_1680379517 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019625_1763938300
+     receivesData hasValue {DataTypeEntity_1499365019625_311359426, DataTypeEntity_1499365019625_567409316 }
+     sendsData hasValue DataTypeEntity_1499365019625_1858083235
+
+instance DataTypeEntity_1499365019625_311359426 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Surfing"
+
+instance DataTypeEntity_1499365019625_567409316 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Organization"
+
+instance DataTypeEntity_1499365019625_1858083235 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Destination"
+
+instance EndEvent_1499365019625_2034271607 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019625_1763938300
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019625_1077275469 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019625_1763938300
+     hasSource hasValue StartEvent_1499365019625_780240231
+     hasTarget hasValue Task_1499365019625_1680379517

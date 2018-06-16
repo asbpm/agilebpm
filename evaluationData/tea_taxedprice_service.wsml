@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019700
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019699_1456817900 memberOf Process
+     hasName hasValue "Tea TaxedPrice Service"
+     hasDescription hasValue "This service returns taxed price of a given tea brand available at the tea market. The price is for 1Kg of tea."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/TeaTaxedpriceService"
+     hasWorkflow hasValue Workflow_1499365019699_1865976954
+
+instance Workflow_1499365019699_1865976954 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019699_1456817900
+     hasWorkflowElement hasValue StartEvent_1499365019699_918470872
+
+instance StartEvent_1499365019699_918470872 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019699_1456817900
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019699_560350473 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019699_1456817900
+     hasSource hasValue StartEvent_1499365019699_918470872
+     hasTarget hasValue Task_1499365019699_231088149
+
+instance Task_1499365019699_231088149 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019699_1456817900
+     receivesData hasValue DataTypeEntity_1499365019699_1027485812
+     sendsData hasValue DataTypeEntity_1499365019699_503414636
+
+instance DataTypeEntity_1499365019699_1027485812 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Tea"
+
+instance DataTypeEntity_1499365019699_503414636 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxedPrice"
+
+instance ConditionalflowConnector_1499365019699_1268273754 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019699_1456817900
+     hasSource hasValue Task_1499365019699_231088149
+     hasTarget hasValue EndEvent_1499365019699_236930051
+
+instance EndEvent_1499365019699_236930051 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019699_1456817900
+     hasName hasValue "End"

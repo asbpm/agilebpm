@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019732
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019731_80387163 memberOf Process
+     hasName hasValue "listRemedialWord2Vec"
+     hasDescription hasValue "This service returns list of prices of the available pair of a four wheeled car models and 1(one) person bicycle models."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Listremedialword2vec"
+     hasWorkflow hasValue Workflow_1499365019731_766816312
+
+instance Workflow_1499365019731_766816312 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019731_80387163
+     hasWorkflowElement hasValue StartEvent_1499365019731_644342104
+
+instance StartEvent_1499365019731_644342104 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019731_80387163
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019732_869157658 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019731_80387163
+     hasSource hasValue StartEvent_1499365019731_644342104
+     hasTarget hasValue Task_1499365019731_876705439
+
+instance Task_1499365019731_876705439 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019731_80387163
+     receivesData hasValue {DataTypeEntity_1499365019732_228087921, DataTypeEntity_1499365019732_1000207259 }
+     sendsData hasValue DataTypeEntity_1499365019732_1869153045
+
+instance DataTypeEntity_1499365019732_228087921 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EmergencyPhysicianOntology.owl#Person"
+
+instance DataTypeEntity_1499365019732_1000207259 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EmergencyPhysicianOntology.owl#Hospital"
+
+instance DataTypeEntity_1499365019732_1869153045 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SomeOnt.owl#Surgeon"
+
+instance ConditionalflowConnector_1499365019732_1776374093 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019731_80387163
+     hasSource hasValue Task_1499365019731_876705439
+     hasTarget hasValue EndEvent_1499365019732_133642352
+
+instance EndEvent_1499365019732_133642352 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019731_80387163
+     hasName hasValue "End"

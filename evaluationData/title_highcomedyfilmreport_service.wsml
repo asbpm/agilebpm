@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019854
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019854_1336219610 memberOf Process
+     hasName hasValue "HighComedy Film service"
+     hasDescription hasValue "This service returns a high comedy film for a title, plus a report including its rate and other features."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/HighcomedyFilmService"
+     hasWorkflow hasValue Workflow_1499365019854_834158768
+
+instance Workflow_1499365019854_834158768 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019854_1336219610
+     hasWorkflowElement hasValue StartEvent_1499365019854_821029577
+
+instance StartEvent_1499365019854_821029577 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019854_1336219610
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019854_1581044152 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019854_1336219610
+     hasSource hasValue StartEvent_1499365019854_821029577
+     hasTarget hasValue Task_1499365019854_1563122381
+
+instance Task_1499365019854_1563122381 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019854_1336219610
+     receivesData hasValue DataTypeEntity_1499365019854_482021428
+     sendsData hasValue {DataTypeEntity_1499365019854_1009508255, DataTypeEntity_1499365019854_695626875 }
+
+instance DataTypeEntity_1499365019854_482021428 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Title"
+
+instance DataTypeEntity_1499365019854_1009508255 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Report"
+
+instance DataTypeEntity_1499365019854_695626875 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#HighComedyFilm"
+
+instance ConditionalflowConnector_1499365019854_293496146 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019854_1336219610
+     hasSource hasValue Task_1499365019854_1563122381
+     hasTarget hasValue EndEvent_1499365019854_1259053662
+
+instance EndEvent_1499365019854_1259053662 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019854_1336219610
+     hasName hasValue "End"

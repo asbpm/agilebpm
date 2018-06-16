@@ -1,0 +1,59 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+, 
+     wsmostudio _"http://www.wsmostudio.org#" }
+
+ontology instanceOntology_1515688679001_1235169527
+     nonFunctionalProperties
+          wsmostudio#version hasValue "0.7.3.v20081203"
+     endNonFunctionalProperties
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Task_1515689125877_1932474042 memberOf Task
+     hasName hasValue "Freight"
+     hasHomeProcess hasValue Process_1515688691134_2015833862
+     receivesData hasValue _"http://127.0.0.1:8000/ontology/order.owl#SalesOrder"
+     sendsData hasValue _"http://127.0.0.1:8000/ontology/order.owl#DeliveryInfo"
+
+instance Process_1515688691134_2015833862 memberOf Process
+     hasName hasValue "Truck Shipping"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/goals#shipping"
+     hasWorkflow hasValue Workflow_1515688706891_1657393024
+
+instance Workflow_1515688706891_1657393024 memberOf Workflow
+     hasHomeProcess hasValue Process_1515688691134_2015833862
+     hasWorkflowElement hasValue StartEvent_1515689125877_1151704559
+
+instance StartEvent_1515689125877_1151704559 memberOf StartEvent
+     hasHomeProcess hasValue Process_1515688691134_2015833862
+     hasName hasValue "Start"
+
+instance ControlflowConnector_1515689125877_883121730 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1515688691134_2015833862
+     hasSource hasValue Task_1515689125877_1025064106
+     hasTarget hasValue EndEvent_1515689125877_1775206038
+
+instance Task_1515689125877_1025064106 memberOf Task
+     hasName hasValue "Transport"
+     hasHomeProcess hasValue Process_1515688691134_2015833862
+
+instance EndEvent_1515689125877_1775206038 memberOf EndEvent
+     hasHomeProcess hasValue Process_1515688691134_2015833862
+     hasName hasValue "End"
+
+instance ControlflowConnector_1515689125877_905007699 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1515688691134_2015833862
+     hasSource hasValue Task_1515689125877_1932474042
+     hasTarget hasValue Task_1515689125877_1025064106
+
+instance ControlflowConnector_1515689125877_898939393 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1515688691134_2015833862
+     hasSource hasValue StartEvent_1515689125877_1151704559
+     hasTarget hasValue Task_1515689125877_1932474042
+
+instance _"http://127.0.0.1:8000/ontology/order.owl#SalesOrder" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/order.owl#SalesOrder"
+
+instance _"http://127.0.0.1:8000/ontology/order.owl#DeliveryInfo" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/order.owl#DeliveryInfo"

@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019571
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019571_2122621240 memberOf Process
+     hasName hasValue "SurfingGenericAgentCityService"
+     hasDescription hasValue "This service returns city of a reputable generic agent who is responsible for sports especially surfing."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Surfinggenericagentcityservice"
+     hasWorkflow hasValue Workflow_1499365019571_1393924506
+
+instance Workflow_1499365019571_1393924506 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019571_2122621240
+     hasWorkflowElement hasValue StartEvent_1499365019571_709653345
+
+instance StartEvent_1499365019571_709653345 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019571_2122621240
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019571_1579725158 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019571_2122621240
+     hasSource hasValue StartEvent_1499365019571_709653345
+     hasTarget hasValue Task_1499365019571_1348058087
+
+instance Task_1499365019571_1348058087 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019571_2122621240
+     receivesData hasValue {DataTypeEntity_1499365019571_1437740916, DataTypeEntity_1499365019571_1779515344 }
+     sendsData hasValue DataTypeEntity_1499365019571_240232459
+
+instance DataTypeEntity_1499365019571_1437740916 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Surfing"
+
+instance DataTypeEntity_1499365019571_1779515344 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Generic-Agent"
+
+instance DataTypeEntity_1499365019571_240232459 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#City"
+
+instance ConditionalflowConnector_1499365019571_801560982 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019571_2122621240
+     hasSource hasValue Task_1499365019571_1348058087
+     hasTarget hasValue EndEvent_1499365019571_597977051
+
+instance EndEvent_1499365019571_597977051 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019571_2122621240
+     hasName hasValue "End"

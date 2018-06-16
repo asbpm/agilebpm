@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019585
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019585_1610400735 memberOf Process
+     hasName hasValue "DFG HikingSurfingDestination"
+     hasDescription hasValue "DFG presents a service that returns the destinations where both sports hiking and surfing are available."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/DfgHikingsurfingdestination"
+     hasWorkflow hasValue Workflow_1499365019585_1734197780
+
+instance Workflow_1499365019585_1734197780 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019585_1610400735
+     hasWorkflowElement hasValue StartEvent_1499365019585_971375700
+
+instance StartEvent_1499365019585_971375700 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019585_1610400735
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019585_713600407 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019585_1610400735
+     hasSource hasValue Task_1499365019585_1304725320
+     hasTarget hasValue EndEvent_1499365019585_1769058952
+
+instance Task_1499365019585_1304725320 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019585_1610400735
+     receivesData hasValue {DataTypeEntity_1499365019585_1528540861, DataTypeEntity_1499365019585_440968173 }
+     sendsData hasValue DataTypeEntity_1499365019585_1229918106
+
+instance DataTypeEntity_1499365019585_1528540861 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Surfing"
+
+instance DataTypeEntity_1499365019585_440968173 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Hiking"
+
+instance DataTypeEntity_1499365019585_1229918106 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Destination"
+
+instance EndEvent_1499365019585_1769058952 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019585_1610400735
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019585_1189526815 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019585_1610400735
+     hasSource hasValue StartEvent_1499365019585_971375700
+     hasTarget hasValue Task_1499365019585_1304725320
