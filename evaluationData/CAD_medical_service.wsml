@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016700
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016700_1578075507 memberOf Process
+     hasName hasValue "CAD service"
+     hasDescription hasValue "CAD is a famous service to inform you about diagnostic process and its length (duration) available in certain care organization."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CadService"
+     hasWorkflow hasValue Workflow_1499365016700_363238992
+
+instance Workflow_1499365016700_363238992 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016700_1578075507
+     hasWorkflowElement hasValue StartEvent_1499365016700_1533806
+
+instance StartEvent_1499365016700_1533806 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016700_1578075507
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016700_716575068 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016700_1578075507
+     hasSource hasValue Task_1499365016700_1795299690
+     hasTarget hasValue EndEvent_1499365016700_1790214146
+
+instance Task_1499365016700_1795299690 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016700_1578075507
+     receivesData hasValue DataTypeEntity_1499365016700_1826858733
+     sendsData hasValue {DataTypeEntity_1499365016700_1948703547, DataTypeEntity_1499365016700_20598156 }
+
+instance DataTypeEntity_1499365016700_1826858733 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#CareOrganization"
+
+instance DataTypeEntity_1499365016700_1948703547 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#DiagnosticProcess"
+
+instance DataTypeEntity_1499365016700_20598156 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#LengthMeasure"
+
+instance EndEvent_1499365016700_1790214146 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016700_1578075507
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016700_1918958214 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016700_1578075507
+     hasSource hasValue StartEvent_1499365016700_1533806
+     hasTarget hasValue Task_1499365016700_1795299690

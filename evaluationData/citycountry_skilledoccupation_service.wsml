@@ -1,0 +1,54 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016988
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016988_596372911 memberOf Process
+     hasName hasValue "SkilledPositionsService"
+     hasDescription hasValue "If you are interest to know about available skilled position in a certain country and city, then use this service. If the city input is not given then the output is a job in the whole country."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Skilledpositionsservice"
+     hasWorkflow hasValue Workflow_1499365016988_973621383
+
+instance Workflow_1499365016988_973621383 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016988_596372911
+     hasWorkflowElement hasValue StartEvent_1499365016988_1288524616
+
+instance StartEvent_1499365016988_1288524616 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016988_596372911
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016988_2127347011 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016988_596372911
+     hasSource hasValue Task_1499365016988_424862926
+     hasTarget hasValue EndEvent_1499365016988_924084976
+
+instance Task_1499365016988_424862926 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016988_596372911
+     requestsCapability hasValue SemanticCapability_1499365016988_249480545
+     receivesData hasValue {DataTypeEntity_1499365016988_736847153, DataTypeEntity_1499365016988_1296590188 }
+     sendsData hasValue DataTypeEntity_1499365016988_1969942725
+
+instance SemanticCapability_1499365016988_249480545 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/citycountry_skilledoccupation_service#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/citycountry_skilledoccupation_service#_COUNTRY)"
+
+instance DataTypeEntity_1499365016988_736847153 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#City"
+
+instance DataTypeEntity_1499365016988_1296590188 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Country"
+
+instance DataTypeEntity_1499365016988_1969942725 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#SkilledOccupation"
+
+instance EndEvent_1499365016988_924084976 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016988_596372911
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016988_540262557 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016988_596372911
+     hasSource hasValue StartEvent_1499365016988_1288524616
+     hasTarget hasValue Task_1499365016988_424862926

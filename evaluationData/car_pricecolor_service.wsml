@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016799
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016798_1588226616 memberOf Process
+     hasName hasValue "T-car price service"
+     hasDescription hasValue "T-service analysed car market value and deduced that color is one of the main issue in its popularity, so this service provides list of purchase prices of given car model with its available color."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/T-carPriceService"
+     hasWorkflow hasValue Workflow_1499365016798_447263813
+
+instance Workflow_1499365016798_447263813 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016798_1588226616
+     hasWorkflowElement hasValue StartEvent_1499365016798_1808403683
+
+instance StartEvent_1499365016798_1808403683 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016798_1588226616
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016798_1058433189 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016798_1588226616
+     hasSource hasValue Task_1499365016798_928230351
+     hasTarget hasValue EndEvent_1499365016798_2138416673
+
+instance Task_1499365016798_928230351 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016798_1588226616
+     receivesData hasValue DataTypeEntity_1499365016798_252447075
+     sendsData hasValue {DataTypeEntity_1499365016798_318869134, DataTypeEntity_1499365016798_1377316258 }
+
+instance DataTypeEntity_1499365016798_252447075 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Car"
+
+instance DataTypeEntity_1499365016798_318869134 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Color"
+
+instance DataTypeEntity_1499365016798_1377316258 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/finance_th_web.owl#price"
+
+instance EndEvent_1499365016798_2138416673 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016798_1588226616
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016798_1474865341 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016798_1588226616
+     hasSource hasValue StartEvent_1499365016798_1808403683
+     hasTarget hasValue Task_1499365016798_928230351

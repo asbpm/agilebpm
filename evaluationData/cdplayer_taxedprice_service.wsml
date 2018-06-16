@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016870
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016870_285887388 memberOf Process
+     hasName hasValue "CDPlayer TaxedPrice service"
+     hasDescription hasValue "This service returns the taxed price of a given cd player brand."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CdplayerTaxedpriceService"
+     hasWorkflow hasValue Workflow_1499365016870_1434738549
+
+instance Workflow_1499365016870_1434738549 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016870_285887388
+     hasWorkflowElement hasValue StartEvent_1499365016870_1092490424
+
+instance StartEvent_1499365016870_1092490424 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016870_285887388
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016870_1254859260 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016870_285887388
+     hasSource hasValue StartEvent_1499365016870_1092490424
+     hasTarget hasValue Task_1499365016870_1640483429
+
+instance Task_1499365016870_1640483429 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016870_285887388
+     receivesData hasValue DataTypeEntity_1499365016870_83282654
+     sendsData hasValue DataTypeEntity_1499365016870_223465752
+
+instance DataTypeEntity_1499365016870_83282654 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#CDPlayer"
+
+instance DataTypeEntity_1499365016870_223465752 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxedPrice"
+
+instance ConditionalflowConnector_1499365016870_623899631 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016870_285887388
+     hasSource hasValue Task_1499365016870_1640483429
+     hasTarget hasValue EndEvent_1499365016870_1141648205
+
+instance EndEvent_1499365016870_1141648205 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016870_285887388
+     hasName hasValue "End"

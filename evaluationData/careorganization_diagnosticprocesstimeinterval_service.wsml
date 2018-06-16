@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016757
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016757_1830586872 memberOf Process
+     hasName hasValue "CareOrganization DiagnosticProcess TimeInterval service"
+     hasDescription hasValue "This service informs you about diagnostic process and its time duration for a given care organization."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CareorganizationDiagnosticprocessTimeintervalService"
+     hasWorkflow hasValue Workflow_1499365016757_906317977
+
+instance Workflow_1499365016757_906317977 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016757_1830586872
+     hasWorkflowElement hasValue StartEvent_1499365016757_1610097110
+
+instance StartEvent_1499365016757_1610097110 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016757_1830586872
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016757_217545975 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016757_1830586872
+     hasSource hasValue Task_1499365016757_1047160444
+     hasTarget hasValue EndEvent_1499365016757_2140204542
+
+instance Task_1499365016757_1047160444 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016757_1830586872
+     receivesData hasValue DataTypeEntity_1499365016757_1722385569
+     sendsData hasValue {DataTypeEntity_1499365016757_1299725698, DataTypeEntity_1499365016757_1453486384 }
+
+instance DataTypeEntity_1499365016757_1722385569 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#CareOrganization"
+
+instance DataTypeEntity_1499365016757_1299725698 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#DiagnosticProcess"
+
+instance DataTypeEntity_1499365016757_1453486384 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#TimeInterval"
+
+instance EndEvent_1499365016757_2140204542 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016757_1830586872
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016757_796341965 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016757_1830586872
+     hasSource hasValue StartEvent_1499365016757_1610097110
+     hasTarget hasValue Task_1499365016757_1047160444

@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016878
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016877_1624539479 memberOf Process
+     hasName hasValue "CheapCar 1PersonBicycle Price service"
+     hasDescription hasValue "This service returns purchase prices of the pair of a cheap car model and one person bicycle model."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Cheapcar1personbicyclePriceService"
+     hasWorkflow hasValue Workflow_1499365016877_1133123307
+
+instance Workflow_1499365016877_1133123307 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016877_1624539479
+     hasWorkflowElement hasValue StartEvent_1499365016877_790352704
+
+instance StartEvent_1499365016877_790352704 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016877_1624539479
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016877_194142613 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016877_1624539479
+     hasSource hasValue Task_1499365016877_108300901
+     hasTarget hasValue EndEvent_1499365016877_923340472
+
+instance Task_1499365016877_108300901 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016877_1624539479
+     receivesData hasValue {DataTypeEntity_1499365016877_326459333, DataTypeEntity_1499365016877_523957113 }
+     sendsData hasValue DataTypeEntity_1499365016877_808996775
+
+instance DataTypeEntity_1499365016877_326459333 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#OnePersonBicycle"
+
+instance DataTypeEntity_1499365016877_523957113 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#CheapCar"
+
+instance DataTypeEntity_1499365016877_808996775 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365016877_923340472 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016877_1624539479
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016877_94261039 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016877_1624539479
+     hasSource hasValue StartEvent_1499365016877_790352704
+     hasTarget hasValue Task_1499365016877_108300901

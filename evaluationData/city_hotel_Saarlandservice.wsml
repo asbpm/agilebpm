@@ -1,0 +1,51 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017015
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017015_1394732955 memberOf Process
+     hasName hasValue "CityHotelInfoService"
+     hasDescription hasValue "This service returns available hotels in a given city from Saarland state in germany."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Cityhotelinfoservice"
+     hasWorkflow hasValue Workflow_1499365017015_1328505725
+
+instance Workflow_1499365017015_1328505725 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017015_1394732955
+     hasWorkflowElement hasValue StartEvent_1499365017015_1127280091
+
+instance StartEvent_1499365017015_1127280091 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017015_1394732955
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017015_893369805 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017015_1394732955
+     hasSource hasValue Task_1499365017015_334765385
+     hasTarget hasValue EndEvent_1499365017015_1800964856
+
+instance Task_1499365017015_334765385 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017015_1394732955
+     requestsCapability hasValue SemanticCapability_1499365017015_586720143
+     receivesData hasValue DataTypeEntity_1499365017015_1813388597
+     sendsData hasValue DataTypeEntity_1499365017015_1277225158
+
+instance SemanticCapability_1499365017015_586720143 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/city_hotel_Saarlandservice.owls#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/city_hotel_Saarlandservice.owls#_SAARLAND)"
+
+instance DataTypeEntity_1499365017015_1813388597 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#City"
+
+instance DataTypeEntity_1499365017015_1277225158 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Hotel"
+
+instance EndEvent_1499365017015_1800964856 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017015_1394732955
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017015_661172183 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017015_1394732955
+     hasSource hasValue StartEvent_1499365017015_1127280091
+     hasTarget hasValue Task_1499365017015_334765385

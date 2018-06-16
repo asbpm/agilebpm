@@ -1,0 +1,58 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016947
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016947_1161748386 memberOf Process
+     hasName hasValue "CheckHospitalAvailability"
+     hasDescription hasValue "The service checks, whether the hospital has capabilities to treat a patient on the given date with the desired treatment. If the answer is positive, the treatment can take place."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Checkhospitalavailability"
+     hasWorkflow hasValue Workflow_1499365016947_1403664552
+
+instance Workflow_1499365016947_1403664552 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016947_1161748386
+     hasWorkflowElement hasValue StartEvent_1499365016947_2105160491
+
+instance StartEvent_1499365016947_2105160491 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016947_1161748386
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016947_1312546812 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016947_1161748386
+     hasSource hasValue StartEvent_1499365016947_2105160491
+     hasTarget hasValue Task_1499365016947_2029945011
+
+instance Task_1499365016947_2029945011 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016947_1161748386
+     providesCapability hasValue SemanticCapability_1499365016947_1129365677
+     receivesData hasValue {DataTypeEntity_1499365016947_1363174085, DataTypeEntity_1499365016947_1028763000, DataTypeEntity_1499365016947_909986324 }
+     sendsData hasValue DataTypeEntity_1499365016947_223420159
+
+instance SemanticCapability_1499365016947_1129365677 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(when (http://127.0.0.1:8000/ontology/ontosem.owl#Accepted ?http://127.0.0.1:8000/services/OWLS-1.1/CheckHospitalAvailability_service.owls#CheckHospitalAvailability_AvailabilityResponse)
+				           (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/CheckHospitalAvailability_service.owls#_Treatment))"
+
+instance DataTypeEntity_1499365016947_1363174085 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalReceptionOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365016947_1028763000 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalReceptionOntology.owl#Treatment"
+
+instance DataTypeEntity_1499365016947_909986324 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalReceptionOntology.owl#Treatment"
+
+instance DataTypeEntity_1499365016947_223420159 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalReceptionOntology.owl#AvailabilityResponse"
+
+instance ConditionalflowConnector_1499365016947_1494099521 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016947_1161748386
+     hasSource hasValue Task_1499365016947_2029945011
+     hasTarget hasValue EndEvent_1499365016947_847523227
+
+instance EndEvent_1499365016947_847523227 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016947_1161748386
+     hasName hasValue "End"

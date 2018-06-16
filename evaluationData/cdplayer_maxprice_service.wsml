@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016863
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016862_1230093664 memberOf Process
+     hasName hasValue "CDPlayer MaxPrice service"
+     hasDescription hasValue "This service returns the max purchase price of a given cd player model."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CdplayerMaxpriceService"
+     hasWorkflow hasValue Workflow_1499365016862_337234141
+
+instance Workflow_1499365016862_337234141 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016862_1230093664
+     hasWorkflowElement hasValue StartEvent_1499365016862_2104676242
+
+instance StartEvent_1499365016862_2104676242 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016862_1230093664
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016862_2087094067 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016862_1230093664
+     hasSource hasValue StartEvent_1499365016862_2104676242
+     hasTarget hasValue Task_1499365016862_1246340209
+
+instance Task_1499365016862_1246340209 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016862_1230093664
+     receivesData hasValue DataTypeEntity_1499365016862_2140181027
+     sendsData hasValue DataTypeEntity_1499365016862_1321794545
+
+instance DataTypeEntity_1499365016862_2140181027 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#CDPlayer"
+
+instance DataTypeEntity_1499365016862_1321794545 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#MaxPrice"
+
+instance ConditionalflowConnector_1499365016862_323446141 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016862_1230093664
+     hasSource hasValue Task_1499365016862_1246340209
+     hasTarget hasValue EndEvent_1499365016862_1641078150
+
+instance EndEvent_1499365016862_1641078150 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016862_1230093664
+     hasName hasValue "End"

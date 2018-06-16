@@ -1,0 +1,54 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016966
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016966_18332508 memberOf Process
+     hasName hasValue "City2CityRouteFinderService"
+     hasDescription hasValue "This service has an artificial intelligence power and able to return an optimal path between two cities."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/City2cityroutefinderservice"
+     hasWorkflow hasValue Workflow_1499365016966_1306461282
+
+instance Workflow_1499365016966_1306461282 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016966_18332508
+     hasWorkflowElement hasValue StartEvent_1499365016966_788703184
+
+instance StartEvent_1499365016966_788703184 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016966_18332508
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016966_809906527 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016966_18332508
+     hasSource hasValue Task_1499365016966_1874782463
+     hasTarget hasValue EndEvent_1499365016966_112867153
+
+instance Task_1499365016966_1874782463 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016966_18332508
+     requestsCapability hasValue SemanticCapability_1499365016966_183241698
+     receivesData hasValue {DataTypeEntity_1499365016966_1937151555, DataTypeEntity_1499365016966_496720317 }
+     sendsData hasValue DataTypeEntity_1499365016966_289418919
+
+instance SemanticCapability_1499365016966_183241698 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(not (http://127.0.0.1:8000/ontology/SUMO.owl#equal ?http://127.0.0.1:8000/services/OWLS-1.1/citycity_map_service.owls#_CITY1 ?http://127.0.0.1:8000/services/OWLS-1.1/citycity_map_service.owls#_CITY2))"
+
+instance DataTypeEntity_1499365016966_1937151555 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#City"
+
+instance DataTypeEntity_1499365016966_496720317 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#City"
+
+instance DataTypeEntity_1499365016966_289418919 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Map"
+
+instance EndEvent_1499365016966_112867153 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016966_18332508
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016966_1082663764 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016966_18332508
+     hasSource hasValue StartEvent_1499365016966_788703184
+     hasTarget hasValue Task_1499365016966_1874782463

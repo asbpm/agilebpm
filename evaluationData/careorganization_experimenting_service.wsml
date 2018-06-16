@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016770
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016770_883743942 memberOf Process
+     hasName hasValue "CareCareOrganization Experiment service"
+     hasDescription hasValue "This service returns the student experiments organized by the certain care organization."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CarecareorganizationExperimentService"
+     hasWorkflow hasValue Workflow_1499365016770_605166730
+
+instance Workflow_1499365016770_605166730 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016770_883743942
+     hasWorkflowElement hasValue StartEvent_1499365016770_1268451636
+
+instance StartEvent_1499365016770_1268451636 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016770_883743942
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016770_629295696 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016770_883743942
+     hasSource hasValue Task_1499365016770_491971031
+     hasTarget hasValue EndEvent_1499365016770_1347939528
+
+instance Task_1499365016770_491971031 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016770_883743942
+     receivesData hasValue DataTypeEntity_1499365016770_1048020270
+     sendsData hasValue DataTypeEntity_1499365016770_2001032358
+
+instance DataTypeEntity_1499365016770_1048020270 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#CareOrganization"
+
+instance DataTypeEntity_1499365016770_2001032358 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Experimenting"
+
+instance EndEvent_1499365016770_1347939528 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016770_883743942
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016770_103808816 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016770_883743942
+     hasSource hasValue StartEvent_1499365016770_1268451636
+     hasTarget hasValue Task_1499365016770_491971031

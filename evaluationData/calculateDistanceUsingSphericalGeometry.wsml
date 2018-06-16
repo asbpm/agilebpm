@@ -1,0 +1,61 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016709
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016709_1798690574 memberOf Process
+     hasName hasValue "Distance calculator between two locations"
+     hasDescription hasValue "This service calculates the distance in kilometers between two locations using longitude and latitude. This is calculated using spherical geometry. The distance is a straight line."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/DistanceCalculatorBetweenTwoLocations"
+     hasWorkflow hasValue Workflow_1499365016709_1179691792
+
+instance Workflow_1499365016709_1179691792 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016709_1798690574
+     hasWorkflowElement hasValue StartEvent_1499365016709_329771989
+
+instance StartEvent_1499365016709_329771989 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016709_1798690574
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016709_293322582 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016709_1798690574
+     hasSource hasValue Task_1499365016709_2110893184
+     hasTarget hasValue EndEvent_1499365016709_415045546
+
+instance Task_1499365016709_2110893184 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016709_1798690574
+     requestsCapability hasValue SemanticCapability_1499365016709_1524543851
+     receivesData hasValue {DataTypeEntity_1499365016709_417246989, DataTypeEntity_1499365016709_502538826, DataTypeEntity_1499365016709_685935139, DataTypeEntity_1499365016709_1162573104 }
+     sendsData hasValue DataTypeEntity_1499365016709_1893602885
+
+instance SemanticCapability_1499365016709_1524543851 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(or (not (http://127.0.0.1:8000/ontology/SUMO.owl#equal ?http://127.0.0.1:8000/services/OWLS-1.1/calculateDistanceUsingSphericalGeometry.owls#_LATITUDE1 ?http://127.0.0.1:8000/services/OWLS-1.1/calculateDistanceUsingSphericalGeometry.owls#_LATITUDE2))
+				    (not (http://127.0.0.1:8000/ontology/SUMO.owl#equal ?http://127.0.0.1:8000/services/OWLS-1.1/calculateDistanceUsingSphericalGeometry.owls#_LONGITUDE1 ?http://127.0.0.1:8000/services/OWLS-1.1/calculateDistanceUsingSphericalGeometry.owls#_LONGITUDE2)))"
+
+instance DataTypeEntity_1499365016709_417246989 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance DataTypeEntity_1499365016709_502538826 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance DataTypeEntity_1499365016709_685935139 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance DataTypeEntity_1499365016709_1162573104 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance DataTypeEntity_1499365016709_1893602885 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicDistance"
+
+instance EndEvent_1499365016709_415045546 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016709_1798690574
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016709_664605181 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016709_1798690574
+     hasSource hasValue StartEvent_1499365016709_329771989
+     hasTarget hasValue Task_1499365016709_2110893184

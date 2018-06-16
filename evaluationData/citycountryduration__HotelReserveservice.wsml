@@ -1,0 +1,57 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365016970
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365016970_1345517192 memberOf Process
+     hasName hasValue "HotelReserveService"
+     hasDescription hasValue "This service reserves hotel in the given city of the given country for the time period of the given duration. The city must be located in the country."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Hotelreserveservice"
+     hasWorkflow hasValue Workflow_1499365016970_1025497487
+
+instance Workflow_1499365016970_1025497487 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365016970_1345517192
+     hasWorkflowElement hasValue StartEvent_1499365016970_65369
+
+instance StartEvent_1499365016970_65369 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365016970_1345517192
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365016970_1032414945 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016970_1345517192
+     hasSource hasValue Task_1499365016970_1196641087
+     hasTarget hasValue EndEvent_1499365016970_502517502
+
+instance Task_1499365016970_1196641087 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365016970_1345517192
+     providesCapability hasValue SemanticCapability_1499365016970_364054671
+     requestsCapability hasValue SemanticCapability_1499365016970_1649406093
+     receivesData hasValue {DataTypeEntity_1499365016970_1490541578, DataTypeEntity_1499365016970_1897575228, DataTypeEntity_1499365016970_900881389 }
+
+instance SemanticCapability_1499365016970_364054671 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/travel.owl#isReserved ?http://127.0.0.1:8000/services/OWLS-1.1/citycountryduration__HotelReserveservice.owls#_HOTEL)"
+
+instance SemanticCapability_1499365016970_1649406093 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/citycountryduration__HotelReserveservice.owls#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/citycountryduration__HotelReserveservice.owls#_COUNTRY)"
+
+instance DataTypeEntity_1499365016970_1490541578 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Country"
+
+instance DataTypeEntity_1499365016970_1897575228 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#City"
+
+instance DataTypeEntity_1499365016970_900881389 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Duration"
+
+instance EndEvent_1499365016970_502517502 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365016970_1345517192
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365016970_491109387 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365016970_1345517192
+     hasSource hasValue StartEvent_1499365016970_65369
+     hasTarget hasValue Task_1499365016970_1196641087

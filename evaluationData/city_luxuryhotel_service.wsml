@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017024
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017024_1793142088 memberOf Process
+     hasName hasValue "City LuxuryHotel Service"
+     hasDescription hasValue "This service returns information of available luxury hotels of a given city."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CityLuxuryhotelService"
+     hasWorkflow hasValue Workflow_1499365017024_445395465
+
+instance Workflow_1499365017024_445395465 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017024_1793142088
+     hasWorkflowElement hasValue StartEvent_1499365017024_2084687462
+
+instance StartEvent_1499365017024_2084687462 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017024_1793142088
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017024_87633698 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017024_1793142088
+     hasSource hasValue Task_1499365017024_1831722025
+     hasTarget hasValue EndEvent_1499365017024_2009133514
+
+instance Task_1499365017024_1831722025 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017024_1793142088
+     receivesData hasValue DataTypeEntity_1499365017024_1060687740
+     sendsData hasValue DataTypeEntity_1499365017024_1963468680
+
+instance DataTypeEntity_1499365017024_1060687740 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#City"
+
+instance DataTypeEntity_1499365017024_1963468680 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#LuxuryHotel"
+
+instance EndEvent_1499365017024_2009133514 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017024_1793142088
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017024_20564682 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017024_1793142088
+     hasSource hasValue StartEvent_1499365017024_2084687462
+     hasTarget hasValue Task_1499365017024_1831722025

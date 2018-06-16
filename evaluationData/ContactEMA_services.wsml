@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017089
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017089_1687365604 memberOf Process
+     hasName hasValue "ContactEMA"
+     hasDescription hasValue "If an accident or emergency situation happened, the patient (or a witness) uses this service to send the EMA the GPS position of the location. As a result the service delivers the arrival time of the ambulance and the emergency physician."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Contactema"
+     hasWorkflow hasValue Workflow_1499365017089_594457233
+
+instance Workflow_1499365017089_594457233 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017089_1687365604
+     hasWorkflowElement hasValue StartEvent_1499365017089_1123299573
+
+instance StartEvent_1499365017089_1123299573 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017089_1687365604
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017089_1080194883 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017089_1687365604
+     hasSource hasValue Task_1499365017089_1206363178
+     hasTarget hasValue EndEvent_1499365017089_913187858
+
+instance Task_1499365017089_1206363178 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017089_1687365604
+     receivesData hasValue {DataTypeEntity_1499365017089_611235017, DataTypeEntity_1499365017089_235719496 }
+     sendsData hasValue DataTypeEntity_1499365017089_159635374
+
+instance DataTypeEntity_1499365017089_611235017 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/PatientOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365017089_235719496 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/PatientOntology.owl#GpsPosition"
+
+instance DataTypeEntity_1499365017089_159635374 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/PatientOntology.owl#DateTime"
+
+instance EndEvent_1499365017089_913187858 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017089_1687365604
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017089_887431366 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017089_1687365604
+     hasSource hasValue StartEvent_1499365017089_1123299573
+     hasTarget hasValue Task_1499365017089_1206363178
