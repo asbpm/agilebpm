@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018343
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018343_2024528543 memberOf Process
+     hasName hasValue "DPA service"
+     hasDescription hasValue "DPA service returns certain type diagnostic process available in the certain given hospital, and its cost also."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/DpaService"
+     hasWorkflow hasValue Workflow_1499365018343_44336089
+
+instance Workflow_1499365018343_44336089 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018343_2024528543
+     hasWorkflowElement hasValue StartEvent_1499365018343_995306327
+
+instance StartEvent_1499365018343_995306327 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018343_2024528543
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018343_1666914400 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018343_2024528543
+     hasSource hasValue StartEvent_1499365018343_995306327
+     hasTarget hasValue Task_1499365018343_1929905344
+
+instance Task_1499365018343_1929905344 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018343_2024528543
+     receivesData hasValue DataTypeEntity_1499365018343_1919024361
+     sendsData hasValue {DataTypeEntity_1499365018343_221952664, DataTypeEntity_1499365018343_2060942904 }
+
+instance DataTypeEntity_1499365018343_1919024361 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Hospital"
+
+instance DataTypeEntity_1499365018343_221952664 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/finance_th_web.owl#cost"
+
+instance DataTypeEntity_1499365018343_2060942904 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#DiagnosticProcess"
+
+instance ConditionalflowConnector_1499365018343_511145953 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018343_2024528543
+     hasSource hasValue Task_1499365018343_1929905344
+     hasTarget hasValue EndEvent_1499365018343_1250765267
+
+instance EndEvent_1499365018343_1250765267 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018343_2024528543
+     hasName hasValue "End"

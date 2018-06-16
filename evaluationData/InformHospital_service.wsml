@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018386
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018386_1395797501 memberOf Process
+     hasName hasValue "InformHospital"
+     hasDescription hasValue "This services informs a chosen hospital about the (soon) arriving of a patient"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Informhospital"
+     hasWorkflow hasValue Workflow_1499365018386_1338986215
+
+instance Workflow_1499365018386_1338986215 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018386_1395797501
+     hasWorkflowElement hasValue StartEvent_1499365018386_255006165
+
+instance StartEvent_1499365018386_255006165 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018386_1395797501
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018386_16175490 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018386_1395797501
+     hasSource hasValue Task_1499365018386_1248141617
+     hasTarget hasValue EndEvent_1499365018386_1216485377
+
+instance Task_1499365018386_1248141617 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018386_1395797501
+     receivesData hasValue {DataTypeEntity_1499365018386_431489151, DataTypeEntity_1499365018386_1707954527, DataTypeEntity_1499365018386_1268233724 }
+     sendsData hasValue DataTypeEntity_1499365018386_1913027779
+
+instance DataTypeEntity_1499365018386_431489151 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EmergencyPhysicianOntology.owl#Symptom"
+
+instance DataTypeEntity_1499365018386_1707954527 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EmergencyPhysicianOntology.owl#Hospital"
+
+instance DataTypeEntity_1499365018386_1268233724 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EmergencyPhysicianOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365018386_1913027779 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EmergencyPhysicianOntology.owl#Acknowledgement"
+
+instance EndEvent_1499365018386_1216485377 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018386_1395797501
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018386_1212366707 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018386_1395797501
+     hasSource hasValue StartEvent_1499365018386_255006165
+     hasTarget hasValue Task_1499365018386_1248141617

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018285
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018285_1628048278 memberOf Process
+     hasName hasValue "SendEMAPhoneNumber"
+     hasDescription hasValue "This service of a patient's health insurance sends the calling patient a telephone number of the nearest emergency center (EMA) by using the GPS coordinates of the patient."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Sendemaphonenumber"
+     hasWorkflow hasValue Workflow_1499365018285_91072987
+
+instance Workflow_1499365018285_91072987 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018285_1628048278
+     hasWorkflowElement hasValue StartEvent_1499365018285_457700098
+
+instance StartEvent_1499365018285_457700098 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018285_1628048278
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018285_389974594 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018285_1628048278
+     hasSource hasValue Task_1499365018285_82686805
+     hasTarget hasValue EndEvent_1499365018285_2094219206
+
+instance Task_1499365018285_82686805 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018285_1628048278
+     receivesData hasValue DataTypeEntity_1499365018285_626864711
+     sendsData hasValue DataTypeEntity_1499365018285_1948262487
+
+instance DataTypeEntity_1499365018285_626864711 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HealthInsuranceOntology.owl#GpsPosition"
+
+instance DataTypeEntity_1499365018285_1948262487 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HealthInsuranceOntology.owl#TelephoneNumber"
+
+instance EndEvent_1499365018285_2094219206 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018285_1628048278
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018285_67730314 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018285_1628048278
+     hasSource hasValue StartEvent_1499365018285_457700098
+     hasTarget hasValue Task_1499365018285_82686805

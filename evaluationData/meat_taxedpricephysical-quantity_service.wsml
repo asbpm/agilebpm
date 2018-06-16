@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018514
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018514_1874952405 memberOf Process
+     hasName hasValue "Meat TaxedPrice Physical-Quantity Service"
+     hasDescription hasValue "This service informs the physical-quantity and approximately taxedprice of a given meat item."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/MeatTaxedpricePhysical-quantityService"
+     hasWorkflow hasValue Workflow_1499365018514_1974215670
+
+instance Workflow_1499365018514_1974215670 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018514_1874952405
+     hasWorkflowElement hasValue StartEvent_1499365018514_1587992699
+
+instance StartEvent_1499365018514_1587992699 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018514_1874952405
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018514_1364810485 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018514_1874952405
+     hasSource hasValue StartEvent_1499365018514_1587992699
+     hasTarget hasValue Task_1499365018514_1151189147
+
+instance Task_1499365018514_1151189147 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018514_1874952405
+     receivesData hasValue DataTypeEntity_1499365018514_54328215
+     sendsData hasValue {DataTypeEntity_1499365018514_1217583901, DataTypeEntity_1499365018514_1856066977 }
+
+instance DataTypeEntity_1499365018514_54328215 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Meat"
+
+instance DataTypeEntity_1499365018514_1217583901 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxedPrice"
+
+instance DataTypeEntity_1499365018514_1856066977 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Physical-Quantity"
+
+instance ConditionalflowConnector_1499365018514_1772320023 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018514_1874952405
+     hasSource hasValue Task_1499365018514_1151189147
+     hasTarget hasValue EndEvent_1499365018514_637160665
+
+instance EndEvent_1499365018514_637160665 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018514_1874952405
+     hasName hasValue "End"

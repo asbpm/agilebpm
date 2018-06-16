@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018521
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018520_1807022905 memberOf Process
+     hasName hasValue "Meat TaxFreePrice Physical-Quantity Service"
+     hasDescription hasValue "This service informs the physical-quantity and approximately tax free price of a given meat item."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/MeatTaxfreepricePhysical-quantityService"
+     hasWorkflow hasValue Workflow_1499365018520_790964529
+
+instance Workflow_1499365018520_790964529 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018520_1807022905
+     hasWorkflowElement hasValue StartEvent_1499365018520_137258469
+
+instance StartEvent_1499365018520_137258469 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018520_1807022905
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018520_1432883784 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018520_1807022905
+     hasSource hasValue StartEvent_1499365018520_137258469
+     hasTarget hasValue Task_1499365018520_1242117148
+
+instance Task_1499365018520_1242117148 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018520_1807022905
+     receivesData hasValue DataTypeEntity_1499365018520_489114610
+     sendsData hasValue {DataTypeEntity_1499365018520_946819957, DataTypeEntity_1499365018520_675841037 }
+
+instance DataTypeEntity_1499365018520_489114610 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Meat"
+
+instance DataTypeEntity_1499365018520_946819957 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Physical-Quantity"
+
+instance DataTypeEntity_1499365018520_675841037 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxFreePrice"
+
+instance ConditionalflowConnector_1499365018520_487878869 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018520_1807022905
+     hasSource hasValue Task_1499365018520_1242117148
+     hasTarget hasValue EndEvent_1499365018520_764207370
+
+instance EndEvent_1499365018520_764207370 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018520_1807022905
+     hasName hasValue "End"

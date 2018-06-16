@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018496
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018496_640043767 memberOf Process
+     hasName hasValue "LiquidService"
+     hasDescription hasValue "This service offer a liquid like water for a maximum price."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Liquidservice"
+     hasWorkflow hasValue Workflow_1499365018496_825759956
+
+instance Workflow_1499365018496_825759956 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018496_640043767
+     hasWorkflowElement hasValue StartEvent_1499365018496_138280641
+
+instance StartEvent_1499365018496_138280641 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018496_640043767
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018496_1174389034 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018496_640043767
+     hasSource hasValue Task_1499365018496_187435458
+     hasTarget hasValue EndEvent_1499365018496_1280188910
+
+instance Task_1499365018496_187435458 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018496_640043767
+     receivesData hasValue DataTypeEntity_1499365018496_59289134
+     sendsData hasValue DataTypeEntity_1499365018496_538534430
+
+instance DataTypeEntity_1499365018496_59289134 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#MaxPrice"
+
+instance DataTypeEntity_1499365018496_538534430 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Liquid"
+
+instance EndEvent_1499365018496_1280188910 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018496_640043767
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018496_1201236587 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018496_640043767
+     hasSource hasValue StartEvent_1499365018496_138280641
+     hasTarget hasValue Task_1499365018496_187435458

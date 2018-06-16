@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018316
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018315_1945454398 memberOf Process
+     hasName hasValue "Hiking NationalPark Service"
+     hasDescription hasValue "This service returns national parks that are used by hikers."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/HikingNationalparkService"
+     hasWorkflow hasValue Workflow_1499365018315_1091160971
+
+instance Workflow_1499365018315_1091160971 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018315_1945454398
+     hasWorkflowElement hasValue StartEvent_1499365018315_1315096085
+
+instance StartEvent_1499365018315_1315096085 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018315_1945454398
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018315_745764732 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018315_1945454398
+     hasSource hasValue Task_1499365018315_1108639028
+     hasTarget hasValue EndEvent_1499365018315_699851143
+
+instance Task_1499365018315_1108639028 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018315_1945454398
+     receivesData hasValue DataTypeEntity_1499365018315_183663163
+     sendsData hasValue DataTypeEntity_1499365018315_50967700
+
+instance DataTypeEntity_1499365018315_183663163 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Hiking"
+
+instance DataTypeEntity_1499365018315_50967700 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#NationalPark"
+
+instance EndEvent_1499365018315_699851143 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018315_1945454398
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018315_1671900614 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018315_1945454398
+     hasSource hasValue StartEvent_1499365018315_1315096085
+     hasTarget hasValue Task_1499365018315_1108639028

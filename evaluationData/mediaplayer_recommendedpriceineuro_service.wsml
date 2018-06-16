@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018533
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018533_288377241 memberOf Process
+     hasName hasValue "German Media Player Price service"
+     hasDescription hasValue "You can find a recommended price of a german media player, brand name in high quality especially DVD and MP3 player."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GermanMediaPlayerPriceService"
+     hasWorkflow hasValue Workflow_1499365018533_330920827
+
+instance Workflow_1499365018533_330920827 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018533_288377241
+     hasWorkflowElement hasValue StartEvent_1499365018533_1146990185
+
+instance StartEvent_1499365018533_1146990185 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018533_288377241
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018533_762454428 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018533_288377241
+     hasSource hasValue StartEvent_1499365018533_1146990185
+     hasTarget hasValue Task_1499365018533_1648659748
+
+instance Task_1499365018533_1648659748 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018533_288377241
+     receivesData hasValue DataTypeEntity_1499365018533_284742192
+     sendsData hasValue DataTypeEntity_1499365018533_1598135003
+
+instance DataTypeEntity_1499365018533_284742192 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#MediaPlayer"
+
+instance DataTypeEntity_1499365018533_1598135003 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPriceInEuro"
+
+instance ConditionalflowConnector_1499365018533_1174649878 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018533_288377241
+     hasSource hasValue Task_1499365018533_1648659748
+     hasTarget hasValue EndEvent_1499365018533_1301732287
+
+instance EndEvent_1499365018533_1301732287 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018533_288377241
+     hasName hasValue "End"

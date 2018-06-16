@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018464
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018464_805191458 memberOf Process
+     hasName hasValue "MarkoPSservice"
+     hasDescription hasValue "MarkoPS service informs you about price of a given prepared food item, and also its tax price according to a certain stock market."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Markopsservice"
+     hasWorkflow hasValue Workflow_1499365018464_1830685813
+
+instance Workflow_1499365018464_1830685813 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018464_805191458
+     hasWorkflowElement hasValue StartEvent_1499365018464_322174237
+
+instance StartEvent_1499365018464_322174237 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018464_805191458
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018464_855285942 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018464_805191458
+     hasSource hasValue Task_1499365018464_1484176073
+     hasTarget hasValue EndEvent_1499365018464_271181112
+
+instance Task_1499365018464_1484176073 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018464_805191458
+     receivesData hasValue DataTypeEntity_1499365018464_1265110158
+     sendsData hasValue {DataTypeEntity_1499365018464_1788082914, DataTypeEntity_1499365018464_744901264, DataTypeEntity_1499365018464_1764924967 }
+
+instance DataTypeEntity_1499365018464_1265110158 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#PreparedFood"
+
+instance DataTypeEntity_1499365018464_1788082914 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxedPrice"
+
+instance DataTypeEntity_1499365018464_744901264 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#StockMarket"
+
+instance DataTypeEntity_1499365018464_1764924967 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365018464_271181112 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018464_805191458
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018464_2114878812 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018464_805191458
+     hasSource hasValue StartEvent_1499365018464_322174237
+     hasTarget hasValue Task_1499365018464_1484176073

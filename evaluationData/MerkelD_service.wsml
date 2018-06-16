@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018580
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018579_1793095015 memberOf Process
+     hasName hasValue "MerkelD Service"
+     hasDescription hasValue "MerkelD is a german firm and presents a service that returns not only price of a given prepared food item, but also informs the usage of the food in certain type of diet."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/MerkeldService"
+     hasWorkflow hasValue Workflow_1499365018580_336407473
+
+instance Workflow_1499365018580_336407473 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018579_1793095015
+     hasWorkflowElement hasValue StartEvent_1499365018580_2063851722
+
+instance StartEvent_1499365018580_2063851722 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018579_1793095015
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018580_2092708994 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018579_1793095015
+     hasSource hasValue StartEvent_1499365018580_2063851722
+     hasTarget hasValue Task_1499365018580_2070350734
+
+instance Task_1499365018580_2070350734 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018579_1793095015
+     receivesData hasValue DataTypeEntity_1499365018580_1156548946
+     sendsData hasValue {DataTypeEntity_1499365018580_969108110, DataTypeEntity_1499365018580_330217528 }
+
+instance DataTypeEntity_1499365018580_1156548946 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#PreparedFood"
+
+instance DataTypeEntity_1499365018580_969108110 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365018580_330217528 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Diet"
+
+instance ConditionalflowConnector_1499365018580_633480612 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018579_1793095015
+     hasSource hasValue Task_1499365018580_2070350734
+     hasTarget hasValue EndEvent_1499365018580_995353519
+
+instance EndEvent_1499365018580_995353519 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018579_1793095015
+     hasName hasValue "End"

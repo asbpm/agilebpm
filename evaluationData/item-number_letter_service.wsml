@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018406
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018406_2089196738 memberOf Process
+     hasName hasValue "LetterFounderService"
+     hasDescription hasValue "This service finds list of letters on the given item number."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Letterfounderservice"
+     hasWorkflow hasValue Workflow_1499365018406_1714185331
+
+instance Workflow_1499365018406_1714185331 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018406_2089196738
+     hasWorkflowElement hasValue StartEvent_1499365018406_1853043195
+
+instance StartEvent_1499365018406_1853043195 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018406_2089196738
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018406_1284854793 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018406_2089196738
+     hasSource hasValue Task_1499365018406_1501394323
+     hasTarget hasValue EndEvent_1499365018406_205175460
+
+instance Task_1499365018406_1501394323 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018406_2089196738
+     receivesData hasValue DataTypeEntity_1499365018406_119451502
+     sendsData hasValue DataTypeEntity_1499365018406_609328303
+
+instance DataTypeEntity_1499365018406_119451502 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Item-Number"
+
+instance DataTypeEntity_1499365018406_609328303 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Letter"
+
+instance EndEvent_1499365018406_205175460 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018406_2089196738
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018406_1960954252 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018406_2089196738
+     hasSource hasValue StartEvent_1499365018406_1853043195
+     hasTarget hasValue Task_1499365018406_1501394323

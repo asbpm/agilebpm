@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018319
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018319_371837729 memberOf Process
+     hasName hasValue "Hiking RuralArea Service"
+     hasDescription hasValue "This service returns rural areas that are good for given hiking type."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/HikingRuralareaService"
+     hasWorkflow hasValue Workflow_1499365018319_1551849599
+
+instance Workflow_1499365018319_1551849599 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018319_371837729
+     hasWorkflowElement hasValue StartEvent_1499365018319_1576426200
+
+instance StartEvent_1499365018319_1576426200 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018319_371837729
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018319_323876467 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018319_371837729
+     hasSource hasValue Task_1499365018319_250661703
+     hasTarget hasValue EndEvent_1499365018319_474638904
+
+instance Task_1499365018319_250661703 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018319_371837729
+     receivesData hasValue DataTypeEntity_1499365018319_506412081
+     sendsData hasValue DataTypeEntity_1499365018319_1559983504
+
+instance DataTypeEntity_1499365018319_506412081 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Hiking"
+
+instance DataTypeEntity_1499365018319_1559983504 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#RuralArea"
+
+instance EndEvent_1499365018319_474638904 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018319_371837729
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018319_1747697628 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018319_371837729
+     hasSource hasValue StartEvent_1499365018319_1576426200
+     hasTarget hasValue Task_1499365018319_250661703

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018374
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018374_1561549619 memberOf Process
+     hasName hasValue "InvestigatingFinding"
+     hasDescription hasValue "This service returns the certain type investigating facility available in the certain given hospital."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Investigatingfinding"
+     hasWorkflow hasValue Workflow_1499365018374_540172508
+
+instance Workflow_1499365018374_540172508 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018374_1561549619
+     hasWorkflowElement hasValue StartEvent_1499365018374_2099696999
+
+instance StartEvent_1499365018374_2099696999 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018374_1561549619
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018374_1784206039 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018374_1561549619
+     hasSource hasValue Task_1499365018374_1385957035
+     hasTarget hasValue EndEvent_1499365018374_1209326973
+
+instance Task_1499365018374_1385957035 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018374_1561549619
+     receivesData hasValue DataTypeEntity_1499365018374_1956470202
+     sendsData hasValue DataTypeEntity_1499365018374_652327065
+
+instance DataTypeEntity_1499365018374_1956470202 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Hospital"
+
+instance DataTypeEntity_1499365018374_652327065 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Investigating"
+
+instance EndEvent_1499365018374_1209326973 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018374_1561549619
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018374_486638786 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018374_1561549619
+     hasSource hasValue StartEvent_1499365018374_2099696999
+     hasTarget hasValue Task_1499365018374_1385957035

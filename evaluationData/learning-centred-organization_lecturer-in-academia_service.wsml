@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018418
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018418_1554711215 memberOf Process
+     hasName hasValue "LearnedCenteredOrganizationLecturer Service"
+     hasDescription hasValue "This service returns lecturer who works in a given learning center organization."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/LearnedcenteredorganizationlecturerService"
+     hasWorkflow hasValue Workflow_1499365018418_848035504
+
+instance Workflow_1499365018418_848035504 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018418_1554711215
+     hasWorkflowElement hasValue StartEvent_1499365018418_851146161
+
+instance StartEvent_1499365018418_851146161 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018418_1554711215
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018418_530184544 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018418_1554711215
+     hasSource hasValue StartEvent_1499365018418_851146161
+     hasTarget hasValue Task_1499365018418_1428525147
+
+instance Task_1499365018418_1428525147 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018418_1554711215
+     receivesData hasValue DataTypeEntity_1499365018418_1671796738
+     sendsData hasValue DataTypeEntity_1499365018418_1111405520
+
+instance DataTypeEntity_1499365018418_1671796738 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Learning-Centred-Organization"
+
+instance DataTypeEntity_1499365018418_1111405520 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Lecturer-In-Academia"
+
+instance ConditionalflowConnector_1499365018418_1056729712 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018418_1554711215
+     hasSource hasValue Task_1499365018418_1428525147
+     hasTarget hasValue EndEvent_1499365018418_586111927
+
+instance EndEvent_1499365018418_586111927 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018418_1554711215
+     hasName hasValue "End"

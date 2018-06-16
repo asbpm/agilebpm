@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018383
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018382_1699056873 memberOf Process
+     hasName hasValue "RecommendedPriceCoffeeWhiskey Hotel Service"
+     hasDescription hasValue "This service returns coffee and whiskey (products) for the given recommended price and avaialbe in the particular hotel. If hotel input is not given then it returns coffee and whiskey products for the given price.."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/RecommendedpricecoffeewhiskeyHotelService"
+     hasWorkflow hasValue Workflow_1499365018382_351448094
+
+instance Workflow_1499365018382_351448094 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018382_1699056873
+     hasWorkflowElement hasValue StartEvent_1499365018382_1182202820
+
+instance StartEvent_1499365018382_1182202820 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018382_1699056873
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018382_220068571 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018382_1699056873
+     hasSource hasValue Task_1499365018382_1305220206
+     hasTarget hasValue EndEvent_1499365018382_1215954197
+
+instance Task_1499365018382_1305220206 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018382_1699056873
+     receivesData hasValue {DataTypeEntity_1499365018382_1591657780, DataTypeEntity_1499365018382_1877981570 }
+     sendsData hasValue {DataTypeEntity_1499365018382_94568544, DataTypeEntity_1499365018382_1220124852 }
+
+instance DataTypeEntity_1499365018382_1591657780 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPrice"
+
+instance DataTypeEntity_1499365018382_1877981570 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Hotel"
+
+instance DataTypeEntity_1499365018382_94568544 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Whiskey"
+
+instance DataTypeEntity_1499365018382_1220124852 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Coffee"
+
+instance EndEvent_1499365018382_1215954197 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018382_1699056873
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018382_1383671868 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018382_1699056873
+     hasSource hasValue StartEvent_1499365018382_1182202820
+     hasTarget hasValue Task_1499365018382_1305220206

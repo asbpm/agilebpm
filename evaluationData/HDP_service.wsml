@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018281
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018281_909972614 memberOf Process
+     hasName hasValue "HDP service"
+     hasDescription hasValue "HDP is a reknown service to get to know about a certain diagnostic system available in a certain hospital, this service returns also summary of the output system."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/HdpService"
+     hasWorkflow hasValue Workflow_1499365018281_1939355611
+
+instance Workflow_1499365018281_1939355611 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018281_909972614
+     hasWorkflowElement hasValue StartEvent_1499365018281_132148827
+
+instance StartEvent_1499365018281_132148827 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018281_909972614
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018281_258436688 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018281_909972614
+     hasSource hasValue Task_1499365018281_416061676
+     hasTarget hasValue EndEvent_1499365018281_928544920
+
+instance Task_1499365018281_416061676 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018281_909972614
+     receivesData hasValue DataTypeEntity_1499365018281_661833916
+     sendsData hasValue {DataTypeEntity_1499365018281_558268475, DataTypeEntity_1499365018281_1667964785 }
+
+instance DataTypeEntity_1499365018281_661833916 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Hospital"
+
+instance DataTypeEntity_1499365018281_558268475 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#DiagnosticProcess"
+
+instance DataTypeEntity_1499365018281_1667964785 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Summary"
+
+instance EndEvent_1499365018281_928544920 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018281_909972614
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018281_1327858364 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018281_909972614
+     hasSource hasValue StartEvent_1499365018281_132148827
+     hasTarget hasValue Task_1499365018281_416061676

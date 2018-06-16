@@ -1,0 +1,52 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018409
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018409_541294861 memberOf Process
+     hasName hasValue "KLM LoginService"
+     hasDescription hasValue "This service is used by users to login in our system by giving their username and password."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/KlmLoginservice"
+     hasWorkflow hasValue Workflow_1499365018409_651892777
+
+instance Workflow_1499365018409_651892777 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018409_541294861
+     hasWorkflowElement hasValue StartEvent_1499365018409_1992533038
+
+instance StartEvent_1499365018409_1992533038 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018409_541294861
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018409_265671557 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018409_541294861
+     hasSource hasValue Task_1499365018409_723064924
+     hasTarget hasValue EndEvent_1499365018409_911562139
+
+instance Task_1499365018409_723064924 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018409_541294861
+     providesCapability hasValue SemanticCapability_1499365018409_1954997550
+     receivesData hasValue {DataTypeEntity_1499365018409_684124529, DataTypeEntity_1499365018409_1081209543 }
+
+instance SemanticCapability_1499365018409_1954997550 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(when (and (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/KLM-Login_service.owls#_LINGUISTICEXPRESSION)
+				           (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/KLM-Login_service.owls#_LINGUISTICEXPRESSION1))
+						   (http://127.0.0.1:8000/ontology/ontosem.owl#register ?http://127.0.0.1:8000/services/OWLS-1.1/KLM-Login_service.owls#_USER))"
+
+instance DataTypeEntity_1499365018409_684124529 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#LinguisticExpression"
+
+instance DataTypeEntity_1499365018409_1081209543 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#LinguisticExpression"
+
+instance EndEvent_1499365018409_911562139 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018409_541294861
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018409_1550270237 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018409_541294861
+     hasSource hasValue StartEvent_1499365018409_1992533038
+     hasTarget hasValue Task_1499365018409_723064924

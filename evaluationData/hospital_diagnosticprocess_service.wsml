@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018360
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018359_520215320 memberOf Process
+     hasName hasValue "DiagnosticProcessAvailability"
+     hasDescription hasValue "This service returns certain type diagnostic process available in the certain given hospital."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Diagnosticprocessavailability"
+     hasWorkflow hasValue Workflow_1499365018359_1936811773
+
+instance Workflow_1499365018359_1936811773 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018359_520215320
+     hasWorkflowElement hasValue StartEvent_1499365018359_1535923438
+
+instance StartEvent_1499365018359_1535923438 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018359_520215320
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018360_1032107154 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018359_520215320
+     hasSource hasValue StartEvent_1499365018359_1535923438
+     hasTarget hasValue Task_1499365018360_469714416
+
+instance Task_1499365018360_469714416 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018359_520215320
+     receivesData hasValue DataTypeEntity_1499365018360_99065773
+     sendsData hasValue DataTypeEntity_1499365018360_1012367684
+
+instance DataTypeEntity_1499365018360_99065773 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Hospital"
+
+instance DataTypeEntity_1499365018360_1012367684 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#DiagnosticProcess"
+
+instance ConditionalflowConnector_1499365018360_50273606 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018359_520215320
+     hasSource hasValue Task_1499365018360_469714416
+     hasTarget hasValue EndEvent_1499365018360_1872819440
+
+instance EndEvent_1499365018360_1872819440 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018359_520215320
+     hasName hasValue "End"

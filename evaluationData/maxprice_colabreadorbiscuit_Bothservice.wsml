@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018477
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018477_1299273370 memberOf Process
+     hasName hasValue "BreadProviderService"
+     hasDescription hasValue "This service provides a bread/biscuit for the maximum price and a cola (a small package for advertisement of another company).."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Breadproviderservice"
+     hasWorkflow hasValue Workflow_1499365018477_392023150
+
+instance Workflow_1499365018477_392023150 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018477_1299273370
+     hasWorkflowElement hasValue StartEvent_1499365018477_882017811
+
+instance StartEvent_1499365018477_882017811 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018477_1299273370
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018477_192433684 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018477_1299273370
+     hasSource hasValue StartEvent_1499365018477_882017811
+     hasTarget hasValue Task_1499365018477_685143708
+
+instance Task_1499365018477_685143708 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018477_1299273370
+     receivesData hasValue DataTypeEntity_1499365018477_669291583
+     sendsData hasValue {DataTypeEntity_1499365018477_132807002, DataTypeEntity_1499365018477_1303010635 }
+
+instance DataTypeEntity_1499365018477_669291583 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#MaxPrice"
+
+instance DataTypeEntity_1499365018477_132807002 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Cola"
+
+instance DataTypeEntity_1499365018477_1303010635 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#BreadOrBiscuit"
+
+instance ConditionalflowConnector_1499365018477_1471990987 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018477_1299273370
+     hasSource hasValue Task_1499365018477_685143708
+     hasTarget hasValue EndEvent_1499365018477_1217529023
+
+instance EndEvent_1499365018477_1217529023 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018477_1299273370
+     hasName hasValue "End"

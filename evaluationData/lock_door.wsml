@@ -1,0 +1,52 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018455
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018455_1687163145 memberOf Process
+     hasName hasValue "Lock door"
+     hasDescription hasValue "This service locks a given closed and unlocked door of a room."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/LockDoor"
+     hasWorkflow hasValue Workflow_1499365018455_450340953
+
+instance Workflow_1499365018455_450340953 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018455_1687163145
+     hasWorkflowElement hasValue StartEvent_1499365018455_48856447
+
+instance StartEvent_1499365018455_48856447 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018455_1687163145
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018455_1138670967 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018455_1687163145
+     hasSource hasValue StartEvent_1499365018455_48856447
+     hasTarget hasValue Task_1499365018455_726813437
+
+instance Task_1499365018455_726813437 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018455_1687163145
+     providesCapability hasValue SemanticCapability_1499365018455_655750207
+     requestsCapability hasValue SemanticCapability_1499365018455_1324621849
+     receivesData hasValue DataTypeEntity_1499365018455_1819273523
+
+instance SemanticCapability_1499365018455_655750207 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/messemodul.owl#Locked ?http://127.0.0.1:8000/services/OWLS-1.1/lock_door.owls#Door)"
+
+instance SemanticCapability_1499365018455_1324621849 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/messemodul.owl#Closed ?http://127.0.0.1:8000/services/OWLS-1.1/lock_door.owls#Door)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#Unlocked ?http://127.0.0.1:8000/services/OWLS-1.1/lock_door.owls#Door))"
+
+instance DataTypeEntity_1499365018455_1819273523 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Door"
+
+instance ConditionalflowConnector_1499365018455_1622728875 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018455_1687163145
+     hasSource hasValue Task_1499365018455_726813437
+     hasTarget hasValue EndEvent_1499365018455_389974990
+
+instance EndEvent_1499365018455_389974990 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018455_1687163145
+     hasName hasValue "End"

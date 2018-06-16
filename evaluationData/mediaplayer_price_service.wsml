@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018530
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018530_391039493 memberOf Process
+     hasName hasValue "MediaPlayer Price service"
+     hasDescription hasValue "This service returns price of a given media player model."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/MediaplayerPriceService"
+     hasWorkflow hasValue Workflow_1499365018530_1001321692
+
+instance Workflow_1499365018530_1001321692 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018530_391039493
+     hasWorkflowElement hasValue StartEvent_1499365018530_1378675005
+
+instance StartEvent_1499365018530_1378675005 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018530_391039493
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018530_21658135 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018530_391039493
+     hasSource hasValue Task_1499365018530_1204793661
+     hasTarget hasValue EndEvent_1499365018530_2138870730
+
+instance Task_1499365018530_1204793661 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018530_391039493
+     receivesData hasValue DataTypeEntity_1499365018530_1063836920
+     sendsData hasValue DataTypeEntity_1499365018530_835910563
+
+instance DataTypeEntity_1499365018530_1063836920 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#MediaPlayer"
+
+instance DataTypeEntity_1499365018530_835910563 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365018530_2138870730 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018530_391039493
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018530_1684343424 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018530_391039493
+     hasSource hasValue StartEvent_1499365018530_1378675005
+     hasTarget hasValue Task_1499365018530_1204793661

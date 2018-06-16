@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018587
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018586_327308558 memberOf Process
+     hasName hasValue "Mile to Kilometer converter service."
+     hasDescription hasValue "This service provides conversion from miles to kilometers length unit."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/MileToKilometerConverterService"
+     hasWorkflow hasValue Workflow_1499365018586_684217565
+
+instance Workflow_1499365018586_684217565 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018586_327308558
+     hasWorkflowElement hasValue StartEvent_1499365018586_470989567
+
+instance StartEvent_1499365018586_470989567 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018586_327308558
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018586_648715608 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018586_327308558
+     hasSource hasValue Task_1499365018586_330538063
+     hasTarget hasValue EndEvent_1499365018586_1780361460
+
+instance Task_1499365018586_330538063 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018586_327308558
+     receivesData hasValue DataTypeEntity_1499365018586_1333028453
+     sendsData hasValue DataTypeEntity_1499365018586_873738485
+
+instance DataTypeEntity_1499365018586_1333028453 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#InternationalMileLengthUnit"
+
+instance DataTypeEntity_1499365018586_873738485 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#KilometerLengthUnit"
+
+instance EndEvent_1499365018586_1780361460 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018586_327308558
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018586_360909822 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018586_327308558
+     hasSource hasValue StartEvent_1499365018586_470989567
+     hasTarget hasValue Task_1499365018586_330538063

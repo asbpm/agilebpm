@@ -1,0 +1,43 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018412
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018412_1563737707 memberOf Process
+     hasName hasValue "KodakPriceService"
+     hasDescription hasValue "This service is dedicated to return prices of Kodak digital camera, avialable in all markets."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Kodakpriceservice"
+     hasWorkflow hasValue Workflow_1499365018412_1973053786
+
+instance Workflow_1499365018412_1973053786 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018412_1563737707
+     hasWorkflowElement hasValue StartEvent_1499365018412_521810915
+
+instance StartEvent_1499365018412_521810915 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018412_1563737707
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018412_46024698 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018412_1563737707
+     hasSource hasValue StartEvent_1499365018412_521810915
+     hasTarget hasValue Task_1499365018412_1198271407
+
+instance Task_1499365018412_1198271407 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018412_1563737707
+     sendsData hasValue DataTypeEntity_1499365018412_1723236017
+
+instance DataTypeEntity_1499365018412_1723236017 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance ConditionalflowConnector_1499365018412_514394199 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018412_1563737707
+     hasSource hasValue Task_1499365018412_1198271407
+     hasTarget hasValue EndEvent_1499365018412_1352834699
+
+instance EndEvent_1499365018412_1352834699 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018412_1563737707
+     hasName hasValue "End"

@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018576
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018575_1721836900 memberOf Process
+     hasName hasValue "MercantileOrganization SLR Price service"
+     hasDescription hasValue "This service informs you the price for a slr camera available in a given mercantile organization."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/MercantileorganizationSlrPriceService"
+     hasWorkflow hasValue Workflow_1499365018575_308938130
+
+instance Workflow_1499365018575_308938130 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018575_1721836900
+     hasWorkflowElement hasValue StartEvent_1499365018575_971579492
+
+instance StartEvent_1499365018575_971579492 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018575_1721836900
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018575_286006688 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018575_1721836900
+     hasSource hasValue StartEvent_1499365018575_971579492
+     hasTarget hasValue Task_1499365018575_1478998142
+
+instance Task_1499365018575_1478998142 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018575_1721836900
+     receivesData hasValue DataTypeEntity_1499365018575_350517533
+     sendsData hasValue {DataTypeEntity_1499365018575_321699764, DataTypeEntity_1499365018575_81119438 }
+
+instance DataTypeEntity_1499365018575_350517533 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#MercantileOrganization"
+
+instance DataTypeEntity_1499365018575_321699764 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365018575_81119438 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#SLR"
+
+instance ConditionalflowConnector_1499365018575_23638207 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018575_1721836900
+     hasSource hasValue Task_1499365018575_1478998142
+     hasTarget hasValue EndEvent_1499365018575_308412122
+
+instance EndEvent_1499365018575_308412122 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018575_1721836900
+     hasName hasValue "End"
