@@ -4,3 +4,6 @@ ASBPM is a framework for designing, discovering and executing semantic business 
 <p align="center">
 <img align="center" width="250" height="250" src="https://github.com/asbpm/asbpm/blob/master/github_logo_10.png">
 </p>
+
+## Evaluation
+Please read [EVALUATION.md](https://github.com/asbpm/asbpm/blob/master/evaluationData/README.md) for details of project performance evaluation dataset.
