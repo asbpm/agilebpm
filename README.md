@@ -2,8 +2,6 @@
 ASBPM is a framework for designing, discovering and executing semantic business processes. The objective of this project is to
 augment, enrich and support business activities to make it easier for business experts to make more informed and accurate decisions. Platform provides a context aware infrastructure that detects physical and virtual stimulus, recognise the application context and performs the most appropriate business process alternative accordingly. 
 
-dynamic context aware?
-
 <p align="center">
 <img align="center" width="250" height="250" src="https://github.com/asbpm/asbpm/blob/master/github_logo_10.png">
 </p>
