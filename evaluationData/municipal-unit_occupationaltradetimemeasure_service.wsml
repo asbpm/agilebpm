@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018719
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018719_1459199482 memberOf Process
+     hasName hasValue "Municipal-Unit OccupationalTrade TimeMeasure service"
+     hasDescription hasValue "This service returns occupational trade job in a given municipal-unit and its timemeasure (duration)."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Municipal-unitOccupationaltradeTimemeasureService"
+     hasWorkflow hasValue Workflow_1499365018719_1329397424
+
+instance Workflow_1499365018719_1329397424 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018719_1459199482
+     hasWorkflowElement hasValue StartEvent_1499365018719_729294441
+
+instance StartEvent_1499365018719_729294441 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018719_1459199482
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018719_1864624864 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018719_1459199482
+     hasSource hasValue Task_1499365018719_1781979445
+     hasTarget hasValue EndEvent_1499365018719_91810284
+
+instance Task_1499365018719_1781979445 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018719_1459199482
+     receivesData hasValue DataTypeEntity_1499365018719_82064510
+     sendsData hasValue {DataTypeEntity_1499365018719_1093359325, DataTypeEntity_1499365018719_1390189736 }
+
+instance DataTypeEntity_1499365018719_82064510 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Municipal-Unit"
+
+instance DataTypeEntity_1499365018719_1093359325 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#TimeMeasure"
+
+instance DataTypeEntity_1499365018719_1390189736 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#OccupationalTrade"
+
+instance EndEvent_1499365018719_91810284 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018719_1459199482
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018719_2120103971 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018719_1459199482
+     hasSource hasValue StartEvent_1499365018719_729294441
+     hasTarget hasValue Task_1499365018719_1781979445

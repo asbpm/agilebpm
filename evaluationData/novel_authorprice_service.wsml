@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018824
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018823_927146440 memberOf Process
+     hasName hasValue "Novel Author Price Service"
+     hasDescription hasValue "This service returns author and price of a given title of a novel."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/NovelAuthorPriceService"
+     hasWorkflow hasValue Workflow_1499365018823_512179170
+
+instance Workflow_1499365018823_512179170 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018823_927146440
+     hasWorkflowElement hasValue StartEvent_1499365018823_471574581
+
+instance StartEvent_1499365018823_471574581 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018823_927146440
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018823_2017674 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018823_927146440
+     hasSource hasValue Task_1499365018823_1455664339
+     hasTarget hasValue EndEvent_1499365018823_2012830399
+
+instance Task_1499365018823_1455664339 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018823_927146440
+     receivesData hasValue DataTypeEntity_1499365018823_526245479
+     sendsData hasValue {DataTypeEntity_1499365018823_2087255732, DataTypeEntity_1499365018823_1140628960 }
+
+instance DataTypeEntity_1499365018823_526245479 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Novel"
+
+instance DataTypeEntity_1499365018823_2087255732 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Author"
+
+instance DataTypeEntity_1499365018823_1140628960 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365018823_2012830399 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018823_927146440
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018823_1078501045 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018823_927146440
+     hasSource hasValue StartEvent_1499365018823_471574581
+     hasTarget hasValue Task_1499365018823_1455664339

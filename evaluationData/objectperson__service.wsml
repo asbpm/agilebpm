@@ -1,0 +1,55 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018866
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018865_11259888 memberOf Process
+     hasName hasValue "Shopping"
+     hasDescription hasValue "This service adds any object as an item in the shopping cart of an authorised person. The service first checks whether the object is available in the stock."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Shopping"
+     hasWorkflow hasValue Workflow_1499365018865_179444340
+
+instance Workflow_1499365018865_179444340 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018865_11259888
+     hasWorkflowElement hasValue StartEvent_1499365018865_1080069163
+
+instance StartEvent_1499365018865_1080069163 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018865_11259888
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018865_430661300 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018865_11259888
+     hasSource hasValue StartEvent_1499365018865_1080069163
+     hasTarget hasValue Task_1499365018865_1209064320
+
+instance Task_1499365018865_1209064320 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018865_11259888
+     providesCapability hasValue SemanticCapability_1499365018865_247219480
+     requestsCapability hasValue SemanticCapability_1499365018865_1561135351
+     receivesData hasValue {DataTypeEntity_1499365018865_1667182844, DataTypeEntity_1499365018865_2017502382 }
+
+instance SemanticCapability_1499365018865_247219480 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/ShoppingCart.owl#ShoppingCartRequestItems ?http://127.0.0.1:8000/services/OWLS-1.1/objectperson__service.owls#_OBJECT)"
+
+instance SemanticCapability_1499365018865_1561135351 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/objectperson__service.owls#_PERSON)
+				       (http://127.0.0.1:8000/ontology/ontosem.owl#be-available ?http://127.0.0.1:8000/services/OWLS-1.1/objectperson__service.owls#_OBJECT))"
+
+instance DataTypeEntity_1499365018865_1667182844 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Person"
+
+instance DataTypeEntity_1499365018865_2017502382 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/simplified_sumo.owl#Object"
+
+instance ConditionalflowConnector_1499365018865_1680260683 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018865_11259888
+     hasSource hasValue Task_1499365018865_1209064320
+     hasTarget hasValue EndEvent_1499365018865_388941454
+
+instance EndEvent_1499365018865_388941454 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018865_11259888
+     hasName hasValue "End"

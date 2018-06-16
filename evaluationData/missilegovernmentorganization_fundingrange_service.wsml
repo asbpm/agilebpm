@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018594
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018593_595447306 memberOf Process
+     hasName hasValue "GovernmentOrganization Missile Funding Range Service"
+     hasDescription hasValue "This service informs you funding for the Missile provided by the government organization, and target range of the missile."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GovernmentorganizationMissileFundingRangeService"
+     hasWorkflow hasValue Workflow_1499365018593_453062004
+
+instance Workflow_1499365018593_453062004 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018593_595447306
+     hasWorkflowElement hasValue StartEvent_1499365018593_1190680415
+
+instance StartEvent_1499365018593_1190680415 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018593_595447306
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018593_186559960 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018593_595447306
+     hasSource hasValue StartEvent_1499365018593_1190680415
+     hasTarget hasValue Task_1499365018593_806471643
+
+instance Task_1499365018593_806471643 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018593_595447306
+     receivesData hasValue {DataTypeEntity_1499365018593_1038316555, DataTypeEntity_1499365018593_2117455802 }
+     sendsData hasValue {DataTypeEntity_1499365018593_263407214, DataTypeEntity_1499365018593_1755058384 }
+
+instance DataTypeEntity_1499365018593_1038316555 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Missile"
+
+instance DataTypeEntity_1499365018593_2117455802 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#GovernmentOrganization"
+
+instance DataTypeEntity_1499365018593_263407214 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#Range"
+
+instance DataTypeEntity_1499365018593_1755058384 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Funding"
+
+instance ConditionalflowConnector_1499365018593_1798200627 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018593_595447306
+     hasSource hasValue Task_1499365018593_806471643
+     hasTarget hasValue EndEvent_1499365018593_402479364
+
+instance EndEvent_1499365018593_402479364 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018593_595447306
+     hasName hasValue "End"

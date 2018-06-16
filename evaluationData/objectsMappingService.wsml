@@ -1,0 +1,83 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018871
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018871_2085301943 memberOf Process
+     hasName hasValue "Objects Mapping Service"
+     hasDescription hasValue "The mapping services provide a variety of maps and allow you to map up to 100 objects onto each map with a choice of street maps of 65 countries and areas of either complete or partial coverage. Required parameters are: Northing (south-north map span in kilometers), Easting(west-est map span), map Height, map Width, map center location, image format (GIF,JPEG etc.), list of objects (defined with their location and label) attached to the map at various locations, language. The service returns information about the map (i.e. center location, northing, easting), latitude/longitude coordinates for each maped object and the requested Map-Image URL."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ObjectsMappingService"
+     hasWorkflow hasValue Workflow_1499365018871_1940709261
+
+instance Workflow_1499365018871_1940709261 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018871_2085301943
+     hasWorkflowElement hasValue StartEvent_1499365018871_628069043
+
+instance StartEvent_1499365018871_628069043 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018871_2085301943
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018871_1599021570 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018871_2085301943
+     hasSource hasValue Task_1499365018871_905615872
+     hasTarget hasValue EndEvent_1499365018871_522892842
+
+instance Task_1499365018871_905615872 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018871_2085301943
+     receivesData hasValue {DataTypeEntity_1499365018871_1150572907, DataTypeEntity_1499365018871_847592480, DataTypeEntity_1499365018871_1163092771, DataTypeEntity_1499365018871_1885020616, DataTypeEntity_1499365018871_1402663806, DataTypeEntity_1499365018871_1805439006, DataTypeEntity_1499365018871_1964901346, DataTypeEntity_1499365018871_385395765 }
+     sendsData hasValue {DataTypeEntity_1499365018871_306750500, DataTypeEntity_1499365018871_660236713, DataTypeEntity_1499365018871_804529706, DataTypeEntity_1499365018871_1867828309, DataTypeEntity_1499365018871_524512453, DataTypeEntity_1499365018871_1870756887 }
+
+instance DataTypeEntity_1499365018871_1150572907 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#DigitalFileType"
+
+instance DataTypeEntity_1499365018871_847592480 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#Language"
+
+instance DataTypeEntity_1499365018871_1163092771 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicDistance"
+
+instance DataTypeEntity_1499365018871_1885020616 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicDistance"
+
+instance DataTypeEntity_1499365018871_1402663806 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/ontosem.owl#height"
+
+instance DataTypeEntity_1499365018871_1805439006 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/ontosem.owl#width"
+
+instance DataTypeEntity_1499365018871_1964901346 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#Location"
+
+instance DataTypeEntity_1499365018871_385395765 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#ReferenceLocation"
+
+instance DataTypeEntity_1499365018871_306750500 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#URL"
+
+instance DataTypeEntity_1499365018871_660236713 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance DataTypeEntity_1499365018871_804529706 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicDistance"
+
+instance DataTypeEntity_1499365018871_1867828309 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicDistance"
+
+instance DataTypeEntity_1499365018871_524512453 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#Location"
+
+instance DataTypeEntity_1499365018871_1870756887 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance EndEvent_1499365018871_522892842 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018871_2085301943
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018871_189180003 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018871_2085301943
+     hasSource hasValue StartEvent_1499365018871_628069043
+     hasTarget hasValue Task_1499365018871_905615872

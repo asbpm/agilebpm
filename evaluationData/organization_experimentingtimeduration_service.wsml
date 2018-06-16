@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018893
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018892_449444642 memberOf Process
+     hasName hasValue "OrganizationExp service"
+     hasDescription hasValue "This service returns the student experiments, and its time duration also, organized by the certain organization."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/OrganizationexpService"
+     hasWorkflow hasValue Workflow_1499365018892_550088025
+
+instance Workflow_1499365018892_550088025 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018892_449444642
+     hasWorkflowElement hasValue StartEvent_1499365018892_699525676
+
+instance StartEvent_1499365018892_699525676 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018892_449444642
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018892_1808751718 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018892_449444642
+     hasSource hasValue Task_1499365018892_244825583
+     hasTarget hasValue EndEvent_1499365018892_1014147042
+
+instance Task_1499365018892_244825583 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018892_449444642
+     receivesData hasValue DataTypeEntity_1499365018892_1133131144
+     sendsData hasValue {DataTypeEntity_1499365018892_922157496, DataTypeEntity_1499365018892_836651205 }
+
+instance DataTypeEntity_1499365018892_1133131144 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Organization"
+
+instance DataTypeEntity_1499365018892_922157496 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#TimeDuration"
+
+instance DataTypeEntity_1499365018892_836651205 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Experimenting"
+
+instance EndEvent_1499365018892_1014147042 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018892_449444642
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018892_1445989950 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018892_449444642
+     hasSource hasValue StartEvent_1499365018892_699525676
+     hasTarget hasValue Task_1499365018892_244825583

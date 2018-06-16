@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018636
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018636_959120714 memberOf Process
+     hasName hasValue "AsianMissilesFundingService"
+     hasDescription hasValue "This service returns the total amount of funding for given missiles types spent by the asian governments."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Asianmissilesfundingservice"
+     hasWorkflow hasValue Workflow_1499365018636_528451306
+
+instance Workflow_1499365018636_528451306 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018636_959120714
+     hasWorkflowElement hasValue StartEvent_1499365018636_1420662209
+
+instance StartEvent_1499365018636_1420662209 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018636_959120714
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018636_1245512550 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018636_959120714
+     hasSource hasValue Task_1499365018636_1986488521
+     hasTarget hasValue EndEvent_1499365018636_734974988
+
+instance Task_1499365018636_1986488521 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018636_959120714
+     receivesData hasValue DataTypeEntity_1499365018636_1615901314
+     sendsData hasValue DataTypeEntity_1499365018636_106939199
+
+instance DataTypeEntity_1499365018636_1615901314 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Missile"
+
+instance DataTypeEntity_1499365018636_106939199 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Funding"
+
+instance EndEvent_1499365018636_734974988 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018636_959120714
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018636_2143585086 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018636_959120714
+     hasSource hasValue StartEvent_1499365018636_1420662209
+     hasTarget hasValue Task_1499365018636_1986488521

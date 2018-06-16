@@ -1,0 +1,54 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018806
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018806_868420373 memberOf Process
+     hasName hasValue "NovelPrice Reservation Service"
+     hasDescription hasValue "This service reserves a novel given by title for a certain person."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/NovelpriceReservationService"
+     hasWorkflow hasValue Workflow_1499365018806_1979155258
+
+instance Workflow_1499365018806_1979155258 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018806_868420373
+     hasWorkflowElement hasValue StartEvent_1499365018806_620110101
+
+instance StartEvent_1499365018806_620110101 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018806_868420373
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018806_956845071 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018806_868420373
+     hasSource hasValue Task_1499365018806_1201241802
+     hasTarget hasValue EndEvent_1499365018806_1479556846
+
+instance Task_1499365018806_1201241802 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018806_868420373
+     providesCapability hasValue SemanticCapability_1499365018806_1188436070
+     requestsCapability hasValue SemanticCapability_1499365018806_1020712487
+     receivesData hasValue {DataTypeEntity_1499365018806_1225377919, DataTypeEntity_1499365018806_848564493 }
+
+instance SemanticCapability_1499365018806_1188436070 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/ontosem.owl#reserve ?http://127.0.0.1:8000/services/OWLS-1.1/novelperson__Reservationservice.owls#_NOVEL)"
+
+instance SemanticCapability_1499365018806_1020712487 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(not (http://127.0.0.1:8000/ontology/books.owl#isReserved ?http://127.0.0.1:8000/services/OWLS-1.1/novelperson__Reservationservice.owls#_NOVEL))"
+
+instance DataTypeEntity_1499365018806_1225377919 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Novel"
+
+instance DataTypeEntity_1499365018806_848564493 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Person"
+
+instance EndEvent_1499365018806_1479556846 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018806_868420373
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018806_361227102 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018806_868420373
+     hasSource hasValue StartEvent_1499365018806_620110101
+     hasTarget hasValue Task_1499365018806_1201241802

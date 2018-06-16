@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018817
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018816_650713295 memberOf Process
+     hasName hasValue "NovelAuthorGenreService"
+     hasDescription hasValue "This service returns author of the novel and also its genre that shows that the novel is comic, fantasy or science-fiction."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Novelauthorgenreservice"
+     hasWorkflow hasValue Workflow_1499365018816_840547181
+
+instance Workflow_1499365018816_840547181 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018816_650713295
+     hasWorkflowElement hasValue StartEvent_1499365018816_2086077267
+
+instance StartEvent_1499365018816_2086077267 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018816_650713295
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018816_1179434998 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018816_650713295
+     hasSource hasValue Task_1499365018816_752260999
+     hasTarget hasValue EndEvent_1499365018816_1343981156
+
+instance Task_1499365018816_752260999 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018816_650713295
+     receivesData hasValue DataTypeEntity_1499365018816_2100250950
+     sendsData hasValue {DataTypeEntity_1499365018816_1497066134, DataTypeEntity_1499365018816_1947542150 }
+
+instance DataTypeEntity_1499365018816_2100250950 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Novel"
+
+instance DataTypeEntity_1499365018816_1497066134 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Genre"
+
+instance DataTypeEntity_1499365018816_1947542150 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Author"
+
+instance EndEvent_1499365018816_1343981156 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018816_650713295
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018816_111611328 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018816_650713295
+     hasSource hasValue StartEvent_1499365018816_2086077267
+     hasTarget hasValue Task_1499365018816_752260999

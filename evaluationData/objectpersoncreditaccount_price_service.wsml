@@ -1,0 +1,59 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018862
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018862_330088966 memberOf Process
+     hasName hasValue "AuthorisedPersonObjectPriceService"
+     hasDescription hasValue "This service varify account of an authorised person and returns recommended price of an object."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Authorisedpersonobjectpriceservice"
+     hasWorkflow hasValue Workflow_1499365018862_340679778
+
+instance Workflow_1499365018862_340679778 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018862_330088966
+     hasWorkflowElement hasValue StartEvent_1499365018862_879295874
+
+instance StartEvent_1499365018862_879295874 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018862_330088966
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018862_1570631633 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018862_330088966
+     hasSource hasValue Task_1499365018862_271880266
+     hasTarget hasValue EndEvent_1499365018862_546955426
+
+instance Task_1499365018862_271880266 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018862_330088966
+     requestsCapability hasValue SemanticCapability_1499365018862_1944829211
+     receivesData hasValue {DataTypeEntity_1499365018862_2067367849, DataTypeEntity_1499365018862_2134930534, DataTypeEntity_1499365018862_666086580 }
+     sendsData hasValue DataTypeEntity_1499365018862_793450279
+
+instance SemanticCapability_1499365018862_1944829211 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/ontosem.owl#Accepted ?http://127.0.0.1:8000/services/OWLS-1.1/objectpersoncreditaccount_price_service.owls#_CREDITACCOUNT)
+			      (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/objectpersoncreditaccount_price_service.owls#_PERSON)
+				  (http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#accountHolder ?http://127.0.0.1:8000/services/OWLS-1.1/objectpersoncreditaccount_price_service.owls#_PERSON ?http://127.0.0.1:8000/services/OWLS-1.1/objectpersoncreditaccount_price_service.owls#_CREDITACCOUNT))"
+
+instance DataTypeEntity_1499365018862_2067367849 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#CreditAccount"
+
+instance DataTypeEntity_1499365018862_2134930534 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/simplified_sumo.owl#Object"
+
+instance DataTypeEntity_1499365018862_666086580 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Person"
+
+instance DataTypeEntity_1499365018862_793450279 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365018862_546955426 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018862_330088966
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018862_959043412 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018862_330088966
+     hasSource hasValue StartEvent_1499365018862_879295874
+     hasTarget hasValue Task_1499365018862_271880266

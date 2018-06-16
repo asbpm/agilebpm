@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018639
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018639_898513095 memberOf Process
+     hasName hasValue "IndiaMissilesFundingService"
+     hasDescription hasValue "This service returns the amount of funding for given missiles types spent by the Indian government."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Indiamissilesfundingservice"
+     hasWorkflow hasValue Workflow_1499365018639_1351605582
+
+instance Workflow_1499365018639_1351605582 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018639_898513095
+     hasWorkflowElement hasValue StartEvent_1499365018639_323494982
+
+instance StartEvent_1499365018639_323494982 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018639_898513095
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018639_192649006 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018639_898513095
+     hasSource hasValue StartEvent_1499365018639_323494982
+     hasTarget hasValue Task_1499365018639_652897681
+
+instance Task_1499365018639_652897681 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018639_898513095
+     receivesData hasValue DataTypeEntity_1499365018639_1926722462
+     sendsData hasValue DataTypeEntity_1499365018639_371940609
+
+instance DataTypeEntity_1499365018639_1926722462 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Missile"
+
+instance DataTypeEntity_1499365018639_371940609 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Funding"
+
+instance ConditionalflowConnector_1499365018639_1957139067 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018639_898513095
+     hasSource hasValue Task_1499365018639_652897681
+     hasTarget hasValue EndEvent_1499365018639_1563995074
+
+instance EndEvent_1499365018639_1563995074 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018639_898513095
+     hasName hasValue "End"
