@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019474
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019474_446432424 memberOf Process
+     hasName hasValue "SPP Service"
+     hasDescription hasValue "SSP service informs you about lense with its price and its range camera, available in the certain shoppingmall."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/SppService"
+     hasWorkflow hasValue Workflow_1499365019474_146470183
+
+instance Workflow_1499365019474_146470183 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019474_446432424
+     hasWorkflowElement hasValue StartEvent_1499365019474_1269172330
+
+instance StartEvent_1499365019474_1269172330 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019474_446432424
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019474_78677093 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019474_446432424
+     hasSource hasValue Task_1499365019474_1409312328
+     hasTarget hasValue EndEvent_1499365019474_1176257052
+
+instance Task_1499365019474_1409312328 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019474_446432424
+     receivesData hasValue DataTypeEntity_1499365019474_750574405
+     sendsData hasValue {DataTypeEntity_1499365019474_529101137, DataTypeEntity_1499365019474_1810685415, DataTypeEntity_1499365019474_297334306 }
+
+instance DataTypeEntity_1499365019474_750574405 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#ShoppingMall"
+
+instance DataTypeEntity_1499365019474_529101137 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#PurchaseableItem"
+
+instance DataTypeEntity_1499365019474_1810685415 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365019474_297334306 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#Range"
+
+instance EndEvent_1499365019474_1176257052 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019474_446432424
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019474_1055963123 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019474_446432424
+     hasSource hasValue StartEvent_1499365019474_1269172330
+     hasTarget hasValue Task_1499365019474_1409312328

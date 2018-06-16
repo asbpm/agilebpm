@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019274
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019274_713986966 memberOf Process
+     hasName hasValue "RetailStore Compact Price service"
+     hasDescription hasValue "This service informs you the price for a compact camera available in a given retail store."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/RetailstoreCompactPriceService"
+     hasWorkflow hasValue Workflow_1499365019274_1726961891
+
+instance Workflow_1499365019274_1726961891 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019274_713986966
+     hasWorkflowElement hasValue StartEvent_1499365019274_372409113
+
+instance StartEvent_1499365019274_372409113 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019274_713986966
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019274_1666730154 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019274_713986966
+     hasSource hasValue Task_1499365019274_1991143171
+     hasTarget hasValue EndEvent_1499365019274_1828221056
+
+instance Task_1499365019274_1991143171 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019274_713986966
+     receivesData hasValue DataTypeEntity_1499365019274_473529668
+     sendsData hasValue {DataTypeEntity_1499365019274_333726250, DataTypeEntity_1499365019274_1472117836 }
+
+instance DataTypeEntity_1499365019274_473529668 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#RetailStore"
+
+instance DataTypeEntity_1499365019274_333726250 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365019274_1472117836 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#Compact"
+
+instance EndEvent_1499365019274_1828221056 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019274_713986966
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019274_666237636 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019274_713986966
+     hasSource hasValue StartEvent_1499365019274_372409113
+     hasTarget hasValue Task_1499365019274_1991143171

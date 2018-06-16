@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019446
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019445_459606553 memberOf Process
+     hasName hasValue "CameraPriceService"
+     hasDescription hasValue "This service informs you about available camera, its price and availability time in the certain shoppingmall."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Camerapriceservice"
+     hasWorkflow hasValue Workflow_1499365019445_859756201
+
+instance Workflow_1499365019445_859756201 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019445_459606553
+     hasWorkflowElement hasValue StartEvent_1499365019445_844015944
+
+instance StartEvent_1499365019445_844015944 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019445_459606553
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019445_270697661 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019445_459606553
+     hasSource hasValue Task_1499365019445_592909732
+     hasTarget hasValue EndEvent_1499365019445_482234379
+
+instance Task_1499365019445_592909732 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019445_459606553
+     receivesData hasValue DataTypeEntity_1499365019445_867615956
+     sendsData hasValue {DataTypeEntity_1499365019445_1639677366, DataTypeEntity_1499365019445_1629362742, DataTypeEntity_1499365019445_274109226 }
+
+instance DataTypeEntity_1499365019445_867615956 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#ShoppingMall"
+
+instance DataTypeEntity_1499365019445_1639677366 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365019445_1629362742 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Calendar-Date"
+
+instance DataTypeEntity_1499365019445_274109226 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#Camera"
+
+instance EndEvent_1499365019445_482234379 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019445_459606553
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019445_1138020292 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019445_459606553
+     hasSource hasValue StartEvent_1499365019445_844015944
+     hasTarget hasValue Task_1499365019445_592909732

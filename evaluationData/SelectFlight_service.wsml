@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019418
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019418_946281231 memberOf Process
+     hasName hasValue "SelectFlight"
+     hasDescription hasValue "This service returns the flight numbers of a given list of flights."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Selectflight"
+     hasWorkflow hasValue Workflow_1499365019418_577034834
+
+instance Workflow_1499365019418_577034834 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019418_946281231
+     hasWorkflowElement hasValue StartEvent_1499365019418_1564221854
+
+instance StartEvent_1499365019418_1564221854 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019418_946281231
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019418_175294365 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019418_946281231
+     hasSource hasValue Task_1499365019418_1650446404
+     hasTarget hasValue EndEvent_1499365019418_229774340
+
+instance Task_1499365019418_1650446404 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019418_946281231
+     receivesData hasValue DataTypeEntity_1499365019418_101989553
+     sendsData hasValue DataTypeEntity_1499365019418_1327136801
+
+instance DataTypeEntity_1499365019418_101989553 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EMAOntology.owl#ListOfFlights"
+
+instance DataTypeEntity_1499365019418_1327136801 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EMAOntology.owl#FlightNumber"
+
+instance EndEvent_1499365019418_229774340 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019418_946281231
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019418_1157574246 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019418_946281231
+     hasSource hasValue StartEvent_1499365019418_1564221854
+     hasTarget hasValue Task_1499365019418_1650446404

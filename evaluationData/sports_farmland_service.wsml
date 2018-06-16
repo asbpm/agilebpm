@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019544
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019544_1941259850 memberOf Process
+     hasName hasValue "Sports Farmland Service"
+     hasDescription hasValue "This service returns farmlands which provide given sports activities."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/SportsFarmlandService"
+     hasWorkflow hasValue Workflow_1499365019544_85311220
+
+instance Workflow_1499365019544_85311220 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019544_1941259850
+     hasWorkflowElement hasValue StartEvent_1499365019544_1882097904
+
+instance StartEvent_1499365019544_1882097904 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019544_1941259850
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019544_1095980663 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019544_1941259850
+     hasSource hasValue StartEvent_1499365019544_1882097904
+     hasTarget hasValue Task_1499365019544_299970882
+
+instance Task_1499365019544_299970882 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019544_1941259850
+     receivesData hasValue DataTypeEntity_1499365019544_590553536
+     sendsData hasValue DataTypeEntity_1499365019544_2058529007
+
+instance DataTypeEntity_1499365019544_590553536 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Sports"
+
+instance DataTypeEntity_1499365019544_2058529007 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Farmland"
+
+instance ConditionalflowConnector_1499365019544_632584425 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019544_1941259850
+     hasSource hasValue Task_1499365019544_299970882
+     hasTarget hasValue EndEvent_1499365019544_1155280546
+
+instance EndEvent_1499365019544_1155280546 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019544_1941259850
+     hasName hasValue "End"

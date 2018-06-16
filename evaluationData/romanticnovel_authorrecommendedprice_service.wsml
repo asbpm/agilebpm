@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019313
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019313_1312614850 memberOf Process
+     hasName hasValue "RomanticNovel Author RecommendedPrice Service"
+     hasDescription hasValue "This service returns author and recommended price of a given romantic novel."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/RomanticnovelAuthorRecommendedpriceService"
+     hasWorkflow hasValue Workflow_1499365019313_225194136
+
+instance Workflow_1499365019313_225194136 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019313_1312614850
+     hasWorkflowElement hasValue StartEvent_1499365019313_417867948
+
+instance StartEvent_1499365019313_417867948 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019313_1312614850
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019313_247069520 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019313_1312614850
+     hasSource hasValue Task_1499365019313_675763150
+     hasTarget hasValue EndEvent_1499365019313_999699851
+
+instance Task_1499365019313_675763150 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019313_1312614850
+     receivesData hasValue DataTypeEntity_1499365019313_125664573
+     sendsData hasValue {DataTypeEntity_1499365019313_1866832027, DataTypeEntity_1499365019313_605357806 }
+
+instance DataTypeEntity_1499365019313_125664573 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#RomanticNovel"
+
+instance DataTypeEntity_1499365019313_1866832027 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPrice"
+
+instance DataTypeEntity_1499365019313_605357806 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Author"
+
+instance EndEvent_1499365019313_999699851 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019313_1312614850
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019313_127799820 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019313_1312614850
+     hasSource hasValue StartEvent_1499365019313_417867948
+     hasTarget hasValue Task_1499365019313_675763150

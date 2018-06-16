@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019342
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019341_641073431 memberOf Process
+     hasName hasValue "Science-Fiction-Novel Author MaxPrice Service"
+     hasDescription hasValue "This service returns author and max price of a given science fiction novel."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Science-fiction-novelAuthorMaxpriceService"
+     hasWorkflow hasValue Workflow_1499365019341_785638295
+
+instance Workflow_1499365019341_785638295 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019341_641073431
+     hasWorkflowElement hasValue StartEvent_1499365019341_916143998
+
+instance StartEvent_1499365019341_916143998 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019341_641073431
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019341_1522889125 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019341_641073431
+     hasSource hasValue Task_1499365019341_1419017145
+     hasTarget hasValue EndEvent_1499365019341_648853186
+
+instance Task_1499365019341_1419017145 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019341_641073431
+     receivesData hasValue DataTypeEntity_1499365019341_285762143
+     sendsData hasValue {DataTypeEntity_1499365019341_1912653067, DataTypeEntity_1499365019341_1541603892 }
+
+instance DataTypeEntity_1499365019341_285762143 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Science-Fiction-Novel"
+
+instance DataTypeEntity_1499365019341_1912653067 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Author"
+
+instance DataTypeEntity_1499365019341_1541603892 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#MaxPrice"
+
+instance EndEvent_1499365019341_648853186 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019341_641073431
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019341_966237202 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019341_641073431
+     hasSource hasValue StartEvent_1499365019341_916143998
+     hasTarget hasValue Task_1499365019341_1419017145

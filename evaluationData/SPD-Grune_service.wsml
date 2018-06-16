@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019524
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019523_1147798306 memberOf Process
+     hasName hasValue "SPD-Grune Service"
+     hasDescription hasValue "SPD-Grune emphasis on tax price (in Euros) of a certain prepared food, and its drawback on environment."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Spd-gruneService"
+     hasWorkflow hasValue Workflow_1499365019523_1067432106
+
+instance Workflow_1499365019523_1067432106 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019523_1147798306
+     hasWorkflowElement hasValue StartEvent_1499365019523_1090466815
+
+instance StartEvent_1499365019523_1090466815 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019523_1147798306
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019523_1407097157 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019523_1147798306
+     hasSource hasValue Task_1499365019523_381468279
+     hasTarget hasValue EndEvent_1499365019523_1864732480
+
+instance Task_1499365019523_381468279 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019523_1147798306
+     receivesData hasValue DataTypeEntity_1499365019523_1649500191
+     sendsData hasValue {DataTypeEntity_1499365019523_676366949, DataTypeEntity_1499365019523_672288181 }
+
+instance DataTypeEntity_1499365019523_1649500191 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#PreparedFood"
+
+instance DataTypeEntity_1499365019523_676366949 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxedPriceInEuro"
+
+instance DataTypeEntity_1499365019523_672288181 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Report"
+
+instance EndEvent_1499365019523_1864732480 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019523_1147798306
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019523_2076571672 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019523_1147798306
+     hasSource hasValue StartEvent_1499365019523_1090466815
+     hasTarget hasValue Task_1499365019523_381468279

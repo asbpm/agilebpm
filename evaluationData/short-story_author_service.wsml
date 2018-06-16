@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019505
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019505_2086025140 memberOf Process
+     hasName hasValue "Short-Story Author Service"
+     hasDescription hasValue "This service returns author of a certain short-story."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Short-storyAuthorService"
+     hasWorkflow hasValue Workflow_1499365019505_105851347
+
+instance Workflow_1499365019505_105851347 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019505_2086025140
+     hasWorkflowElement hasValue StartEvent_1499365019505_1419162406
+
+instance StartEvent_1499365019505_1419162406 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019505_2086025140
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019505_1943983007 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019505_2086025140
+     hasSource hasValue Task_1499365019505_1744972558
+     hasTarget hasValue EndEvent_1499365019505_142725756
+
+instance Task_1499365019505_1744972558 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019505_2086025140
+     receivesData hasValue DataTypeEntity_1499365019505_858709138
+     sendsData hasValue DataTypeEntity_1499365019505_1451763675
+
+instance DataTypeEntity_1499365019505_858709138 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Short-Story"
+
+instance DataTypeEntity_1499365019505_1451763675 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Author"
+
+instance EndEvent_1499365019505_142725756 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019505_2086025140
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019505_1355271356 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019505_2086025140
+     hasSource hasValue StartEvent_1499365019505_1419162406
+     hasTarget hasValue Task_1499365019505_1744972558

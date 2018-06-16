@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019557
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019556_715762183 memberOf Process
+     hasName hasValue "SRCameraService"
+     hasDescription hasValue "SR service returns available camera and its recommended price in the certain shoppingmall."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Srcameraservice"
+     hasWorkflow hasValue Workflow_1499365019556_1113961739
+
+instance Workflow_1499365019556_1113961739 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019556_715762183
+     hasWorkflowElement hasValue StartEvent_1499365019556_133528628
+
+instance StartEvent_1499365019556_133528628 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019556_715762183
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019556_1845395043 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019556_715762183
+     hasSource hasValue Task_1499365019556_1867600893
+     hasTarget hasValue EndEvent_1499365019556_55741173
+
+instance Task_1499365019556_1867600893 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019556_715762183
+     receivesData hasValue DataTypeEntity_1499365019556_1542629254
+     sendsData hasValue {DataTypeEntity_1499365019556_1999089775, DataTypeEntity_1499365019556_2011018603 }
+
+instance DataTypeEntity_1499365019556_1542629254 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#ShoppingMall"
+
+instance DataTypeEntity_1499365019556_1999089775 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#Camera"
+
+instance DataTypeEntity_1499365019556_2011018603 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPriceInDollar"
+
+instance EndEvent_1499365019556_55741173 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019556_715762183
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019556_430394375 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019556_715762183
+     hasSource hasValue StartEvent_1499365019556_133528628
+     hasTarget hasValue Task_1499365019556_1867600893

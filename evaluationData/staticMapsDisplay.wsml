@@ -1,0 +1,77 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019561
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019560_1752284653 memberOf Process
+     hasName hasValue "STATIC MAPS DISPLAY SERVICE."
+     hasDescription hasValue "This service allows to create a static map geographic locations identified by coordinates, an address, or a path route (at least one attribute should be provided by user or combination of all three). Static maps are simple images of a map, normally shown within a web page, that do not provide rich functionality, such as dragging and smooth panning and zooming, found in Multimap API V1.2 JavaScript. Static maps are often used to display maps to those users who do not have the required browser software to display maps based on the JavaScript API. Map Height, Map Width and Map Center location is also given by user, the image size, image format (GIF,JPEG etc.), Markers attached to the map at various locations, path coordinates between two or more locations, language, map-span coordinates (i.e. viewport of the map)."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/StaticMapsDisplayService"
+     hasWorkflow hasValue Workflow_1499365019560_1601975502
+
+instance Workflow_1499365019560_1601975502 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019560_1752284653
+     hasWorkflowElement hasValue StartEvent_1499365019560_1960988796
+
+instance StartEvent_1499365019560_1960988796 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019560_1752284653
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019560_1500285033 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019560_1752284653
+     hasSource hasValue Task_1499365019560_1543555217
+     hasTarget hasValue EndEvent_1499365019560_2075374864
+
+instance Task_1499365019560_1543555217 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019560_1752284653
+     receivesData hasValue {DataTypeEntity_1499365019560_774280863, DataTypeEntity_1499365019560_410868108, DataTypeEntity_1499365019560_57092685, DataTypeEntity_1499365019560_613434316, DataTypeEntity_1499365019560_110368644, DataTypeEntity_1499365019560_1981268709, DataTypeEntity_1499365019560_643194011, DataTypeEntity_1499365019560_519271565, DataTypeEntity_1499365019560_266296408, DataTypeEntity_1499365019560_1635695605, DataTypeEntity_1499365019560_1140392444 }
+     sendsData hasValue DataTypeEntity_1499365019560_1224321899
+
+instance DataTypeEntity_1499365019560_774280863 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#Location"
+
+instance DataTypeEntity_1499365019560_410868108 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/ontosem.owl#size"
+
+instance DataTypeEntity_1499365019560_57092685 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/ontosem.owl#height"
+
+instance DataTypeEntity_1499365019560_613434316 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Coordinate"
+
+instance DataTypeEntity_1499365019560_110368644 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/technical.owl#ImagePart"
+
+instance DataTypeEntity_1499365019560_1981268709 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#Language"
+
+instance DataTypeEntity_1499365019560_643194011 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Route"
+
+instance DataTypeEntity_1499365019560_519271565 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/ontosem.owl#width"
+
+instance DataTypeEntity_1499365019560_266296408 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#DigitalFileType"
+
+instance DataTypeEntity_1499365019560_1635695605 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#ReferenceLocation"
+
+instance DataTypeEntity_1499365019560_1140392444 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Address"
+
+instance DataTypeEntity_1499365019560_1224321899 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Map"
+
+instance EndEvent_1499365019560_2075374864 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019560_1752284653
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019560_295423827 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019560_1752284653
+     hasSource hasValue StartEvent_1499365019560_1960988796
+     hasTarget hasValue Task_1499365019560_1543555217

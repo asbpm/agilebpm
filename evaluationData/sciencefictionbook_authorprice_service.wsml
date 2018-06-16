@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019376
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019376_1876528467 memberOf Process
+     hasName hasValue "ScienceFictionBook Author Price Service"
+     hasDescription hasValue "This service returns name of the author and price of a given science fiction book title."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/SciencefictionbookAuthorPriceService"
+     hasWorkflow hasValue Workflow_1499365019376_2024227323
+
+instance Workflow_1499365019376_2024227323 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019376_1876528467
+     hasWorkflowElement hasValue StartEvent_1499365019376_1828890079
+
+instance StartEvent_1499365019376_1828890079 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019376_1876528467
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019376_577841759 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019376_1876528467
+     hasSource hasValue StartEvent_1499365019376_1828890079
+     hasTarget hasValue Task_1499365019376_1197389527
+
+instance Task_1499365019376_1197389527 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019376_1876528467
+     receivesData hasValue DataTypeEntity_1499365019376_41870783
+     sendsData hasValue {DataTypeEntity_1499365019376_133028288, DataTypeEntity_1499365019376_742706424 }
+
+instance DataTypeEntity_1499365019376_41870783 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#ScienceFictionBook"
+
+instance DataTypeEntity_1499365019376_133028288 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365019376_742706424 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Author"
+
+instance ConditionalflowConnector_1499365019376_654620437 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019376_1876528467
+     hasSource hasValue Task_1499365019376_1197389527
+     hasTarget hasValue EndEvent_1499365019376_1485662347
+
+instance EndEvent_1499365019376_1485662347 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019376_1876528467
+     hasName hasValue "End"

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019515
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019515_2021422221 memberOf Process
+     hasName hasValue "Sightseeing Nationalpark Service"
+     hasDescription hasValue "This service returns list of national parks which have nice places for given sightseeing type."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/SightseeingNationalparkService"
+     hasWorkflow hasValue Workflow_1499365019515_1785600066
+
+instance Workflow_1499365019515_1785600066 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019515_2021422221
+     hasWorkflowElement hasValue StartEvent_1499365019515_93506256
+
+instance StartEvent_1499365019515_93506256 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019515_2021422221
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019515_1882041975 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019515_2021422221
+     hasSource hasValue Task_1499365019515_530218142
+     hasTarget hasValue EndEvent_1499365019515_369727870
+
+instance Task_1499365019515_530218142 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019515_2021422221
+     receivesData hasValue DataTypeEntity_1499365019515_1800109607
+     sendsData hasValue DataTypeEntity_1499365019515_1705875060
+
+instance DataTypeEntity_1499365019515_1800109607 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Sightseeing"
+
+instance DataTypeEntity_1499365019515_1705875060 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#NationalPark"
+
+instance EndEvent_1499365019515_369727870 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019515_2021422221
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019515_1397173526 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019515_2021422221
+     hasSource hasValue StartEvent_1499365019515_93506256
+     hasTarget hasValue Task_1499365019515_530218142

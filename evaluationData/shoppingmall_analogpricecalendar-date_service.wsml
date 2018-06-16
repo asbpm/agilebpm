@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019442
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019442_880350632 memberOf Process
+     hasName hasValue "AnalogCameraService"
+     hasDescription hasValue "This service informs you about available camera, its price and availability time in the certain shoppingmall."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Analogcameraservice"
+     hasWorkflow hasValue Workflow_1499365019442_1230416656
+
+instance Workflow_1499365019442_1230416656 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019442_880350632
+     hasWorkflowElement hasValue StartEvent_1499365019442_949278887
+
+instance StartEvent_1499365019442_949278887 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019442_880350632
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019442_2030360404 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019442_880350632
+     hasSource hasValue Task_1499365019442_2037243561
+     hasTarget hasValue EndEvent_1499365019442_753998690
+
+instance Task_1499365019442_2037243561 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019442_880350632
+     receivesData hasValue DataTypeEntity_1499365019442_592127108
+     sendsData hasValue {DataTypeEntity_1499365019442_1955924581, DataTypeEntity_1499365019442_1542151311, DataTypeEntity_1499365019442_1680508662 }
+
+instance DataTypeEntity_1499365019442_592127108 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#ShoppingMall"
+
+instance DataTypeEntity_1499365019442_1955924581 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/extendedCamera.owl#Analog"
+
+instance DataTypeEntity_1499365019442_1542151311 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Calendar-Date"
+
+instance DataTypeEntity_1499365019442_1680508662 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365019442_753998690 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019442_880350632
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019442_1881328252 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019442_880350632
+     hasSource hasValue StartEvent_1499365019442_949278887
+     hasTarget hasValue Task_1499365019442_2037243561

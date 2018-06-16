@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019512
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019512_1597174153 memberOf Process
+     hasName hasValue "Sightseeing City Service"
+     hasDescription hasValue "This service returns list of cities which have good places for given sightseeing type."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/SightseeingCityService"
+     hasWorkflow hasValue Workflow_1499365019512_789335657
+
+instance Workflow_1499365019512_789335657 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019512_1597174153
+     hasWorkflowElement hasValue StartEvent_1499365019512_1248446024
+
+instance StartEvent_1499365019512_1248446024 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019512_1597174153
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019512_209968187 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019512_1597174153
+     hasSource hasValue Task_1499365019512_896081230
+     hasTarget hasValue EndEvent_1499365019512_1617255445
+
+instance Task_1499365019512_896081230 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019512_1597174153
+     receivesData hasValue DataTypeEntity_1499365019512_223174272
+     sendsData hasValue DataTypeEntity_1499365019512_63733156
+
+instance DataTypeEntity_1499365019512_223174272 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Sightseeing"
+
+instance DataTypeEntity_1499365019512_63733156 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#City"
+
+instance EndEvent_1499365019512_1617255445 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019512_1597174153
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019512_168151010 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019512_1597174153
+     hasSource hasValue StartEvent_1499365019512_1248446024
+     hasTarget hasValue Task_1499365019512_896081230
