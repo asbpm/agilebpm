@@ -15,4 +15,4 @@ On the other hand, this project utilizes multi-agent technologies to simulate co
 Please read [EVALUATION.md](https://github.com/asbpm/asbpm/blob/master/evaluationData/README.md) for details of project performance evaluation dataset.
 
 ## Source code
-The source code will be shared following the publication of experiment results. 
+The complete source code will be shared following the publication of experiment results. 
