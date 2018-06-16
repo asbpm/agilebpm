@@ -1,0 +1,71 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018017
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018017_638825627 memberOf Process
+     hasName hasValue "GetNonMedicalTransportAccount"
+     hasDescription hasValue "Creates a customer account which is required for booking a transport."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Getnonmedicaltransportaccount"
+     hasWorkflow hasValue Workflow_1499365018017_736505914
+
+instance Workflow_1499365018017_736505914 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018017_638825627
+     hasWorkflowElement hasValue StartEvent_1499365018017_2084386491
+
+instance StartEvent_1499365018017_2084386491 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018017_638825627
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018017_1555757628 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018017_638825627
+     hasSource hasValue StartEvent_1499365018017_2084386491
+     hasTarget hasValue Task_1499365018017_703153093
+
+instance Task_1499365018017_703153093 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018017_638825627
+     providesCapability hasValue SemanticCapability_1499365018017_1164237446
+     requestsCapability hasValue SemanticCapability_1499365018017_1140700508
+     receivesData hasValue {DataTypeEntity_1499365018017_191697130, DataTypeEntity_1499365018017_1712171277, DataTypeEntity_1499365018017_515019981, DataTypeEntity_1499365018017_1472187894, DataTypeEntity_1499365018017_1141878339, DataTypeEntity_1499365018017_1146977883 }
+     sendsData hasValue DataTypeEntity_1499365018017_1052058671
+
+instance SemanticCapability_1499365018017_1164237446 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Create ?http://127.0.0.1:8000/services/OWLS-1.1/GetNonMedicalTransportAccount_service.owls#GetNonMedicalTransportAccount_Account)"
+
+instance SemanticCapability_1499365018017_1140700508 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/ontosem.owl#Accepted ?http://127.0.0.1:8000/services/OWLS-1.1/GetNonMedicalTransportAccount_service.owls#GetNonMedicalTransportAccount_CustomerCreditCardNumber)
+				  (http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#accountHolder ?http://127.0.0.1:8000/services/OWLS-1.1/GetNonMedicalTransportAccount_service.owls#GetNonMedicalTransportAccount_CustomerName ?http://127.0.0.1:8000/services/OWLS-1.1/GetNonMedicalTransportAccount_service.owls#GetNonMedicalTransportAccount_CustomerCreditCardNumber))"
+
+instance DataTypeEntity_1499365018017_191697130 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#AccountPassword"
+
+instance DataTypeEntity_1499365018017_1712171277 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#CreditCardNumber"
+
+instance DataTypeEntity_1499365018017_515019981 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#AccountName"
+
+instance DataTypeEntity_1499365018017_1472187894 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365018017_1141878339 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#Address"
+
+instance DataTypeEntity_1499365018017_1146977883 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#PersonName"
+
+instance DataTypeEntity_1499365018017_1052058671 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#Account"
+
+instance ConditionalflowConnector_1499365018017_901210508 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018017_638825627
+     hasSource hasValue Task_1499365018017_703153093
+     hasTarget hasValue EndEvent_1499365018017_631574483
+
+instance EndEvent_1499365018017_631574483 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018017_638825627
+     hasName hasValue "End"

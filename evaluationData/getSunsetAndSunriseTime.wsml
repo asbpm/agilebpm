@@ -1,0 +1,66 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018030
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018030_418014033 memberOf Process
+     hasName hasValue "Sunrise and Sunset Time Calcutator Service."
+     hasDescription hasValue "This service calculates Sunrise and Sunset times for a certain date of a given location worldwide (latitude/longitude pair). The time zone of the given location is also provided. For using this service valid License Key should be provided."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/SunriseAndSunsetTimeCalcutatorService"
+     hasWorkflow hasValue Workflow_1499365018030_1489900239
+
+instance Workflow_1499365018030_1489900239 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018030_418014033
+     hasWorkflowElement hasValue StartEvent_1499365018030_218795239
+
+instance StartEvent_1499365018030_218795239 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018030_418014033
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018030_173547134 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018030_418014033
+     hasSource hasValue Task_1499365018030_277458695
+     hasTarget hasValue EndEvent_1499365018030_1604771324
+
+instance Task_1499365018030_277458695 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018030_418014033
+     requestsCapability hasValue SemanticCapability_1499365018030_1287625389
+     receivesData hasValue {DataTypeEntity_1499365018030_555010576, DataTypeEntity_1499365018030_1017384311, DataTypeEntity_1499365018030_1102302651, DataTypeEntity_1499365018030_105603335, DataTypeEntity_1499365018030_2096497168 }
+     sendsData hasValue {DataTypeEntity_1499365018030_1850739730, DataTypeEntity_1499365018030_1807995702 }
+
+instance SemanticCapability_1499365018030_1287625389 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/getSunsetAndSunriseTime.owls#_LICENSEKEY)"
+
+instance DataTypeEntity_1499365018030_555010576 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Code"
+
+instance DataTypeEntity_1499365018030_1017384311 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Date"
+
+instance DataTypeEntity_1499365018030_1102302651 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#TimeZone"
+
+instance DataTypeEntity_1499365018030_105603335 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance DataTypeEntity_1499365018030_2096497168 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance DataTypeEntity_1499365018030_1850739730 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Sunset"
+
+instance DataTypeEntity_1499365018030_1807995702 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Sunrise"
+
+instance EndEvent_1499365018030_1604771324 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018030_418014033
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018030_296502992 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018030_418014033
+     hasSource hasValue StartEvent_1499365018030_218795239
+     hasTarget hasValue Task_1499365018030_277458695

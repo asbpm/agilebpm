@@ -1,0 +1,60 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017937
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017937_1519045772 memberOf Process
+     hasName hasValue "Distance finder between two US places"
+     hasDescription hasValue "This service retrieves the distance in kilometers between two given US city names and their state codes. The distance is a driving road distance."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/DistanceFinderBetweenTwoUsPlaces"
+     hasWorkflow hasValue Workflow_1499365017937_843612638
+
+instance Workflow_1499365017937_843612638 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017937_1519045772
+     hasWorkflowElement hasValue StartEvent_1499365017937_384332615
+
+instance StartEvent_1499365017937_384332615 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017937_1519045772
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017937_919850425 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017937_1519045772
+     hasSource hasValue StartEvent_1499365017937_384332615
+     hasTarget hasValue Task_1499365017937_723234544
+
+instance Task_1499365017937_723234544 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017937_1519045772
+     requestsCapability hasValue SemanticCapability_1499365017937_781079882
+     receivesData hasValue {DataTypeEntity_1499365017937_985493722, DataTypeEntity_1499365017937_999863097, DataTypeEntity_1499365017937_1337149198, DataTypeEntity_1499365017937_1797708614 }
+     sendsData hasValue DataTypeEntity_1499365017937_469020906
+
+instance SemanticCapability_1499365017937_781079882 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(not (http://127.0.0.1:8000/ontology/SUMO.owl#equal ?http://127.0.0.1:8000/services/OWLS-1.1/getDistanceBetweenPlaces.owls#_USCITY1 ?http://127.0.0.1:8000/services/OWLS-1.1/getDistanceBetweenPlaces.owls#_USCITY2))"
+
+instance DataTypeEntity_1499365017937_985493722 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#USStateCode"
+
+instance DataTypeEntity_1499365017937_999863097 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365017937_1337149198 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365017937_1797708614 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#USStateCode"
+
+instance DataTypeEntity_1499365017937_469020906 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicDistance"
+
+instance ConditionalflowConnector_1499365017937_1849382869 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017937_1519045772
+     hasSource hasValue Task_1499365017937_723234544
+     hasTarget hasValue EndEvent_1499365017937_1210963312
+
+instance EndEvent_1499365017937_1210963312 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017937_1519045772
+     hasName hasValue "End"

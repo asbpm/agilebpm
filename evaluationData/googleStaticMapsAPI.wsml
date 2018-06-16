@@ -1,0 +1,65 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018092
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018092_1321579333 memberOf Process
+     hasName hasValue "GOOGLE STATIC MAPS API SERVICE."
+     hasDescription hasValue "The Google Static Maps API lets you embed a Google Maps image on your webpage without requiring JavaScript or any dynamic page loading.  The Google Static Map service creates your map based on URL parameters sent through a standard HTTP request and returns the map as an image you can display on your web page. Center location of the map is given, also the image size, image format (GIF,JPEG etc.), Markers attached to the map at various locations, path between two or more locations, language, map-span i.e. viewport of the map."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GoogleStaticMapsApiService"
+     hasWorkflow hasValue Workflow_1499365018092_909550786
+
+instance Workflow_1499365018092_909550786 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018092_1321579333
+     hasWorkflowElement hasValue StartEvent_1499365018092_28369751
+
+instance StartEvent_1499365018092_28369751 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018092_1321579333
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018092_1457530910 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018092_1321579333
+     hasSource hasValue StartEvent_1499365018092_28369751
+     hasTarget hasValue Task_1499365018092_59769235
+
+instance Task_1499365018092_59769235 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018092_1321579333
+     receivesData hasValue {DataTypeEntity_1499365018092_1356110696, DataTypeEntity_1499365018092_1220317908, DataTypeEntity_1499365018092_1846197599, DataTypeEntity_1499365018092_1066129367, DataTypeEntity_1499365018092_1266095746, DataTypeEntity_1499365018092_1881196188, DataTypeEntity_1499365018092_30391646 }
+     sendsData hasValue DataTypeEntity_1499365018092_751039413
+
+instance DataTypeEntity_1499365018092_1356110696 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#DigitalFileType"
+
+instance DataTypeEntity_1499365018092_1220317908 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#ReferenceLocation"
+
+instance DataTypeEntity_1499365018092_1846197599 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/ontosem.owl#size"
+
+instance DataTypeEntity_1499365018092_1066129367 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#Location"
+
+instance DataTypeEntity_1499365018092_1266095746 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/technical.owl#ImagePart"
+
+instance DataTypeEntity_1499365018092_1881196188 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Route"
+
+instance DataTypeEntity_1499365018092_30391646 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#Language"
+
+instance DataTypeEntity_1499365018092_751039413 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Map"
+
+instance ConditionalflowConnector_1499365018092_995285233 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018092_1321579333
+     hasSource hasValue Task_1499365018092_59769235
+     hasTarget hasValue EndEvent_1499365018092_324827846
+
+instance EndEvent_1499365018092_324827846 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018092_1321579333
+     hasName hasValue "End"

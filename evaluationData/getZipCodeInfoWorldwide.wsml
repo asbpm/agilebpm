@@ -1,0 +1,66 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018058
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018058_1904935538 memberOf Process
+     hasName hasValue "Zip Code info Service that works worldwide."
+     hasDescription hasValue "This service returns general information about a given Zip Code worldwide(including city, country name, time zone, daylight saving time, geographic area).  For using this service valid UserID should be provided."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ZipCodeInfoServiceThatWorksWorldwide"
+     hasWorkflow hasValue Workflow_1499365018058_558993879
+
+instance Workflow_1499365018058_558993879 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018058_1904935538
+     hasWorkflowElement hasValue StartEvent_1499365018058_1921888737
+
+instance StartEvent_1499365018058_1921888737 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018058_1904935538
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018058_2110362988 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018058_1904935538
+     hasSource hasValue StartEvent_1499365018058_1921888737
+     hasTarget hasValue Task_1499365018058_51997850
+
+instance Task_1499365018058_51997850 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018058_1904935538
+     requestsCapability hasValue SemanticCapability_1499365018058_1044424118
+     receivesData hasValue {DataTypeEntity_1499365018058_422781140, DataTypeEntity_1499365018058_456714815 }
+     sendsData hasValue {DataTypeEntity_1499365018058_1969167809, DataTypeEntity_1499365018058_917578900, DataTypeEntity_1499365018058_160555322, DataTypeEntity_1499365018058_609813529, DataTypeEntity_1499365018058_140139179 }
+
+instance SemanticCapability_1499365018058_1044424118 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/getZipCodeInfoWorldwide.owls#_USERID)"
+
+instance DataTypeEntity_1499365018058_422781140 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#UniqueIdentifier"
+
+instance DataTypeEntity_1499365018058_456714815 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#ZipCode"
+
+instance DataTypeEntity_1499365018058_1969167809 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Country"
+
+instance DataTypeEntity_1499365018058_917578900 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicArea"
+
+instance DataTypeEntity_1499365018058_160555322 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365018058_609813529 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#daylightSavingTime"
+
+instance DataTypeEntity_1499365018058_140139179 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#TimeZone"
+
+instance ConditionalflowConnector_1499365018058_953321922 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018058_1904935538
+     hasSource hasValue Task_1499365018058_51997850
+     hasTarget hasValue EndEvent_1499365018058_355202645
+
+instance EndEvent_1499365018058_355202645 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018058_1904935538
+     hasName hasValue "End"

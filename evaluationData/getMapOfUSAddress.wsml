@@ -1,0 +1,60 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017997
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017997_187560051 memberOf Process
+     hasName hasValue "Postal Address Map service."
+     hasDescription hasValue "This service provides a vicinity map with the location of a given US structured address, with its city, state and zipcode."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/PostalAddressMapService"
+     hasWorkflow hasValue Workflow_1499365017997_1499920938
+
+instance Workflow_1499365017997_1499920938 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017997_187560051
+     hasWorkflowElement hasValue StartEvent_1499365017997_857209271
+
+instance StartEvent_1499365017997_857209271 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017997_187560051
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017997_159760031 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017997_187560051
+     hasSource hasValue Task_1499365017997_596245308
+     hasTarget hasValue EndEvent_1499365017997_945359454
+
+instance Task_1499365017997_596245308 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017997_187560051
+     requestsCapability hasValue SemanticCapability_1499365017997_94888056
+     receivesData hasValue {DataTypeEntity_1499365017997_433133531, DataTypeEntity_1499365017997_1536800606, DataTypeEntity_1499365017997_1321129236, DataTypeEntity_1499365017997_48216968 }
+     sendsData hasValue DataTypeEntity_1499365017997_483891486
+
+instance SemanticCapability_1499365017997_94888056 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getMapOfUSAddress.owls#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/getMapOfUSAddress.owls#_STATE)"
+
+instance DataTypeEntity_1499365017997_433133531 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#PostalCode"
+
+instance DataTypeEntity_1499365017997_1536800606 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365017997_1321129236 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365017997_48216968 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#PostalAddress"
+
+instance DataTypeEntity_1499365017997_483891486 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Map"
+
+instance EndEvent_1499365017997_945359454 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017997_187560051
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017997_133291586 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017997_187560051
+     hasSource hasValue StartEvent_1499365017997_857209271
+     hasTarget hasValue Task_1499365017997_596245308

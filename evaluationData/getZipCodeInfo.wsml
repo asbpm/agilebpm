@@ -1,0 +1,63 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018054
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018054_1901234462 memberOf Process
+     hasName hasValue "Zip code info service."
+     hasDescription hasValue "This service returns general information about a given US Zip Code (including city, state name, time zone, daylight saving time).  For using this service valid License Key should be provided."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ZipCodeInfoService"
+     hasWorkflow hasValue Workflow_1499365018054_367383776
+
+instance Workflow_1499365018054_367383776 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018054_1901234462
+     hasWorkflowElement hasValue StartEvent_1499365018054_887199548
+
+instance StartEvent_1499365018054_887199548 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018054_1901234462
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018054_154149427 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018054_1901234462
+     hasSource hasValue StartEvent_1499365018054_887199548
+     hasTarget hasValue Task_1499365018054_1988078376
+
+instance Task_1499365018054_1988078376 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018054_1901234462
+     requestsCapability hasValue SemanticCapability_1499365018054_1324038179
+     receivesData hasValue {DataTypeEntity_1499365018054_583442738, DataTypeEntity_1499365018054_1665552446 }
+     sendsData hasValue {DataTypeEntity_1499365018054_1606786838, DataTypeEntity_1499365018054_1939795363, DataTypeEntity_1499365018054_1903326937, DataTypeEntity_1499365018054_1436603969 }
+
+instance SemanticCapability_1499365018054_1324038179 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/getZipCodeInfo.owls#_LICENSEKEY)"
+
+instance DataTypeEntity_1499365018054_583442738 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#US5DigitZipCode"
+
+instance DataTypeEntity_1499365018054_1665552446 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Code"
+
+instance DataTypeEntity_1499365018054_1606786838 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365018054_1939795363 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365018054_1903326937 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#TimeZone"
+
+instance DataTypeEntity_1499365018054_1436603969 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#daylightSavingTime"
+
+instance ConditionalflowConnector_1499365018054_872797092 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018054_1901234462
+     hasSource hasValue Task_1499365018054_1988078376
+     hasTarget hasValue EndEvent_1499365018054_1028124618
+
+instance EndEvent_1499365018054_1028124618 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018054_1901234462
+     hasName hasValue "End"

@@ -1,0 +1,60 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018063
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018062_2147105309 memberOf Process
+     hasName hasValue "Zip code location finder service."
+     hasDescription hasValue "This service returns the coordinates (Latitude/Longitude pair) of the given US zip code together with the US state name that the zip is associated with. For using this service valid License Key should be provided."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ZipCodeLocationFinderService"
+     hasWorkflow hasValue Workflow_1499365018062_1741476685
+
+instance Workflow_1499365018062_1741476685 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018062_2147105309
+     hasWorkflowElement hasValue StartEvent_1499365018062_1712360327
+
+instance StartEvent_1499365018062_1712360327 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018062_2147105309
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018062_467289777 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018062_2147105309
+     hasSource hasValue StartEvent_1499365018062_1712360327
+     hasTarget hasValue Task_1499365018062_1595309628
+
+instance Task_1499365018062_1595309628 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018062_2147105309
+     requestsCapability hasValue SemanticCapability_1499365018062_1651561104
+     receivesData hasValue {DataTypeEntity_1499365018062_42479231, DataTypeEntity_1499365018062_1032680960 }
+     sendsData hasValue {DataTypeEntity_1499365018062_1634971446, DataTypeEntity_1499365018062_763319110, DataTypeEntity_1499365018062_1960698277 }
+
+instance SemanticCapability_1499365018062_1651561104 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/getZipCodeLocation.owls#_LICENSEKEY)"
+
+instance DataTypeEntity_1499365018062_42479231 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#US5DigitZipCode"
+
+instance DataTypeEntity_1499365018062_1032680960 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Code"
+
+instance DataTypeEntity_1499365018062_1634971446 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365018062_763319110 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance DataTypeEntity_1499365018062_1960698277 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance ConditionalflowConnector_1499365018062_1782158422 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018062_2147105309
+     hasSource hasValue Task_1499365018062_1595309628
+     hasTarget hasValue EndEvent_1499365018062_1837724400
+
+instance EndEvent_1499365018062_1837724400 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018062_2147105309
+     hasName hasValue "End"

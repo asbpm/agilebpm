@@ -1,0 +1,61 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017976
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017975_1809451143 memberOf Process
+     hasName hasValue "GEO Location finder service."
+     hasDescription hasValue "This service returns location (latitude/longitude pair) of a given city which is world wide. Its state and country where it is located should be provided also."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GeoLocationFinderService"
+     hasWorkflow hasValue Workflow_1499365017975_522488983
+
+instance Workflow_1499365017975_522488983 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017975_1809451143
+     hasWorkflowElement hasValue StartEvent_1499365017975_1089632352
+
+instance StartEvent_1499365017975_1089632352 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017975_1809451143
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017975_1721329244 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017975_1809451143
+     hasSource hasValue Task_1499365017975_1129430884
+     hasTarget hasValue EndEvent_1499365017975_756470784
+
+instance Task_1499365017975_1129430884 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017975_1809451143
+     requestsCapability hasValue SemanticCapability_1499365017975_1645045151
+     receivesData hasValue {DataTypeEntity_1499365017975_2107503668, DataTypeEntity_1499365017975_1178209155, DataTypeEntity_1499365017975_734202773 }
+     sendsData hasValue {DataTypeEntity_1499365017975_1554740316, DataTypeEntity_1499365017975_1978133267 }
+
+instance SemanticCapability_1499365017975_1645045151 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getLocationOfCityWorldwide.owls#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/getLocationOfCityWorldwide.owls#_STATE)
+				      (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getLocationOfCityWorldwide.owls#_STATE ?http://127.0.0.1:8000/services/OWLS-1.1/getLocationOfCityWorldwide.owls#_COUNTRY))"
+
+instance DataTypeEntity_1499365017975_2107503668 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365017975_1178209155 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Country"
+
+instance DataTypeEntity_1499365017975_734202773 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365017975_1554740316 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance DataTypeEntity_1499365017975_1978133267 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance EndEvent_1499365017975_756470784 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017975_1809451143
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017975_1109004243 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017975_1809451143
+     hasSource hasValue StartEvent_1499365017975_1089632352
+     hasTarget hasValue Task_1499365017975_1129430884

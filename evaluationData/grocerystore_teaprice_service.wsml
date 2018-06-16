@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018274
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018274_1305405972 memberOf Process
+     hasName hasValue "AvailableTeaService"
+     hasDescription hasValue "This service informs about certain type of tea which is available in a given certain grocerystore and its price."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Availableteaservice"
+     hasWorkflow hasValue Workflow_1499365018274_1963912104
+
+instance Workflow_1499365018274_1963912104 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018274_1305405972
+     hasWorkflowElement hasValue StartEvent_1499365018274_720814759
+
+instance StartEvent_1499365018274_720814759 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018274_1305405972
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018274_1494672080 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018274_1305405972
+     hasSource hasValue StartEvent_1499365018274_720814759
+     hasTarget hasValue Task_1499365018274_1303214384
+
+instance Task_1499365018274_1303214384 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018274_1305405972
+     receivesData hasValue DataTypeEntity_1499365018274_1257746495
+     sendsData hasValue {DataTypeEntity_1499365018274_678429023, DataTypeEntity_1499365018274_1943801414 }
+
+instance DataTypeEntity_1499365018274_1257746495 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#GroceryStore"
+
+instance DataTypeEntity_1499365018274_678429023 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Tea"
+
+instance DataTypeEntity_1499365018274_1943801414 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance ConditionalflowConnector_1499365018274_515342713 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018274_1305405972
+     hasSource hasValue Task_1499365018274_1303214384
+     hasTarget hasValue EndEvent_1499365018274_59659409
+
+instance EndEvent_1499365018274_59659409 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018274_1305405972
+     hasName hasValue "End"

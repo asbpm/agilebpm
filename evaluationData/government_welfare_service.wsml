@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018202
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018202_1281530342 memberOf Process
+     hasName hasValue "GovernmengWelfaresService"
+     hasDescription hasValue "This service returns welfares presented by the given government, specially for a high level education."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Governmengwelfaresservice"
+     hasWorkflow hasValue Workflow_1499365018202_515934137
+
+instance Workflow_1499365018202_515934137 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018202_1281530342
+     hasWorkflowElement hasValue StartEvent_1499365018202_842087787
+
+instance StartEvent_1499365018202_842087787 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018202_1281530342
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018202_761748521 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018202_1281530342
+     hasSource hasValue Task_1499365018202_1760353888
+     hasTarget hasValue EndEvent_1499365018202_453063804
+
+instance Task_1499365018202_1760353888 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018202_1281530342
+     receivesData hasValue DataTypeEntity_1499365018202_1628993484
+     sendsData hasValue DataTypeEntity_1499365018202_429602888
+
+instance DataTypeEntity_1499365018202_1628993484 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Government"
+
+instance DataTypeEntity_1499365018202_429602888 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Welfare"
+
+instance EndEvent_1499365018202_453063804 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018202_1281530342
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018202_1691687029 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018202_1281530342
+     hasSource hasValue StartEvent_1499365018202_842087787
+     hasTarget hasValue Task_1499365018202_1760353888

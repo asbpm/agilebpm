@@ -1,0 +1,80 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017993
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017993_413294819 memberOf Process
+     hasName hasValue "Check and Lookup address service"
+     hasDescription hasValue "This service returns a map for a given address, including the city, state and country. Returns vicinity map, if the result is single address, or list of thumbnail maps, the coordinates of the address/addresses (i.e. centar of the map), the correct address/addresses and map size in pixels. For using this service valid License Key should be provided."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CheckAndLookupAddressService"
+     hasWorkflow hasValue Workflow_1499365017993_20497771
+
+instance Workflow_1499365017993_20497771 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017993_413294819
+     hasWorkflowElement hasValue StartEvent_1499365017993_945023451
+
+instance StartEvent_1499365017993_945023451 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017993_413294819
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017993_1693873866 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017993_413294819
+     hasSource hasValue StartEvent_1499365017993_945023451
+     hasTarget hasValue Task_1499365017993_466122265
+
+instance Task_1499365017993_466122265 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017993_413294819
+     requestsCapability hasValue SemanticCapability_1499365017993_923261098
+     receivesData hasValue {DataTypeEntity_1499365017993_861293069, DataTypeEntity_1499365017993_2052294634, DataTypeEntity_1499365017993_349514156, DataTypeEntity_1499365017993_1946000770, DataTypeEntity_1499365017993_1292449170 }
+     sendsData hasValue {DataTypeEntity_1499365017993_1526913227, DataTypeEntity_1499365017993_757632709, DataTypeEntity_1499365017993_453789359, DataTypeEntity_1499365017993_428694873, DataTypeEntity_1499365017993_2112900479, DataTypeEntity_1499365017993_193760503 }
+
+instance SemanticCapability_1499365017993_923261098 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getMapOfAddress.owls#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/getMapOfAddress.owls#_STATE)
+				      (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getMapOfAddress.owls#_STATE ?http://127.0.0.1:8000/services/OWLS-1.1/getMapOfAddress.owls#_COUNTRY)
+					  (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/getMapOfAddress.owls#_LICENSEKEY))"
+
+instance DataTypeEntity_1499365017993_861293069 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Address"
+
+instance DataTypeEntity_1499365017993_2052294634 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365017993_349514156 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Country"
+
+instance DataTypeEntity_1499365017993_1946000770 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Code"
+
+instance DataTypeEntity_1499365017993_1292449170 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365017993_1526913227 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Map"
+
+instance DataTypeEntity_1499365017993_757632709 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Units.owl#Pixel"
+
+instance DataTypeEntity_1499365017993_453789359 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Address"
+
+instance DataTypeEntity_1499365017993_428694873 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Map"
+
+instance DataTypeEntity_1499365017993_2112900479 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance DataTypeEntity_1499365017993_193760503 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance ConditionalflowConnector_1499365017993_1476069034 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017993_413294819
+     hasSource hasValue Task_1499365017993_466122265
+     hasTarget hasValue EndEvent_1499365017993_533701838
+
+instance EndEvent_1499365017993_533701838 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017993_413294819
+     hasName hasValue "End"

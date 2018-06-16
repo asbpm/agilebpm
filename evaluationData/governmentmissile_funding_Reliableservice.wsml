@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018156
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018156_374154748 memberOf Process
+     hasName hasValue "GovernmentMissileFundingService"
+     hasDescription hasValue "It is a reliable service to know about the funding provided for the given missile type possessed by the given government."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Governmentmissilefundingservice"
+     hasWorkflow hasValue Workflow_1499365018156_2099250001
+
+instance Workflow_1499365018156_2099250001 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018156_374154748
+     hasWorkflowElement hasValue StartEvent_1499365018156_2068310097
+
+instance StartEvent_1499365018156_2068310097 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018156_374154748
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018156_1886993575 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018156_374154748
+     hasSource hasValue Task_1499365018156_1865902619
+     hasTarget hasValue EndEvent_1499365018156_1499171185
+
+instance Task_1499365018156_1865902619 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018156_374154748
+     receivesData hasValue {DataTypeEntity_1499365018156_1604621280, DataTypeEntity_1499365018156_574398668 }
+     sendsData hasValue DataTypeEntity_1499365018156_700682866
+
+instance DataTypeEntity_1499365018156_1604621280 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Government"
+
+instance DataTypeEntity_1499365018156_574398668 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Missile"
+
+instance DataTypeEntity_1499365018156_700682866 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Funding"
+
+instance EndEvent_1499365018156_1499171185 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018156_374154748
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018156_861531267 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018156_374154748
+     hasSource hasValue StartEvent_1499365018156_2068310097
+     hasTarget hasValue Task_1499365018156_1865902619

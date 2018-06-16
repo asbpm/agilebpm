@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018227
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018226_1961696722 memberOf Process
+     hasName hasValue "CakeElementsService"
+     hasDescription hasValue "This service returns a certain flour, butter and dough items which are offered by the given grocerystore. The output things are used to make a cake."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Cakeelementsservice"
+     hasWorkflow hasValue Workflow_1499365018227_376551725
+
+instance Workflow_1499365018227_376551725 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018226_1961696722
+     hasWorkflowElement hasValue StartEvent_1499365018227_820051473
+
+instance StartEvent_1499365018227_820051473 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018226_1961696722
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018227_1691248330 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018226_1961696722
+     hasSource hasValue StartEvent_1499365018227_820051473
+     hasTarget hasValue Task_1499365018227_1652127155
+
+instance Task_1499365018227_1652127155 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018226_1961696722
+     receivesData hasValue DataTypeEntity_1499365018227_630624155
+     sendsData hasValue {DataTypeEntity_1499365018227_2051816793, DataTypeEntity_1499365018227_411086651, DataTypeEntity_1499365018227_461923355 }
+
+instance DataTypeEntity_1499365018227_630624155 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#GroceryStore"
+
+instance DataTypeEntity_1499365018227_2051816793 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Flour"
+
+instance DataTypeEntity_1499365018227_411086651 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Dough"
+
+instance DataTypeEntity_1499365018227_461923355 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Butter"
+
+instance ConditionalflowConnector_1499365018227_1626967051 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018226_1961696722
+     hasSource hasValue Task_1499365018227_1652127155
+     hasTarget hasValue EndEvent_1499365018227_1623971497
+
+instance EndEvent_1499365018227_1623971497 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018226_1961696722
+     hasName hasValue "End"

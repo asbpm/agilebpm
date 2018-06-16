@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017752
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017751_348489897 memberOf Process
+     hasName hasValue "Inside GeopoliticalEntityInfoService"
+     hasDescription hasValue "This service reads the input recorded video and returns information of activities and hotels of the given geopolitical entity."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/InsideGeopoliticalentityinfoservice"
+     hasWorkflow hasValue Workflow_1499365017751_1601278149
+
+instance Workflow_1499365017751_1601278149 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017751_348489897
+     hasWorkflowElement hasValue StartEvent_1499365017751_1272398627
+
+instance StartEvent_1499365017751_1272398627 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017751_348489897
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017751_1843291084 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017751_348489897
+     hasSource hasValue StartEvent_1499365017751_1272398627
+     hasTarget hasValue Task_1499365017751_1095695726
+
+instance Task_1499365017751_1095695726 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017751_348489897
+     receivesData hasValue {DataTypeEntity_1499365017751_1092814124, DataTypeEntity_1499365017751_113581125 }
+     sendsData hasValue {DataTypeEntity_1499365017751_1342213547, DataTypeEntity_1499365017751_1264237322 }
+
+instance DataTypeEntity_1499365017751_1092814124 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geopolitical-Entity"
+
+instance DataTypeEntity_1499365017751_113581125 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Recorded-Video"
+
+instance DataTypeEntity_1499365017751_1342213547 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Activity"
+
+instance DataTypeEntity_1499365017751_1264237322 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Hotel"
+
+instance ConditionalflowConnector_1499365017751_550744776 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017751_348489897
+     hasSource hasValue Task_1499365017751_1095695726
+     hasTarget hasValue EndEvent_1499365017751_1473891050
+
+instance EndEvent_1499365017751_1473891050 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017751_348489897
+     hasName hasValue "End"

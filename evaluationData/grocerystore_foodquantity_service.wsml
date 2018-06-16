@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018233
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018233_380237815 memberOf Process
+     hasName hasValue "GroceryStore Food Quantity Service"
+     hasDescription hasValue "This service informs you about food items which are available in a given grocery store and their available quantity."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GrocerystoreFoodQuantityService"
+     hasWorkflow hasValue Workflow_1499365018233_1484784095
+
+instance Workflow_1499365018233_1484784095 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018233_380237815
+     hasWorkflowElement hasValue StartEvent_1499365018233_625333041
+
+instance StartEvent_1499365018233_625333041 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018233_380237815
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018233_1890271443 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018233_380237815
+     hasSource hasValue StartEvent_1499365018233_625333041
+     hasTarget hasValue Task_1499365018233_1758754063
+
+instance Task_1499365018233_1758754063 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018233_380237815
+     receivesData hasValue DataTypeEntity_1499365018233_45797196
+     sendsData hasValue {DataTypeEntity_1499365018233_489457962, DataTypeEntity_1499365018233_52106446 }
+
+instance DataTypeEntity_1499365018233_45797196 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#GroceryStore"
+
+instance DataTypeEntity_1499365018233_489457962 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Food"
+
+instance DataTypeEntity_1499365018233_52106446 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Quantity"
+
+instance ConditionalflowConnector_1499365018233_2056135346 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018233_380237815
+     hasSource hasValue Task_1499365018233_1758754063
+     hasTarget hasValue EndEvent_1499365018233_37461447
+
+instance EndEvent_1499365018233_37461447 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018233_380237815
+     hasName hasValue "End"

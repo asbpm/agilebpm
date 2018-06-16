@@ -1,0 +1,77 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018007
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018007_1459406498 memberOf Process
+     hasName hasValue "GetMedicalTransportAccount"
+     hasDescription hasValue "This service creates an account for the customer. This is required before a transport can be booked."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Getmedicaltransportaccount"
+     hasWorkflow hasValue Workflow_1499365018007_2145383369
+
+instance Workflow_1499365018007_2145383369 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018007_1459406498
+     hasWorkflowElement hasValue StartEvent_1499365018007_871539018
+
+instance StartEvent_1499365018007_871539018 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018007_1459406498
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018007_716794300 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018007_1459406498
+     hasSource hasValue Task_1499365018007_11017680
+     hasTarget hasValue EndEvent_1499365018007_1757485691
+
+instance Task_1499365018007_11017680 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018007_1459406498
+     providesCapability hasValue SemanticCapability_1499365018007_572198328
+     requestsCapability hasValue SemanticCapability_1499365018007_72767208
+     receivesData hasValue {DataTypeEntity_1499365018007_690387106, DataTypeEntity_1499365018007_395262704, DataTypeEntity_1499365018007_438146769, DataTypeEntity_1499365018007_584008537, DataTypeEntity_1499365018007_931308820, DataTypeEntity_1499365018007_1929638405, DataTypeEntity_1499365018007_1515501630, DataTypeEntity_1499365018007_21837465 }
+     sendsData hasValue DataTypeEntity_1499365018007_977670327
+
+instance SemanticCapability_1499365018007_572198328 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Create ?http://127.0.0.1:8000/services/OWLS-1.1/GetMedicalTransportAccount_service.owls#GetMedicalTransportAccount_Account)"
+
+instance SemanticCapability_1499365018007_72767208 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/ontosem.owl#Accepted ?http://127.0.0.1:8000/services/OWLS-1.1/GetMedicalTransportAccount_service.owls#GetMedicalTransportAccount_CustomerCreditCardNumber)
+				  (http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#accountHolder ?http://127.0.0.1:8000/services/OWLS-1.1/GetMedicalTransportAccount_service.owls#GetMedicalTransportAccount_CustomerName ?http://127.0.0.1:8000/services/OWLS-1.1/GetMedicalTransportAccount_service.owls#GetMedicalTransportAccount_CustomerCreditCardNumber))"
+
+instance DataTypeEntity_1499365018007_690387106 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365018007_395262704 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#Address"
+
+instance DataTypeEntity_1499365018007_438146769 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365018007_584008537 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#Diagnosis"
+
+instance DataTypeEntity_1499365018007_931308820 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#AccountName"
+
+instance DataTypeEntity_1499365018007_1929638405 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#AccountPassword"
+
+instance DataTypeEntity_1499365018007_1515501630 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#PersonName"
+
+instance DataTypeEntity_1499365018007_21837465 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#CreditCardNumber"
+
+instance DataTypeEntity_1499365018007_977670327 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#Account"
+
+instance EndEvent_1499365018007_1757485691 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018007_1459406498
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018007_2016719020 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018007_1459406498
+     hasSource hasValue StartEvent_1499365018007_871539018
+     hasTarget hasValue Task_1499365018007_11017680

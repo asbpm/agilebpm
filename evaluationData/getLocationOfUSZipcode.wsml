@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017984
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017984_1607334072 memberOf Process
+     hasName hasValue "Zip code location finder service."
+     hasDescription hasValue "This is a service that provides the geographic coordinates (or the geographic area), defined with latitude/longitude pair, corresponding to a five digit US zip code."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ZipCodeLocationFinderService"
+     hasWorkflow hasValue Workflow_1499365017984_997585001
+
+instance Workflow_1499365017984_997585001 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017984_1607334072
+     hasWorkflowElement hasValue StartEvent_1499365017984_2128227757
+
+instance StartEvent_1499365017984_2128227757 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017984_1607334072
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017984_646488885 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017984_1607334072
+     hasSource hasValue Task_1499365017984_426288109
+     hasTarget hasValue EndEvent_1499365017984_283999406
+
+instance Task_1499365017984_426288109 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017984_1607334072
+     receivesData hasValue DataTypeEntity_1499365017984_1201650833
+     sendsData hasValue {DataTypeEntity_1499365017984_558808921, DataTypeEntity_1499365017984_1069323888 }
+
+instance DataTypeEntity_1499365017984_1201650833 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#US5DigitZipCode"
+
+instance DataTypeEntity_1499365017984_558808921 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance DataTypeEntity_1499365017984_1069323888 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance EndEvent_1499365017984_283999406 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017984_1607334072
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017984_734887309 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017984_1607334072
+     hasSource hasValue StartEvent_1499365017984_2128227757
+     hasTarget hasValue Task_1499365017984_426288109

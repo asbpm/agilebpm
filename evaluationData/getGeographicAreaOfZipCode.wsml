@@ -1,0 +1,60 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017952
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017952_590133360 memberOf Process
+     hasName hasValue "Geographic area of ZipCode finder Service."
+     hasDescription hasValue "This service returns geographic area of a given zip code together with the city and country name worldwide that the zip code is associated with. For using this service valid UserID should be provided."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GeographicAreaOfZipcodeFinderService"
+     hasWorkflow hasValue Workflow_1499365017952_957863515
+
+instance Workflow_1499365017952_957863515 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017952_590133360
+     hasWorkflowElement hasValue StartEvent_1499365017952_1696055176
+
+instance StartEvent_1499365017952_1696055176 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017952_590133360
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017952_165807719 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017952_590133360
+     hasSource hasValue StartEvent_1499365017952_1696055176
+     hasTarget hasValue Task_1499365017952_365236737
+
+instance Task_1499365017952_365236737 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017952_590133360
+     requestsCapability hasValue SemanticCapability_1499365017952_853500671
+     receivesData hasValue {DataTypeEntity_1499365017952_255689774, DataTypeEntity_1499365017952_539481807 }
+     sendsData hasValue {DataTypeEntity_1499365017952_527233591, DataTypeEntity_1499365017952_822121190, DataTypeEntity_1499365017952_418500351 }
+
+instance SemanticCapability_1499365017952_853500671 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/getGeographicAreaOfZipCode.owls#_USERID)"
+
+instance DataTypeEntity_1499365017952_255689774 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#ZipCode"
+
+instance DataTypeEntity_1499365017952_539481807 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#UniqueIdentifier"
+
+instance DataTypeEntity_1499365017952_527233591 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Country"
+
+instance DataTypeEntity_1499365017952_822121190 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365017952_418500351 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicArea"
+
+instance ConditionalflowConnector_1499365017952_1913314173 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017952_590133360
+     hasSource hasValue Task_1499365017952_365236737
+     hasTarget hasValue EndEvent_1499365017952_2120089557
+
+instance EndEvent_1499365017952_2120089557 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017952_590133360
+     hasName hasValue "End"

@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018148
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018148_570265034 memberOf Process
+     hasName hasValue "GovMissilesAndWeaponsFundingService"
+     hasDescription hasValue "This service returns the funding for the given missile type and other weapons possessed by the given government."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Govmissilesandweaponsfundingservice"
+     hasWorkflow hasValue Workflow_1499365018148_1899990280
+
+instance Workflow_1499365018148_1899990280 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018148_570265034
+     hasWorkflowElement hasValue StartEvent_1499365018148_1625731218
+
+instance StartEvent_1499365018148_1625731218 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018148_570265034
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018148_711439501 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018148_570265034
+     hasSource hasValue Task_1499365018148_2102620866
+     hasTarget hasValue EndEvent_1499365018148_1725509892
+
+instance Task_1499365018148_2102620866 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018148_570265034
+     receivesData hasValue {DataTypeEntity_1499365018148_1543177572, DataTypeEntity_1499365018148_1119355909, DataTypeEntity_1499365018148_1930138253 }
+     sendsData hasValue DataTypeEntity_1499365018148_1329589106
+
+instance DataTypeEntity_1499365018148_1543177572 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Weapon"
+
+instance DataTypeEntity_1499365018148_1119355909 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Government"
+
+instance DataTypeEntity_1499365018148_1930138253 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Missile"
+
+instance DataTypeEntity_1499365018148_1329589106 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Funding"
+
+instance EndEvent_1499365018148_1725509892 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018148_570265034
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018148_93001907 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018148_570265034
+     hasSource hasValue StartEvent_1499365018148_1625731218
+     hasTarget hasValue Task_1499365018148_2102620866

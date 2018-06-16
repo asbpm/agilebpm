@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018219
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018219_1376421334 memberOf Process
+     hasName hasValue "GroceryStore Butter Quantity Service"
+     hasDescription hasValue "This service informs about butter items that are available in a given grocery store and its available quantity."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GrocerystoreButterQuantityService"
+     hasWorkflow hasValue Workflow_1499365018219_2052461386
+
+instance Workflow_1499365018219_2052461386 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018219_1376421334
+     hasWorkflowElement hasValue StartEvent_1499365018219_783293008
+
+instance StartEvent_1499365018219_783293008 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018219_1376421334
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018219_215112541 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018219_1376421334
+     hasSource hasValue Task_1499365018219_243946345
+     hasTarget hasValue EndEvent_1499365018219_1848926268
+
+instance Task_1499365018219_243946345 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018219_1376421334
+     receivesData hasValue DataTypeEntity_1499365018219_155394068
+     sendsData hasValue {DataTypeEntity_1499365018219_1734476613, DataTypeEntity_1499365018219_1374041434 }
+
+instance DataTypeEntity_1499365018219_155394068 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#GroceryStore"
+
+instance DataTypeEntity_1499365018219_1734476613 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Quantity"
+
+instance DataTypeEntity_1499365018219_1374041434 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Butter"
+
+instance EndEvent_1499365018219_1848926268 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018219_1376421334
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018219_2119836807 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018219_1376421334
+     hasSource hasValue StartEvent_1499365018219_783293008
+     hasTarget hasValue Task_1499365018219_243946345

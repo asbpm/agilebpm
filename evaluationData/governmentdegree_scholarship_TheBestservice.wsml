@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018133
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018132_736074430 memberOf Process
+     hasName hasValue "GovernmentScholarDegreeShipService"
+     hasDescription hasValue "It is the best service that returns the scholarships offered by the given government for the given degree."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Governmentscholardegreeshipservice"
+     hasWorkflow hasValue Workflow_1499365018132_858648905
+
+instance Workflow_1499365018132_858648905 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018132_736074430
+     hasWorkflowElement hasValue StartEvent_1499365018132_713963617
+
+instance StartEvent_1499365018132_713963617 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018132_736074430
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018132_1037695719 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018132_736074430
+     hasSource hasValue StartEvent_1499365018132_713963617
+     hasTarget hasValue Task_1499365018132_1454022648
+
+instance Task_1499365018132_1454022648 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018132_736074430
+     receivesData hasValue {DataTypeEntity_1499365018132_41213507, DataTypeEntity_1499365018132_1058371895 }
+     sendsData hasValue DataTypeEntity_1499365018132_148498266
+
+instance DataTypeEntity_1499365018132_41213507 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Degree"
+
+instance DataTypeEntity_1499365018132_1058371895 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Government"
+
+instance DataTypeEntity_1499365018132_148498266 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Scholarship"
+
+instance ConditionalflowConnector_1499365018132_221070286 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018132_736074430
+     hasSource hasValue Task_1499365018132_1454022648
+     hasTarget hasValue EndEvent_1499365018132_1997594390
+
+instance EndEvent_1499365018132_1997594390 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018132_736074430
+     hasName hasValue "End"

@@ -1,0 +1,65 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018068
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018067_241306251 memberOf Process
+     hasName hasValue "Zip Codes finder within distance from a city."
+     hasDescription hasValue "This service returns a list of zip codes within a specified distance from a given city, together with the state and country that the city is located in, and the distance to the input location for each zip code. For using this service valid License Key should be provided."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ZipCodesFinderWithinDistanceFromACity"
+     hasWorkflow hasValue Workflow_1499365018067_1568510737
+
+instance Workflow_1499365018067_1568510737 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018067_241306251
+     hasWorkflowElement hasValue StartEvent_1499365018067_1278326236
+
+instance StartEvent_1499365018067_1278326236 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018067_241306251
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018067_192510553 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018067_241306251
+     hasSource hasValue StartEvent_1499365018067_1278326236
+     hasTarget hasValue Task_1499365018067_1213068441
+
+instance Task_1499365018067_1213068441 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018067_241306251
+     requestsCapability hasValue SemanticCapability_1499365018067_1129914474
+     receivesData hasValue {DataTypeEntity_1499365018067_1969717577, DataTypeEntity_1499365018067_1855473400, DataTypeEntity_1499365018067_503525024, DataTypeEntity_1499365018067_1901226858 }
+     sendsData hasValue {DataTypeEntity_1499365018067_2052701638, DataTypeEntity_1499365018067_366488696 }
+
+instance SemanticCapability_1499365018067_1129914474 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getZipCodesWithinCityState.owls#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/getZipCodesWithinCityState.owls#_STATE)
+				      (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getZipCodesWithinCityState.owls#_STATE ?http://127.0.0.1:8000/services/OWLS-1.1/getZipCodesWithinCityState.owls#_COUNTRY)
+					  (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/getZipCodesWithinCityState.owls#_LICENSEKEY))"
+
+instance DataTypeEntity_1499365018067_1969717577 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365018067_1855473400 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Country"
+
+instance DataTypeEntity_1499365018067_503525024 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365018067_1901226858 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Code"
+
+instance DataTypeEntity_1499365018067_2052701638 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#US5DigitZipCode"
+
+instance DataTypeEntity_1499365018067_366488696 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicDistance"
+
+instance ConditionalflowConnector_1499365018067_1023735210 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018067_241306251
+     hasSource hasValue Task_1499365018067_1213068441
+     hasTarget hasValue EndEvent_1499365018067_1963607381
+
+instance EndEvent_1499365018067_1963607381 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018067_241306251
+     hasName hasValue "End"

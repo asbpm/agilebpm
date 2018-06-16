@@ -1,0 +1,58 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018050
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018050_599966080 memberOf Process
+     hasName hasValue "Zip codes finder  service."
+     hasDescription hasValue "This is a service able to provide the standard five-digit zip code(s) for a given US city + state combination. Multiple zipcodes can be returned. For using this service valid License Key should be provided."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ZipCodesFinderService"
+     hasWorkflow hasValue Workflow_1499365018050_673718494
+
+instance Workflow_1499365018050_673718494 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018050_599966080
+     hasWorkflowElement hasValue StartEvent_1499365018050_1609674358
+
+instance StartEvent_1499365018050_1609674358 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018050_599966080
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018050_419677545 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018050_599966080
+     hasSource hasValue StartEvent_1499365018050_1609674358
+     hasTarget hasValue Task_1499365018050_748280909
+
+instance Task_1499365018050_748280909 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018050_599966080
+     requestsCapability hasValue SemanticCapability_1499365018050_767874364
+     receivesData hasValue {DataTypeEntity_1499365018050_564935829, DataTypeEntity_1499365018050_411771899, DataTypeEntity_1499365018050_386198933 }
+     sendsData hasValue DataTypeEntity_1499365018050_1070229054
+
+instance SemanticCapability_1499365018050_767874364 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getZipcodeForUSCity.owls#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/getZipcodeForUSCity.owls#_STATE)
+					  (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/getZipcodeForUSCity.owls#_LICENSEKEY))"
+
+instance DataTypeEntity_1499365018050_564935829 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365018050_411771899 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365018050_386198933 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Code"
+
+instance DataTypeEntity_1499365018050_1070229054 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#US5DigitZipCode"
+
+instance ConditionalflowConnector_1499365018050_274174355 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018050_599966080
+     hasSource hasValue Task_1499365018050_748280909
+     hasTarget hasValue EndEvent_1499365018050_1442417241
+
+instance EndEvent_1499365018050_1442417241 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018050_599966080
+     hasName hasValue "End"

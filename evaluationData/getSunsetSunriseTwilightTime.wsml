@@ -1,0 +1,72 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018038
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018037_1601790519 memberOf Process
+     hasName hasValue "Sunrise,Sunset and Twilight Time Calcutator Service."
+     hasDescription hasValue "This service calculates Sunrise,Sunset and Twilight times for a certain date of a given location worldwide (latitude/longitude pair). The time zone of the given location is also provided. For using this service valid License Key should be provided."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Sunrise,sunsetAndTwilightTimeCalcutatorService"
+     hasWorkflow hasValue Workflow_1499365018037_1325303048
+
+instance Workflow_1499365018037_1325303048 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018037_1601790519
+     hasWorkflowElement hasValue StartEvent_1499365018037_1853974095
+
+instance StartEvent_1499365018037_1853974095 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018037_1601790519
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018038_2006851106 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018037_1601790519
+     hasSource hasValue Task_1499365018037_1140264642
+     hasTarget hasValue EndEvent_1499365018038_1661644442
+
+instance Task_1499365018037_1140264642 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018037_1601790519
+     requestsCapability hasValue SemanticCapability_1499365018038_69148834
+     receivesData hasValue {DataTypeEntity_1499365018037_1466549936, DataTypeEntity_1499365018037_831905217, DataTypeEntity_1499365018037_2062831057, DataTypeEntity_1499365018037_1004247369, DataTypeEntity_1499365018037_814988718 }
+     sendsData hasValue {DataTypeEntity_1499365018037_1100563783, DataTypeEntity_1499365018038_1523703192, DataTypeEntity_1499365018037_533774856, DataTypeEntity_1499365018038_260561302 }
+
+instance SemanticCapability_1499365018038_69148834 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/getSunsetSunriseTwilightTime.owls#_LICENSEKEY)"
+
+instance DataTypeEntity_1499365018037_1466549936 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance DataTypeEntity_1499365018037_831905217 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#TimeZone"
+
+instance DataTypeEntity_1499365018037_2062831057 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance DataTypeEntity_1499365018037_1004247369 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Code"
+
+instance DataTypeEntity_1499365018037_814988718 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Date"
+
+instance DataTypeEntity_1499365018037_1100563783 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Twilight"
+
+instance DataTypeEntity_1499365018038_1523703192 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Sunset"
+
+instance DataTypeEntity_1499365018037_533774856 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Twilight"
+
+instance DataTypeEntity_1499365018038_260561302 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#Sunrise"
+
+instance EndEvent_1499365018038_1661644442 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018037_1601790519
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018038_2133496570 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018037_1601790519
+     hasSource hasValue StartEvent_1499365018037_1853974095
+     hasTarget hasValue Task_1499365018037_1140264642

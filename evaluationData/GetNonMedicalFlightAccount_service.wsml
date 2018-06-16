@@ -1,0 +1,77 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018012
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018012_872971773 memberOf Process
+     hasName hasValue "GetNonMedicalFlightAccount"
+     hasDescription hasValue "The service creates an customer account for further flight bookings."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Getnonmedicalflightaccount"
+     hasWorkflow hasValue Workflow_1499365018012_1865146265
+
+instance Workflow_1499365018012_1865146265 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018012_872971773
+     hasWorkflowElement hasValue StartEvent_1499365018012_1455620776
+
+instance StartEvent_1499365018012_1455620776 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018012_872971773
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018012_1695882253 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018012_872971773
+     hasSource hasValue StartEvent_1499365018012_1455620776
+     hasTarget hasValue Task_1499365018012_670173823
+
+instance Task_1499365018012_670173823 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018012_872971773
+     providesCapability hasValue SemanticCapability_1499365018012_415120932
+     requestsCapability hasValue SemanticCapability_1499365018012_531860860
+     receivesData hasValue {DataTypeEntity_1499365018012_15647124, DataTypeEntity_1499365018012_728269674, DataTypeEntity_1499365018012_1359756544, DataTypeEntity_1499365018012_1290183253, DataTypeEntity_1499365018012_388317899, DataTypeEntity_1499365018012_2047822069, DataTypeEntity_1499365018012_1531997162, DataTypeEntity_1499365018012_1162410382 }
+     sendsData hasValue DataTypeEntity_1499365018012_1340826824
+
+instance SemanticCapability_1499365018012_415120932 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Create ?http://127.0.0.1:8000/services/OWLS-1.1/GetNonMedicalFlightAccount_service.owls#GetNonMedicalFlightAccount_Account)"
+
+instance SemanticCapability_1499365018012_531860860 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/ontosem.owl#Accepted ?http://127.0.0.1:8000/services/OWLS-1.1/GetNonMedicalFlightAccount_service.owls#GetNonMedicalFlightAccount_CustomerCreditCardNumber)
+				  (http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#accountHolder ?http://127.0.0.1:8000/services/OWLS-1.1/GetNonMedicalFlightAccount_service.owls#GetNonMedicalFlightAccount_CustomerName ?http://127.0.0.1:8000/services/OWLS-1.1/GetNonMedicalFlightAccount_service.owls#GetNonMedicalFlightAccount_CustomerCreditCardNumber))"
+
+instance DataTypeEntity_1499365018012_15647124 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalFlightCompanyOntology.owl#AccountPassword"
+
+instance DataTypeEntity_1499365018012_728269674 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalFlightCompanyOntology.owl#Address"
+
+instance DataTypeEntity_1499365018012_1359756544 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalFlightCompanyOntology.owl#FlightNumber"
+
+instance DataTypeEntity_1499365018012_1290183253 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalFlightCompanyOntology.owl#CreditCardNumber"
+
+instance DataTypeEntity_1499365018012_388317899 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalFlightCompanyOntology.owl#PersonName"
+
+instance DataTypeEntity_1499365018012_2047822069 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalFlightCompanyOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365018012_1531997162 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalFlightCompanyOntology.owl#Account"
+
+instance DataTypeEntity_1499365018012_1162410382 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalFlightCompanyOntology.owl#AccountName"
+
+instance DataTypeEntity_1499365018012_1340826824 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalFlightCompanyOntology.owl#Account"
+
+instance ConditionalflowConnector_1499365018012_561655567 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018012_872971773
+     hasSource hasValue Task_1499365018012_670173823
+     hasTarget hasValue EndEvent_1499365018012_931229992
+
+instance EndEvent_1499365018012_931229992 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018012_872971773
+     hasName hasValue "End"

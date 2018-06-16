@@ -1,0 +1,78 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018022
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018022_1386381945 memberOf Process
+     hasName hasValue "Address Place finder service."
+     hasDescription hasValue "This Service is software for matching addresses to the correct location (latitude and longitude) on the map. It is based on a fuzzy text search and therefore can find addresses even if they are incomplete or misspelled. Multiple rated search results are provided.  This service works in the US and many countries world-wide. It gets details from the user about address and returns list with names of the places where the address is found and their locations (latitude/longitude pair)."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/AddressPlaceFinderService"
+     hasWorkflow hasValue Workflow_1499365018022_648669696
+
+instance Workflow_1499365018022_648669696 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018022_1386381945
+     hasWorkflowElement hasValue StartEvent_1499365018022_215120394
+
+instance StartEvent_1499365018022_215120394 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018022_1386381945
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018022_535884677 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018022_1386381945
+     hasSource hasValue StartEvent_1499365018022_215120394
+     hasTarget hasValue Task_1499365018022_1016844800
+
+instance Task_1499365018022_1016844800 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018022_1386381945
+     requestsCapability hasValue SemanticCapability_1499365018022_874131924
+     receivesData hasValue {DataTypeEntity_1499365018022_1963861407, DataTypeEntity_1499365018022_532063965, DataTypeEntity_1499365018022_804494786, DataTypeEntity_1499365018022_2007128881, DataTypeEntity_1499365018022_1133255110, DataTypeEntity_1499365018022_1948490044, DataTypeEntity_1499365018022_223379175 }
+     sendsData hasValue {DataTypeEntity_1499365018022_1840970752, DataTypeEntity_1499365018022_1058510278, DataTypeEntity_1499365018022_963326112 }
+
+instance SemanticCapability_1499365018022_874131924 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getPlaceOfAddress.owls#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/getPlaceOfAddress.owls#_COUNTY)
+				      (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getPlaceOfAddress.owls#_COUNTY ?http://127.0.0.1:8000/services/OWLS-1.1/getPlaceOfAddress.owls#_STATE)
+				      (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getPlaceOfAddress.owls#_STATE ?http://127.0.0.1:8000/services/OWLS-1.1/getPlaceOfAddress.owls#_COUNTRY)
+					  (http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/getPlaceOfAddress.owls#_DISTRICT ?http://127.0.0.1:8000/services/OWLS-1.1/getPlaceOfAddress.owls#_COUNTY))"
+
+instance DataTypeEntity_1499365018022_1963861407 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365018022_532063965 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#County"
+
+instance DataTypeEntity_1499365018022_804494786 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Address"
+
+instance DataTypeEntity_1499365018022_2007128881 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Country"
+
+instance DataTypeEntity_1499365018022_1133255110 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#PostalCode"
+
+instance DataTypeEntity_1499365018022_1948490044 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365018022_223379175 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#UrbanDistrict"
+
+instance DataTypeEntity_1499365018022_1840970752 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance DataTypeEntity_1499365018022_1058510278 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance DataTypeEntity_1499365018022_963326112 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#PopulatedPlace"
+
+instance ConditionalflowConnector_1499365018022_540045032 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018022_1386381945
+     hasSource hasValue Task_1499365018022_1016844800
+     hasTarget hasValue EndEvent_1499365018022_913983072
+
+instance EndEvent_1499365018022_913983072 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018022_1386381945
+     hasName hasValue "End"

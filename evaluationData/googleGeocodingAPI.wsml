@@ -1,0 +1,71 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018085
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018085_623136779 memberOf Process
+     hasName hasValue "GOOGLE GEOCODING API SERVICE."
+     hasDescription hasValue "Geocoding is the process of converting addresses (like '1600 Amphitheatre Parkway, Mountain View, CA') into geographic coordinates (like latitude 37.423021 and longitude -122.083739), which you can use to place markers or position the map.  The Google Maps API includes a Geocoding service that can be accessed directly via an HTTP request or by using a GClientGeocoder object. It accpets address, view port latitude/longitude, output format, country code (worldwide), map-span and returns matched address corrected, latitude/longitude pair of address location and accuracy at which match was detected (i.e. city level, street level etc.)."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/GoogleGeocodingApiService"
+     hasWorkflow hasValue Workflow_1499365018085_1413882829
+
+instance Workflow_1499365018085_1413882829 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018085_623136779
+     hasWorkflowElement hasValue StartEvent_1499365018085_1857137892
+
+instance StartEvent_1499365018085_1857137892 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018085_623136779
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018085_2049174094 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018085_623136779
+     hasSource hasValue Task_1499365018085_730409073
+     hasTarget hasValue EndEvent_1499365018085_2070916803
+
+instance Task_1499365018085_730409073 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018085_623136779
+     receivesData hasValue {DataTypeEntity_1499365018085_1021909956, DataTypeEntity_1499365018085_874107278, DataTypeEntity_1499365018085_1345038518, DataTypeEntity_1499365018085_1880471690, DataTypeEntity_1499365018085_533227220, DataTypeEntity_1499365018085_125148938 }
+     sendsData hasValue {DataTypeEntity_1499365018085_2111335712, DataTypeEntity_1499365018085_823936269, DataTypeEntity_1499365018085_626293353, DataTypeEntity_1499365018085_1657622713 }
+
+instance DataTypeEntity_1499365018085_1021909956 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#ISOCountryCode"
+
+instance DataTypeEntity_1499365018085_874107278 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#DigitalFileType"
+
+instance DataTypeEntity_1499365018085_1345038518 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/technical.owl#ImagePart"
+
+instance DataTypeEntity_1499365018085_1880471690 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance DataTypeEntity_1499365018085_533227220 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance DataTypeEntity_1499365018085_125148938 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Address"
+
+instance DataTypeEntity_1499365018085_2111335712 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#longitude"
+
+instance DataTypeEntity_1499365018085_823936269 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Address"
+
+instance DataTypeEntity_1499365018085_626293353 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#AccuracyMeasure"
+
+instance DataTypeEntity_1499365018085_1657622713 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protont.owl#latitude"
+
+instance EndEvent_1499365018085_2070916803 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018085_623136779
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018085_1038700236 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018085_623136779
+     hasSource hasValue StartEvent_1499365018085_1857137892
+     hasTarget hasValue Task_1499365018085_730409073

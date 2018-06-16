@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018138
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018138_1069424297 memberOf Process
+     hasName hasValue "GovernmentDegreeWelfareService"
+     hasDescription hasValue "This is a nice service to know about special welfare for the degree offered by the government."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Governmentdegreewelfareservice"
+     hasWorkflow hasValue Workflow_1499365018138_735645760
+
+instance Workflow_1499365018138_735645760 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018138_1069424297
+     hasWorkflowElement hasValue StartEvent_1499365018138_1538239615
+
+instance StartEvent_1499365018138_1538239615 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018138_1069424297
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018138_129702296 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018138_1069424297
+     hasSource hasValue Task_1499365018138_637611420
+     hasTarget hasValue EndEvent_1499365018138_107381960
+
+instance Task_1499365018138_637611420 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018138_1069424297
+     receivesData hasValue {DataTypeEntity_1499365018138_266369059, DataTypeEntity_1499365018138_1969547358 }
+     sendsData hasValue DataTypeEntity_1499365018138_1658473993
+
+instance DataTypeEntity_1499365018138_266369059 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Government"
+
+instance DataTypeEntity_1499365018138_1969547358 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Degree"
+
+instance DataTypeEntity_1499365018138_1658473993 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Welfare"
+
+instance EndEvent_1499365018138_107381960 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018138_1069424297
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018138_1144697888 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018138_1069424297
+     hasSource hasValue StartEvent_1499365018138_1538239615
+     hasTarget hasValue Task_1499365018138_637611420

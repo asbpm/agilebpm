@@ -1,0 +1,66 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017956
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017956_515262150 memberOf Process
+     hasName hasValue "City matcher service."
+     hasDescription hasValue "This service returns a list of matching cities for the given city name. For each matching city, the state and country name,the time zone, the postal code are given.  If a city has several postal codes, multiple corresponding entries are returned. For using this service valid UserID should be provided."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CityMatcherService"
+     hasWorkflow hasValue Workflow_1499365017956_1048970578
+
+instance Workflow_1499365017956_1048970578 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017956_515262150
+     hasWorkflowElement hasValue StartEvent_1499365017956_1269551635
+
+instance StartEvent_1499365017956_1269551635 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017956_515262150
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017956_1487607141 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017956_515262150
+     hasSource hasValue Task_1499365017956_1004741241
+     hasTarget hasValue EndEvent_1499365017956_460224526
+
+instance Task_1499365017956_1004741241 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017956_515262150
+     requestsCapability hasValue SemanticCapability_1499365017956_562939982
+     receivesData hasValue {DataTypeEntity_1499365017956_370706090, DataTypeEntity_1499365017956_1676098424 }
+     sendsData hasValue {DataTypeEntity_1499365017956_250798560, DataTypeEntity_1499365017956_367518409, DataTypeEntity_1499365017956_714245527, DataTypeEntity_1499365017956_244196784, DataTypeEntity_1499365017956_166485592 }
+
+instance SemanticCapability_1499365017956_562939982 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/getListOfMatchingCities.owls#_USERID)"
+
+instance DataTypeEntity_1499365017956_370706090 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#UniqueIdentifier"
+
+instance DataTypeEntity_1499365017956_1676098424 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365017956_250798560 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#Country"
+
+instance DataTypeEntity_1499365017956_367518409 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#City"
+
+instance DataTypeEntity_1499365017956_714245527 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#TimeZone"
+
+instance DataTypeEntity_1499365017956_244196784 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/protonu.owl#State"
+
+instance DataTypeEntity_1499365017956_166485592 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#PostalCode"
+
+instance EndEvent_1499365017956_460224526 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017956_515262150
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017956_1073485423 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017956_515262150
+     hasSource hasValue StartEvent_1499365017956_1269551635
+     hasTarget hasValue Task_1499365017956_1004741241

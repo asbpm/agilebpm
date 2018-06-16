@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018098
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018097_193876546 memberOf Process
+     hasName hasValue "Government-Organization Profession service"
+     hasDescription hasValue "You can search positions for professionals in a given government-organization."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Government-organizationProfessionService"
+     hasWorkflow hasValue Workflow_1499365018097_1050068042
+
+instance Workflow_1499365018097_1050068042 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018097_193876546
+     hasWorkflowElement hasValue StartEvent_1499365018097_1526806215
+
+instance StartEvent_1499365018097_1526806215 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018097_193876546
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018097_2105351876 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018097_193876546
+     hasSource hasValue StartEvent_1499365018097_1526806215
+     hasTarget hasValue Task_1499365018097_323077227
+
+instance Task_1499365018097_323077227 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018097_193876546
+     receivesData hasValue DataTypeEntity_1499365018097_1148108786
+     sendsData hasValue DataTypeEntity_1499365018097_2095205075
+
+instance DataTypeEntity_1499365018097_1148108786 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Government-Organization"
+
+instance DataTypeEntity_1499365018097_2095205075 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Profession"
+
+instance ConditionalflowConnector_1499365018097_1045282886 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018097_193876546
+     hasSource hasValue Task_1499365018097_323077227
+     hasTarget hasValue EndEvent_1499365018097_332045988
+
+instance EndEvent_1499365018097_332045988 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018097_193876546
+     hasName hasValue "End"
