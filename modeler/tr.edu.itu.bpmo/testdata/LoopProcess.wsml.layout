@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<layout onto="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#instanceOntology_1453022850493_741431704">
+   <node h="30" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#StartEvent_1453030830300_934798538" w="30" x="63" y="111"/>
+   <node h="234" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Repeat_1453030830300_1978092995" w="414" x="300" y="34"/>
+   <node h="30" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#EndEvent_1453030830300_1008736649" w="30" x="951" y="131"/>
+   <node h="363" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Process_1453022866641_1193317898" w="1111" x="10" y="10"/>
+   <node h="70" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1453030830300_292322879" w="100" x="71" y="85"/>
+   <node h="70" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1453030830300_2133798501" w="100" x="133" y="93"/>
+   <node h="70" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1453030830300_338392766" w="100" x="789" y="113"/>
+   <conn source="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#StartEvent_1453030830300_934798538" target="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1453030830300_2133798501" targetAnchor="Anonymous terminal"/>
+   <conn source="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Repeat_1453030830300_1978092995" sourceAnchor="W" target="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1453030830300_338392766" targetAnchor="Anonymous terminal"/>
+   <conn source="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1453030830300_2133798501" sourceAnchor="Anonymous terminal" target="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Repeat_1453030830300_1978092995" targetAnchor="Anonymous terminal"/>
+   <conn source="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1453030830300_338392766" sourceAnchor="Anonymous terminal" target="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#EndEvent_1453030830300_1008736649" targetAnchor="Anonymous terminal"/>
+</layout>

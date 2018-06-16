@@ -1,0 +1,41 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+, 
+     wsmostudio _"http://www.wsmostudio.org#" }
+
+ontology instanceOntology_1452629696976_65143088
+     nonFunctionalProperties
+          wsmostudio#version hasValue "0.7.3.v20081203"
+     endNonFunctionalProperties
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Task_1452629740061_1872528697 memberOf Task
+     hasName hasValue "MyTask"
+     hasHomeProcess hasValue Process_1452629705924_276026928
+
+instance Process_1452629705924_276026928 memberOf Process
+     hasName hasValue "SampleProcess"
+     hasWorkflow hasValue Workflow_1452629740062_630727251
+
+instance Workflow_1452629740062_630727251 memberOf Workflow
+     hasHomeProcess hasValue Process_1452629705924_276026928
+     hasWorkflowElement hasValue StartEvent_1452629740060_84410263
+
+instance StartEvent_1452629740060_84410263 memberOf StartEvent
+     hasHomeProcess hasValue Process_1452629705924_276026928
+     hasName hasValue "Start"
+
+instance ControlflowConnector_1452629740063_5885778 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452629705924_276026928
+     hasSource hasValue Task_1452629740061_1872528697
+     hasTarget hasValue EndEvent_1452629740061_1940720357
+
+instance EndEvent_1452629740061_1940720357 memberOf EndEvent
+     hasHomeProcess hasValue Process_1452629705924_276026928
+     hasName hasValue "End"
+
+instance ControlflowConnector_1452629740065_1345824502 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452629705924_276026928
+     hasSource hasValue StartEvent_1452629740060_84410263
+     hasTarget hasValue Task_1452629740061_1872528697

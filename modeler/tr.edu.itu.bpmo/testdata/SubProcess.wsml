@@ -1,0 +1,54 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+, 
+     wsmostudio _"http://www.wsmostudio.org#" }
+
+ontology instanceOntology_1452987990609_6674680
+     nonFunctionalProperties
+          wsmostudio#version hasValue "0.7.3.v20081203"
+     endNonFunctionalProperties
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance EndEvent_1452988110889_1129378632 memberOf EndEvent
+     hasHomeProcess hasValue Process_1452987997422_2003545679
+     hasName hasValue "End"
+
+instance Process_1452987997422_2003545679 memberOf Process
+     hasName hasValue "SubProcessSample"
+     hasWorkflow hasValue Workflow_1452988110890_1811020494
+
+instance Workflow_1452988110890_1811020494 memberOf Workflow
+     hasHomeProcess hasValue Process_1452987997422_2003545679
+     hasWorkflowElement hasValue StartEvent_1452988110888_284542420
+
+instance StartEvent_1452988110888_284542420 memberOf StartEvent
+     hasHomeProcess hasValue Process_1452987997422_2003545679
+     hasName hasValue "Start"
+
+instance ControlflowConnector_1452988110891_927561273 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452987997422_2003545679
+     hasSource hasValue Task_1452988110889_463194531
+     hasTarget hasValue SubProcess_1452988110889_671133705
+
+instance Task_1452988110889_463194531 memberOf Task
+     hasName hasValue "First Task"
+     hasHomeProcess hasValue Process_1452987997422_2003545679
+
+instance SubProcess_1452988110889_671133705 memberOf SubProcess
+     hasName hasValue "Simple Flow"
+     hasWorkflow hasValue Workflow_1452988110890_9310405
+     hasHomeProcess hasValue Process_1452987997422_2003545679
+
+instance Workflow_1452988110890_9310405 memberOf Workflow
+     hasHomeProcess hasValue SubProcess_1452988110889_671133705
+
+instance ControlflowConnector_1452988110891_873385897 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452987997422_2003545679
+     hasSource hasValue StartEvent_1452988110888_284542420
+     hasTarget hasValue Task_1452988110889_463194531
+
+instance ControlflowConnector_1452988110890_2005772725 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452987997422_2003545679
+     hasSource hasValue SubProcess_1452988110889_671133705
+     hasTarget hasValue EndEvent_1452988110889_1129378632

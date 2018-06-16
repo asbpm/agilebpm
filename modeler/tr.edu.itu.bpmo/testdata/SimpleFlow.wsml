@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+, 
+     wsmostudio _"http://www.wsmostudio.org#" }
+
+ontology instanceOntology_1452972906791_2117313506
+     nonFunctionalProperties
+          wsmostudio#version hasValue "0.7.3.v20081203"
+     endNonFunctionalProperties
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1452972913010_117888422 memberOf Process
+     hasName hasValue "Simple Flow"
+     hasWorkflow hasValue Workflow_1452972968310_1709689008
+
+instance Workflow_1452972968310_1709689008 memberOf Workflow
+     hasHomeProcess hasValue Process_1452972913010_117888422
+     hasWorkflowElement hasValue StartEvent_1452972968310_1884019793
+
+instance StartEvent_1452972968310_1884019793 memberOf StartEvent
+     hasHomeProcess hasValue Process_1452972913010_117888422
+     hasName hasValue "Start"
+
+instance ControlflowConnector_1452972968311_1502061283 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452972913010_117888422
+     hasSource hasValue Task_1452972968310_2146943951
+     hasTarget hasValue Task_1452972968310_339020564
+
+instance Task_1452972968310_2146943951 memberOf Task
+     hasName hasValue "My Task1"
+     hasHomeProcess hasValue Process_1452972913010_117888422
+
+instance Task_1452972968310_339020564 memberOf Task
+     hasName hasValue "Task2"
+     hasHomeProcess hasValue Process_1452972913010_117888422
+
+instance ControlflowConnector_1452972968311_446754663 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452972913010_117888422
+     hasSource hasValue StartEvent_1452972968310_1884019793
+     hasTarget hasValue Task_1452972968310_2146943951
+
+instance ControlflowConnector_1452972968311_668682246 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452972913010_117888422
+     hasSource hasValue Task_1452972968310_339020564
+     hasTarget hasValue EndEvent_1452972968310_639645074
+
+instance EndEvent_1452972968310_639645074 memberOf EndEvent
+     hasHomeProcess hasValue Process_1452972913010_117888422
+     hasName hasValue "End"

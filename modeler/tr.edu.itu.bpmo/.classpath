@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_79"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="lib" path="libv2/bpmo-api-0.1.4.jar"/>
+	<classpathentry kind="lib" path="libv2/bpmo-impl-0.1.4.jar"/>
+	<classpathentry kind="lib" path="libv2/choreography-0.0.2RC.jar"/>
+	<classpathentry kind="lib" path="libv2/grounding-api-0.1.0.jar"/>
+	<classpathentry kind="lib" path="libv2/grounding-impl-0.1.0.jar"/>
+	<classpathentry kind="lib" path="libv2/sbpel-api-0.1.0.jar"/>
+	<classpathentry kind="lib" path="libv2/sbpel-impl-0.1.0.jar"/>
+	<classpathentry kind="lib" path="libv2/upo-api.jar"/>
+	<classpathentry kind="lib" path="libv2/upo-impl.jar"/>
+	<classpathentry kind="lib" path="libv2/WSML-grammar-20070417.jar"/>
+	<classpathentry kind="lib" path="libv2/wsmo4j-0.6.1.jar"/>
+	<classpathentry kind="lib" path="libv2/wsmo4j-plugin.jar"/>
+	<classpathentry kind="lib" path="libv2/wsmo-api-0.6.1.jar"/>
+	<classpathentry kind="lib" path="libv2/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="libv2/openrdf-model.jar"/>
+	<classpathentry kind="lib" path="libv2/openrdf-util.jar"/>
+	<classpathentry kind="lib" path="libv2/rio.jar"/>
+	<classpathentry kind="lib" path="libv2/sesame.jar"/>
+	<classpathentry kind="lib" path="libv2/wade.jar"/>
+	<classpathentry kind="lib" path="libv2/wadeInterface.jar"/>
+	<classpathentry kind="lib" path="libv2/commons-lang3-3.4.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

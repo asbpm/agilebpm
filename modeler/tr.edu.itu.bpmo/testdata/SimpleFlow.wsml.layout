@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<layout onto="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#instanceOntology_1452972906791_2117313506">
+   <node h="300" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Process_1452972913010_117888422" w="700" x="10" y="10"/>
+   <node h="70" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1452972968310_339020564" w="100" x="401" y="105"/>
+   <node h="30" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#EndEvent_1452972968310_639645074" w="30" x="582" y="134"/>
+   <node h="30" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#StartEvent_1452972968310_1884019793" w="30" x="65" y="128"/>
+   <node h="70" id="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1452972968310_2146943951" w="100" x="185" y="101"/>
+   <conn source="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#StartEvent_1452972968310_1884019793" target="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1452972968310_2146943951" targetAnchor="Anonymous terminal"/>
+   <conn source="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1452972968310_339020564" sourceAnchor="Anonymous terminal" target="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#EndEvent_1452972968310_639645074" targetAnchor="Anonymous terminal"/>
+   <conn source="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1452972968310_2146943951" sourceAnchor="Anonymous terminal" target="http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#Task_1452972968310_339020564" targetAnchor="Anonymous terminal"/>
+</layout>

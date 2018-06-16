@@ -1,0 +1,81 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+, 
+     wsmostudio _"http://www.wsmostudio.org#" }
+
+ontology instanceOntology_1452971421461_288054394
+     nonFunctionalProperties
+          wsmostudio#version hasValue "0.7.3.v20081203"
+     endNonFunctionalProperties
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Task_1452971628175_1298185470 memberOf Task
+     hasName hasValue "My Task1"
+     hasHomeProcess hasValue Process_1452971432693_177779358
+
+instance Process_1452971432693_177779358 memberOf Process
+     hasName hasValue "BranchingProcess"
+     hasWorkflow hasValue Workflow_1452971628177_277201548
+
+instance Workflow_1452971628177_277201548 memberOf Workflow
+     hasHomeProcess hasValue Process_1452971432693_177779358
+     hasWorkflowElement hasValue StartEvent_1452971628174_815199881
+
+instance StartEvent_1452971628174_815199881 memberOf StartEvent
+     hasHomeProcess hasValue Process_1452971432693_177779358
+     hasName hasValue "Start"
+
+instance ControlflowConnector_1452971628177_2065760117 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452971432693_177779358
+     hasSource hasValue ExclusiveChoiceMerge_1452971628175_51830657
+     hasTarget hasValue EndEvent_1452971628175_444711046
+
+instance ExclusiveChoiceMerge_1452971628175_51830657 memberOf ExclusiveChoiceMerge
+     hasHomeProcess hasValue Process_1452971432693_177779358
+     hasConditionalBranch hasValue {ConditionalBranch_1452971628175_727707043, ConditionalBranch_1452971628176_472604568 }
+
+instance ConditionalBranch_1452971628175_727707043 memberOf ConditionalBranch
+     hasElement hasValue Task_1452971628175_95861799
+     hasCondition hasValue Condition_1452987931616_7697839
+
+instance Task_1452971628175_95861799 memberOf Task
+     hasName hasValue "Choice1"
+     hasHomeProcess hasValue Process_1452971432693_177779358
+
+instance Condition_1452987931616_7697839 memberOf Condition
+     hasExpression hasValue "allRegistered"
+
+instance ConditionalBranch_1452971628176_472604568 memberOf ConditionalBranch
+     hasElement hasValue Task_1452971628175_1340830521
+     hasCondition hasValue Condition_1452987931616_18911602
+
+instance Task_1452971628175_1340830521 memberOf Task
+     hasName hasValue "Choice2"
+     hasHomeProcess hasValue Process_1452971432693_177779358
+
+instance Condition_1452987931616_18911602 memberOf Condition
+     hasExpression hasValue "someRegistered"
+
+instance EndEvent_1452971628175_444711046 memberOf EndEvent
+     hasHomeProcess hasValue Process_1452971432693_177779358
+     hasName hasValue "End"
+
+instance ControlflowConnector_1452971628177_2000871525 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452971432693_177779358
+     hasSource hasValue Task_1452971628175_1298185470
+     hasTarget hasValue ExclusiveChoiceMerge_1452971628175_51830657
+
+instance ControlflowConnector_1452987931617_1237351295 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452971432693_177779358
+     hasSource hasValue Task_1452971628175_95861799
+     hasTarget hasValue Task_1452987931616_1700261091
+
+instance Task_1452987931616_1700261091 memberOf Task
+     hasName hasValue "Choice1 Follow"
+     hasHomeProcess hasValue Process_1452971432693_177779358
+
+instance ControlflowConnector_1452971628177_604504432 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1452971432693_177779358
+     hasSource hasValue StartEvent_1452971628174_815199881
+     hasTarget hasValue Task_1452971628175_1298185470

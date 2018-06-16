@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+, 
+     wsmostudio _"http://www.wsmostudio.org#" }
+
+ontology instanceOntology_1453021387390_920418346
+     nonFunctionalProperties
+          wsmostudio#version hasValue "0.7.3.v20081203"
+     endNonFunctionalProperties
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance GoalTask_1453021440568_430487609 memberOf GoalTask
+     hasName hasValue "New Goal Task"
+     hasHomeProcess hasValue Process_1453021394145_163351088
+
+instance Process_1453021394145_163351088 memberOf Process
+     hasName hasValue "Goal Process"
+     hasWorkflow hasValue Workflow_1453021440568_1805140799
+
+instance Workflow_1453021440568_1805140799 memberOf Workflow
+     hasHomeProcess hasValue Process_1453021394145_163351088
+     hasWorkflowElement hasValue StartEvent_1453021440568_2026317152
+
+instance StartEvent_1453021440568_2026317152 memberOf StartEvent
+     hasHomeProcess hasValue Process_1453021394145_163351088
+     hasName hasValue "Start"
+
+instance ControlflowConnector_1453021574599_513396125 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1453021394145_163351088
+     hasSource hasValue Task_1453021574599_752548775
+     hasTarget hasValue EndEvent_1453021440568_81112607
+
+instance Task_1453021574599_752548775 memberOf Task
+     hasName hasValue "New Manual Task"
+     hasHomeProcess hasValue Process_1453021394145_163351088
+
+instance EndEvent_1453021440568_81112607 memberOf EndEvent
+     hasHomeProcess hasValue Process_1453021394145_163351088
+     hasName hasValue "End"
+
+instance ControlflowConnector_1453021440569_2098664630 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1453021394145_163351088
+     hasSource hasValue StartEvent_1453021440568_2026317152
+     hasTarget hasValue GoalTask_1453021440568_430487609
+
+instance ControlflowConnector_1453021574600_273218274 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1453021394145_163351088
+     hasSource hasValue GoalTask_1453021440568_430487609
+     hasTarget hasValue Task_1453021574599_752548775

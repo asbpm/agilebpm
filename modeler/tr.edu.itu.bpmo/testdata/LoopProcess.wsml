@@ -1,0 +1,67 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+, 
+     wsmostudio _"http://www.wsmostudio.org#" }
+
+ontology instanceOntology_1453022850493_741431704
+     nonFunctionalProperties
+          wsmostudio#version hasValue "0.7.3.v20081203"
+     endNonFunctionalProperties
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance StartEvent_1453030830300_934798538 memberOf StartEvent
+     hasHomeProcess hasValue Process_1453022866641_1193317898
+     hasName hasValue "Start"
+
+instance Process_1453022866641_1193317898 memberOf Process
+     hasName hasValue "New Process"
+     hasWorkflow hasValue Workflow_1453030830300_1814076584
+
+instance Workflow_1453030830300_1814076584 memberOf Workflow
+     hasHomeProcess hasValue Process_1453022866641_1193317898
+     hasWorkflowElement hasValue StartEvent_1453030830300_934798538
+
+instance ControlflowConnector_1453030830301_1777596895 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1453022866641_1193317898
+     hasSource hasValue Task_1453030830300_338392766
+     hasTarget hasValue EndEvent_1453030830300_1008736649
+
+instance Task_1453030830300_338392766 memberOf Task
+     hasName hasValue "Final Task"
+     hasHomeProcess hasValue Process_1453022866641_1193317898
+
+instance EndEvent_1453030830300_1008736649 memberOf EndEvent
+     hasHomeProcess hasValue Process_1453022866641_1193317898
+     hasName hasValue "End"
+
+instance ControlflowConnector_1453030830300_1186395293 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1453022866641_1193317898
+     hasSource hasValue StartEvent_1453030830300_934798538
+     hasTarget hasValue Task_1453030830300_2133798501
+
+instance Task_1453030830300_2133798501 memberOf Task
+     hasName hasValue "Task1"
+     hasHomeProcess hasValue Process_1453022866641_1193317898
+
+instance ControlflowConnector_1453030830301_1228791607 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1453022866641_1193317898
+     hasSource hasValue Repeat_1453030830300_1978092995
+     hasTarget hasValue Task_1453030830300_338392766
+
+instance Repeat_1453030830300_1978092995 memberOf Repeat
+     hasHomeProcess hasValue Process_1453022866641_1193317898
+     hasCondition hasValue Condition_1453030830300_1900383856
+     executes hasValue Task_1453030830300_292322879
+
+instance Condition_1453030830300_1900383856 memberOf Condition
+     hasExpression hasValue "notAllReviewersAssigned"
+
+instance Task_1453030830300_292322879 memberOf Task
+     hasName hasValue "Assign Reviewer"
+     hasHomeProcess hasValue Process_1453022866641_1193317898
+
+instance ControlflowConnector_1453030830301_2057709203 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1453022866641_1193317898
+     hasSource hasValue Task_1453030830300_2133798501
+     hasTarget hasValue Repeat_1453030830300_1978092995

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<plugin
+	name="Bpmo Generator Plug-in"
+	id="tr.edu.itu.bpmo"
+	version="0.0.1"
+	provider-name="ITU">
+	
+    <requires>
+	<import plugin="org.eclipse.core.resources"/>
+        <import plugin="org.eclipse.ui"/>
+    </requires>
+
+    <runtime>
+	<library name="helloworld.jar"/>
+    </runtime>
+	
+	<extension point="org.eclipse.ui.popupMenus"> 
+		<objectContribution 
+      id="org.eclipse.ui.articles.action.contribution.popup.object"
+   objectClass="org.eclipse.core.resources.IFile"
+   nameFilter="*.wsml">
+   <filter
+         name="projectNature"
+         value="org.eclipse.jdt.core.javanature">
+      </filter>
+      <action
+         id="tr.edu.itu.bpmo.wsml.code.generation.action" 
+         label="Generate Process Code"
+         icon="icons/generate_code.ico"
+         menubarPath="additions" 
+      class="tr.edu.itu.bpmo.CodeGenarationAction"> 
+      </action> 
+   </objectContribution>
+	</extension>
+</plugin>
