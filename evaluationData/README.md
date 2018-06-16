@@ -5,6 +5,6 @@ application domains such as travel, tourism and e-health. OWL-S service profiles
 
 Test collection consists of 1083 process offers and 42 test requests with binary and graded relevance sets where 160 of the processes and 18 of the requests have preconditions and effects defined in SWRL.
 
-Test requests and expected responses (both in binary relevance and 0 to 3 graded relevance) are defined in [bpmo-tc4.xml] (https://raw.githubusercontent.com/asbpm/asbpm/master/evaluationData/bpmo-tc4.xml).
+Test requests and expected responses (both in binary relevance and 0 to 3 graded relevance) are defined in [bpmo-tc4.xml](https://raw.githubusercontent.com/asbpm/asbpm/master/evaluationData/bpmo-tc4.xml).
 
 
