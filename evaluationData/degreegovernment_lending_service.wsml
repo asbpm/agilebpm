@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017311
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017310_713155003 memberOf Process
+     hasName hasValue "GovernmengLendingForDegreeService"
+     hasDescription hasValue "This service gives you information for the lending offered by the given government, it is available to get the degree from any university of the government."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Governmenglendingfordegreeservice"
+     hasWorkflow hasValue Workflow_1499365017310_610104487
+
+instance Workflow_1499365017310_610104487 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017310_713155003
+     hasWorkflowElement hasValue StartEvent_1499365017310_1946965528
+
+instance StartEvent_1499365017310_1946965528 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017310_713155003
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017310_1824300578 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017310_713155003
+     hasSource hasValue Task_1499365017310_874567396
+     hasTarget hasValue EndEvent_1499365017310_1069775331
+
+instance Task_1499365017310_874567396 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017310_713155003
+     receivesData hasValue {DataTypeEntity_1499365017310_483623735, DataTypeEntity_1499365017310_1242503078 }
+     sendsData hasValue DataTypeEntity_1499365017310_479654948
+
+instance DataTypeEntity_1499365017310_483623735 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Degree"
+
+instance DataTypeEntity_1499365017310_1242503078 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Government"
+
+instance DataTypeEntity_1499365017310_479654948 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Lending"
+
+instance EndEvent_1499365017310_1069775331 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017310_713155003
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017310_1619267131 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017310_713155003
+     hasSource hasValue StartEvent_1499365017310_1946965528
+     hasTarget hasValue Task_1499365017310_874567396

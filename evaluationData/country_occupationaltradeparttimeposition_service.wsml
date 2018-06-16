@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017172
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017171_1213237946 memberOf Process
+     hasName hasValue "Country OccupationalTrade PartTimePosition Service"
+     hasDescription hasValue "This service returns part time positions offering for occupationaltrades in a given country."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CountryOccupationaltradeParttimepositionService"
+     hasWorkflow hasValue Workflow_1499365017171_975218046
+
+instance Workflow_1499365017171_975218046 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017171_1213237946
+     hasWorkflowElement hasValue StartEvent_1499365017171_1542462477
+
+instance StartEvent_1499365017171_1542462477 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017171_1213237946
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017171_2137668515 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017171_1213237946
+     hasSource hasValue StartEvent_1499365017171_1542462477
+     hasTarget hasValue Task_1499365017171_1460317815
+
+instance Task_1499365017171_1460317815 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017171_1213237946
+     receivesData hasValue DataTypeEntity_1499365017171_1450262347
+     sendsData hasValue {DataTypeEntity_1499365017171_1600523209, DataTypeEntity_1499365017171_1091154509 }
+
+instance DataTypeEntity_1499365017171_1450262347 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Country"
+
+instance DataTypeEntity_1499365017171_1600523209 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#PartTimePosition"
+
+instance DataTypeEntity_1499365017171_1091154509 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#OccupationalTrade"
+
+instance ConditionalflowConnector_1499365017171_1865344198 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017171_1213237946
+     hasSource hasValue Task_1499365017171_1460317815
+     hasTarget hasValue EndEvent_1499365017171_1116114560
+
+instance EndEvent_1499365017171_1116114560 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017171_1213237946
+     hasName hasValue "End"

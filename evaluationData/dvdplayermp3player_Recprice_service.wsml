@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017406
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017406_258099684 memberOf Process
+     hasName hasValue "2For 1 Price service"
+     hasDescription hasValue "This service returns recommended prices of a set of MP3Player brand and DVD Player brand."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/2for1PriceService"
+     hasWorkflow hasValue Workflow_1499365017406_154006043
+
+instance Workflow_1499365017406_154006043 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017406_258099684
+     hasWorkflowElement hasValue StartEvent_1499365017406_1296387616
+
+instance StartEvent_1499365017406_1296387616 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017406_258099684
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017406_191412701 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017406_258099684
+     hasSource hasValue Task_1499365017406_571028865
+     hasTarget hasValue EndEvent_1499365017406_1243803973
+
+instance Task_1499365017406_571028865 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017406_258099684
+     receivesData hasValue {DataTypeEntity_1499365017406_1269624133, DataTypeEntity_1499365017406_1083185317 }
+     sendsData hasValue DataTypeEntity_1499365017406_1184113553
+
+instance DataTypeEntity_1499365017406_1269624133 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#MP3Player"
+
+instance DataTypeEntity_1499365017406_1083185317 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#DVDPlayer"
+
+instance DataTypeEntity_1499365017406_1184113553 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPrice"
+
+instance EndEvent_1499365017406_1243803973 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017406_258099684
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017406_2011693065 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017406_258099684
+     hasSource hasValue StartEvent_1499365017406_1296387616
+     hasTarget hasValue Task_1499365017406_571028865

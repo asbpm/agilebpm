@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017427
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017426_870107717 memberOf Process
+     hasName hasValue "EBookOrder3"
+     hasDescription hasValue "An e-book order web service, where an ebook request is given by title and the required book is placed into the users shopping cart. The service also checks availability of the book in the stock and verifies user's account."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Ebookorder3"
+     hasWorkflow hasValue Workflow_1499365017426_849175337
+
+instance Workflow_1499365017426_849175337 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017426_870107717
+     hasWorkflowElement hasValue StartEvent_1499365017426_644704899
+
+instance StartEvent_1499365017426_644704899 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017426_870107717
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017426_586798589 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017426_870107717
+     hasSource hasValue Task_1499365017426_1111943664
+     hasTarget hasValue EndEvent_1499365017426_1743363796
+
+instance Task_1499365017426_1111943664 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017426_870107717
+     receivesData hasValue {DataTypeEntity_1499365017426_275815773, DataTypeEntity_1499365017426_1130111105 }
+     sendsData hasValue DataTypeEntity_1499365017426_1078378359
+
+instance DataTypeEntity_1499365017426_275815773 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#User"
+
+instance DataTypeEntity_1499365017426_1130111105 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Title"
+
+instance DataTypeEntity_1499365017426_1078378359 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance EndEvent_1499365017426_1743363796 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017426_870107717
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017426_606776787 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017426_870107717
+     hasSource hasValue StartEvent_1499365017426_644704899
+     hasTarget hasValue Task_1499365017426_1111943664

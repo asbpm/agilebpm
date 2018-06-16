@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017218
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017217_1115801521 memberOf Process
+     hasName hasValue "Country Profession TimeMeasure service"
+     hasDescription hasValue "This service returns profession jobs in a given country and its timemeasure (duration)."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CountryProfessionTimemeasureService"
+     hasWorkflow hasValue Workflow_1499365017217_1496109654
+
+instance Workflow_1499365017217_1496109654 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017217_1115801521
+     hasWorkflowElement hasValue StartEvent_1499365017217_535792497
+
+instance StartEvent_1499365017217_535792497 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017217_1115801521
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017217_432215047 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017217_1115801521
+     hasSource hasValue Task_1499365017217_230336645
+     hasTarget hasValue EndEvent_1499365017217_1031157686
+
+instance Task_1499365017217_230336645 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017217_1115801521
+     receivesData hasValue DataTypeEntity_1499365017217_543792126
+     sendsData hasValue {DataTypeEntity_1499365017217_1188557020, DataTypeEntity_1499365017217_1575149184 }
+
+instance DataTypeEntity_1499365017217_543792126 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Country"
+
+instance DataTypeEntity_1499365017217_1188557020 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#TimeMeasure"
+
+instance DataTypeEntity_1499365017217_1575149184 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Profession"
+
+instance EndEvent_1499365017217_1031157686 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017217_1115801521
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017217_2113571646 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017217_1115801521
+     hasSource hasValue StartEvent_1499365017217_535792497
+     hasTarget hasValue Task_1499365017217_230336645

@@ -1,0 +1,57 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017374
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017374_1633328105 memberOf Process
+     hasName hasValue "Duration Geopolitical-Entity City BedAndBreakfast InfoService"
+     hasDescription hasValue "This service informs about availability of bed-and-breakfast accommodation in a given city of a given geopolitical-entity, for a given duration time."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/DurationGeopolitical-entityCityBedandbreakfastInfoservice"
+     hasWorkflow hasValue Workflow_1499365017374_1079253779
+
+instance Workflow_1499365017374_1079253779 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017374_1633328105
+     hasWorkflowElement hasValue StartEvent_1499365017374_45656539
+
+instance StartEvent_1499365017374_45656539 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017374_1633328105
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017374_758133446 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017374_1633328105
+     hasSource hasValue StartEvent_1499365017374_45656539
+     hasTarget hasValue Task_1499365017374_606337512
+
+instance Task_1499365017374_606337512 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017374_1633328105
+     requestsCapability hasValue SemanticCapability_1499365017374_888382696
+     receivesData hasValue {DataTypeEntity_1499365017374_524333115, DataTypeEntity_1499365017374_482222638, DataTypeEntity_1499365017374_1008275365 }
+     sendsData hasValue DataTypeEntity_1499365017374_1286419634
+
+instance SemanticCapability_1499365017374_888382696 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/protont.owl#locatedIn ?http://127.0.0.1:8000/services/OWLS-1.1/durationgeopolitical-entitycity_bedandbreakfast_service.owls#_CITY ?http://127.0.0.1:8000/services/OWLS-1.1/durationgeopolitical-entitycity_bedandbreakfast_service.owls#_GEOPOLITICAL-ENTITY)"
+
+instance DataTypeEntity_1499365017374_524333115 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Geopolitical-Entity"
+
+instance DataTypeEntity_1499365017374_482222638 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#City"
+
+instance DataTypeEntity_1499365017374_1008275365 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/support.owl#Duration"
+
+instance DataTypeEntity_1499365017374_1286419634 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#BedAndBreakfast"
+
+instance ConditionalflowConnector_1499365017374_324315503 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017374_1633328105
+     hasSource hasValue Task_1499365017374_606337512
+     hasTarget hasValue EndEvent_1499365017374_1621760558
+
+instance EndEvent_1499365017374_1621760558 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017374_1633328105
+     hasName hasValue "End"

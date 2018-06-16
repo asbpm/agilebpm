@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017505
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017505_611195052 memberOf Process
+     hasName hasValue "ExpensiveCar Price Color service"
+     hasDescription hasValue "This service provides a list of purchase prices from different car merchandiser of given expensive car model, with its available colors."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ExpensivecarPriceColorService"
+     hasWorkflow hasValue Workflow_1499365017505_1748912733
+
+instance Workflow_1499365017505_1748912733 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017505_611195052
+     hasWorkflowElement hasValue StartEvent_1499365017505_468960214
+
+instance StartEvent_1499365017505_468960214 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017505_611195052
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017505_1278139890 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017505_611195052
+     hasSource hasValue StartEvent_1499365017505_468960214
+     hasTarget hasValue Task_1499365017505_864721124
+
+instance Task_1499365017505_864721124 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017505_611195052
+     receivesData hasValue DataTypeEntity_1499365017505_1815747289
+     sendsData hasValue {DataTypeEntity_1499365017505_1117145787, DataTypeEntity_1499365017505_856100532 }
+
+instance DataTypeEntity_1499365017505_1815747289 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#ExpensiveCar"
+
+instance DataTypeEntity_1499365017505_1117145787 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365017505_856100532 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Color"
+
+instance ConditionalflowConnector_1499365017505_1355853814 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017505_611195052
+     hasSource hasValue Task_1499365017505_864721124
+     hasTarget hasValue EndEvent_1499365017505_703005075
+
+instance EndEvent_1499365017505_703005075 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017505_611195052
+     hasName hasValue "End"

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017155
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017155_936098974 memberOf Process
+     hasName hasValue "CountryHotelService"
+     hasDescription hasValue "This service is a favourite service that returns list of hotels infos of the given country."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Countryhotelservice"
+     hasWorkflow hasValue Workflow_1499365017155_921269837
+
+instance Workflow_1499365017155_921269837 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017155_936098974
+     hasWorkflowElement hasValue StartEvent_1499365017155_1669727324
+
+instance StartEvent_1499365017155_1669727324 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017155_936098974
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017155_1727127842 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017155_936098974
+     hasSource hasValue StartEvent_1499365017155_1669727324
+     hasTarget hasValue Task_1499365017155_1587938316
+
+instance Task_1499365017155_1587938316 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017155_936098974
+     receivesData hasValue DataTypeEntity_1499365017155_107965437
+     sendsData hasValue DataTypeEntity_1499365017155_1863766193
+
+instance DataTypeEntity_1499365017155_107965437 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Country"
+
+instance DataTypeEntity_1499365017155_1863766193 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/travel.owl#Hotel"
+
+instance ConditionalflowConnector_1499365017155_671103015 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017155_936098974
+     hasSource hasValue Task_1499365017155_1587938316
+     hasTarget hasValue EndEvent_1499365017155_1297263220
+
+instance EndEvent_1499365017155_1297263220 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017155_936098974
+     hasName hasValue "End"

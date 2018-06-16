@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017127
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017127_1466936172 memberOf Process
+     hasName hasValue "Country Company Profession Service"
+     hasDescription hasValue "This service finds profession positions in a given country and also returns company who offers that job."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CountryCompanyProfessionService"
+     hasWorkflow hasValue Workflow_1499365017127_1774089313
+
+instance Workflow_1499365017127_1774089313 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017127_1466936172
+     hasWorkflowElement hasValue StartEvent_1499365017127_952345298
+
+instance StartEvent_1499365017127_952345298 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017127_1466936172
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017127_637422166 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017127_1466936172
+     hasSource hasValue Task_1499365017127_1516682818
+     hasTarget hasValue EndEvent_1499365017127_821504891
+
+instance Task_1499365017127_1516682818 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017127_1466936172
+     receivesData hasValue DataTypeEntity_1499365017127_635593447
+     sendsData hasValue {DataTypeEntity_1499365017127_1228524262, DataTypeEntity_1499365017127_1713289259 }
+
+instance DataTypeEntity_1499365017127_635593447 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Country"
+
+instance DataTypeEntity_1499365017127_1228524262 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Profession"
+
+instance DataTypeEntity_1499365017127_1713289259 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/finance_th_web.owl#company"
+
+instance EndEvent_1499365017127_821504891 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017127_1466936172
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017127_1405808204 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017127_1466936172
+     hasSource hasValue StartEvent_1499365017127_952345298
+     hasTarget hasValue Task_1499365017127_1516682818

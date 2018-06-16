@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017176
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017175_1891937162 memberOf Process
+     hasName hasValue "Country OccupationalTrade TimeDuration service"
+     hasDescription hasValue "This service returns occupational trade jobs in a given company and its time duration."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CountryOccupationaltradeTimedurationService"
+     hasWorkflow hasValue Workflow_1499365017176_632461035
+
+instance Workflow_1499365017176_632461035 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017175_1891937162
+     hasWorkflowElement hasValue StartEvent_1499365017176_1735487294
+
+instance StartEvent_1499365017176_1735487294 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017175_1891937162
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017176_574027810 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017175_1891937162
+     hasSource hasValue Task_1499365017176_1686362685
+     hasTarget hasValue EndEvent_1499365017176_724886400
+
+instance Task_1499365017176_1686362685 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017175_1891937162
+     receivesData hasValue DataTypeEntity_1499365017176_1279029428
+     sendsData hasValue {DataTypeEntity_1499365017176_1629970275, DataTypeEntity_1499365017176_868036294 }
+
+instance DataTypeEntity_1499365017176_1279029428 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Country"
+
+instance DataTypeEntity_1499365017176_1629970275 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#OccupationalTrade"
+
+instance DataTypeEntity_1499365017176_868036294 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#TimeDuration"
+
+instance EndEvent_1499365017176_724886400 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017175_1891937162
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017176_395795577 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017175_1891937162
+     hasSource hasValue StartEvent_1499365017176_1735487294
+     hasTarget hasValue Task_1499365017176_1686362685

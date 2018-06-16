@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365017151
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365017151_1848250431 memberOf Process
+     hasName hasValue "Country Drought Service"
+     hasDescription hasValue "This service informs about drought in a given country."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CountryDroughtService"
+     hasWorkflow hasValue Workflow_1499365017151_721455656
+
+instance Workflow_1499365017151_721455656 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365017151_1848250431
+     hasWorkflowElement hasValue StartEvent_1499365017151_1938124538
+
+instance StartEvent_1499365017151_1938124538 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365017151_1848250431
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365017151_1812277583 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017151_1848250431
+     hasSource hasValue Task_1499365017151_1632430855
+     hasTarget hasValue EndEvent_1499365017151_1969619492
+
+instance Task_1499365017151_1632430855 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365017151_1848250431
+     receivesData hasValue DataTypeEntity_1499365017151_1268686564
+     sendsData hasValue DataTypeEntity_1499365017151_481184323
+
+instance DataTypeEntity_1499365017151_1268686564 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Country"
+
+instance DataTypeEntity_1499365017151_481184323 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Drought"
+
+instance EndEvent_1499365017151_1969619492 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365017151_1848250431
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365017151_452659656 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365017151_1848250431
+     hasSource hasValue StartEvent_1499365017151_1938124538
+     hasTarget hasValue Task_1499365017151_1632430855
