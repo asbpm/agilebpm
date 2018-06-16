@@ -1,0 +1,76 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019982
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019982_1761351432 memberOf Process
+     hasName hasValue "UpdatePatientMedicalRecords"
+     hasDescription hasValue "Updates the patient's medical records with info about treatment, used drugs, diagnosis and date of treatment"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Updatepatientmedicalrecords"
+     hasWorkflow hasValue Workflow_1499365019982_1220244878
+
+instance Workflow_1499365019982_1220244878 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019982_1761351432
+     hasWorkflowElement hasValue StartEvent_1499365019982_1965370170
+
+instance StartEvent_1499365019982_1965370170 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019982_1761351432
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019982_1836069380 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019982_1761351432
+     hasSource hasValue StartEvent_1499365019982_1965370170
+     hasTarget hasValue Task_1499365019982_937390695
+
+instance Task_1499365019982_937390695 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019982_1761351432
+     requestsCapability hasValue SemanticCapability_1499365019982_1669524824
+     receivesData hasValue {DataTypeEntity_1499365019982_307963869, DataTypeEntity_1499365019982_1746914424, DataTypeEntity_1499365019982_550395996, DataTypeEntity_1499365019982_1678911562, DataTypeEntity_1499365019982_1474457055, DataTypeEntity_1499365019982_1100417272, DataTypeEntity_1499365019982_760729194, DataTypeEntity_1499365019982_489850172, DataTypeEntity_1499365019982_39332921 }
+     sendsData hasValue DataTypeEntity_1499365019982_2093856860
+
+instance SemanticCapability_1499365019982_1669524824 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/UpdatePatientMedicalRecords_service.owls#UpdatePatientMedicalRecords_PhysicianID)
+					   (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/UpdatePatientMedicalRecords_service.owls#UpdatePatientMedicalRecords_PhysicianPassword))"
+
+instance DataTypeEntity_1499365019982_307963869 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#Diagnosis"
+
+instance DataTypeEntity_1499365019982_1746914424 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#Drug"
+
+instance DataTypeEntity_1499365019982_550395996 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#HealthInsuranceNumber"
+
+instance DataTypeEntity_1499365019982_1678911562 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#Authorization"
+
+instance DataTypeEntity_1499365019982_1474457055 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365019982_1100417272 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#AccountPassword"
+
+instance DataTypeEntity_1499365019982_760729194 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#GpsPosition"
+
+instance DataTypeEntity_1499365019982_489850172 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#PhysicianID"
+
+instance DataTypeEntity_1499365019982_39332921 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#Treatment"
+
+instance DataTypeEntity_1499365019982_2093856860 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#Acknowledgement"
+
+instance ConditionalflowConnector_1499365019982_1064713089 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019982_1761351432
+     hasSource hasValue Task_1499365019982_937390695
+     hasTarget hasValue EndEvent_1499365019982_1937331105
+
+instance EndEvent_1499365019982_1937331105 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019982_1761351432
+     hasName hasValue "End"

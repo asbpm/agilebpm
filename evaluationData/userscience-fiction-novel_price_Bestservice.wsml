@@ -1,0 +1,54 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019992
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019992_383504826 memberOf Process
+     hasName hasValue "SFNovelPrice Service"
+     hasDescription hasValue "It is the best service that returns current purchase price of a given science-fiction novel for the certain premium user. The price depends on user's purchase history."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/SfnovelpriceService"
+     hasWorkflow hasValue Workflow_1499365019992_1791697094
+
+instance Workflow_1499365019992_1791697094 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019992_383504826
+     hasWorkflowElement hasValue StartEvent_1499365019992_1777107274
+
+instance StartEvent_1499365019992_1777107274 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019992_383504826
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019992_434930404 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019992_383504826
+     hasSource hasValue Task_1499365019992_171539697
+     hasTarget hasValue EndEvent_1499365019992_1897587290
+
+instance Task_1499365019992_171539697 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019992_383504826
+     requestsCapability hasValue SemanticCapability_1499365019992_246640794
+     receivesData hasValue {DataTypeEntity_1499365019992_392925550, DataTypeEntity_1499365019992_687995627 }
+     sendsData hasValue DataTypeEntity_1499365019992_187216177
+
+instance SemanticCapability_1499365019992_246640794 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/userscience-fiction-novel_price_Bestservice.owls#_USER)"
+
+instance DataTypeEntity_1499365019992_392925550 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#User"
+
+instance DataTypeEntity_1499365019992_687995627 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Science-Fiction-Novel"
+
+instance DataTypeEntity_1499365019992_187216177 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance EndEvent_1499365019992_1897587290 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019992_383504826
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019992_1746209985 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019992_383504826
+     hasSource hasValue StartEvent_1499365019992_1777107274
+     hasTarget hasValue Task_1499365019992_171539697

@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019974
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019974_1479599342 memberOf Process
+     hasName hasValue "HistoricalDiagnositc"
+     hasDescription hasValue "This service informs you about the diagnosticprocess, that is proved unsuccessful, with reasoning."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Historicaldiagnositc"
+     hasWorkflow hasValue Workflow_1499365019974_547724244
+
+instance Workflow_1499365019974_547724244 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019974_1479599342
+     hasWorkflowElement hasValue StartEvent_1499365019974_1230737088
+
+instance StartEvent_1499365019974_1230737088 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019974_1479599342
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019974_456258393 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019974_1479599342
+     hasSource hasValue StartEvent_1499365019974_1230737088
+     hasTarget hasValue Task_1499365019974_1846239822
+
+instance Task_1499365019974_1846239822 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019974_1479599342
+     requestsCapability hasValue SemanticCapability_1499365019974_430738063
+     sendsData hasValue {DataTypeEntity_1499365019974_1452152000, DataTypeEntity_1499365019974_1923772740 }
+
+instance SemanticCapability_1499365019974_430738063 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/ontosem.owl#has-unexpected-outcome ?http://127.0.0.1:8000/services/OWLS-1.1/ScienceFNovelReview_service.owls#_DIAGNOSTICPROCESS)"
+
+instance DataTypeEntity_1499365019974_1452152000 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#DiagnosticProcess"
+
+instance DataTypeEntity_1499365019974_1923772740 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Reasoning"
+
+instance ConditionalflowConnector_1499365019974_719354566 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019974_1479599342
+     hasSource hasValue Task_1499365019974_1846239822
+     hasTarget hasValue EndEvent_1499365019974_1318762422
+
+instance EndEvent_1499365019974_1318762422 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019974_1479599342
+     hasName hasValue "End"

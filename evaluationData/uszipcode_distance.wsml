@@ -1,0 +1,54 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020012
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020011_315116574 memberOf Process
+     hasName hasValue "Distance finder between two zipcodes"
+     hasDescription hasValue "This service retrieves the distance in kilometers between two given US zip codes with five digits. The distance is a straight line."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/DistanceFinderBetweenTwoZipcodes"
+     hasWorkflow hasValue Workflow_1499365020011_1172500858
+
+instance Workflow_1499365020011_1172500858 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020011_315116574
+     hasWorkflowElement hasValue StartEvent_1499365020011_1335478094
+
+instance StartEvent_1499365020011_1335478094 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020011_315116574
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020011_1542415137 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020011_315116574
+     hasSource hasValue StartEvent_1499365020011_1335478094
+     hasTarget hasValue Task_1499365020011_337601965
+
+instance Task_1499365020011_337601965 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020011_315116574
+     requestsCapability hasValue SemanticCapability_1499365020011_478564476
+     receivesData hasValue {DataTypeEntity_1499365020011_1486211698, DataTypeEntity_1499365020011_1395228076 }
+     sendsData hasValue DataTypeEntity_1499365020011_1842091398
+
+instance SemanticCapability_1499365020011_478564476 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(not (http://127.0.0.1:8000/ontology/SUMO.owl#equal ?http://127.0.0.1:8000/services/OWLS-1.1/uszipcode_distance.owls#_USZIPCODE1 ?http://127.0.0.1:8000/services/OWLS-1.1/uszipcode_distance.owls#_USZIPCODE2))"
+
+instance DataTypeEntity_1499365020011_1486211698 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#US5DigitZipCode"
+
+instance DataTypeEntity_1499365020011_1395228076 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#US5DigitZipCode"
+
+instance DataTypeEntity_1499365020011_1842091398 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicDistance"
+
+instance ConditionalflowConnector_1499365020011_544814198 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020011_315116574
+     hasSource hasValue Task_1499365020011_337601965
+     hasTarget hasValue EndEvent_1499365020011_811679996
+
+instance EndEvent_1499365020011_811679996 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020011_315116574
+     hasName hasValue "End"

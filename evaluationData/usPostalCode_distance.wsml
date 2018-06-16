@@ -1,0 +1,54 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020008
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020008_122027484 memberOf Process
+     hasName hasValue "Distance finder between two postal codes"
+     hasDescription hasValue "This service retrieves the distance in miles between two given US postal codes. The distance is a straight line."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/DistanceFinderBetweenTwoPostalCodes"
+     hasWorkflow hasValue Workflow_1499365020008_674543159
+
+instance Workflow_1499365020008_674543159 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020008_122027484
+     hasWorkflowElement hasValue StartEvent_1499365020008_636591650
+
+instance StartEvent_1499365020008_636591650 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020008_122027484
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020008_1323149514 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020008_122027484
+     hasSource hasValue Task_1499365020008_687381064
+     hasTarget hasValue EndEvent_1499365020008_72485544
+
+instance Task_1499365020008_687381064 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020008_122027484
+     requestsCapability hasValue SemanticCapability_1499365020008_909302294
+     receivesData hasValue {DataTypeEntity_1499365020008_611434759, DataTypeEntity_1499365020008_1455737877 }
+     sendsData hasValue DataTypeEntity_1499365020008_1121038934
+
+instance SemanticCapability_1499365020008_909302294 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(not (http://127.0.0.1:8000/ontology/SUMO.owl#equal ?http://127.0.0.1:8000/services/OWLS-1.1/usPostalCode_distance.owls#_USPOSTALCODE1 ?http://127.0.0.1:8000/services/OWLS-1.1/usPostalCode_distance.owls#_USPOSTALCODE2))"
+
+instance DataTypeEntity_1499365020008_611434759 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#USPostalCode"
+
+instance DataTypeEntity_1499365020008_1455737877 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#USPostalCode"
+
+instance DataTypeEntity_1499365020008_1121038934 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/geographydataset.owl#GeographicDistance"
+
+instance EndEvent_1499365020008_72485544 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020008_122027484
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365020008_32808500 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020008_122027484
+     hasSource hasValue StartEvent_1499365020008_636591650
+     hasTarget hasValue Task_1499365020008_687381064

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019978
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019977_1237115534 memberOf Process
+     hasName hasValue "UntagibleObjectsService"
+     hasDescription hasValue "This service takes as input account number or product ID and returns cola as gift or byproduct."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Untagibleobjectsservice"
+     hasWorkflow hasValue Workflow_1499365019977_1440080028
+
+instance Workflow_1499365019977_1440080028 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019977_1237115534
+     hasWorkflowElement hasValue StartEvent_1499365019977_2032607566
+
+instance StartEvent_1499365019977_2032607566 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019977_1237115534
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019977_188767365 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019977_1237115534
+     hasSource hasValue StartEvent_1499365019977_2032607566
+     hasTarget hasValue Task_1499365019977_2123880668
+
+instance Task_1499365019977_2123880668 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019977_1237115534
+     receivesData hasValue DataTypeEntity_1499365019977_847920249
+     sendsData hasValue DataTypeEntity_1499365019977_1346137585
+
+instance DataTypeEntity_1499365019977_847920249 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#UntangibleObjects"
+
+instance DataTypeEntity_1499365019977_1346137585 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Cola"
+
+instance ConditionalflowConnector_1499365019977_2000874842 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019977_1237115534
+     hasSource hasValue Task_1499365019977_2123880668
+     hasTarget hasValue EndEvent_1499365019977_809083837
+
+instance EndEvent_1499365019977_809083837 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019977_1237115534
+     hasName hasValue "End"

@@ -1,0 +1,55 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365020005
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365020005_37809064 memberOf Process
+     hasName hasValue "Shoppingstatus Service"
+     hasDescription hasValue "This service informs about the total price of the items in a shopping basket of the logged-in user. The service also gives confirmation for shipping the items."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ShoppingstatusService"
+     hasWorkflow hasValue Workflow_1499365020005_1849300056
+
+instance Workflow_1499365020005_1849300056 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365020005_37809064
+     hasWorkflowElement hasValue StartEvent_1499365020005_2062147395
+
+instance StartEvent_1499365020005_2062147395 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365020005_37809064
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365020005_1664921027 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020005_37809064
+     hasSource hasValue StartEvent_1499365020005_2062147395
+     hasTarget hasValue Task_1499365020005_506977215
+
+instance Task_1499365020005_506977215 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365020005_37809064
+     providesCapability hasValue SemanticCapability_1499365020005_883866357
+     requestsCapability hasValue SemanticCapability_1499365020005_889281805
+     receivesData hasValue DataTypeEntity_1499365020005_1547825424
+     sendsData hasValue DataTypeEntity_1499365020005_469677345
+
+instance SemanticCapability_1499365020005_883866357 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/order.owl#shipTo ?http://127.0.0.1:8000/services/OWLS-1.1/user_price_ShoppingStatusservice.owls#_ITEMS ?http://127.0.0.1:8000/services/OWLS-1.1/user_price_ShoppingStatusservice.owls#_ADDRESS)"
+
+instance SemanticCapability_1499365020005_889281805 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/user_price_ShoppingStatusservice.owls#_USER)"
+
+instance DataTypeEntity_1499365020005_1547825424 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#User"
+
+instance DataTypeEntity_1499365020005_469677345 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance ConditionalflowConnector_1499365020005_952037651 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365020005_37809064
+     hasSource hasValue Task_1499365020005_506977215
+     hasTarget hasValue EndEvent_1499365020005_641869303
+
+instance EndEvent_1499365020005_641869303 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365020005_37809064
+     hasName hasValue "End"
