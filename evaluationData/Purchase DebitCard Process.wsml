@@ -1,0 +1,65 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+, 
+     wsmostudio _"http://www.wsmostudio.org#" }
+
+ontology instanceOntology_1499599664804_190941044
+     nonFunctionalProperties
+          wsmostudio#version hasValue "0.7.3.v20081203"
+     endNonFunctionalProperties
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance EndEvent_1499616187245_1993266192 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499599684760_882664036
+     hasName hasValue "End"
+
+instance Process_1499599684760_882664036 memberOf Process
+     hasName hasValue "Purchase DebitCard Process"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/goals#purchasePublication"
+     hasWorkflow hasValue Workflow_1499616187245_933707861
+
+instance Workflow_1499616187245_933707861 memberOf Workflow
+     hasHomeProcess hasValue Process_1499599684760_882664036
+     hasWorkflowElement hasValue StartEvent_1499616187244_824335898
+
+instance StartEvent_1499616187244_824335898 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499599684760_882664036
+     hasName hasValue "Start"
+
+instance ControlflowConnector_1499616187245_1978235099 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1499599684760_882664036
+     hasSource hasValue Task_1499616187244_875430347
+     hasTarget hasValue Task_1499616187244_708140980
+
+instance Task_1499616187244_875430347 memberOf Task
+     hasName hasValue "Check Account Balance"
+     hasHomeProcess hasValue Process_1499599684760_882664036
+     receivesData hasValue {_"http://127.0.0.1:8000/ontology/finance_th_web.owl#DebitCard", _"http://127.0.0.1:8000/ontology/books.owl#Publication", _"http://127.0.0.1:8000/ontology/EMAOntology.owl#Person" }
+     sendsData hasValue _"http://127.0.0.1:8000/ontology/EMAOntology.owl#Invoice"
+
+instance _"http://127.0.0.1:8000/ontology/finance_th_web.owl#DebitCard" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/finance_th_web.owl#DebitCard"
+
+instance _"http://127.0.0.1:8000/ontology/books.owl#Publication" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Publication"
+
+instance _"http://127.0.0.1:8000/ontology/EMAOntology.owl#Person" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EMAOntology.owl#Person"
+
+instance _"http://127.0.0.1:8000/ontology/EMAOntology.owl#Invoice" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EMAOntology.owl#Invoice"
+
+instance Task_1499616187244_708140980 memberOf Task
+     hasName hasValue "Debit Card Payment"
+     hasHomeProcess hasValue Process_1499599684760_882664036
+
+instance ControlflowConnector_1499616187245_697003958 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1499599684760_882664036
+     hasSource hasValue Task_1499616187244_708140980
+     hasTarget hasValue EndEvent_1499616187245_1993266192
+
+instance ControlflowConnector_1499616187245_1750877703 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1499599684760_882664036
+     hasSource hasValue StartEvent_1499616187244_824335898
+     hasTarget hasValue Task_1499616187244_875430347

@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018941
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018941_293343847 memberOf Process
+     hasName hasValue "GroceryStoreRecommendedPrice"
+     hasDescription hasValue "This service returns recommended price of preparedfood and avilable in a certain Grocery shop."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Grocerystorerecommendedprice"
+     hasWorkflow hasValue Workflow_1499365018941_514941307
+
+instance Workflow_1499365018941_514941307 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018941_293343847
+     hasWorkflowElement hasValue StartEvent_1499365018941_1693841254
+
+instance StartEvent_1499365018941_1693841254 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018941_293343847
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018941_244166492 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018941_293343847
+     hasSource hasValue StartEvent_1499365018941_1693841254
+     hasTarget hasValue Task_1499365018941_43935862
+
+instance Task_1499365018941_43935862 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018941_293343847
+     receivesData hasValue DataTypeEntity_1499365018941_1724821101
+     sendsData hasValue {DataTypeEntity_1499365018941_1034866520, DataTypeEntity_1499365018941_885555221 }
+
+instance DataTypeEntity_1499365018941_1724821101 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#PreparedFood"
+
+instance DataTypeEntity_1499365018941_1034866520 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPrice"
+
+instance DataTypeEntity_1499365018941_885555221 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#GroceryStore"
+
+instance ConditionalflowConnector_1499365018941_1786784286 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018941_293343847
+     hasSource hasValue Task_1499365018941_43935862
+     hasTarget hasValue EndEvent_1499365018941_1458723435
+
+instance EndEvent_1499365018941_1458723435 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018941_293343847
+     hasName hasValue "End"

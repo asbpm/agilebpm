@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019192
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019191_853691574 memberOf Process
+     hasName hasValue "CoffeewithWhiskeyPrice Service"
+     hasDescription hasValue "This service returns a coffeewithwhiskey for the given recommended price, also suggestion on usage of this type of coffee."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/CoffeewithwhiskeypriceService"
+     hasWorkflow hasValue Workflow_1499365019191_451166801
+
+instance Workflow_1499365019191_451166801 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019191_853691574
+     hasWorkflowElement hasValue StartEvent_1499365019191_1646359964
+
+instance StartEvent_1499365019191_1646359964 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019191_853691574
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019191_1384910206 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019191_853691574
+     hasSource hasValue StartEvent_1499365019191_1646359964
+     hasTarget hasValue Task_1499365019191_9962116
+
+instance Task_1499365019191_9962116 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019191_853691574
+     receivesData hasValue DataTypeEntity_1499365019191_1679335712
+     sendsData hasValue {DataTypeEntity_1499365019191_663876980, DataTypeEntity_1499365019191_868581297 }
+
+instance DataTypeEntity_1499365019191_1679335712 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPrice"
+
+instance DataTypeEntity_1499365019191_663876980 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#ContentBearingObject"
+
+instance DataTypeEntity_1499365019191_868581297 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#CoffeeWithWhiskey"
+
+instance ConditionalflowConnector_1499365019191_1093630303 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019191_853691574
+     hasSource hasValue Task_1499365019191_9962116
+     hasTarget hasValue EndEvent_1499365019191_70539630
+
+instance EndEvent_1499365019191_70539630 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019191_853691574
+     hasName hasValue "End"

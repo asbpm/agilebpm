@@ -1,0 +1,59 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018920
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018920_1195927430 memberOf Process
+     hasName hasValue "Monograph Shopping service"
+     hasDescription hasValue "This service varify account of an authorised person and adds the selected monograph in his shopping cart."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/MonographShoppingService"
+     hasWorkflow hasValue Workflow_1499365018920_1932152201
+
+instance Workflow_1499365018920_1932152201 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018920_1195927430
+     hasWorkflowElement hasValue StartEvent_1499365018920_915656662
+
+instance StartEvent_1499365018920_915656662 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018920_1195927430
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018920_879202699 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018920_1195927430
+     hasSource hasValue Task_1499365018920_636668626
+     hasTarget hasValue EndEvent_1499365018920_274372650
+
+instance Task_1499365018920_636668626 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018920_1195927430
+     providesCapability hasValue SemanticCapability_1499365018920_23743287
+     requestsCapability hasValue SemanticCapability_1499365018920_268520122
+     receivesData hasValue {DataTypeEntity_1499365018920_1692234997, DataTypeEntity_1499365018920_1289821351, DataTypeEntity_1499365018920_1422083041 }
+
+instance SemanticCapability_1499365018920_23743287 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/ShoppingCart.owl#ShoppingCartRequestItems ?http://127.0.0.1:8000/services/OWLS-1.1/personmonographcreditcardaccount__service.owls#_MONOGRAPH)"
+
+instance SemanticCapability_1499365018920_268520122 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/ontosem.owl#Accepted ?http://127.0.0.1:8000/services/OWLS-1.1/personmonographcreditcardaccount__service.owls#_CREDITCARDACCOUNT)
+			      (http://127.0.0.1:8000/ontology/core-plus-office.owl#Authorized ?http://127.0.0.1:8000/services/OWLS-1.1/personmonographcreditcardaccount__service.owls#_PERSON)
+				  (http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#accountHolder ?http://127.0.0.1:8000/services/OWLS-1.1/personmonographcreditcardaccount__service.owls#_PERSON ?http://127.0.0.1:8000/services/OWLS-1.1/personmonographcreditcardaccount__service.owls#_CREDITCARDACCOUNT))"
+
+instance DataTypeEntity_1499365018920_1692234997 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#CreditCardAccount"
+
+instance DataTypeEntity_1499365018920_1289821351 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Person"
+
+instance DataTypeEntity_1499365018920_1422083041 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Monograph"
+
+instance EndEvent_1499365018920_274372650 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018920_1195927430
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365018920_1840404944 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018920_1195927430
+     hasSource hasValue StartEvent_1499365018920_915656662
+     hasTarget hasValue Task_1499365018920_636668626

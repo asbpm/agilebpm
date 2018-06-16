@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019145
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019145_717185964 memberOf Process
+     hasName hasValue "DiagnosticProcessAvailability"
+     hasDescription hasValue "This service returns certain type diagnostic process available in the certain hospital, if the other input is given then then the output should fulfills requirements of the user question."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Diagnosticprocessavailability"
+     hasWorkflow hasValue Workflow_1499365019145_702989296
+
+instance Workflow_1499365019145_702989296 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019145_717185964
+     hasWorkflowElement hasValue StartEvent_1499365019145_1904003907
+
+instance StartEvent_1499365019145_1904003907 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019145_717185964
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019145_741878852 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019145_717185964
+     hasSource hasValue Task_1499365019145_2002101341
+     hasTarget hasValue EndEvent_1499365019145_687595646
+
+instance Task_1499365019145_2002101341 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019145_717185964
+     receivesData hasValue {DataTypeEntity_1499365019145_551742348, DataTypeEntity_1499365019145_1683057520 }
+     sendsData hasValue DataTypeEntity_1499365019145_858080637
+
+instance DataTypeEntity_1499365019145_551742348 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Question"
+
+instance DataTypeEntity_1499365019145_1683057520 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/Mid-level-ontology.owl#Hospital"
+
+instance DataTypeEntity_1499365019145_858080637 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#DiagnosticProcess"
+
+instance EndEvent_1499365019145_687595646 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019145_717185964
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019145_1442654954 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019145_717185964
+     hasSource hasValue StartEvent_1499365019145_1904003907
+     hasTarget hasValue Task_1499365019145_2002101341

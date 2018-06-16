@@ -1,0 +1,56 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019067
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019066_36438165 memberOf Process
+     hasName hasValue "ProvideNonMedicalTransportInformation"
+     hasDescription hasValue "The service returns a list of transport options that match the given criteria."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Providenonmedicaltransportinformation"
+     hasWorkflow hasValue Workflow_1499365019066_2058139374
+
+instance Workflow_1499365019066_2058139374 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019066_36438165
+     hasWorkflowElement hasValue StartEvent_1499365019066_348598552
+
+instance StartEvent_1499365019066_348598552 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019066_36438165
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019066_1896828163 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019066_36438165
+     hasSource hasValue Task_1499365019066_1987220183
+     hasTarget hasValue EndEvent_1499365019066_105165504
+
+instance Task_1499365019066_1987220183 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019066_36438165
+     receivesData hasValue {DataTypeEntity_1499365019066_742373919, DataTypeEntity_1499365019066_810826068, DataTypeEntity_1499365019066_668956737, DataTypeEntity_1499365019066_1922098660 }
+     sendsData hasValue DataTypeEntity_1499365019066_133554869
+
+instance DataTypeEntity_1499365019066_742373919 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365019066_810826068 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#GpsPosition"
+
+instance DataTypeEntity_1499365019066_668956737 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#GpsPosition"
+
+instance DataTypeEntity_1499365019066_1922098660 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#Vehicle"
+
+instance DataTypeEntity_1499365019066_133554869 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/NonMedicalTransportCompanyOntology.owl#ListOfTransports"
+
+instance EndEvent_1499365019066_105165504 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019066_36438165
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019066_1240854867 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019066_36438165
+     hasSource hasValue StartEvent_1499365019066_348598552
+     hasTarget hasValue Task_1499365019066_1987220183

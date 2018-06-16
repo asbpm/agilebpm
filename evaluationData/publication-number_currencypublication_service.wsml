@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019089
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019089_1505051804 memberOf Process
+     hasName hasValue "ULiPublicationLocatorService"
+     hasDescription hasValue "ULi is a reliable service for locating a publication on publication number, it also returns associated currency."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Ulipublicationlocatorservice"
+     hasWorkflow hasValue Workflow_1499365019089_25691818
+
+instance Workflow_1499365019089_25691818 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019089_1505051804
+     hasWorkflowElement hasValue StartEvent_1499365019089_353212693
+
+instance StartEvent_1499365019089_353212693 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019089_1505051804
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019089_959875837 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019089_1505051804
+     hasSource hasValue Task_1499365019089_638726818
+     hasTarget hasValue EndEvent_1499365019089_551148332
+
+instance Task_1499365019089_638726818 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019089_1505051804
+     receivesData hasValue DataTypeEntity_1499365019089_1380738122
+     sendsData hasValue {DataTypeEntity_1499365019089_1192268546, DataTypeEntity_1499365019089_613270395 }
+
+instance DataTypeEntity_1499365019089_1380738122 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Publication-Number"
+
+instance DataTypeEntity_1499365019089_1192268546 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Publication"
+
+instance DataTypeEntity_1499365019089_613270395 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Currency"
+
+instance EndEvent_1499365019089_551148332 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019089_1505051804
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019089_1750945324 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019089_1505051804
+     hasSource hasValue StartEvent_1499365019089_353212693
+     hasTarget hasValue Task_1499365019089_638726818

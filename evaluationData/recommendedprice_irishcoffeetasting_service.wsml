@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019199
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019199_1029649138 memberOf Process
+     hasName hasValue "Ana IrishCoffeeforPrice Service"
+     hasDescription hasValue "Ana service returns not only an irish coffee for the given recommended price, but also taste of the coffee."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/AnaIrishcoffeeforpriceService"
+     hasWorkflow hasValue Workflow_1499365019199_561175114
+
+instance Workflow_1499365019199_561175114 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019199_1029649138
+     hasWorkflowElement hasValue StartEvent_1499365019199_1311665379
+
+instance StartEvent_1499365019199_1311665379 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019199_1029649138
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019199_467803907 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019199_1029649138
+     hasSource hasValue Task_1499365019199_1392848241
+     hasTarget hasValue EndEvent_1499365019199_114892521
+
+instance Task_1499365019199_1392848241 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019199_1029649138
+     receivesData hasValue DataTypeEntity_1499365019199_616239532
+     sendsData hasValue {DataTypeEntity_1499365019199_240923706, DataTypeEntity_1499365019199_1227007452 }
+
+instance DataTypeEntity_1499365019199_616239532 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPrice"
+
+instance DataTypeEntity_1499365019199_240923706 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#IrishCoffee"
+
+instance DataTypeEntity_1499365019199_1227007452 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Tasting"
+
+instance EndEvent_1499365019199_114892521 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019199_1029649138
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019199_130212041 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019199_1029649138
+     hasSource hasValue StartEvent_1499365019199_1311665379
+     hasTarget hasValue Task_1499365019199_1392848241

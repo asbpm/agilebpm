@@ -1,0 +1,73 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019056
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019056_1198008323 memberOf Process
+     hasName hasValue "ProvideMedicalFlightInformation"
+     hasDescription hasValue "The service provides a list of flights that are apropriate to bring the patient from one to another location."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Providemedicalflightinformation"
+     hasWorkflow hasValue Workflow_1499365019056_1141828973
+
+instance Workflow_1499365019056_1141828973 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019056_1198008323
+     hasWorkflowElement hasValue StartEvent_1499365019056_303560249
+
+instance StartEvent_1499365019056_303560249 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019056_1198008323
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019056_1921032380 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019056_1198008323
+     hasSource hasValue Task_1499365019056_1823343745
+     hasTarget hasValue EndEvent_1499365019056_924272823
+
+instance Task_1499365019056_1823343745 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019056_1198008323
+     requestsCapability hasValue SemanticCapability_1499365019056_789697228
+     receivesData hasValue {DataTypeEntity_1499365019056_244941220, DataTypeEntity_1499365019056_1952675852, DataTypeEntity_1499365019056_72890920, DataTypeEntity_1499365019056_1505705313, DataTypeEntity_1499365019056_2085851704, DataTypeEntity_1499365019056_322061602, DataTypeEntity_1499365019056_1423186559, DataTypeEntity_1499365019056_1645949290 }
+     sendsData hasValue DataTypeEntity_1499365019056_1715161275
+
+instance SemanticCapability_1499365019056_789697228 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/ontosem.owl#Accepted ?http://127.0.0.1:8000/services/OWLS-1.1/ProvideMedicalFlightInformation_services.owls#BookMedicalFlight_Account)
+				 (not (http://127.0.0.1:8000/ontology/SUMO.owl#equal ?http://127.0.0.1:8000/services/OWLS-1.1/ProvideMedicalFlightInformation_services.owls#ProvideMedicalFlightInformation_DesiredArrivalAirport ?http://127.0.0.1:8000/services/OWLS-1.1/ProvideMedicalFlightInformation_services.owls#ProvideMedicalFlightInformation_DesiredDepartureAirport)))"
+
+instance DataTypeEntity_1499365019056_244941220 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalFlightCompanyOntology.owl#FlightNumber"
+
+instance DataTypeEntity_1499365019056_1952675852 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalFlightCompanyOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365019056_72890920 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalFlightCompanyOntology.owl#Airport"
+
+instance DataTypeEntity_1499365019056_1505705313 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalFlightCompanyOntology.owl#FlightCategory"
+
+instance DataTypeEntity_1499365019056_2085851704 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalFlightCompanyOntology.owl#Airport"
+
+instance DataTypeEntity_1499365019056_322061602 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalFlightCompanyOntology.owl#Account"
+
+instance DataTypeEntity_1499365019056_1423186559 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalFlightCompanyOntology.owl#Diagnosis"
+
+instance DataTypeEntity_1499365019056_1645949290 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalFlightCompanyOntology.owl#Treatment"
+
+instance DataTypeEntity_1499365019056_1715161275 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalFlightCompanyOntology.owl#ListOfFlights"
+
+instance EndEvent_1499365019056_924272823 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019056_1198008323
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019056_1894552956 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019056_1198008323
+     hasSource hasValue StartEvent_1499365019056_303560249
+     hasTarget hasValue Task_1499365019056_1823343745

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019214
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019214_1169672526 memberOf Process
+     hasName hasValue "Recommended price of Renault car"
+     hasDescription hasValue "This service provides information of recommended price in Euro for a Renault car whose model year is given."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/RecommendedPriceOfRenaultCar"
+     hasWorkflow hasValue Workflow_1499365019214_446581776
+
+instance Workflow_1499365019214_446581776 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019214_1169672526
+     hasWorkflowElement hasValue StartEvent_1499365019214_492433129
+
+instance StartEvent_1499365019214_492433129 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019214_1169672526
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019214_646720592 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019214_1169672526
+     hasSource hasValue StartEvent_1499365019214_492433129
+     hasTarget hasValue Task_1499365019214_1118806998
+
+instance Task_1499365019214_1118806998 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019214_1169672526
+     receivesData hasValue DataTypeEntity_1499365019214_1493418916
+     sendsData hasValue DataTypeEntity_1499365019214_47731717
+
+instance DataTypeEntity_1499365019214_1493418916 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#Year"
+
+instance DataTypeEntity_1499365019214_47731717 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPriceInEuro"
+
+instance ConditionalflowConnector_1499365019214_299548048 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019214_1169672526
+     hasSource hasValue Task_1499365019214_1118806998
+     hasTarget hasValue EndEvent_1499365019214_2076651799
+
+instance EndEvent_1499365019214_2076651799 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019214_1169672526
+     hasName hasValue "End"

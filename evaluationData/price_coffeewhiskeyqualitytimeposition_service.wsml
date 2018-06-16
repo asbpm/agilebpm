@@ -1,0 +1,56 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018975
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018975_1444580771 memberOf Process
+     hasName hasValue "TCW service"
+     hasDescription hasValue "This service returns the best coffee and whiskey for a given price, age and quality of the products also."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/TcwService"
+     hasWorkflow hasValue Workflow_1499365018975_898638200
+
+instance Workflow_1499365018975_898638200 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018975_1444580771
+     hasWorkflowElement hasValue StartEvent_1499365018975_672984981
+
+instance StartEvent_1499365018975_672984981 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018975_1444580771
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018975_422296458 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018975_1444580771
+     hasSource hasValue StartEvent_1499365018975_672984981
+     hasTarget hasValue Task_1499365018975_100685574
+
+instance Task_1499365018975_100685574 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018975_1444580771
+     receivesData hasValue DataTypeEntity_1499365018975_1493194653
+     sendsData hasValue {DataTypeEntity_1499365018975_2000928988, DataTypeEntity_1499365018975_1611578083, DataTypeEntity_1499365018975_2096049178, DataTypeEntity_1499365018975_866408090 }
+
+instance DataTypeEntity_1499365018975_1493194653 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365018975_2000928988 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Whiskey"
+
+instance DataTypeEntity_1499365018975_1611578083 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Coffee"
+
+instance DataTypeEntity_1499365018975_2096049178 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/finance_th_web.owl#quality"
+
+instance DataTypeEntity_1499365018975_866408090 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/SUMO.owl#TimePosition"
+
+instance ConditionalflowConnector_1499365018975_536057504 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018975_1444580771
+     hasSource hasValue Task_1499365018975_100685574
+     hasTarget hasValue EndEvent_1499365018975_212767930
+
+instance EndEvent_1499365018975_212767930 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018975_1444580771
+     hasName hasValue "End"

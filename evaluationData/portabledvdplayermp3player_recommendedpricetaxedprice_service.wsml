@@ -1,0 +1,53 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018935
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018935_185418146 memberOf Process
+     hasName hasValue "2for 1 RecommendedPrice service"
+     hasDescription hasValue "This service returns not only a recommended price but also tax price of a set of MP3Player and a portable DVD Player."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/2for1RecommendedpriceService"
+     hasWorkflow hasValue Workflow_1499365018935_1152304260
+
+instance Workflow_1499365018935_1152304260 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018935_185418146
+     hasWorkflowElement hasValue StartEvent_1499365018935_540301306
+
+instance StartEvent_1499365018935_540301306 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018935_185418146
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018935_751518018 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018935_185418146
+     hasSource hasValue StartEvent_1499365018935_540301306
+     hasTarget hasValue Task_1499365018935_1987719570
+
+instance Task_1499365018935_1987719570 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018935_185418146
+     receivesData hasValue {DataTypeEntity_1499365018935_889250881, DataTypeEntity_1499365018935_1711874075 }
+     sendsData hasValue {DataTypeEntity_1499365018935_1211631101, DataTypeEntity_1499365018935_256098804 }
+
+instance DataTypeEntity_1499365018935_889250881 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#MP3Player"
+
+instance DataTypeEntity_1499365018935_1711874075 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#PortableDVDPlayer"
+
+instance DataTypeEntity_1499365018935_1211631101 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#RecommendedPrice"
+
+instance DataTypeEntity_1499365018935_256098804 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#TaxedPrice"
+
+instance ConditionalflowConnector_1499365018935_415900934 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018935_185418146
+     hasSource hasValue Task_1499365018935_1987719570
+     hasTarget hasValue EndEvent_1499365018935_1958581527
+
+instance EndEvent_1499365018935_1958581527 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018935_185418146
+     hasName hasValue "End"

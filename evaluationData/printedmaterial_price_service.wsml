@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019032
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019032_28191992 memberOf Process
+     hasName hasValue "PrintedMaterialPriceService"
+     hasDescription hasValue "This service returns price of printed material, either it is newspaper or a fiction novel."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Printedmaterialpriceservice"
+     hasWorkflow hasValue Workflow_1499365019032_860915681
+
+instance Workflow_1499365019032_860915681 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019032_28191992
+     hasWorkflowElement hasValue StartEvent_1499365019032_2134956065
+
+instance StartEvent_1499365019032_2134956065 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019032_28191992
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019032_1872435926 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019032_28191992
+     hasSource hasValue StartEvent_1499365019032_2134956065
+     hasTarget hasValue Task_1499365019032_1330329262
+
+instance Task_1499365019032_1330329262 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019032_28191992
+     receivesData hasValue DataTypeEntity_1499365019032_526997108
+     sendsData hasValue DataTypeEntity_1499365019032_708929573
+
+instance DataTypeEntity_1499365019032_526997108 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#PrintedMaterial"
+
+instance DataTypeEntity_1499365019032_708929573 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance ConditionalflowConnector_1499365019032_86139422 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019032_28191992
+     hasSource hasValue Task_1499365019032_1330329262
+     hasTarget hasValue EndEvent_1499365019032_1809530171
+
+instance EndEvent_1499365019032_1809530171 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019032_28191992
+     hasName hasValue "End"

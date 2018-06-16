@@ -1,0 +1,50 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019244
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019244_571415267 memberOf Process
+     hasName hasValue "Researcher postal address and publication references service"
+     hasDescription hasValue "This service returns not only publication references of a researcher, but also its  postal address."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ResearcherPostalAddressAndPublicationReferencesService"
+     hasWorkflow hasValue Workflow_1499365019244_1434090515
+
+instance Workflow_1499365019244_1434090515 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019244_571415267
+     hasWorkflowElement hasValue StartEvent_1499365019244_1999671386
+
+instance StartEvent_1499365019244_1999671386 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019244_571415267
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019244_1898358474 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019244_571415267
+     hasSource hasValue StartEvent_1499365019244_1999671386
+     hasTarget hasValue Task_1499365019244_901719476
+
+instance Task_1499365019244_901719476 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019244_571415267
+     receivesData hasValue DataTypeEntity_1499365019244_295196088
+     sendsData hasValue {DataTypeEntity_1499365019244_1933732951, DataTypeEntity_1499365019244_198346623 }
+
+instance DataTypeEntity_1499365019244_295196088 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Researcher-In-Academia"
+
+instance DataTypeEntity_1499365019244_1933732951 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Postal-Address"
+
+instance DataTypeEntity_1499365019244_198346623 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Publication-Reference"
+
+instance ConditionalflowConnector_1499365019244_936575527 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019244_571415267
+     hasSource hasValue Task_1499365019244_901719476
+     hasTarget hasValue EndEvent_1499365019244_1327351058
+
+instance EndEvent_1499365019244_1327351058 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019244_571415267
+     hasName hasValue "End"

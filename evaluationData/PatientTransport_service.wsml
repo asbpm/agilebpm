@@ -1,0 +1,63 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365018903
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365018903_1472075749 memberOf Process
+     hasName hasValue "PatientTransport"
+     hasDescription hasValue "If a hospital is not capable of treating a patient, his relocation has to be set up. With this service, the hospital physician can make a transport proposal for delivering the patient to the new hospital."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Patienttransport"
+     hasWorkflow hasValue Workflow_1499365018903_1107661128
+
+instance Workflow_1499365018903_1107661128 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365018903_1472075749
+     hasWorkflowElement hasValue StartEvent_1499365018903_2077575392
+
+instance StartEvent_1499365018903_2077575392 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365018903_1472075749
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365018903_249346167 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018903_1472075749
+     hasSource hasValue StartEvent_1499365018903_2077575392
+     hasTarget hasValue Task_1499365018903_1712546807
+
+instance Task_1499365018903_1712546807 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365018903_1472075749
+     requestsCapability hasValue SemanticCapability_1499365018903_2084385875
+     receivesData hasValue {DataTypeEntity_1499365018903_684949046, DataTypeEntity_1499365018903_15659391, DataTypeEntity_1499365018903_1652704333, DataTypeEntity_1499365018903_2104293089 }
+     sendsData hasValue {DataTypeEntity_1499365018903_96288202, DataTypeEntity_1499365018903_1891502995 }
+
+instance SemanticCapability_1499365018903_2084385875 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/ontosem.owl#Accepted ?http://127.0.0.1:8000/services/OWLS-1.1/PatientTransport_service.owls#SeePatientMedicalRecords_PhysicianPassword)"
+
+instance DataTypeEntity_1499365018903_684949046 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#Hospital"
+
+instance DataTypeEntity_1499365018903_15659391 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#GpsPosition"
+
+instance DataTypeEntity_1499365018903_1652704333 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#AccountPassword"
+
+instance DataTypeEntity_1499365018903_2104293089 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#Diagnosis"
+
+instance DataTypeEntity_1499365018903_96288202 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#Acknowledgement"
+
+instance DataTypeEntity_1499365018903_1891502995 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/HospitalPhysicianOntology.owl#MedicalRecords"
+
+instance ConditionalflowConnector_1499365018903_1819881759 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365018903_1472075749
+     hasSource hasValue Task_1499365018903_1712546807
+     hasTarget hasValue EndEvent_1499365018903_1060300396
+
+instance EndEvent_1499365018903_1060300396 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365018903_1472075749
+     hasName hasValue "End"

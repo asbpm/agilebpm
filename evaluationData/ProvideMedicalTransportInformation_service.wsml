@@ -1,0 +1,62 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019063
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019062_1375609954 memberOf Process
+     hasName hasValue "ProvideMedicalTransportInformation"
+     hasDescription hasValue "Given the departure and arrival destination (GPS coordinates) and other required data, this service computes possible transport ways and returns them in a list."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/Providemedicaltransportinformation"
+     hasWorkflow hasValue Workflow_1499365019062_1891789348
+
+instance Workflow_1499365019062_1891789348 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019062_1375609954
+     hasWorkflowElement hasValue StartEvent_1499365019062_624733743
+
+instance StartEvent_1499365019062_624733743 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019062_1375609954
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019062_1100859126 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019062_1375609954
+     hasSource hasValue StartEvent_1499365019062_624733743
+     hasTarget hasValue Task_1499365019062_1028997160
+
+instance Task_1499365019062_1028997160 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019062_1375609954
+     receivesData hasValue {DataTypeEntity_1499365019062_570526229, DataTypeEntity_1499365019062_1461779111, DataTypeEntity_1499365019062_49046623, DataTypeEntity_1499365019062_1254586234, DataTypeEntity_1499365019062_1598703542, DataTypeEntity_1499365019062_313526490 }
+     sendsData hasValue DataTypeEntity_1499365019062_453654278
+
+instance DataTypeEntity_1499365019062_570526229 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#GpsPosition"
+
+instance DataTypeEntity_1499365019062_1461779111 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#Vehicle"
+
+instance DataTypeEntity_1499365019062_49046623 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#DateTime"
+
+instance DataTypeEntity_1499365019062_1254586234 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#GpsPosition"
+
+instance DataTypeEntity_1499365019062_1598703542 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#Diagnosis"
+
+instance DataTypeEntity_1499365019062_313526490 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#Treatment"
+
+instance DataTypeEntity_1499365019062_453654278 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/MedicalTransportCompanyOntology.owl#ListOfTransports"
+
+instance ConditionalflowConnector_1499365019062_1226429727 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019062_1375609954
+     hasSource hasValue Task_1499365019062_1028997160
+     hasTarget hasValue EndEvent_1499365019062_1988972710
+
+instance EndEvent_1499365019062_1988972710 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019062_1375609954
+     hasName hasValue "End"

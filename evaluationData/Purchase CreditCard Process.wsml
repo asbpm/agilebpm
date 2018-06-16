@@ -1,0 +1,65 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+, 
+     wsmostudio _"http://www.wsmostudio.org#" }
+
+ontology instanceOntology_1499599545265_295141884
+     nonFunctionalProperties
+          wsmostudio#version hasValue "0.7.3.v20081203"
+     endNonFunctionalProperties
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance StartEvent_1499616169937_872382237 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499599563374_1029782526
+     hasName hasValue "Start"
+
+instance Process_1499599563374_1029782526 memberOf Process
+     hasName hasValue "Purchase CreditCard Process"
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/goals#purchasePublication"
+     hasWorkflow hasValue Workflow_1499616169939_774661929
+
+instance Workflow_1499616169939_774661929 memberOf Workflow
+     hasHomeProcess hasValue Process_1499599563374_1029782526
+     hasWorkflowElement hasValue StartEvent_1499616169937_872382237
+
+instance ControlflowConnector_1499616169940_480677382 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1499599563374_1029782526
+     hasSource hasValue StartEvent_1499616169937_872382237
+     hasTarget hasValue Task_1499616169938_1587948973
+
+instance Task_1499616169938_1587948973 memberOf Task
+     hasName hasValue "ProvisionCheck"
+     hasHomeProcess hasValue Process_1499599563374_1029782526
+     receivesData hasValue {_"http://127.0.0.1:8000/ontology/EMAOntology.owl#Customer", _"http://127.0.0.1:8000/ontology/books.owl#Book", _"http://127.0.0.1:8000/ontology/finance_th_web.owl#CreditCard" }
+     sendsData hasValue _"http://127.0.0.1:8000/ontology/EMAOntology.owl#Acknowledgement"
+
+instance _"http://127.0.0.1:8000/ontology/EMAOntology.owl#Customer" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EMAOntology.owl#Customer"
+
+instance _"http://127.0.0.1:8000/ontology/books.owl#Book" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/books.owl#Book"
+
+instance _"http://127.0.0.1:8000/ontology/finance_th_web.owl#CreditCard" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/finance_th_web.owl#CreditCard"
+
+instance _"http://127.0.0.1:8000/ontology/EMAOntology.owl#Acknowledgement" memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/EMAOntology.owl#Acknowledgement"
+
+instance ControlflowConnector_1499616169939_2105776669 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1499599563374_1029782526
+     hasSource hasValue Task_1499616169938_215257856
+     hasTarget hasValue EndEvent_1499616169938_1337069401
+
+instance Task_1499616169938_215257856 memberOf Task
+     hasName hasValue "Credit Card Payment"
+     hasHomeProcess hasValue Process_1499599563374_1029782526
+
+instance EndEvent_1499616169938_1337069401 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499599563374_1029782526
+     hasName hasValue "End"
+
+instance ControlflowConnector_1499616169940_845934036 memberOf ControlflowConnector
+     hasHomeProcess hasValue Process_1499599563374_1029782526
+     hasSource hasValue Task_1499616169938_1587948973
+     hasTarget hasValue Task_1499616169938_215257856

@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019225
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019225_2007079070 memberOf Process
+     hasName hasValue "ResearchAssistant address  service"
+     hasDescription hasValue "This service returns an address of a research assistant."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/ResearchassistantAddressService"
+     hasWorkflow hasValue Workflow_1499365019225_1548833086
+
+instance Workflow_1499365019225_1548833086 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019225_2007079070
+     hasWorkflowElement hasValue StartEvent_1499365019225_1448333097
+
+instance StartEvent_1499365019225_1448333097 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019225_2007079070
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019225_1391766673 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019225_2007079070
+     hasSource hasValue StartEvent_1499365019225_1448333097
+     hasTarget hasValue Task_1499365019225_1919310844
+
+instance Task_1499365019225_1919310844 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019225_2007079070
+     receivesData hasValue DataTypeEntity_1499365019225_679309765
+     sendsData hasValue DataTypeEntity_1499365019225_973536226
+
+instance DataTypeEntity_1499365019225_679309765 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Research-Assistant-In-Academia"
+
+instance DataTypeEntity_1499365019225_973536226 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/portal.owl#Address"
+
+instance ConditionalflowConnector_1499365019225_1467790893 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019225_2007079070
+     hasSource hasValue Task_1499365019225_1919310844
+     hasTarget hasValue EndEvent_1499365019225_6615527
+
+instance EndEvent_1499365019225_6615527 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019225_2007079070
+     hasName hasValue "End"

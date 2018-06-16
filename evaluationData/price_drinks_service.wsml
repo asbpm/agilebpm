@@ -1,0 +1,47 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019006
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019005_64763917 memberOf Process
+     hasName hasValue "DP service"
+     hasDescription hasValue "This service returns drinks, whiskey or coffee, for a given price."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/DpService"
+     hasWorkflow hasValue Workflow_1499365019006_1589831481
+
+instance Workflow_1499365019006_1589831481 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019005_64763917
+     hasWorkflowElement hasValue StartEvent_1499365019006_1846591737
+
+instance StartEvent_1499365019006_1846591737 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019005_64763917
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019006_1936241281 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019005_64763917
+     hasSource hasValue Task_1499365019006_1222082756
+     hasTarget hasValue EndEvent_1499365019006_662058992
+
+instance Task_1499365019006_1222082756 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019005_64763917
+     receivesData hasValue DataTypeEntity_1499365019006_1520151920
+     sendsData hasValue DataTypeEntity_1499365019006_1169882100
+
+instance DataTypeEntity_1499365019006_1520151920 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/concept.owl#Price"
+
+instance DataTypeEntity_1499365019006_1169882100 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/my_ontology.owl#Drinks"
+
+instance EndEvent_1499365019006_662058992 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019005_64763917
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019006_264964937 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019005_64763917
+     hasSource hasValue StartEvent_1499365019006_1846591737
+     hasTarget hasValue Task_1499365019006_1222082756

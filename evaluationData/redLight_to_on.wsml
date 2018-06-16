@@ -1,0 +1,61 @@
+namespace { _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+ }
+
+ontology instanceOntology_1499365019211
+
+     importsOntology
+            _"http://www.ip-super.org/ontologies/BPMO/bpmo-1-4-20080109#"
+
+instance Process_1499365019210_952002335 memberOf Process
+     hasName hasValue "Red Light To On"
+     hasDescription hasValue "Turns on the red light of the MesseModul machine when the magazine is completely full."
+     hasBusinessProcessGoal hasValue _"http://itu.edu.tr/ontologies/RedLightToOn"
+     hasWorkflow hasValue Workflow_1499365019211_1155173329
+
+instance Workflow_1499365019211_1155173329 memberOf Workflow
+     hasHomeProcess hasValue Process_1499365019210_952002335
+     hasWorkflowElement hasValue StartEvent_1499365019211_904846693
+
+instance StartEvent_1499365019211_904846693 memberOf StartEvent
+     hasHomeProcess hasValue Process_1499365019210_952002335
+     hasName hasValue "Start"
+
+instance ConditionalflowConnector_1499365019211_1653982998 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019210_952002335
+     hasSource hasValue Task_1499365019211_317092222
+     hasTarget hasValue EndEvent_1499365019211_1118836131
+
+instance Task_1499365019211_317092222 memberOf Task
+     hasName hasValue "My Task"
+     hasHomeProcess hasValue Process_1499365019210_952002335
+     providesCapability hasValue SemanticCapability_1499365019211_1829156150
+     requestsCapability hasValue SemanticCapability_1499365019211_468121080
+     receivesData hasValue DataTypeEntity_1499365019211_1707841211
+     sendsData hasValue {DataTypeEntity_1499365019211_564025772, DataTypeEntity_1499365019211_631018586 }
+
+instance SemanticCapability_1499365019211_1829156150 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(http://127.0.0.1:8000/ontology/messemodul.owl#On ?http://127.0.0.1:8000/services/OWLS-1.1/redLight_to_on.owls#RedLamp)"
+
+instance SemanticCapability_1499365019211_468121080 memberOf SemanticCapability
+     hasSemanticDescription hasValue "(and (http://127.0.0.1:8000/ontology/messemodul.owl#consistsOf ?http://127.0.0.1:8000/services/OWLS-1.1/redLight_to_on.owls#MesseModul ?http://127.0.0.1:8000/services/OWLS-1.1/redLight_to_on.owls#RedLamp)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#consistsOf ?http://127.0.0.1:8000/services/OWLS-1.1/redLight_to_on.owls#MesseModul ?http://127.0.0.1:8000/services/OWLS-1.1/redLight_to_on.owls#Magazine)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#Empty ?http://127.0.0.1:8000/services/OWLS-1.1/redLight_to_on.owls#Magazine)
+							 (http://127.0.0.1:8000/ontology/messemodul.owl#Off ?http://127.0.0.1:8000/services/OWLS-1.1/redLight_to_on.owls#RedLamp))"
+
+instance DataTypeEntity_1499365019211_1707841211 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#MesseModul"
+
+instance DataTypeEntity_1499365019211_564025772 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#Magazine"
+
+instance DataTypeEntity_1499365019211_631018586 memberOf DataEntity
+     hasContent hasValue "http://127.0.0.1:8000/ontology/messemodul.owl#RedLamp"
+
+instance EndEvent_1499365019211_1118836131 memberOf EndEvent
+     hasHomeProcess hasValue Process_1499365019210_952002335
+     hasName hasValue "End"
+
+instance ConditionalflowConnector_1499365019211_890209659 memberOf ConditionalflowConnector
+     hasHomeProcess hasValue Process_1499365019210_952002335
+     hasSource hasValue StartEvent_1499365019211_904846693
+     hasTarget hasValue Task_1499365019211_317092222
