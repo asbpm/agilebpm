@@ -17,5 +17,5 @@ Please read [EVALUATION.md](https://github.com/asbpm/agilebpm/blob/master/evalua
 The complete source code will be shared following the publication of experiment results. 
 
 ## Authors
-* **Hüseyin Kır** - *Initial work* - [agileBPM Methodology](https://link.springer.com/chapter/10.1007/978-3-319-39324-7_13)
+* **Hüseyin Kır** - *Initial work* - [ASBPM Methodology](https://link.springer.com/chapter/10.1007/978-3-319-39324-7_13)
 * **Nadia Erdoğan**
