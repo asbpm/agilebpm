@@ -1,6 +1,5 @@
-# Agent Based Semantic Business Process Management Framework
-ASBPM is a framework for designing, discovering and executing semantic business processes. The objective of this project is to
-augment, enrich and support business activities to make it easier for business experts to make more informed and accurate decisions. Platform provides a context aware infrastructure that detects physical and virtual stimulus, recognise the application context and performs the most appropriate business process alternative accordingly. 
+# Knowledge-intensive Business Process Management Framework
+AgileBPM is a framework for designing, discovering and executing knowledge-intensive business processes. The objective of this project is to augment, enrich and support business activities to make it easier for business experts to make more informed and accurate decisions. Platform provides a context aware infrastructure that detects physical and virtual stimulus, recognise the application context and performs the most appropriate business process alternative accordingly. 
 
 <p align="center">
 <img align="center" width="250" height="250" src="https://github.com/asbpm/asbpm/blob/master/github_logo_10.png">
@@ -18,5 +17,5 @@ Please read [EVALUATION.md](https://github.com/asbpm/asbpm/blob/master/evaluatio
 The complete source code will be shared following the publication of experiment results. 
 
 ## Authors
-* **Hüseyin Kır** - *Initial work* - [ASBPM Methodology](https://link.springer.com/chapter/10.1007/978-3-319-39324-7_13)
+* **Hüseyin Kır** - *Initial work* - [agileBPM Methodology](https://link.springer.com/chapter/10.1007/978-3-319-39324-7_13)
 * **Nadia Erdoğan**
